@@ -1,0 +1,13 @@
+*
+!wp-content
+!.gitignore
+!.htaccess
+wp-content/*
+
+!wp-content/plugins
+wp-content/plugins/*
+!wp-content/plugins/tbi-plugin
+
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/tbi-theme
