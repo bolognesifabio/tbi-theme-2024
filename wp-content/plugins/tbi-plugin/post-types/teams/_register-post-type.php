@@ -19,7 +19,6 @@ register_post_type(
             'search_items' => 'Cerca squadre',
             'not_found' => 'Nessuna squadra trovata',
             'not_found_in_trash' => 'Nessuna squadra trovata nel cestino',
-            'parent_item_colon' => 'Società',
             'all_items' => 'Tutte le squadre',
             'archives' => 'Archivio squadre',
             'attributes' => 'Attributi della squadra',
