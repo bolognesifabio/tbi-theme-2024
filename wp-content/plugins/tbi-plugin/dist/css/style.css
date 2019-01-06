@@ -1,0 +1,11 @@
+#adminmenu .menu-icon-teams .wp-menu-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#adminmenu .menu-icon-teams .wp-menu-image img {
+    height: 28px;
+    width: auto;
+    padding: 0;
+}
