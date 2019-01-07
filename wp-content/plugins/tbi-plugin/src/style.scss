@@ -1,0 +1,18 @@
+#adminmenu {
+    .menu-icon {
+        &-clubs,
+        &-teams {
+            .wp-menu-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    height: 28px;
+                    width: auto;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ register_post_type(
         'show_ui' => true,
         'show_in_menu' => true,
         'hierarchical' => false,
-        'menu_icon' => plugins_url('tbi-plugin/dist/img/clubs.svg'),
+        'menu_icon' => plugins_url('tbi-plugin/img/clubs.svg'),
         'labels' => [
             'name' => 'Società',
             'singular_name' => 'Società',

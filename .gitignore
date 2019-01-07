@@ -1,12 +1,14 @@
-*
-!wp-content
-!.gitignore
-!.htaccess
+wp-admin/*
+wp-includes/*
 wp-content/*
+node_modules/*
+
+*.php
 
 !wp-content/plugins
 wp-content/plugins/*
 !wp-content/plugins/tbi-plugin
+wp-content/plugins/tbi-plugin/dist/*
 
 !wp-content/themes
 wp-content/themes/*

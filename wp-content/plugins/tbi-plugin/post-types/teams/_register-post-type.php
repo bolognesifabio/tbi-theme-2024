@@ -6,7 +6,7 @@ register_post_type(
         'show_ui' => true,
         'show_in_menu' => true,
         'hierarchical' => false,
-        'menu_icon' => plugins_url('tbi-plugin/dist/img/teams.svg'),
+        'menu_icon' => plugins_url('tbi-plugin/img/teams.svg'),
         'labels' => [
             'name' => 'Squadre',
             'singular_name' => 'Squadra',
