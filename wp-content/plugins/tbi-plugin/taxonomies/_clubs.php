@@ -4,8 +4,8 @@ register_taxonomy(
     ['teams'],
     [
         'labels' => [
-            'name' => _x('Società', 'taxonomy general name'),
-            'singular_name' => _x('Società', 'taxonomy singular name'),
+            'name' => 'Società',
+            'singular_name' => 'Società'
         ],
         'hierarchical' => true,
         'show_ui' => true,

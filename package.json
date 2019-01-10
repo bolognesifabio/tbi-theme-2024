@@ -3,10 +3,7 @@
     "main": "webpack.config.js",
     "author": "Valerio Senneca",
     "scripts": {
-        "start-plugin": "webpack --watch --mode=development --config webpack.plugin.config.js",
-        "start-theme": "webpack --mode=development --config webpack.theme.config.js && webpack --watch --mode=development --config webpack.theme.config.js",
-        "start": "webpack --mode=development && webpack --watch --mode=development",
-        "build-plugin": "webpack --mode=production --config webpack.plugin.config.js",
+        "start": "webpack --watch --mode=development",
         "build": "webpack --mode=production"
     },
     "devDependencies": {

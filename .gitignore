@@ -13,3 +13,4 @@ wp-content/plugins/tbi-plugin/dist/*
 !wp-content/themes
 wp-content/themes/*
 !wp-content/themes/tbi-theme
+wp-content/themes/tbi-theme/dist/*

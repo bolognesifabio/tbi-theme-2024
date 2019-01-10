@@ -1,7 +1,8 @@
 #adminmenu {
     .menu-icon {
         &-clubs,
-        &-teams {
+        &-teams,
+        &-leagues {
             .wp-menu-image {
                 display: flex;
                 justify-content: center;
@@ -12,6 +13,20 @@
                     width: auto;
                     padding: 0;
                 }
+            }
+        }
+    }
+
+    [class*=taxonomy][class*=competitions] {
+        .wp-menu-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                height: 28px;
+                width: auto;
+                padding: 0;
             }
         }
     }
