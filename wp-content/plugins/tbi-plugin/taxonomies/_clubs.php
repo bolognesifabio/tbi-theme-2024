@@ -11,7 +11,9 @@ register_taxonomy(
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => true,
+        'rewrite' => [
+            'slug' => 'societa'
+        ],
         'capabilities' => [
             'manage_terms' => 'manage_clubs_terms',
             'edit_terms' => 'edit_clubs_terms',

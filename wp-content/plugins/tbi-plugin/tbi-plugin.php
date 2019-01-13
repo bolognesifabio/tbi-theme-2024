@@ -9,3 +9,4 @@ License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 require 'plugin/index.php';
+require 'metaboxes/index.php';

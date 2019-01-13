@@ -17,8 +17,8 @@ register_post_type(
             'view_item' => 'Visualizza società',
             'view_items' => 'Visualizza società',
             'search_items' => 'Cerca società',
-            'not_found' => 'Nessuna squadra società',
-            'not_found_in_trash' => 'Nessuna squadra società nel cestino',
+            'not_found' => 'Nessuna società trovata',
+            'not_found_in_trash' => 'Nessuna società trovata nel cestino',
             'all_items' => 'Tutte le società',
             'archives' => 'Archivio società',
             'attributes' => 'Attributi della società',
@@ -31,6 +31,9 @@ register_post_type(
             'menu_name' => 'Società',
             'name_admin_bar' => 'Società'
         ],
-        'supports' => ['thumbnail', 'title']
+        'supports' => ['thumbnail', 'title'],
+        'rewrite' => [
+            'slug' => 'societa'
+        ]
     ]
 );

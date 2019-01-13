@@ -2,7 +2,9 @@
     .menu-icon {
         &-clubs,
         &-teams,
-        &-leagues {
+        &-leagues,
+        &-competitions,
+        &-cups {
             .wp-menu-image {
                 display: flex;
                 justify-content: center;
@@ -16,17 +18,25 @@
             }
         }
     }
+}
 
-    [class*=taxonomy][class*=competitions] {
-        .wp-menu-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.clubs-metaboxes {
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
 
-            img {
-                height: 28px;
-                width: auto;
-                padding: 0;
+        &__column {
+            flex-basis: calc(50% - 15px);
+
+            &__field {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+
+                &__label {
+                    font-weight: bold;
+                    margin-bottom: 6px;
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 <?php
 register_taxonomy(
     'competitions',
-    ['leagues'],
+    ['leagues', 'cups'],
     [
         'labels' => [
             'name' => 'Competizioni',
@@ -11,6 +11,13 @@ register_taxonomy(
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => true
+        'rewrite' => [
+            'slug' => 'competizioni'
+        ],
+        'capabilities' => [
+            'manage_terms' => 'manage_competitions_terms',
+            'edit_terms' => 'edit_competitions_terms',
+            'delete_terms' => 'delete_competitions_terms'
+        ]
     ]
 );

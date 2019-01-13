@@ -34,6 +34,9 @@ register_post_type(
             'items_list' => 'items_list',
             'name_admin_bar' => 'Campionato'
         ],
-        'supports' => ['title']
+        'supports' => ['title'],
+        'rewrite' => [
+            'slug' => 'campionati'
+        ]
     ]
 );
