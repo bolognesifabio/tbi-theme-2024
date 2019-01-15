@@ -8,7 +8,7 @@ register_taxonomy(
             'singular_name' => 'Società'
         ],
         'hierarchical' => true,
-        'show_ui' => true,
+        'show_ui' => false,
         'show_admin_column' => true,
         'query_var' => true,
         'rewrite' => [

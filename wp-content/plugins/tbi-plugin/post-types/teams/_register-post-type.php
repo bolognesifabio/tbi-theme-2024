@@ -34,7 +34,7 @@ register_post_type(
             'items_list' => 'items_list',
             'name_admin_bar' => 'Squadra'
         ],
-        'supports' => ['thumbnail', 'title'],
+        'supports' => ['thumbnail', 'title', 'editor'],
         'rewrite' => [
             'slug' => 'squadre'
         ]

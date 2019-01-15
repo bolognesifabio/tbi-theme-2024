@@ -31,7 +31,7 @@ register_post_type(
             'menu_name' => 'Società',
             'name_admin_bar' => 'Società'
         ],
-        'supports' => ['thumbnail', 'title'],
+        'supports' => ['thumbnail', 'title', 'editor'],
         'rewrite' => [
             'slug' => 'societa'
         ]
