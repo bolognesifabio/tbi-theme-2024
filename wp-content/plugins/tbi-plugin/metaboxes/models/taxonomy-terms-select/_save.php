@@ -1,8 +1,8 @@
 <?php
-$select_name = 'tbi-metaboxes-' . self::$taxonomy_key;
+$select_name = 'tbi-metaboxes-' . $this->taxonomy_key;
 
 if (isset($_POST[$select_name])) {
-    wp_set_post_terms($post_id, $_POST[$select_name], self::$taxonomy_key);
+    wp_set_post_terms($post_id, $_POST[$select_name], $this->taxonomy_key);
 }
 
 // if (get_post_type($post_id) === 'clubs') {

@@ -1,14 +1,13 @@
 <?php
 namespace TBI\Metaboxes\Teams;
 
-class Club extends \TBI\Metaboxes\Models\Taxonomy_Terms_Select {}
-
-Club::init([
+$Club = new \TBI\Metaboxes\Models\Taxonomy_Terms_Select([
     'key' => 'clubs',
-    'post_type' => 'teams',
+    'post_types' => 'teams',
     'title' => 'Societ&agrave;',
-    'empty_taxonomy_message' => 'Non ci sono societ&agrave; disponibili.<br/>Creane una nella sezione apposita.'
+    'empty_taxonomy_message' => 'Non ci sono societ&agrave; disponibili.<br/>Creane una nella sezione apposita.',
+    'default_option_text' => 'Seleziona una societ&agtave;'
 ]);
 
-add_action('add_meta_boxes', ['TBI\Metaboxes\Teams\Club', 'add']);
-add_action('save_post', ['TBI\Metaboxes\Teams\Club', 'save']);
+add_action('add_meta_boxes', [$Club, 'add']);
+add_action('save_post', [$Club, 'save']);

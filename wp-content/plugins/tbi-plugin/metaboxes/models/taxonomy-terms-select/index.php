@@ -2,20 +2,16 @@
 namespace TBI\Metaboxes\Models;
 
 class Taxonomy_Terms_Select {
-    private static $taxonomy_key;
-    private static $post_types;
-    private static $metabox_title;
-    private static $empty_taxonomy_message;
-
-    public function init($taxonomy_info) {
-        self::$taxonomy_key = $taxonomy_info['key'];
-        self::$post_types = is_array($taxonomy_info['post_type']) ? $taxonomy_info['post_type'] : [$taxonomy_info['post_type']];
-        self::$metabox_title = $taxonomy_info['title'];
-        self::$empty_taxonomy_message = $taxonomy_info['empty_taxonomy_message'] ?: 'Non ci sono termini disponibili.<br/>Creane uno nella sezione apposita.';
+    public function __construct($taxonomy_info) {
+        $this->taxonomy_key = $taxonomy_info['key'];
+        $this->post_types = is_array($taxonomy_info['post_types']) ? $taxonomy_info['post_types'] : [$taxonomy_info['post_types']];
+        $this->metabox_title = $taxonomy_info['title'];
+        $this->empty_taxonomy_message = $taxonomy_info['empty_taxonomy_message'] ?: 'Non ci sono termini disponibili.<br/>Creane uno nella sezione apposita.';
+        $this->default_option_text = $taxonomy_info['default_option_text'] ?: 'Seleziona un termine';
     }
 
     public static function add() {
-        $forms = [self::class, 'forms'];
+        $forms = [$this, 'forms'];
         include "_add.php";
     }
     

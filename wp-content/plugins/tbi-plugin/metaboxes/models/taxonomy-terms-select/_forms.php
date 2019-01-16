@@ -1,16 +1,17 @@
 <?php
 $taxonomy_terms = get_terms([
-    'taxonomy' => self::$taxonomy_key,
+    'taxonomy' => $this->taxonomy_key,
     'hide_empty' => false,
     'orderby' => 'name'
 ]);
 
 $post_terms = array_map(function($term) {
     return $term->term_id;
-}, get_the_terms($post->ID, self::$taxonomy_key) ?: []);
+}, get_the_terms($post->ID, $this->taxonomy_key) ?: []);
 
 if (count($taxonomy_terms)) { ?>
-    <select name="tbi-metaboxes-<?= self::$taxonomy_key ?>"> <?php
+    <select name="tbi-metaboxes-<?= $this->taxonomy_key ?>">
+        <option>- <?= $this->default_option_text ?></option> <?php
     foreach ($taxonomy_terms as $term) { ?>
         <option
             value="<?= $term->term_id ?>"
@@ -19,5 +20,5 @@ if (count($taxonomy_terms)) { ?>
     } ?>
     </select> <?php
 } else { ?>
-    <p><?= self::$empty_taxonomy_message ?></p> <?php
+    <p><?= $this->empty_taxonomy_message ?></p> <?php
 } 

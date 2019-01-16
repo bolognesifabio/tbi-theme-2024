@@ -1,9 +1,9 @@
 <?php
 add_meta_box(
-    'tbi-metaboxes-' . self::$post_types,
-    esc_html__(self::$metabox_title),
+    'tbi-metaboxes-' . $this->taxonomy_key,
+    esc_html__($this->metabox_title),
     $forms,
-    self::$post_types,
+    $this->post_types,
     'side',
     'default'
 );

@@ -13,11 +13,6 @@ register_taxonomy(
         'query_var' => true,
         'rewrite' => [
             'slug' => 'societa'
-        ],
-        'capabilities' => [
-            'manage_terms' => 'manage_clubs_terms',
-            'edit_terms' => 'edit_clubs_terms',
-            'delete_terms' => 'delete_clubs_terms'
         ]
     ]
 );
