@@ -10,16 +10,16 @@ class Taxonomy_Terms_Select {
         $this->default_option_text = $taxonomy_info['default_option_text'] ?: 'Seleziona un termine';
     }
 
-    public static function add() {
+    public function add() {
         $forms = [$this, 'forms'];
         include "_add.php";
     }
     
-    public static function forms($post) {
+    public function forms($post) {
         include "_forms.php";
     }
 
-    public static function save($post_id) {
+    public function save($post_id) {
         include "_save.php";
     }
 }
