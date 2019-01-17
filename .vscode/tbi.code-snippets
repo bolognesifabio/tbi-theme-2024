@@ -1,0 +1,50 @@
+{
+    "PHP - Var Dump": {
+        "scope": "html,php",
+        "prefix": "vard",
+        "body": [
+            "<?php var_dump($1); ?>"
+        ],
+        "description": "Makes a var_dump() to debug a variable"
+    },
+    "PHP - Print variable": {
+        "scope": "html,php",
+        "prefix": "phpv",
+        "body": [
+            "<?= $1 ?>"
+        ],
+        "description": "Makes php tags to print a variable"
+    },
+    "PHP - Ternary assign": {
+        "scope": "html,php",
+        "prefix": "tern",
+        "body": [
+            "$1 ? $2 : $3"
+        ],
+        "description": "Ternary assign"
+    },
+    "PHP - Open and close PHP tags": {
+        "scope": "html,php",
+        "prefix": "php",
+        "body": [
+            "<?php $1 ?>"
+        ],
+        "description": "Open and close PHP tags"
+    },
+    "PHP - Open PHP tags": {
+        "scope": "html,php",
+        "prefix": "phpo",
+        "body": [
+            "<?php $1"
+        ],
+        "description": "Open PHP tags"
+    },
+    "PHP - Close PHP tags": {
+        "scope": "html,php",
+        "prefix": "phpc",
+        "body": [
+            " ?>"
+        ],
+        "description": "Close PHP tags"
+    }
+}
