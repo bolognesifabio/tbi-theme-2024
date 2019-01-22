@@ -13,8 +13,8 @@ $details_meta = get_post_meta($post->ID, 'tbi-teams-details', true) ?: []; ?>
     <div class="teams-metaboxes__details__field teams-metaboxes__details__field--checkbox">
         <label class="teams-metaboxes__details__field__label">Non più in attivit&agrave;</label>
         <div class="teams-metaboxes__details__field__input">
-            <input class="teams-metaboxes__details__field__input__checkbox" type="checkbox" <?= $details_meta['active'] ? 'checked' : '' ?> value="true" name="tbi-metaboxes-teams-details-active" />
-            <div class="teams-metaboxes__details__field__input__interface"></div>
+            <input class="checkbox" type="checkbox" <?= $details_meta['active'] ? 'checked' : '' ?> value="true" name="tbi-metaboxes-teams-details-active" />
+            <div class="interface"></div>
         </div>
     </div>
 </div>

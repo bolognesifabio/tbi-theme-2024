@@ -9,7 +9,7 @@
     },
     "PHP - Print variable": {
         "scope": "html,php",
-        "prefix": "phpv",
+        "prefix": "pv",
         "body": [
             "<?= $1 ?>"
         ],
@@ -33,7 +33,7 @@
     },
     "PHP - Open PHP tags": {
         "scope": "html,php",
-        "prefix": "phpo",
+        "prefix": "po",
         "body": [
             "<?php $1"
         ],
@@ -41,7 +41,7 @@
     },
     "PHP - Close PHP tags": {
         "scope": "html,php",
-        "prefix": "phpc",
+        "prefix": "pc",
         "body": [
             " ?>"
         ],

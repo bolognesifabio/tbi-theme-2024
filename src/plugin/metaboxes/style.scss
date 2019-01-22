@@ -1,3 +1,5 @@
+@import '../utilities/mixins';
+
 #tbi-metaboxes-teams-details,
 #tbi-metaboxes-clubs-contacts {
     width: 440px;
@@ -34,56 +36,11 @@
 
             &--checkbox & {
                 &__input {
+                    @include switch-checkbox;
                     position: relative;
                     height: 24px;
                     max-width: 40px;
                     display: flex;
-
-                    &__checkbox {
-                        height: 100%;
-                        width: 100%;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        margin: 0;
-                        padding: 0;
-                        cursor: pointer;
-                        opacity: 0;
-                        z-index: 1;
-
-                        &:checked {
-                            & + * {
-                                background: #0073AA;
-
-                                &:before {
-                                    transform: translateX(16px) translateY(-50%);
-                                }
-                            }
-                        }
-                    }
-
-                    &__interface {
-                        background: #C1C1C1;
-                        height: 100%;
-                        width: 100%;
-                        border-radius: 20px;
-                        box-sizing: border-box;
-                        transition: all .3s ease-in-out;
-
-                        &:before {
-                            content: ' ';
-                            position: absolute;
-                            height: 20px;
-                            width: 20px;
-                            box-sizing: border-box;
-                            border-radius: 100%;
-                            background: #F1F1F1;
-                            top: 50%;
-                            left: 2px;
-                            transform: translateX(0) translateY(-50%);
-                            transition: all .3s ease-in-out;
-                        }
-                    }
                 }
             }
         }
