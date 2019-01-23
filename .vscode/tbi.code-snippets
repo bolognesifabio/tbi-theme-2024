@@ -3,7 +3,7 @@
         "scope": "html,php",
         "prefix": "vard",
         "body": [
-            "<?php var_dump($1); ?>"
+            "var_dump($1);"
         ],
         "description": "Makes a var_dump() to debug a variable"
     },

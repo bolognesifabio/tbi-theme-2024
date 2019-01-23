@@ -1,4 +1,5 @@
 @import '../utilities/mixins';
+@import 'competitions';
 
 #tbi-metaboxes-teams-details,
 #tbi-metaboxes-clubs-contacts {
@@ -31,16 +32,6 @@
             &--narrow & {
                 &__input {
                     max-width: 15%;
-                }
-            }
-
-            &--checkbox & {
-                &__input {
-                    @include switch-checkbox;
-                    position: relative;
-                    height: 24px;
-                    max-width: 40px;
-                    display: flex;
                 }
             }
         }
