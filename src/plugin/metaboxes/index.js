@@ -14,11 +14,18 @@ Vue.component('tbi-teams-list', {
     }
 })
 
+Vue.component('tbi-competitions-filters', {
+    beforeCreate() {
+        Vue.set(this.$root.state, 'are_inactive_visible', false)
+        Vue.set(this.$root.state, 'are_unselected_visible', true)
+    }
+})
+
 if (document.getElementById('normal-sortables')) {
     new Vue({
         el: '#normal-sortables',
         data: {
-            teams: 'asdada'
+            state: {}
         },
         style
     })
