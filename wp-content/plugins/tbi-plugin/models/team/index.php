@@ -16,7 +16,21 @@ class Team {
         $this->emblem = $this->get_team_emblem_url();
         $this->short_name = $teams_details['short-name'] ?: '';
         $this->team_code = $teams_details['team-code'] ?: '';
-        $this->is_active = $team_details['active'] ?: true;
+        $this->is_inactive = $team_details['is-inactive'] ?: true;
+    }
+
+    public static function get_all_teams() {
+        $teams_posts = get_posts([
+            'numberposts' => -1,
+            'post_type' => 'teams',
+            'post_status' => 'publish',
+            'orderby' => 'title',
+            'order' => 'ASC'
+        ]) ?: [];
+
+        return array_map(function($team) {
+            return new Team($team);
+        }, $teams_posts);
     }
 
     private function get_team_emblem_url() {

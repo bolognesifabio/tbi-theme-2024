@@ -2,14 +2,14 @@
 
 .switch-checkbox {
     position: relative;
-    height: 24px;
-    max-width: 40px;
+    height: 20px;
+    max-width: 34px;
     flex-basis: 100%;
     display: flex;
 
     &__input[type=checkbox] {
-        height: 24px;
-        width: 40px;
+        height: 20px;
+        width: 34px;
         position: absolute;
         top: 0;
         left: 0;
@@ -24,7 +24,7 @@
                 background: $color-selected;
 
                 &:before {
-                    transform: translateX(16px) translateY(-50%);
+                    transform: translateX(14px) translateY(-50%);
                 }
             }
         }
@@ -34,15 +34,15 @@
         background: $color-bg-main;
         height: 100%;
         width: 100%;
-        border-radius: 20px;
+        border-radius: 16px;
         box-sizing: border-box;
         transition: all $transition-timing ease-in-out;
 
         &:before {
             content: ' ';
             position: absolute;
-            height: 20px;
-            width: 20px;
+            height: 16px;
+            width: 16px;
             box-sizing: border-box;
             border-radius: 100%;
             background: $color-bg-box;

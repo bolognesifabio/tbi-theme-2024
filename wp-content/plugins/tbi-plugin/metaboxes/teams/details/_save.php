@@ -1,11 +1,12 @@
 <?php
+const INPUT_NAME_PREFIX = 'tbi-metaboxes-teams-details-';
+const META_KEYS = ['short-name', 'team-code', 'is-inactive'];
+
 if (get_post_type($post_id) === 'teams') {
-    $input_name_prefix = 'tbi-metaboxes-teams-details-';
-    $meta_keys = ['short-name', 'team-code', 'active'];
     $meta_value = [];
 
-    foreach ($meta_keys as $meta_key) {
-        $field_name = $input_name_prefix . $meta_key;
+    foreach (META_KEYS as $meta_key) {
+        $field_name = INPUT_NAME_PREFIX . $meta_key;
         $meta_value[$meta_key] = isset($_POST[$field_name]) ? $_POST[$field_name] : '';
     }
 
