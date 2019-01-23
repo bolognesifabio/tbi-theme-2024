@@ -26,6 +26,7 @@ $all_teams = get_posts([
                     value="<?= $team->id ?>"
                     <?= in_array($team->id, $meta_teams) ? 'checked' : '' ?>
                 />
+                <div class="competitions-metaboxes__teams__participants__item__checkbox-interface dashicons dashicons-yes"></div>
                 <div class="competitions-metaboxes__teams__participants__item__emblem">
                     <img class="competitions-metaboxes__teams__participants__item__emblem__image" src="<?= $team->emblem ?>" />
                 </div>
