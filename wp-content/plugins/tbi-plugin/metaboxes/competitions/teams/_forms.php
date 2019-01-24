@@ -1,5 +1,5 @@
 <?php
-use TBI;
+namespace TBI;
 
 $meta_teams = get_post_meta($post->ID, 'tbi-competitions-teams', true) ?: [];
 $all_teams = array_map(function($team) use($meta_teams) {

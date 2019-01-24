@@ -14,13 +14,13 @@
         flex-direction: column;
 
         &__field {
-            padding: 15px;
+            padding: 15px 0;
             display: flex;
             justify-content: flex-start;
             align-items: center;
 
             &__label {
-                min-width: 40%;
+                min-width: 33%;
                 font-weight: bold;
                 cursor: default;
             }
