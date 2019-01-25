@@ -11,13 +11,18 @@ $all_teams = array_map(function($team) use($meta_teams) {
     <ul class="competitions-metaboxes__teams__filters">
         <li class="competitions-metaboxes__teams__filters__field">
             <label class="competitions-metaboxes__teams__filters__field__label">Mostra solo squadre attive</label>
-            <?php Render::switch_checkbox(null, null, true); ?>
-        </li>
-        <li class="competitions-metaboxes__teams__filters__field">
-            <label class="competitions-metaboxes__teams__filters__field__label">Mostra solo squadre selezionate</label>
-            <?php Render::switch_checkbox(null, null, false); ?>
+            <tbi-switch-checkbox>
+                <input slot-scope="slot_props" :class="slot_props.bem_class" :type="slot_props.type" v-model="$root.state.are_inactive_visible" />
+            </tbi-switch-checkbox>
         </li>
 
+        <li class="competitions-metaboxes__teams__filters__field">
+            <label class="competitions-metaboxes__teams__filters__field__label">Mostra solo squadre selezionate</label>
+            <tbi-switch-checkbox>
+                <input slot-scope="slot_props" :class="slot_props.bem_class" :type="slot_props.type" v-model="$root.state.are_unselected_visible" />
+            </tbi-switch-checkbox>
+        </li>
+        
         <tbi-competitions-filters inline-template>
             <ul class="competitions-metaboxes__teams__filters">
                 <li class="competitions-metaboxes__teams__filters__field">
