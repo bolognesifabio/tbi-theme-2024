@@ -1,17 +1,36 @@
 <?php
 $details_meta = get_post_meta($post->ID, 'tbi-teams-details', true) ?: []; ?>
 
-<div class="teams-metaboxes__details">
-    <div class="teams-metaboxes__details__field">
-        <label class="teams-metaboxes__details__field__label">Nome breve</label>
-        <input class="teams-metaboxes__details__field__input" type="text" value="<?= $details_meta['short-name'] ?: '' ?>" name="tbi-metaboxes-teams-details-short-name" />
-    </div>
-    <div class="teams-metaboxes__details__field teams-metaboxes__details__field--narrow">
-        <label class="teams-metaboxes__details__field__label">Sigla</label>
-        <input class="teams-metaboxes__details__field__input" type="text" value="<?= $details_meta['team-code'] ?: '' ?>" name="tbi-metaboxes-teams-details-team-code" />
-    </div>
-    <div class="teams-metaboxes__details__field teams-metaboxes__details__field--checkbox">
-        <label class="teams-metaboxes__details__field__label">Non più in attivit&agrave;</label>
-        <?php TBI\Render::switch_checkbox(true, "tbi-metaboxes-teams-details-is-inactive", $details_meta['is-inactive']); ?>
-    </div>
-</div>
+<ul class="teams-metaboxes__details">
+    <tbi-field label="Nome breve">
+        <input
+            slot-scope="slot_props"
+            name="tbi-metaboxes-teams-details-short-name"
+            type="text"
+            value="<?= $details_meta['short-name'] ?: '' ?>"
+            :class="slot_props.bem_class"
+        />
+    </tbi-field>
+
+    <tbi-field label="Sigla" is_narrow="true">
+        <input
+            slot-scope="slot_props"
+            name="tbi-metaboxes-teams-details-team-code"
+            type="text"
+            value="<?= $details_meta['team-code'] ?: '' ?>"
+            :class="slot_props.bem_class"
+        />
+    </tbi-field>
+
+    <tbi-field label="Non più in attivit&agrave;">
+        <tbi-switch-checkbox>
+            <input
+                slot-scope="slot_props"
+                name="tbi-metaboxes-teams-details-is-inactive"
+                :class="slot_props.bem_class"
+                :type="slot_props.type"
+                <?= $details_meta['is-inactive'] ? 'checked' : '' ?>
+            />
+        </tbi-switch-checkbox>
+    </tbi-field>
+</ul>

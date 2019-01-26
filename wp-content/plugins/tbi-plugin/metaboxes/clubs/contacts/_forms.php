@@ -1,5 +1,8 @@
 <?php
-$contacts_meta = get_post_meta($post->ID, 'tbi-clubs-contacts', true) ?: []; ?>
+include "_default-fields.php";
+
+const INPUT_NAME_PREFIX = "tbi-metaboxes-clubs-contacts";
+$contacts_meta = get_post_meta($post->ID, 'tbi-clubs-contacts', true) ?: $default_fields; ?>
 
 <div class="clubs-metaboxes__contacts">
     <div class="clubs-metaboxes__contacts__field">
@@ -27,3 +30,25 @@ $contacts_meta = get_post_meta($post->ID, 'tbi-clubs-contacts', true) ?: []; ?>
         <input class="clubs-metaboxes__contacts__field__input" type="text" value="<?= $contacts_meta['website'] ?: '' ?>" name="tbi-metaboxes-clubs-contacts-website" />            
     </div>
 </div>
+
+<ul class="clubs-metaboxes__contacts">
+    <tbi-field label="Citt&agrave;">
+        <input
+            slot-scope="slot_props"
+            name="<?= INPUT_NAME_PREFIX ?>-city"
+            type="text"
+            value="<?= $details_meta['city'] ?: '' ?>"
+            :class="slot_props.bem_class"
+        />
+    </tbi-field>
+
+    <tbi-field label="Provincia">
+        <input
+            slot-scope="slot_props"
+            name="<?= INPUT_NAME_PREFIX ?>-province"
+            type="text"
+            value="<?= $details_meta['province'] ?: '' ?>"
+            :class="slot_props.bem_class"
+        />
+    </tbi-field>
+</ul>

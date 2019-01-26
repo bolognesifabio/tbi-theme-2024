@@ -46,5 +46,73 @@
             " ?>"
         ],
         "description": "Close PHP tags"
+    },
+    "Print to console": {
+        "scope": "javascript,typescript",
+        "prefix": "log",
+        "body": [
+            "console.log('$1')"
+        ],
+        "description": "Log output to console"
+    },
+    "Export ES6 module": {
+        "scope": "javascript,typescript",
+        "prefix": "exp",
+        "body": [
+            "export default { $1 }"
+        ],
+        "description": "Export a standard ES6 module"
+    },
+    "Export ES6 function": {
+        "scope": "javascript,typescript",
+        "prefix": "expf",
+        "body": [
+            "export default function() {",
+            "    $1",
+            "}"
+        ],
+        "description": "Export a standard ES6 module"
+    },
+    "Export Vue template": {
+        "scope": "javascript,typescript",
+        "prefix": "expt",
+        "body": [
+            "export default /* html */ `",
+            "    $1",
+            "`"
+        ],
+        "description": "Export a Vue.js template"
+    },
+    "Import ES6 module": {
+        "scope": "javascript,typescript",
+        "prefix": "imp",
+        "body": [
+            "import $1 from './_$1'"
+        ],
+        "description": "Import an ES6 module"
+    },
+    "Import Vue template": {
+        "scope": "javascript,typescript",
+        "prefix": "impt",
+        "body": [
+            "import template from './_template'"
+        ],
+        "description": "Import a Vue.js template"
+    },
+    "Import Vue methods": {
+        "scope": "javascript,typescript",
+        "prefix": "impm",
+        "body": [
+            "import methods from './_methods'"
+        ],
+        "description": "Import Vue.js methods"
+    },
+    "Import Vue style": {
+        "scope": "javascript,typescript",
+        "prefix": "imps",
+        "body": [
+            "import style from './style.scss'"
+        ],
+        "description": "Import Vue.js style"
     }
 }
