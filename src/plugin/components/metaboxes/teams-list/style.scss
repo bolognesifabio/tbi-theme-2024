@@ -1,23 +1,9 @@
-@import '../../utilities/constants';
+@import '../../../utilities/constants';
 
 .competitions-metaboxes {
     &__teams {
-        &__filters {
-            &__field {
-                display: flex;
-                align-items: center;
-                margin-bottom: 6px;
-    
-                &__label {
-                    margin-right: 20px;
-                    flex-basis: 160px;
-                }
-            }
-        }
-
         &__participants {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
 
             &__item {
@@ -26,6 +12,7 @@
                 display: flex;
                 align-items: center;
                 flex-basis: 320px;
+                padding-right: 15px;
 
                 &__checkbox[type=checkbox] {
                     position: absolute;

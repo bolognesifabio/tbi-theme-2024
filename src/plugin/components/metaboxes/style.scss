@@ -1,56 +1,8 @@
 @import '../../utilities/mixins';
-@import 'competitions';
 
 #tbi-metaboxes-teams-details,
 #tbi-metaboxes-clubs-contacts {
     width: 440px;
-}
-
-.tbi-field {
-    display: flex;
-    margin-bottom: 10px;
-    align-items: center;
-
-    &__label {
-        min-width: 200px;
-        cursor: default;
-    }
-
-    &__input {
-        flex-basis: 100%;
-    }
-}
-
-.clubs-metaboxes,
-.teams-metaboxes {
-    &__contacts,
-    &__details {
-        display: flex;
-        flex-direction: column;
-
-        &__field {
-            padding: 15px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-
-            &__label {
-                min-width: 40%;
-                font-weight: bold;
-                cursor: default;
-            }
-
-            &__input {
-                flex-basis: 60%;
-            }
-
-            &--narrow & {
-                &__input {
-                    max-width: 15%;
-                }
-            }
-        }
-    }
 }
 
 #tbi-metaboxes {

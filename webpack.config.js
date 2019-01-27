@@ -9,7 +9,7 @@ const get_webpack_configuration_object = (directory_name) => {
     return {
         entry: [`./src/${directory_name}/index.js`],
         output: {
-            publicPath: is_mode_production ? `./${wp_content_folder_path}/${output_hash}/` : `./${wp_content_folder_path}/dev/`,
+            publicPath: is_mode_production ? `/${wp_content_folder_path}/${output_hash}/` : `/${wp_content_folder_path}/dev/`,
             path: path.resolve(__dirname, is_mode_production ? `${wp_content_folder_path}/${output_hash}/` : `${wp_content_folder_path}/dev/`),
             filename: '[name].js',
             chunkFilename: '[chunkhash].js'

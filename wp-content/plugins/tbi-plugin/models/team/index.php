@@ -6,7 +6,7 @@ class Team {
         if (gettype($team_input) === 'object') $team_post = $team_input;
         else $team_post = get_post($team_input);
 
-        $teams_details = get_post_meta($post->ID, 'tbi-teams-details', true) ?: [];
+        $teams_details = get_post_meta($team_post->ID, 'tbi-teams-details', true) ?: [];
 
         $this->id = $team_post->ID;
         $this->title = $team_post->post_title;
@@ -16,7 +16,7 @@ class Team {
         $this->emblem = $this->get_team_emblem_url();
         $this->short_name = $teams_details['short-name'] ?: '';
         $this->team_code = $teams_details['team-code'] ?: '';
-        $this->is_inactive = $team_details['is-inactive'] ?: true;
+        $this->is_inactive = $teams_details['is-inactive'] ?: false;
     }
 
     public static function get_all_teams() {
