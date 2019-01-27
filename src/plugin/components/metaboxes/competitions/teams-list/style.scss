@@ -1,8 +1,10 @@
-@import '../../../utilities/constants';
+@import '../../../../utilities/constants';
 
 .competitions-metaboxes {
     &__teams {
         &__participants {
+            border-top: 1px solid $color-bg-main;
+            padding-top: 15px;
             display: flex;
             flex-wrap: wrap;
 

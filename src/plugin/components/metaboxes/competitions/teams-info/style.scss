@@ -1,0 +1,67 @@
+@import '../../../../utilities/constants';
+
+.tbi-competitions-teams-info {
+    border-top: 1px solid $color-bg-main;
+
+    &__info {
+        &__headings {
+            display: flex;
+
+            h4 {
+                margin-right: 10px;
+            }
+
+            &__team {
+                flex-basis: 280px;
+            }
+
+            &__name,
+            &__short-name {
+                flex-basis: 180px;
+            }
+
+            &__team-code {
+                flex-basis: 80px;
+                max-width: 80px;
+            }
+        }
+
+        &__team {
+            align-items: center;
+            display: flex;
+
+            > * {
+                margin: 0 10px 0 0;
+            }
+
+            &__emblem {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-basis: 30px;
+                max-height: 24px;
+
+                &__image {
+                    max-width: 30px;
+                    max-height: 24px;
+                }
+            }
+
+            &__title {
+                flex-basis: 240px;
+            }
+
+            &__name,
+            &__short-name {
+                flex-basis: 180px;
+                box-sizing: border-box;
+            }
+
+            &__team-code {
+                flex-basis: 80px;
+                max-width: 80px;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

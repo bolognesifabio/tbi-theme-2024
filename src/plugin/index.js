@@ -11,8 +11,9 @@ if (document.getElementById('normal-sortables')) {
         el: '#normal-sortables',
         data: { state: {} },
         components: {
-            'tbi-teams-list': () => import('./components/metaboxes/teams-list'),
-            'tbi-competitions-filters': () => import('./components/metaboxes/competitions-filters')
+            'tbi-competitions-filters': () => import('./components/metaboxes/competitions/filters'),
+            'tbi-competitions-teams-list': () => import('./components/metaboxes/competitions/teams-list'),
+            'tbi-competitions-teams-info': () => import('./components/metaboxes/competitions/teams-info')
         },
         style
     })

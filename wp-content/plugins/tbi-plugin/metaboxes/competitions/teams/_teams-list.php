@@ -1,6 +1,6 @@
-<tbi-teams-list inline-template :teams_input='<?= htmlspecialchars(json_encode($all_teams), ENT_QUOTES) ?>'>
+<tbi-competitions-teams-list inline-template :teams_input='<?= htmlspecialchars(json_encode($all_teams), ENT_QUOTES) ?>'>
     <ul class="competitions-metaboxes__teams__participants">
-        <li v-for="team in teams" v-if="is_team_visible(team)" class="competitions-metaboxes__teams__participants__item">
+        <li v-for="team in $root.state.teams" v-if="is_team_visible(team)" class="competitions-metaboxes__teams__participants__item">
             <input
                 v-model="team.is_selected"
                 class="competitions-metaboxes__teams__participants__item__checkbox"
@@ -14,5 +14,6 @@
             </div>
             <label class="competitions-metaboxes__teams__participants__item__name">{{ team.title }}</label>
         </li>
+        <li v-if="!is_at_least_one_team_visible">Nessun team visibile. Prova a disattivare i filtri.</li>
     </ul>
-</tbi-teams-list>
+</tbi-competitions-teams-list>

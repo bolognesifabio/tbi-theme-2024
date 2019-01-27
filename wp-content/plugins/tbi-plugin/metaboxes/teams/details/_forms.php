@@ -18,6 +18,7 @@ $details_meta = get_post_meta($post->ID, 'tbi-teams-details', true) ?: []; ?>
             name="tbi-metaboxes-teams-details-team-code"
             type="text"
             value="<?= $details_meta['team-code'] ?: '' ?>"
+            maxlength="3"
             :class="[slot_props.bem_class, 'narrow']"
         />
     </tbi-field>

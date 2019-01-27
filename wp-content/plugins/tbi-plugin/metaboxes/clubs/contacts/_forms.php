@@ -15,6 +15,7 @@ $contacts_meta = get_post_meta($post->ID, 'tbi-clubs-contacts', true) ?: [] ?>
                 type="<?= $field['type'] ?>"
                 value="<?= $contacts_meta[$field['name']] ?: '' ?>"
                 :class="[slot_props.bem_class, { 'narrow': <?= $is_narrow ?> }]"
+                <?= $field['maxlength'] ? 'maxlength="'. $field['maxlength'] .'"': '' ?>
             />
         </tbi-field> <?php
     } ?>

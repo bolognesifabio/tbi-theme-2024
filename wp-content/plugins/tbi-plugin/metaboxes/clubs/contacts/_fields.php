@@ -8,7 +8,8 @@ $fields = [
     [
         'label' => 'Provincia',
         'name' => 'province',
-        'type' => 'text'
+        'type' => 'text',
+        'maxlength' => '2'
     ],
     [
         'label' => 'Indirizzo',

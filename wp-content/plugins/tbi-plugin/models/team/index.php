@@ -16,7 +16,7 @@ class Team {
         $this->emblem = $this->get_team_emblem_url();
         $this->short_name = $teams_details['short-name'] ?: '';
         $this->team_code = $teams_details['team-code'] ?: '';
-        $this->is_inactive = $teams_details['is-inactive'] ?: false;
+        $this->is_inactive = $teams_details['is-inactive'] ? true : false;
     }
 
     public static function get_all_teams() {
