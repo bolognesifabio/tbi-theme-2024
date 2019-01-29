@@ -34,10 +34,10 @@ const INPUTS_NAME_PREFIX = 'tbi-metaboxes-competitions-teams-info-'; ?>
                             <input :name="'<?= INPUTS_NAME_PREFIX ?>team-code[' + team.id + ']'" type="text" v-model="team.competition_info.team_code" maxlength="3" />
                         </td>
                         <td :class="get_bem('scroll-container__table__team__input') + ' narrow'">
-                            <input :name="'<?= INPUTS_NAME_PREFIX ?>team-code[' + team.id + ']'" type="text" v-model="team.competition_info.team_code" maxlength="3" />
+                            <input :name="'<?= INPUTS_NAME_PREFIX ?>penalty[' + team.id + ']'" type="text" v-model="team.competition_info.penalty" maxlength="3" />
                         </td>
                         <td :class="get_bem('scroll-container__table__team__input') + ' narrow'">
-                            <input :name="'<?= INPUTS_NAME_PREFIX ?>team-code[' + team.id + ']'" type="text" v-model="team.competition_info.team_code" maxlength="3" />
+                            <input :name="'<?= INPUTS_NAME_PREFIX ?>priority[' + team.id + ']'" type="text" v-model="team.competition_info.priority" maxlength="3" />
                         </td>
                     </tr>
                 </tbody>

@@ -7,7 +7,9 @@ $all_teams = array_map(function($team) use($meta_teams) {
     $team->competition_info = $team->is_selected ? $meta_teams[$team->id] : [
         'name' => '',
         'short_name' => '',
-        'team_code' => ''
+        'team_code' => '',
+        'penalty' => '',
+        'priority' => ''
     ];
     return $team;
 }, Models\Team::get_all_teams()); ?>
