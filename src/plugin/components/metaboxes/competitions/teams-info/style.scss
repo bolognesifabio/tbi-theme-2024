@@ -2,40 +2,82 @@
 
 .tbi-competitions-teams-info {
     border-top: 1px solid $color-bg-main;
+    position: relative;
 
-    &__info {
-        &__headings {
-            &__text {
-                text-align: left;
-                padding: 10px 0;
-            }
-        }
+    &__scroll-container {
+        overflow-x: scroll;
 
-        &__team {
-            &__emblem {
-                width: 30px;
-                max-height: 24px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+        &__table {
+            padding-left: 280px;
+            padding-bottom: 20px;
+    
+            &__headings {
+                &__text {
+                    text-align: left;
+                    padding: 10px 0;
+    
+                    &:first-child {
+                        position: absolute;
+                        top: auto;
+                        left: 0;
+                        background: $color-bg-box;
+                        min-height: 32px;
+                        max-width: 280px;
+                        min-width: 280px;
+                    }
 
-                &__image {
-                    max-width: 30px;
-                    max-height: 24px;
+                    &.narrow {
+                        text-align: center;
+                    }
                 }
             }
+    
+            &__team {
+                input {
+                    margin: 0;
+                    width: 100%;
+                }
+    
+                &__title,
+                &__emblem {
+                    position: absolute;
+                    top: auto;
+                    left: 0;
+                    background: $color-bg-box;
+                    min-height: 32px;
+                }
 
-            &__title {
-                width: 240px;
-            }
+                &__emblem {
+                    min-width: 30px;
+                    max-height: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+    
+                    &__image {
+                        max-width: 30px;
+                        max-height: 24px;
+                    }
+                }
+    
+                &__title {
+                    max-width: 240px;
+                    min-width: 240px;
+                    font-weight: normal;
+                    text-align: left;
+                    left: 40px;
+                }
+    
+                &__input {
+                    max-width: 180px;
+                    min-width: 180px;
 
-            &__name,
-            &__short-name {
-                width: 180px;
-            }
-
-            &__team-code {
-                width: 80px;
+                    &.narrow {
+                        max-width: 60px;
+                        min-width: 60px;
+                        text-align: center;
+                    }
+                }
             }
         }
     }
