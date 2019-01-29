@@ -5,41 +5,19 @@
 
     &__info {
         &__headings {
-            display: flex;
-
-            h4 {
-                margin-right: 10px;
-            }
-
-            &__team {
-                flex-basis: 280px;
-            }
-
-            &__name,
-            &__short-name {
-                flex-basis: 180px;
-            }
-
-            &__team-code {
-                flex-basis: 80px;
-                max-width: 80px;
+            &__text {
+                text-align: left;
+                padding: 10px 0;
             }
         }
 
         &__team {
-            align-items: center;
-            display: flex;
-
-            > * {
-                margin: 0 10px 0 0;
-            }
-
             &__emblem {
+                width: 30px;
+                max-height: 24px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-basis: 30px;
-                max-height: 24px;
 
                 &__image {
                     max-width: 30px;
@@ -48,19 +26,16 @@
             }
 
             &__title {
-                flex-basis: 240px;
+                width: 240px;
             }
 
             &__name,
             &__short-name {
-                flex-basis: 180px;
-                box-sizing: border-box;
+                width: 180px;
             }
 
             &__team-code {
-                flex-basis: 80px;
-                max-width: 80px;
-                box-sizing: border-box;
+                width: 80px;
             }
         }
     }
