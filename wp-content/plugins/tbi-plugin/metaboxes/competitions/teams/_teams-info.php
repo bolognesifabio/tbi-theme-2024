@@ -21,9 +21,7 @@ const INPUTS_NAME_PREFIX = 'tbi-metaboxes-competitions-teams-info-'; ?>
                         <th :class="get_bem('scroll-container__table__team__emblem')">
                             <img :src="team.emblem" :class="get_bem('scroll-container__table__team__emblem__image')" />
                         </th>
-                        <th :class="get_bem('scroll-container__table__team__title')">
-                            <label>{{ team.title }}</label>
-                        </th>
+                        <th :class="get_bem('scroll-container__table__team__title')">{{ team.title }}</th>
                         <td :class="get_bem('scroll-container__table__team__input')">
                             <input :name="'<?= INPUTS_NAME_PREFIX ?>name[' + team.id + ']'" type="text" v-model="team.competition_info.name" />
                         </td>

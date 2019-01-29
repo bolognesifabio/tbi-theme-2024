@@ -7,7 +7,9 @@
             <ul>
                 <li v-for="(fixture, fixture_index) in turn.fixtures" class="fixture">
                     <div draggable="true" @dragover.prevent @drop.prevent="drop(turn_index, fixture_index)" @dragstart="drag(turn_index, fixture_index)" class="draggable">{{ fixture_index }}. {{ fixture.name }}</div>
-                    <!-- <div class="droppable" @drop.prevent="drop(turn_index, fixture_index + 1)" @dragover.prevent>{{ fixture_index + 1 }}. Droppable</div> -->
+                </li>
+                <li>
+                    <div class="droppable" @drop.prevent="drop(turn_index, turn.fixtures.length)" @dragover.prevent>Droppable</div>
                 </li>
             </ul>
         </div>

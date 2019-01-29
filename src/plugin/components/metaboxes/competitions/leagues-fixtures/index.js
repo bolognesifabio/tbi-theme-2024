@@ -8,6 +8,11 @@ export default {
             dragged_fixture: {
                 turn: null,
                 fixture: null
+            },
+
+            dragover_fixture: {
+                turn: null,
+                fixture: null
             }
         }
     },
@@ -46,6 +51,13 @@ export default {
 
         drag(turn_index, fixture_index) {
             this.dragged_fixture = {
+                turn: turn_index,
+                fixture: fixture_index
+            }
+        },
+
+        dragover(turn_index, fixture_index) {
+            this.dragover_fixture = {
                 turn: turn_index,
                 fixture: fixture_index
             }
