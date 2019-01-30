@@ -1,17 +1,37 @@
-<?php ?>
 <tbi-competitions-leagues-fixtures inline-template>
-    <div>
-        <div v-for="(turn, turn_index) in $root.state.turns" class="turn">
-            <h2>{{ turn.name }}</h2>
+    <div :class="base_class">
+        <table v-for="(turn, turn_index) in $root.state.turns" :class="get_bem('turn')">
+            <thead>
+                <tr>
+                    <th
+                        colspan="4"
+                        draggable="true"
+                        @dragover="event => check_if_droppable(event, 'turn')"
+                        @dragstart="drag_turn(turn_index)" 
+                        @drop.prevent="drop_turn(turn_index)"
+                    >{{ turn.name }}</th>
+                </tr>
+                <tr>
+                    <th colspan="2">Casa</th>
+                    <th colspan="2">Trasferta</th>
+                </tr>
+            </thead>
 
-            <ul>
-                <li v-for="(fixture, fixture_index) in turn.fixtures" class="fixture">
-                    <div draggable="true" @dragover.prevent @drop.prevent="drop(turn_index, fixture_index)" @dragstart="drag(turn_index, fixture_index)" class="draggable">{{ fixture_index }}. {{ fixture.name }}</div>
-                </li>
-                <li>
-                    <div class="droppable" @drop.prevent="drop(turn_index, turn.fixtures.length)" @dragover.prevent>Droppable</div>
-                </li>
-            </ul>
-        </div>
+            <tbody>
+                <tr
+                    v-for="(fixture, fixture_index) in turn.fixtures"
+                    draggable="true"
+                    :class="get_bem('turn__fixture')"
+                    @dragover="event => check_if_droppable(event, 'fixture')"
+                    @dragstart="drag_fixture(turn_index, fixture_index)" 
+                    @drop.prevent="drop_fixture(turn_index, fixture_index)"
+                >
+                    <td>{{ fixture.name }}</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>{{ fixture.name }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </tbi-competitions-leagues-fixtures>

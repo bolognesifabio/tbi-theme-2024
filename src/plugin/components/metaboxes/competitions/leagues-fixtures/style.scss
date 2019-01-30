@@ -1,5 +1,9 @@
-.droppable {
-    height: 20px;
-    width: 100%;
-    border: 2px solid transparent;
+.tbi-competitions-leagues-fixtures {
+    &__turn {
+        border-top: 1px solid #000;
+
+        th {
+            text-align: left;
+        }
+    }
 }
