@@ -1,4 +1,7 @@
-<tbi-competitions-leagues-fixtures inline-template>
+<?php
+$turns_meta = get_post_meta($post->ID, 'tbi-leagues-fixtures', true) ?: []; ?>
+
+<tbi-competitions-leagues-fixtures inline-template :turns_input='<?= htmlspecialchars(json_encode($turns_meta), ENT_QUOTES) ?>'>
     <div :class="base_class">
         <table v-for="(turn, turn_index) in $root.state.turns" :class="get_bem('turn')">
             <thead>
@@ -9,7 +12,10 @@
                         @dragover="event => check_if_droppable(event, 'turn')"
                         @dragstart="drag_turn(turn_index)" 
                         @drop.prevent="drop_turn(turn_index)"
-                    >{{ turn.name }}</th>
+                    >
+                        <span class="dashicons dashicons-menu"></span>
+                        <input type="text" v-model="turn.name" :name="'tbi-league-fixtures[' + turn_index + '][name]'" />
+                    </th>
                 </tr>
                 <tr>
                     <th colspan="2">Casa</th>
@@ -26,10 +32,16 @@
                     @dragstart="drag_fixture(turn_index, fixture_index)" 
                     @drop.prevent="drop_fixture(turn_index, fixture_index)"
                 >
-                    <td>{{ fixture.name }}</td>
+                    <td><input type="text" v-model="fixture.name" :name="'tbi-league-fixtures[' + turn_index + '][fixtures][' + fixture_index + '][home]'" /></td>
                     <td>0</td>
                     <td>0</td>
-                    <td>{{ fixture.name }}</td>
+                    <td><input type="text" v-model="fixture.name" :name="'tbi-league-fixtures[' + turn_index + '][fixtures][' + fixture_index + '][away]'" /></td>
+                </tr>
+                <tr
+                    @dragover="event => check_if_droppable(event, 'fixture')"
+                    @drop.prevent="drop_fixture(turn_index, turn.fixtures.length)"
+                >
+                    <td colspan="4">DROP</td>
                 </tr>
             </tbody>
         </table>
