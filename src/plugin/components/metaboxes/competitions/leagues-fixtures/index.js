@@ -1,8 +1,10 @@
 import data from './_data'
 import computed from './_computed'
 import beforeMount from './_before-mount'
-import methods from './_methods'
+import methods from './methods'
 import style from './style.scss'
+
+console.log(methods)
 
 export default {
     props: ['turns_input'],
@@ -12,6 +14,6 @@ export default {
     methods,
     style,
     components: {
-        'tbi-find-as-you-type': () => import('../../../find-as-you-type')
+        'tbi-fixture-team-selection': () => import('../fixture-team-selection')
     }
 }
