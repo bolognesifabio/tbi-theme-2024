@@ -25,5 +25,20 @@ export default {
 
     check_if_droppable(event, type) {
         if (this.dragged_object.type === type) event.preventDefault()
+    },
+
+    add_turn() {
+        this.$root.state.turns.push({
+            name: 'Nuovo turno',
+            fixtures: []
+        })
+    },
+
+    add_fixture(turn_index) {
+        let turn = this.$root.state.turns[turn_index] || {}
+        turn.fixtures.push({
+            home: null,
+            away: null
+        })
     }
 }

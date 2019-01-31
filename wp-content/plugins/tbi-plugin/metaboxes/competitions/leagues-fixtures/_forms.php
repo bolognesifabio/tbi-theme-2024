@@ -32,10 +32,10 @@ $turns_meta = get_post_meta($post->ID, 'tbi-leagues-fixtures', true) ?: []; ?>
                     @dragstart="drag_fixture(turn_index, fixture_index)" 
                     @drop.prevent="drop_fixture(turn_index, fixture_index)"
                 >
-                    <td><input type="text" v-model="fixture.name" :name="'tbi-league-fixtures[' + turn_index + '][fixtures][' + fixture_index + '][home]'" /></td>
+                    <td><input type="text" v-model="fixture.home" :name="'tbi-league-fixtures[' + turn_index + '][fixtures][' + fixture_index + '][home]'" /></td>
                     <td>0</td>
                     <td>0</td>
-                    <td><input type="text" v-model="fixture.name" :name="'tbi-league-fixtures[' + turn_index + '][fixtures][' + fixture_index + '][away]'" /></td>
+                    <td><input type="text" v-model="fixture.away" :name="'tbi-league-fixtures[' + turn_index + '][fixtures][' + fixture_index + '][away]'" /></td>
                 </tr>
                 <tr
                     @dragover="event => check_if_droppable(event, 'fixture')"
@@ -43,7 +43,23 @@ $turns_meta = get_post_meta($post->ID, 'tbi-leagues-fixtures', true) ?: []; ?>
                 >
                     <td colspan="4">DROP</td>
                 </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <tbi-find-as-you-type :terms="selected_teams_terms">
+                            <input slot-scope="slot_props" :value="slot_props.output ? slot_props.output.key : null" />
+                        </tbi-find-as-you-type>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <button @click.prevent="add_fixture(turn_index)">Aggiungi partita</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
+
+        <button @click.prevent="add_turn()">Aggiungi turno</button>
     </div>
 </tbi-competitions-leagues-fixtures>

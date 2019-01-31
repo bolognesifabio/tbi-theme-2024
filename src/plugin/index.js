@@ -8,7 +8,7 @@ import style from './style.scss'
 
 if (document.getElementById('poststuff')) {
     new Vue({
-        el: '#poststuff',
+        el: '#post-body',
         data: { state: {} },
         components: {
             'tbi-competitions-filters': () => import('./components/metaboxes/competitions/filters'),
