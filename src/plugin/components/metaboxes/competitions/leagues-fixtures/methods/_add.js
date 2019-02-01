@@ -1,6 +1,6 @@
 export const add_turn = function() {
     this.$root.state.turns.push({
-        name: 'Nuovo turno',
+        name: `Nuovo turno ${this.$root.state.turns.length + 1}`,
         fixtures: []
     })
 }
