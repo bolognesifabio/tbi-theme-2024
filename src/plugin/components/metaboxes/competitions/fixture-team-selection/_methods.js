@@ -13,7 +13,7 @@ export default {
         setTimeout(() => {
             if (!this.has_search_exact_match) {
                 const FALLBACK_TEAM = this.competition_teams.find(competition_team => {
-                    return competition_team.id === this.value
+                    return Number(competition_team.id) === Number(this.value)
                 }) || null
 
                 this.searched_string = FALLBACK_TEAM ? FALLBACK_TEAM.title : ""

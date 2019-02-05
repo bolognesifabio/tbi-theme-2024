@@ -4,8 +4,6 @@ import beforeMount from './_before-mount'
 import methods from './methods'
 import style from './style.scss'
 
-console.log(methods)
-
 export default {
     props: ['turns_input'],
     data,

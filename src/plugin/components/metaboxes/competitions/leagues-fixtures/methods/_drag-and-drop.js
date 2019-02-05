@@ -27,3 +27,7 @@ export const drop_turn = function(turn_index) {
 export const check_if_droppable = function(event, type) {
     if (this.dragged_object.type === type) event.preventDefault()
 }
+
+export const is_dragged_object = function(turn_index, fixture_index) {
+    return this.dragged_object && this.dragged_object.turn_index === turn_index && this.dragged_object.fixture_index === fixture_index
+}

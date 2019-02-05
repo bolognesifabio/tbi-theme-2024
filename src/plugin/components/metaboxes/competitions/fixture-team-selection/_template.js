@@ -13,5 +13,10 @@ export default /* html */ `
             @focusin="start_search"
             @focusout="end_search"
         />
+        <input
+            type="text"
+            v-model="value"
+            :name="input_name"
+        />
     </div>
 `

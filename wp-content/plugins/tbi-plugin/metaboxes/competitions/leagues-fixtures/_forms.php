@@ -33,7 +33,7 @@ $turns_meta = get_post_meta($post->ID, 'tbi-leagues-fixtures', true) ?: []; ?>
                 <tbody>
                     <tr
                         v-for="(fixture, fixture_index) in turn.fixtures"
-                        :class="get_bem('turn__fixtures__element')"
+                        :class="[get_bem('turn__fixtures__element'), { 'dragged': is_dragged_object(turn_index, fixture_index) }]"
                         @dragover="event => check_if_droppable(event, 'fixture')"
                         @drop.prevent="drop_fixture(turn_index, fixture_index)"
                     >
@@ -44,13 +44,13 @@ $turns_meta = get_post_meta($post->ID, 'tbi-leagues-fixtures', true) ?: []; ?>
                         >{{ fixture_index }}</td>
                         <td>@</td>
                         <td>
-                            <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.home"></tbi-fixture-team-selection>
+                            <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.home" :fixture_index="fixture_index" :turn_index="turn_index" :is_home="true"></tbi-fixture-team-selection>
                         </td>
                         <td>0</td>
                         <td>-</td>
                         <td>0</td>
                         <td>
-                            <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.home"></tbi-fixture-team-selection>
+                            <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.away" :fixture_index="fixture_index" :turn_index="turn_index" :is_home="false"></tbi-fixture-team-selection>
                         </td>
                         <td>@</td>
                         <td>Maddaloni</td>
