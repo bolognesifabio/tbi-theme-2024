@@ -11,6 +11,7 @@ export default {
 
     end_search() {
         setTimeout(() => {
+            console.log(this.turn_index, this.fixture_index)
             if (!this.has_search_exact_match) {
                 const FALLBACK_TEAM = this.competition_teams.find(competition_team => {
                     return Number(competition_team.id) === Number(this.value)
