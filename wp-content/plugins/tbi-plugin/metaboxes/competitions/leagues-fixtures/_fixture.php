@@ -8,7 +8,7 @@
         :class="get_bem('turn__fixtures__element__drag-area')"
         draggable="true"
         @dragstart="drag_fixture(turn_index, fixture_index)" 
-    >{{ fixture_index }}</td>
+    >{{turn_index}} - {{ fixture_index }}</td>
     <td>@</td>
     <td>
         <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.home" :fixture_index="fixture_index" :turn_index="turn_index" :is_home="true"></tbi-fixture-team-selection>
