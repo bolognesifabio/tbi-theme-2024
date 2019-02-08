@@ -24,6 +24,10 @@ $turns_meta = get_post_meta($post->ID, 'tbi-leagues-turns', true) ?: []; ?>
                 :key="fixture_index"
             >
                 <p>{{ fixture.home }}</p>
+                <tbi-fixture-team-selection
+                    :competition_teams="competition_teams"
+                    v-model="fixture.home"
+                ></tbi-fixture-team-selection>
             </tbi-competitions-fixture>
         </tbi-competitions-turn>
         

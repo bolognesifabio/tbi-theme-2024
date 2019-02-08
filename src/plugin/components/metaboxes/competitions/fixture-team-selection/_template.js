@@ -8,15 +8,14 @@ export default /* html */ `
             >{{ matching_team.title }}</li>
         </ul>
         <input
-            v-model="searched_string"
-            :class="get_bem('search')"
+            v-model="searched_term"
+            type="text"
             @focusin="start_search"
             @focusout="end_search"
         />
         <input
             type="text"
             v-model="value"
-            :name="input_name"
         />
     </div>
 `
