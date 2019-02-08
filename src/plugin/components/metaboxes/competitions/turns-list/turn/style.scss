@@ -1,0 +1,17 @@
+.tbi-competitions-turn {
+    &.dragged-over & {
+        &__heading {
+            &__drag-area {
+                display: flex;
+                flex-direction: column;
+                
+                &:before {
+                    content: " ";
+                    height: 20px;
+                    width: 100%;
+                    border: 1px dashed #000;
+                }
+            }
+        }
+    }
+}
