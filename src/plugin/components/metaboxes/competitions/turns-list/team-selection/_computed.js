@@ -15,5 +15,11 @@ export default {
             let matching_team = this.competition_teams.find(team => { return team.title === searched_term })
             if (matching_team) this.$emit('input', matching_team.id)
         }
+    },
+
+    competition_teams() {
+        return this.$root.state.teams.filter(team => {
+            return team.is_selected
+        })
     }
 }

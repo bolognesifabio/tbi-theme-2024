@@ -5,30 +5,29 @@ $turns_meta = get_post_meta($post->ID, 'tbi-leagues-turns', true) ?: []; ?>
     <div :class="base_class">
         <p v-if="!$root.state.turns.length" :class="get_bem('no-turns-message')">Non ci sono turni per questa competizione.</p>
         
-        <tbi-competitions-turn
-            v-for="(turn, turn_index) in $root.state.turns"
-            :turn="turn"
-            :index="turn_index"
-            :key="turn_index"
-        >
-            <h3 slot="draggable-area">{{ turn.name }}</h3>
-            <template slot="remove-turn-button">X</template>
-            <template slot="add-fixture-button">Aggiungi una nuova partita</template>
-            <hr/>
+        <tbi-competitions-turn inline-template v-for="(turn, turn_index) in $root.state.turns" :turn="turn" :index="turn_index" :key="turn_index">
+            <div :class="base_class"> <?php
+                include "_turn-heading.php"; ?>
 
-            <tbi-competitions-fixture
-                v-for="(fixture, fixture_index) in turn.fixtures"
-                :fixture="fixture"
-                :index="fixture_index"
-                :turn_index="turn_index"
-                :key="fixture_index"
-            >
-                <p>{{ fixture.home }}</p>
-                <tbi-fixture-team-selection
-                    :competition_teams="competition_teams"
-                    v-model="fixture.home"
-                ></tbi-fixture-team-selection>
-            </tbi-competitions-fixture>
+                    <tbi-competitions-fixture inline-template
+                        v-for="(fixture, fixture_index) in turn.fixtures"
+                        :fixture="fixture"
+                        :index="fixture_index"
+                        :turn_index="index"
+                        :key="fixture_index"
+                    >
+                        <div>
+                            <div
+                                @dragover="event => prevent_if_droppable(event)"
+                                @drop.prevent="drop_fixture()"
+                                @dragstart="update_turns_dragged_data()"
+                                draggable="true"
+                            >D</h4>
+                            <tbi-fixture-team-selection v-model="fixture.home"></tbi-fixture-team-selection>
+                        </div>
+                    </tbi-competitions-fixture>
+
+                </div>
         </tbi-competitions-turn>
         
         <button :class="get_bem('add-turn')" @click.prevent="add_turn">Aggiungi un nuovo turno</button>
