@@ -1,4 +1,6 @@
 <?php
+if (defined( 'DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
+
 if (get_post_type($post_id) === 'clubs') {
     $contacts_meta_keys = ['city', 'province', 'address', 'phone', 'email', 'website'];
     $output_contacts = [];

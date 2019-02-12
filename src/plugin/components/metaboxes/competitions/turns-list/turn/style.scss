@@ -15,10 +15,17 @@
     &.dragged-over & {
         &__heading {
             &:before {       
-                content: " ";
+                content: "Sposta qui il turno";
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 height: 30px;
-                border: 1px dashed #CCC;
+                border: 1px dashed $color-bg-main;
                 flex-basis: 100%;
+                margin-bottom: 15px;
+                font-weight: bold;
+                font-size: 12px;
+                color: $color-bg-main;
             }
         }
     }
@@ -46,26 +53,56 @@
             font-size: 14px;
             margin: 0;
             padding: 6px;
+            flex-basis: 240px;
         }
 
         &__button {
-            margin-left: auto;
             border: none;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 6px 10px;
+            color: $color-bg-light;
+            line-height: 20px;
+            cursor: pointer;
+            transition: opacity .2s ease-in-out;
+
+            &:hover {
+                opacity: .6;
+            }
+
+            &:before {
+                @extend %dash_icon;
+                margin-right: 6px;
+                display: inline-block;
+            }
 
             &--delete {
-                margin-left: auto;
                 background: $color-delete;
-                color: $color-bg-light;
+                margin-left: auto;
                 
                 &:before {
-                    @extend %dash_icon;
                     content: "\f182";
                 }
             }
 
+            &--add {
+                margin-left: 15px;
+                background: $color-selected;
+                
+                &:before {
+                    content: "\f132";
+                    height: 16px;
+                }
+            }
+        }
+    }
+
+    &__fixtures-heading {
+        display: flex;
+        
+        &__team {
+            flex-basis: 240px;
         }
     }
 }

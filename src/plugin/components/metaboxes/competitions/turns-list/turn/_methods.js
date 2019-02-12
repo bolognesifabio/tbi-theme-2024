@@ -1,5 +1,8 @@
+import Vue from 'vue'
+
 export default {
     prevent_if_droppable(event) {
+        console.log('turn')
         if (this.$root.state.turns_dragged_data.type === 'turn' && !this.is_currently_dragged) {
             event.preventDefault()
             this.is_dragged_over = true
@@ -32,7 +35,11 @@ export default {
     },
 
     add_fixture() {
-        this.$root.state.turns[this.index].fixtures.push({
+        let turn = this.$root.state.turns[this.index]
+
+        if (!turn.fixtures) Vue.set(turn, 'fixtures', [])
+
+        turn.fixtures.push({
             home: null,
             away: null
         })

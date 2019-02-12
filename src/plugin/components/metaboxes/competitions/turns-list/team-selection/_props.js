@@ -9,7 +9,7 @@ export default {
         default: null
     },
 
-    fixture_index: {
+    index: {
         type: Number,
         default: null
     },
