@@ -102,7 +102,12 @@
         display: flex;
         
         &__team {
-            flex-basis: 240px;
+            flex-basis: 242px;
+        }
+
+        &__results {
+            flex-basis: 124px;
+            text-align: center;
         }
     }
 }

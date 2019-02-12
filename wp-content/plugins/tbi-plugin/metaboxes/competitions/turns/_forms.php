@@ -37,14 +37,17 @@ $turns_meta = get_post_meta($post->ID, 'tbi-competitions-turns', true) ?: []; ?>
                                 :turn_index="turn_index"
                                 :is_home="true"
                             ></tbi-fixture-team-selection>
-                            <input type="number" />
-                            <input type="number" />
+
+                            <input :class="get_bem('points')" type="number" />
+                            <input :class="get_bem('points')" type="number" />
+                            
                             <tbi-fixture-team-selection
                                 v-model="fixture.away"
                                 :index="index"
                                 :turn_index="turn_index"
                                 :is_home="false"
                             ></tbi-fixture-team-selection>
+                            
                             <input type="text" />
                             <input type="date" />
                         </div>
