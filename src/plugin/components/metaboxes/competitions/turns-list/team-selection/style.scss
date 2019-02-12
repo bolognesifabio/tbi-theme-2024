@@ -3,7 +3,7 @@
 .tbi-fixture-team-selection {
     position: relative;
     display: flex;
-    flex-basis: 240px;
+    flex-basis: 180px;
 
     &__suggestions {
         position: absolute;
@@ -14,6 +14,7 @@
         border: 1px solid $color-bg-main;
         padding: 0;
         margin: 0;
+        font-size: 12px;
 
         &__team {
             cursor: pointer;

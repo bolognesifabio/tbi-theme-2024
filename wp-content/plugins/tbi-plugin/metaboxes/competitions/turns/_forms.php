@@ -53,8 +53,8 @@ $turns_meta = get_post_meta($post->ID, 'tbi-competitions-turns', true) ?: []; ?>
                                 :is_home="false"
                             ></tbi-fixture-team-selection>
                             
-                            <input type="text" />
-                            <input type="date" />
+                            <input :class="get_bem('place')" type="text" />
+                            <input :class="get_bem('date')" type="date" />
                         </div>
                     </tbi-competitions-fixture>
                 </div>

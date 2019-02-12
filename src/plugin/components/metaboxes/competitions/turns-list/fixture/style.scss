@@ -1,3 +1,5 @@
+@import '../../../../../utilities/constants';
+
 %dash_icon {
     font-family: dashicons;
     font-weight: 400;
@@ -19,8 +21,25 @@
         }
     }
 
+    input {
+        &[type=text],
+        &[type=number],
+        &[type=date] {
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+
     &__points {
-        flex-basis: 60px;
-        max-width: 60px;
+        max-width: 52px;
+    }
+    
+    &__date {
+        max-width: 140px;
+    }
+
+    &__place {
+        max-width: 120px;
+        flex-basis: 120px;
     }
 }
