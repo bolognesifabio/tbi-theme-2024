@@ -5,36 +5,6 @@ export default {
         })
     },
 
-    // searched_term: {
-    //     get() {
-    //         let selected_team = this.competition_teams.find(team => { return team.id === this.value })
-    //         return selected_team ? selected_team.title : ""
-    //     },
-
-    //     set(searched_term) {
-    //         let matching_team = this.competition_teams.find(team => { return team.title === searched_term })
-    //         if (matching_team) this.$emit('input', matching_team.id)
-    //         else {
-    //             console.log(searched_term)
-    //         }
-    //     }
-    // },
-
-    selected_team: {
-        get() {
-            let selected_team = this.competition_teams.find(team => { return team.id === this.value })
-            return selected_team ? selected_team.title : ""
-        },
-
-        set(searched_term) {
-            let matching_team = this.competition_teams.find(team => { return team.title === searched_term })
-            if (matching_team) {
-                this.$emit('input', matching_team.id)
-                this.searched_term = searched_term
-            }
-        }
-    },
-
     competition_teams() {
         return this.$root.state.teams.filter(team => {
             return team.is_selected

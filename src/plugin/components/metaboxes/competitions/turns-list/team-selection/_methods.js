@@ -9,7 +9,8 @@ export default {
 
     end_search() {
         setTimeout(() => {
-            this.$forceUpdate()
+            let selected_team = this.competition_teams.find(team => { return team.id == this.value })
+            this.searched_term = selected_team ? selected_team.title : ""
             this.is_active = false
         }, 200)
     }
