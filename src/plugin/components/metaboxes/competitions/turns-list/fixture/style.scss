@@ -1,5 +1,23 @@
+%dash_icon {
+    font-family: dashicons;
+    font-weight: 400;
+    font-size: 18px;
+}
+
 .tbi-competitions-fixture {
     display: flex;
+    
+    &__drag-area {
+        display: flex;
+        align-items: center;
+        margin-right: 6px;
+        cursor: move;
+
+        &:before {
+            @extend %dash_icon;
+            content: "\f333";
+        }
+    }
 
     &__points {
         flex-basis: 60px;

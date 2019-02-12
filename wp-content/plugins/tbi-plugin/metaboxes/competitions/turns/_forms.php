@@ -30,7 +30,12 @@ $turns_meta = get_post_meta($post->ID, 'tbi-competitions-turns', true) ?: []; ?>
                             @dragover="event => prevent_if_droppable(event)"
                             @drop.prevent="drop_fixture"
                         >
-                            <div @dragstart="update_turns_dragged_data" draggable="true"></div>
+                            <div
+                                :class="get_bem('drag-area')"
+                                @dragstart="update_turns_dragged_data"
+                                draggable="true"
+                            ></div>
+
                             <tbi-fixture-team-selection
                                 v-model="fixture.home"
                                 :index="index"
