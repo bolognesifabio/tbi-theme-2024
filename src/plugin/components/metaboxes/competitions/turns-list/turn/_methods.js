@@ -39,8 +39,16 @@ export default {
         if (!turn.fixtures) Vue.set(this.$root.state.turns[this.index], 'fixtures', [])
 
         turn.fixtures.push({
-            home: null,
-            away: null
+            home: {
+                team: null,
+                score: null
+            },
+            away: {
+                team: null,
+                score: null
+            },
+            place: null,
+            date: null
         })
     }
 }
