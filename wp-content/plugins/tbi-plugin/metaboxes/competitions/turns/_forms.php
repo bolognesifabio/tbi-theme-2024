@@ -37,24 +37,46 @@ $turns_meta = get_post_meta($post->ID, 'tbi-competitions-turns', true) ?: []; ?>
                             ></div>
 
                             <tbi-fixture-team-selection
-                                v-model="fixture.home"
+                                v-model="fixture.home.team"
                                 :index="index"
                                 :turn_index="turn_index"
                                 :is_home="true"
                             ></tbi-fixture-team-selection>
 
-                            <input :class="get_bem('points')" type="number" />
-                            <input :class="get_bem('points')" type="number" />
+                            <input
+                                type="number"
+                                v-model="fixture.home.score"
+                                :class="get_bem('score')"
+                                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][home][score]'"
+                            />
+
+                            <input
+                                type="number"
+                                v-model="fixture.away.score"
+                                :class="get_bem('score')"
+                                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][away][score]'"
+                            />
                             
                             <tbi-fixture-team-selection
-                                v-model="fixture.away"
+                                v-model="fixture.away.team"
                                 :index="index"
                                 :turn_index="turn_index"
                                 :is_home="false"
                             ></tbi-fixture-team-selection>
                             
-                            <input :class="get_bem('place')" type="text" />
-                            <input :class="get_bem('date')" type="date" />
+                            <input
+                                v-model="fixture.place"
+                                type="text"
+                                :class="get_bem('place')"
+                                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][place]'"
+                            />
+
+                            <input
+                                v-model="fixture.date"
+                                :class="get_bem('date')"
+                                type="date"
+                                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][date]'"
+                            />
                         </div>
                     </tbi-competitions-fixture>
                 </div>

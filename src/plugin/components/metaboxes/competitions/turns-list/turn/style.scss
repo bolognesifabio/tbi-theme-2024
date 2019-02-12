@@ -54,7 +54,8 @@
             font-size: 14px;
             margin: 0;
             padding: 6px;
-            flex-basis: 240px;
+            flex-basis: 180px;
+            max-width: 180px;
         }
 
         &__button {
