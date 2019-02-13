@@ -7,11 +7,12 @@
 
     &__suggestions {
         position: absolute;
+        width: 100%;
         top: 0;
         left: 0;
         transform: translateY(-100%);
-        background: $color-bg-light;
-        border: 1px solid $color-bg-main;
+        background: $color-bg-dark;
+        color: $color-bg-light;
         padding: 0;
         margin: 0;
         font-size: 12px;
@@ -22,8 +23,8 @@
             margin: 0;
             
             &:hover {
-                background: $color-selected;
-                color: $color-bg-light;
+                background: $color-bg-dark-hover;
+                color: $color-selected-hover;
             }
         }
     }

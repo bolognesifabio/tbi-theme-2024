@@ -9,9 +9,13 @@ export default {
 
     end_search() {
         setTimeout(() => {
-            let selected_team = this.competition_teams.find(team => { return team.id == this.value })
-            this.searched_term = selected_team ? selected_team.title : ""
+            this.refresh_searched_team()
             this.is_active = false
         }, 200)
+    },
+    
+    refresh_searched_team() {
+        let selected_team = this.competition_teams.find(team => { return team.id == this.value })
+        this.searched_team = selected_team ? selected_team.title : ""
     }
 }

@@ -9,7 +9,7 @@ export default /* html */ `
         </ul>
         <input
             :class="get_bem('search-field')"
-            v-model="searched_term"
+            v-model="searched_team"
             type="text"
             @focusin="start_search"
             @focusout="end_search"

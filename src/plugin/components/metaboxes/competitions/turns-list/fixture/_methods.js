@@ -1,6 +1,5 @@
 export default {
     prevent_if_droppable(event) {
-        console.log('fixture')
         if (this.$root.state.turns_dragged_data.type === 'fixture') event.preventDefault()
     },
 
