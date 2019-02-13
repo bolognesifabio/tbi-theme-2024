@@ -42,4 +42,21 @@
         max-width: 120px;
         flex-basis: 120px;
     }
+
+    &__delete {
+        color: $color-delete;
+        background: transparent;
+        border: none;
+        margin-left: 15px;
+        cursor: pointer;
+        
+        &:before {
+            @extend %dash_icon;
+            content: "\f182";
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+    }
 }

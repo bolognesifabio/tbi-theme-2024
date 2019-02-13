@@ -1,26 +1,68 @@
-<tr
-    v-for="(fixture, fixture_index) in turn.fixtures"
-    :class="[get_bem('turn__fixtures__element'), { 'dragged': is_dragged_object(turn_index, fixture_index) }]"
-    @dragover="event => check_if_droppable(event, 'fixture')"
-    @drop.prevent="drop_fixture(turn_index, fixture_index)"
->
-    <td
-        :class="get_bem('turn__fixtures__element__drag-area')"
-        draggable="true"
-        @dragstart="drag_fixture(turn_index, fixture_index)" 
-    >{{turn_index}} - {{ fixture_index }}</td>
-    <td>@</td>
-    <td>
-        <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.home" :fixture_index="fixture_index" :turn_index="turn_index" :is_home="true"></tbi-fixture-team-selection>
-    </td>
-    <td>0</td>
-    <td>-</td>
-    <td>0</td>
-    <td>
-        <tbi-fixture-team-selection :competition_teams="competition_teams" v-model="fixture.away" :fixture_index="fixture_index" :turn_index="turn_index" :is_home="false"></tbi-fixture-team-selection>
-    </td>
-    <td>@</td>
-    <td>Maddaloni</td>
-    <td>31/08/1989</td>
-    <td>C</td>
-</tr>
+<div :class="get_bem('fixtures-list')">
+    <tbi-competitions-fixture inline-template
+        v-for="(fixture, fixture_index) in turn.fixtures"
+        :fixture="fixture"
+        :index="fixture_index"
+        :turn_index="index"
+        :key="fixture_index"
+    >
+        <div
+            :class="base_class" 
+            @dragover="event => prevent_if_droppable(event)"
+            @drop.prevent="drop_fixture"
+        >
+            <div
+                :class="get_bem('drag-area')"
+                @dragstart="update_turns_dragged_data"
+                draggable="true"
+            ></div>
+
+            <tbi-fixture-team-selection
+                v-model="fixture.home.team"
+                :index="index"
+                :turn_index="turn_index"
+                :is_home="true"
+            ></tbi-fixture-team-selection>
+
+            <input
+                type="number"
+                v-model="fixture.home.score"
+                :class="get_bem('score')"
+                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][home][score]'"
+            />
+
+            <input
+                type="number"
+                v-model="fixture.away.score"
+                :class="get_bem('score')"
+                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][away][score]'"
+            />
+            
+            <tbi-fixture-team-selection
+                v-model="fixture.away.team"
+                :index="index"
+                :turn_index="turn_index"
+                :is_home="false"
+            ></tbi-fixture-team-selection>
+            
+            <input
+                v-model="fixture.place"
+                type="text"
+                :class="get_bem('place')"
+                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][place]'"
+            />
+
+            <input
+                v-model="fixture.date"
+                :class="get_bem('date')"
+                type="date"
+                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][date]'"
+            />
+
+            <button
+                :class="get_bem('delete')"
+                @click.prevent="remove_fixture"
+            ></button>
+        </div>
+    </tbi-competitions-fixture>
+</div>

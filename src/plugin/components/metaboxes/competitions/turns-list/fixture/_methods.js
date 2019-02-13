@@ -17,5 +17,9 @@ export default {
             turn_index: this.turn_index,
             type: 'fixture'
         }
+    },
+    
+    remove_fixture() {
+        this.$root.state.turns[this.turn_index].fixtures.splice(this.index, 1)
     }
 }
