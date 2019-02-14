@@ -6,6 +6,23 @@
     font-size: 18px;
 }
 
+%text_button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    line-height: 20px;
+    cursor: pointer;
+    background: transparent;
+
+    &:before {
+        @extend %dash_icon;
+        margin-right: 6px;
+        display: inline-block;
+    }
+}
+
 .tbi-competitions-turn {
     padding-bottom: 30px;
     margin-bottom: 30px;
@@ -59,25 +76,11 @@
         }
 
         &__button {
-            border: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 6px 10px;
-            color: $color-bg-light;
-            line-height: 20px;
-            cursor: pointer;
-            background: transparent;
+            @extend %text_button;
             margin-left: 15px;
 
             &:hover {
-                opacity: .6;
-            }
-
-            &:before {
-                @extend %dash_icon;
-                margin-right: 6px;
-                display: inline-block;
+                opacity: .7;
             }
 
             &--delete {
@@ -125,6 +128,21 @@
 
         &__date {
             flex-basis: 140px;
+        }
+    }
+
+    &s-list__add-turn {
+        @extend %text_button;
+        background: $color-selected;
+        color: $color-bg-light;
+
+        &:hover {
+            opacity: .7;
+        }
+        
+        &:before {
+            content: "\f132";
+            height: 16px;
         }
     }
 }
