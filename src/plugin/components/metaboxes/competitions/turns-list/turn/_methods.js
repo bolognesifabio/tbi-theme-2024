@@ -16,7 +16,7 @@ export default {
         let { turns, turns_dragged_data } = this.$root.state,
             removed_turn = turns.splice(turns_dragged_data.index, 1)[0]
             
-        turns.splice((this.index - 1), 0, removed_turn)
+        turns.splice(this.index, 0, removed_turn)
         turns_dragged_data = null
         this.is_dragged_over = false
     },
