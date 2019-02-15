@@ -15,6 +15,7 @@
     line-height: 20px;
     cursor: pointer;
     background: transparent;
+    white-space: nowrap;
 
     &:before {
         @extend %dash_icon;
@@ -29,6 +30,7 @@
     border-bottom: 1px solid $color-bg-main;
     display: flex;
     flex-direction: column;
+    overflow-x: scroll;
 
     &.dragged-over & {
         &__heading {
@@ -50,7 +52,6 @@
 
     &__heading {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         position: relative;
 
@@ -110,7 +111,8 @@
         }
         
         &__team {
-            flex-basis: 160px;
+            flex-basis: 140px;
+            min-width: 140px;
 
             &:first-child {
                 margin-left: 24px;
@@ -119,15 +121,18 @@
 
         &__results {
             flex-basis: 108px;
+            min-width: 108px;
             text-align: center;
         }
 
         &__place {
             flex-basis: 122px;
+            min-width: 122px;
         }
 
         &__date {
-            flex-basis: 140px;
+            flex-basis: 165px;
+            min-width: 165px;
         }
     }
 

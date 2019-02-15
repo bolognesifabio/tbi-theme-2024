@@ -21,5 +21,13 @@ export default {
     
     remove_fixture() {
         this.$root.state.turns[this.turn_index].fixtures.splice(this.index, 1)
+    },
+
+    copy_date() {
+        this.$root.state.turns_copied_date = this.fixture.date
+    },
+
+    paste_date() {
+        this.fixture.date = this.$root.state.turns_copied_date
     }
 }

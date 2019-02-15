@@ -52,12 +52,16 @@
                 :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][place]'"
             />
 
-            <input
-                v-model="fixture.date"
-                :class="get_bem('date')"
-                type="date"
-                :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][date]'"
-            />
+            <div :class="get_bem('date')">
+                <input
+                    v-model="fixture.date"
+                    :class="get_bem('date__input')"
+                    type="date"
+                    :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][date]'"
+                />
+                <button @click.prevent="copy_date" :class="get_bem('date__copy')"></button>
+                <button @click.prevent="paste_date" :class="get_bem('date__paste')"></button>
+            </div>
 
             <button
                 :class="get_bem('delete')"
