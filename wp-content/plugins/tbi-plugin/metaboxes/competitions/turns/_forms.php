@@ -6,7 +6,7 @@ $turns_meta = get_post_meta($post->ID, 'tbi-competitions-turns', true) ?: []; ?>
         <p v-if="!$root.state.turns.length" :class="get_bem('no-turns-message')">Non ci sono turni per questa competizione.</p>
         
         <tbi-competitions-turn inline-template v-for="(turn, turn_index) in $root.state.turns" :turn="turn" :index="turn_index" :key="turn_index">
-            <div :class="[base_class, { 'dragged-over': is_dragged_over }]"> <?php
+            <div :class="[base_class, { 'dragged-over': is_dragged_over, 'open': is_open }]"> <?php
                 include "_turn-headings.php";
                 include "_fixture.php"; ?>
             </div>

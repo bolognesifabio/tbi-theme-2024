@@ -28,9 +28,9 @@
     padding-bottom: 30px;
     margin-bottom: 30px;
     border-bottom: 1px solid $color-bg-main;
-    display: flex;
-    flex-direction: column;
     overflow-x: scroll;
+    overflow-y: hidden;
+    max-height: 30px;
 
     &.dragged-over & {
         &__heading {
@@ -100,6 +100,19 @@
                     height: 16px;
                 }
             }
+
+            &--open {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: auto;
+        
+                &:before {
+                    content: "\f347";
+                    margin: 0;
+                    transition: transform $transition-timing ease-in-out;
+                }
+            }
         }
     }
 
@@ -108,6 +121,7 @@
 
         h4 {
             text-align: center;
+            margin: 30px 0 15px 0;
         }
         
         &__team {
@@ -120,8 +134,8 @@
         }
 
         &__results {
-            flex-basis: 108px;
-            min-width: 108px;
+            flex-basis: 96px;
+            min-width: 96px;
             text-align: center;
         }
 
@@ -148,6 +162,23 @@
         &:before {
             content: "\f132";
             height: 16px;
+        }
+    }
+
+    &.open {
+        max-height: 9999px;
+        overflow-y: scroll;
+    }
+
+    &.open & {
+        &__heading {
+            &__button {
+                &--open {
+                    &:before {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
         }
     }
 }

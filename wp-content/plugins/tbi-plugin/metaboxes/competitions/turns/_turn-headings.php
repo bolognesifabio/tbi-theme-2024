@@ -13,8 +13,9 @@
 
     <input :class="get_bem('heading__input')" v-model="turn.name" :name="'tbi-competitions-turns[' + index + '][name]'" />
 
-    <button :class="get_bem('heading__button', { 'delete': true })" @click.prevent="remove_turn()">Elimina turno</button>
-    <button :class="get_bem('heading__button', { 'add': true })" @click.prevent="add_fixture()">Aggiungi partita</button>
+    <button :class="get_bem('heading__button', { 'delete': true })" @click.prevent="remove_turn">Elimina turno</button>
+    <button :class="get_bem('heading__button', { 'add': true })" @click.prevent="add_fixture">Aggiungi partita</button>
+    <button :class="get_bem('heading__button', { 'open': true })" @click.prevent="open_close_turn"></button>
 </div>
 
 <div v-if="has_turn_fixtures" :class="get_bem('fixtures-heading')">

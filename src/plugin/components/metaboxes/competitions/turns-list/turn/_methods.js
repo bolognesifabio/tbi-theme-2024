@@ -50,5 +50,9 @@ export default {
             place: null,
             date: null
         })
+    },
+
+    open_close_turn() {
+        this.is_open = !this.is_open
     }
 }
