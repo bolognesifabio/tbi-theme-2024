@@ -1,4 +1,4 @@
-<div :class="get_bem('fixtures-list')">
+<div :class="bem('fixtures-list')">
     <tbi-competitions-fixture inline-template
         v-for="(fixture, fixture_index) in turn.fixtures"
         :fixture="fixture"
@@ -7,12 +7,12 @@
         :key="fixture_index"
     >
         <div
-            :class="base_class" 
+            :class="bem_base" 
             @dragover="event => prevent_if_droppable(event)"
             @drop.prevent="drop_fixture"
         >
             <div
-                :class="get_bem('drag-area')"
+                :class="bem('drag-area')"
                 @dragstart="update_turns_dragged_data"
                 draggable="true"
             ></div>
@@ -27,14 +27,14 @@
             <input
                 type="number"
                 v-model="fixture.home.score"
-                :class="get_bem('score')"
+                :class="bem('score')"
                 :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][home][score]'"
             />
 
             <input
                 type="number"
                 v-model="fixture.away.score"
-                :class="get_bem('score')"
+                :class="bem('score')"
                 :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][away][score]'"
             />
             
@@ -48,23 +48,23 @@
             <input
                 v-model="fixture.place"
                 type="text"
-                :class="get_bem('place')"
+                :class="bem('place')"
                 :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][place]'"
             />
 
-            <div :class="get_bem('date')">
+            <div :class="bem('date')">
                 <input
                     v-model="fixture.date"
-                    :class="get_bem('date__input')"
+                    :class="bem('date__input')"
                     type="date"
                     :name="'tbi-competitions-turns[' + turn_index + '][fixtures][' + index + '][date]'"
                 />
-                <button @click.prevent="copy_date" :class="get_bem('date__copy')"></button>
-                <button @click.prevent="paste_date" :class="get_bem('date__paste')"></button>
+                <button @click.prevent="copy_date" :class="bem('date__copy')"></button>
+                <button @click.prevent="paste_date" :class="bem('date__paste')"></button>
             </div>
 
             <button
-                :class="get_bem('delete')"
+                :class="bem('delete')"
                 @click.prevent="remove_fixture"
             ></button>
         </div>

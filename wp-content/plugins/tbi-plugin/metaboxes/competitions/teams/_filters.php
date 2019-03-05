@@ -1,7 +1,7 @@
 <h3>Selezione squadre</h3>
 
 <tbi-competitions-filters inline-template>
-    <ul :class="base_class">
+    <ul :class="bem_base">
         <tbi-field label="Mostra solo squadre attive">
             <tbi-switch-checkbox>
                 <input slot-scope="slot_props" :class="slot_props.bem_class" :type="slot_props.type" v-model="$root.state.are_inactive_hidden" />

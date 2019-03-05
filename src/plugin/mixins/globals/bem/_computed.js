@@ -1,5 +1,5 @@
 export default {
-    base_class() {
+    bem_base() {
         return this.$options.name || this.$options._componentTag || ""
     }
 }

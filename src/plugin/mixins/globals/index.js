@@ -1,1 +1,1 @@
-import './css-classes'
+import './bem'
