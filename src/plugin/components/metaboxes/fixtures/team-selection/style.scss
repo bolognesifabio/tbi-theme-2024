@@ -1,0 +1,44 @@
+@import '../../../../../utilities/constants';
+
+.tbi-fixture-team-selection {
+    position: relative;
+    display: flex;
+    flex-basis: 140px;
+    min-width: 140px;
+
+    &__suggestions {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        transform: translateX(100%);
+        background: $color-bg-dark;
+        box-sizing: 0px 0px 10px 0px #C1C1C1;
+        color: $color-bg-light;
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        overflow-y: scroll;
+        max-height: 112px;
+        z-index: 9;
+
+        &__team {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 0;
+            
+            &:hover {
+                background: $color-bg-dark-hover;
+                color: $color-selected-hover;
+            }
+        }
+    }
+
+    &__search-field {
+        max-width: 138px;
+    }
+
+    &__selected-team {
+        display: none;
+    }
+}
