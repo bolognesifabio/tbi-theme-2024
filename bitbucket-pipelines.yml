@@ -16,13 +16,9 @@ pipelines:
             - npm install
       - step:
           name: Build
-          caches:
-            - node
           script:
-            - npm build
+            - npm run build
       - step:
           name: Deploy
-          caches:
-            - node
           script:
             - node deploy $DEV02_HOST $DEV02_USER $DEV02_PASSWORD
