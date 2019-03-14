@@ -13,12 +13,7 @@ pipelines:
           caches:
             - node
           script:
-            - cd client && npm install
-      - step:
-          name: Build
-          script:
+            - npm install
             - npm run build
-      - step:
-          name: Deploy
-          script:
             - node deploy $DEV02_HOST $DEV02_USER $DEV02_PASSWORD
+            
