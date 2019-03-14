@@ -13,7 +13,7 @@ pipelines:
           caches:
             - node
           script:
-            - npm install
+            - cd client && npm install
       - step:
           name: Build
           script:
