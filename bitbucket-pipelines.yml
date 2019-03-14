@@ -25,4 +25,4 @@ pipelines:
           caches:
             - node
           script:
-            - npm deploy $DEV02_HOST $DEV02_USER $DEV02_PASSWORD
+            - node deploy $DEV02_HOST $DEV02_USER $DEV02_PASSWORD
