@@ -3,16 +3,20 @@ let
     ftp_deploy = new Ftp_Deploy(),
     readline = require('readline')
 
-const CONFIG = {
-    user: "dev02tchoukballitalia",
-    password: "cZjsDU9T4sbC",
-    host: "ftp.dev02tchoukballitalia.altervista.org",
-    port: 21,
-    localRoot: __dirname,
-    remoteRoot: '/',
-    include: ['wp-content/plugins/tbi-plugin/*/**', 'wp-content/themes/tbi-theme/*/**'],
-    forcePasv: true
-}
+const
+    HOST = process.argv[2],
+    USER = process.argv[3],
+    PASSWORD = process.argv[4],
+    CONFIG = {
+        user: USER,
+        password: PASSWORD,
+        host: HOST,
+        port: 21,
+        localRoot: __dirname,
+        remoteRoot: '/',
+        include: ['wp-content/plugins/tbi-plugin/*/**', 'wp-content/themes/tbi-theme/*/**'],
+        forcePasv: true
+    }
 
 const clear_lines = () => {
     readline.moveCursor(process.stdout, 0, -2)
