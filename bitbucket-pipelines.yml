@@ -6,8 +6,8 @@
 image: node:8.15.0
 
 pipelines:
-  branches:
-    develop:
+  custom:
+    dev-deploy:
       - step:
           name: Installation
           caches:
