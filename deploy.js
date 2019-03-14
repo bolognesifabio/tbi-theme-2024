@@ -14,7 +14,7 @@ const
         port: 21,
         localRoot: __dirname,
         remoteRoot: '/',
-        include: ['wp-content/plugins/tbi-plugin/*/**', 'wp-content/themes/tbi-theme/*/**'],
+        include: ['wp-content/plugins/tbi-plugin/**/**', 'wp-content/themes/tbi-theme/**/**'],
         forcePasv: true
     }
 

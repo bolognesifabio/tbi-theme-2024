@@ -9,7 +9,7 @@ pipelines:
   custom:
     dev-deploy:
       - step:
-          name: Installation
+          name: Run
           caches:
             - node
           script:
