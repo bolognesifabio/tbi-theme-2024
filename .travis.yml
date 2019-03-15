@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "node"
+install:
+  - npm install
+branches:
+  only:
+  - develop
+  - release/*
+  - hotfix/*
+  - master
+script:
+  - npm run build
+  - if [ "$TRAVIS_BRANCH" = "develop" ]; then npm run deploy
