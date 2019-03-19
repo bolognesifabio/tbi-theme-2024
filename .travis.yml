@@ -11,7 +11,7 @@ branches:
   - master
 jobs:
   include:
-    if: branch = $DEV02_BRANCH
+    if: branch = env(DEV02_BRANCH)
     script:
       - npm run build
       - npm run deploy $DEV02_HOST $DEV02_USER $DEV02_PASS
