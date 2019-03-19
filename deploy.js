@@ -1,7 +1,6 @@
 let
     Ftp_Deploy = require('ftp-deploy'),
-    ftp_deploy = new Ftp_Deploy(),
-    readline = require('readline')
+    ftp_deploy = new Ftp_Deploy()
 
 const
     HOST = process.argv[2],
@@ -18,23 +17,12 @@ const
         forcePasv: true
     }
 
-const clear_lines = () => {
-    readline.moveCursor(process.stdout, 0, -2)
-    readline.clearLine(process.stdout)
-    readline.clearLine(process.stdout)
-}
-
 const launch_deploy = async () => {
     try {
-        clear_lines()
+        console.log('Deploy started')
         await ftp_deploy.deploy(CONFIG)
-        console.log('Build succeded')
-    } catch(error) { console.log(error) }
+        console.log('Deploy succeded')
+    } catch(error) { console.error(error) }
 }
-
-ftp_deploy.on('uploading', data => {
-    clear_lines()
-    console.log(`Transferring ${data.filename}\n${data.transferredFileCount} / ${data.totalFilesCount} files transferred`)
-});
 
 launch_deploy()
