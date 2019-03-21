@@ -5,9 +5,10 @@
   "scripts": {
     "start": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
-    "deploy": "node deploy"
+    "deploy": "node deploy/index"
   },
   "devDependencies": {
+    "@icetee/ftp": "^1.0.3",
     "babel-core": "^6.26.3",
     "babel-loader": "7.1.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -18,7 +19,6 @@
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
-    "ftp-deploy": "^2.3.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0",
@@ -27,6 +27,7 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "fs-extra": "^7.0.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
