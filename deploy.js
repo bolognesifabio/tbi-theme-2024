@@ -3,6 +3,9 @@ let
     fs = require('fs-extra'),
     ftp = new Client()
 
+
+
+
 // const CONNECTION_CONFIG = {
 //     host: process.argv[2],
 //     user: process.argv[3],
@@ -12,35 +15,47 @@ let
 const CONNECTION_CONFIG = {
     host: "127.0.0.1",
     user: "admin",
-    password: "1",
+    password: "",
     port: 21
 }
 let dir = "wp-content/plugins/tbi-plugin"
-fs.readdir(dir, (err, files) => {
-    files.forEach(file => {
-        fs.stat(`${dir}/${file}`, (err, stat) => {
-            if (stat && stat.isDirectory()) console.log(`${file} is a directory`)
-            else console.log(file)
-        })
-    })
-})
-
-// const launch_deploy = async () => {
-//     try {
-//         await ftp.connect(CONNECTION_CONFIG)
-//         console.log('Connection successed')
-//         ftp.list((error, files) => {
-//             files.forEach(file => {
-//                 console.log(file.name)
-//             })
+// fs.readdir(dir, (err, files) => {
+//     files.forEach(file => {
+//         fs.stat(`${dir}/${file}`, (err, stat) => {
+//             if (stat && stat.isDirectory()) console.log(`${file} is a directory`)
+//             else console.log(file)
 //         })
-//         ftp.end()
-//     } catch(error) {
-//         console.error(error)
-//     }
-// }
+//     })
+// })
 
-// launch_deploy()
+// c.on('ready', function () {
+//     c.list('wp-content/plugins/tbi-plugin', function (err, stream) {
+//         var content = '';
+//         stream.on('data', function (chunk) {
+//             content += chunk.toString();
+//         });
+//         stream.on('end', function () {
+//             // content variable now contains all file content. 
+//         });
+//     })
+// });
+
+const launch_deploy = async () => {
+    try {
+        await ftp.connect(CONNECTION_CONFIG)
+        
+        ftp.list("test-ftp", (error, files) => {
+            files.forEach(file => {
+                console.log(file.name)
+            })
+        })
+        ftp.end()
+    } catch(error) {
+        console.error(error)
+    }
+}
+
+launch_deploy()
 
 // const
 //     HOST = process.argv[2],
