@@ -1,26 +1,14 @@
-const
-    Promise_FTP = require('promise-ftp')
+require('events').EventEmitter.defaultMaxListeners = 99
 
-require('events').EventEmitter.defaultMaxListeners = 25
-
-const read_remote_folder = function(directory) {
+const read_remote_folder = function(ftp, directory) {
     return new Promise(resolve => {
-        let ftp = new Promise_FTP()
-    
-        ftp.connect({
-            host: "127.0.0.1",
-            user: "admin",
-            password: "",
-            port: 21
+        read_folder(ftp, directory)
+        .then(result => {
+            let output = flatten_files_list(result)
+            resolve(output)
+        }).catch(error => {
+            ftp.end()
         })
-            .then(() => { return read_folder(ftp, directory) })
-            .then(result => {
-                let output = flatten_files_list(result)
-                ftp.end()
-                resolve(output)
-            }).catch(error => {
-                ftp.end()
-            })
     })
 }
 
