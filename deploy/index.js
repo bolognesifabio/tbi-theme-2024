@@ -3,8 +3,10 @@ const
     read_remote_folder = require('./_read-remote-folder'),
     LOCAL_FOLDER_FILES = read_local_folder('wp-content/plugins/tbi-plugin')
 
-console.log(`Local folder contains ${LOCAL_FOLDER_FILES.length} files`)
+read_remote_folder(LOCAL_FOLDER_FILES, 'wp-content').then(remote_files => {
+    const DEPRECATED_REMOTE_FILES = remote_files.filter(file => {
+        return !LOCAL_FOLDER_FILES.includes(file)
+    })
 
-read_remote_folder('test-ftp').then(remote_files => {
-    console.log(`Remote folder contains ${remote_files.length} files`)
+    console.log(DEPRECATED_REMOTE_FILES)
 })

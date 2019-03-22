@@ -1,6 +1,8 @@
 const
     Promise_FTP = require('promise-ftp')
 
+require('events').EventEmitter.defaultMaxListeners = 25
+
 const read_remote_folder = function(directory) {
     return new Promise(resolve => {
         let ftp = new Promise_FTP()
