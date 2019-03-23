@@ -3,6 +3,7 @@ const
     read_local_folder = require('./_read-local-folder'),
     read_remote_folder = require('./_read-remote-folder'),
     deploy_package = require('./_deploy-package'),
+    make_directories = require('./_make-directories'),
     remove_deprecated = require('./_remove-deprecated'),
     LOCAL_FOLDER_FILES = read_local_folder('wp-content/plugins/tbi-plugin')   
 
@@ -16,6 +17,7 @@ ftp.connect({
     password: "",
     port: 21
 })
+    .then(() => { return make_directories(ftp, LOCAL_FOLDER_FILES) })
     .then(() => { return deploy_package(ftp, LOCAL_FOLDER_FILES) })
     .then(() => { return read_remote_folder(ftp, 'wp-content') })
     .then(remote_files => {
