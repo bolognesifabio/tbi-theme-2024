@@ -1,4 +1,4 @@
-require('events').EventEmitter.defaultMaxListeners = 99
+require('events').EventEmitter.defaultMaxListeners = 999
 
 const remove_deprecated = (ftp, deprecated_files) => {
     return new Promise(resolve => {

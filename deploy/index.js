@@ -4,8 +4,9 @@ const
     read_remote_folder = require('./_read-remote-folder'),
     deploy_package = require('./_deploy-package'),
     make_directories = require('./_make-directories'),
-    remove_deprecated = require('./_remove-deprecated'),
-    LOCAL_FOLDER_FILES = read_local_folder('wp-content/plugins/tbi-plugin')   
+    remove_deprecated = require('./_remove-deprecated')
+    LOCAL_FOLDER_FILES = read_local_folder('wp-content/plugins/tbi-plugin')
+        .concat(read_local_folder('wp-content/themes/tbi-theme'))
 
 require('events').EventEmitter.defaultMaxListeners = 99
 
@@ -19,7 +20,8 @@ ftp.connect({
     password: process.argv[4],
     port: 21,
     forcePasv: true,
-    keepalive: 10000
+    keepalive: 10000,
+    autoReconnect: true
 })
     .then(() => { return make_directories(ftp, LOCAL_FOLDER_FILES) })
     .then(() => { return deploy_package(ftp, LOCAL_FOLDER_FILES) })

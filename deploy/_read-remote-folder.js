@@ -1,4 +1,4 @@
-require('events').EventEmitter.defaultMaxListeners = 99
+require('events').EventEmitter.defaultMaxListeners = 999
 
 const read_remote_folder = function(ftp, directory) {
     return new Promise(resolve => {
