@@ -18,7 +18,8 @@ ftp.connect({
     user: process.argv[3],
     password: process.argv[4],
     port: 21,
-    forcePasv: true
+    forcePasv: true,
+    keepalive: 10000
 })
     .then(() => { return make_directories(ftp, LOCAL_FOLDER_FILES) })
     .then(() => { return deploy_package(ftp, LOCAL_FOLDER_FILES) })
