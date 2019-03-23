@@ -11,7 +11,7 @@ require('events').EventEmitter.defaultMaxListeners = 99
 
 let ftp = new Promise_FTP()
 
-console.log(`${LOCAL_FOLDER_FILES.length} to upload.\nConnecting to the server.`)
+console.log(`${LOCAL_FOLDER_FILES.length} files to upload.\nConnecting to the server.`)
 
 ftp.connect({
     host: "127.0.0.1",
