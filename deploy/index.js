@@ -14,9 +14,9 @@ let ftp = new Promise_FTP()
 console.log(`${LOCAL_FOLDER_FILES.length} files to upload.\nConnecting to the server.`)
 
 ftp.connect({
-    host: "127.0.0.1",
-    user: "admin",
-    password: "",
+    host: process.argv[2],
+    user: process.argv[3],
+    password: process.argv[4],
     port: 21
 })
     .then(() => { return make_directories(ftp, LOCAL_FOLDER_FILES) })
