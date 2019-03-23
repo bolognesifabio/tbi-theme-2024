@@ -2,13 +2,15 @@ require('events').EventEmitter.defaultMaxListeners = 99
 
 const read_remote_folder = function(ftp, directory) {
     return new Promise(resolve => {
+        console.log('Files uploaded.\nReading remote folder.')
         read_folder(ftp, directory)
-        .then(result => {
-            let output = flatten_files_list(result)
-            resolve(output)
-        }).catch(error => {
-            ftp.end()
-        })
+            .then(result => {
+                let output = flatten_files_list(result)
+                resolve(output)
+            }).catch(error => {
+                console.log(error)
+                ftp.end()
+            })
     })
 }
 
@@ -27,9 +29,11 @@ const read_folder = (ftp, directory) => {
 const flatten_files_list = files_list => {
     let output_list = []
     
-    Object.values(files_list).forEach(file => {
-        if (typeof file === "object") output_list.push(...flatten_files_list(file))
-        else output_list.push(file)
+    Object.keys(files_list).forEach(key => {
+        const FILE = files_list[key]
+
+        if (typeof FILE === "object") output_list.push(...flatten_files_list(FILE))
+        else output_list.push(FILE)
     })
 
     return output_list

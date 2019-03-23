@@ -11,6 +11,8 @@ require('events').EventEmitter.defaultMaxListeners = 99
 
 let ftp = new Promise_FTP()
 
+console.log(`${LOCAL_FOLDER_FILES.length} to upload.\nConnecting to the server.`)
+
 ftp.connect({
     host: "127.0.0.1",
     user: "admin",
@@ -27,4 +29,7 @@ ftp.connect({
 
         return remove_deprecated(ftp, DEPRECATED_REMOTE_FILES)
     })
-    .then(() => { ftp.end() })
+    .then(() => {
+        console.log('Files deleted.')
+        ftp.end()
+    })
