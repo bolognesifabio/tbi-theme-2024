@@ -21,6 +21,7 @@ ftp.connect({
     port: 21,
     forcePasv: true,
     keepalive: 10000,
+    pasvTimeout: 120000,
     autoReconnect: true
 })
     .then(() => { return make_directories(ftp, LOCAL_FOLDER_FILES) })
