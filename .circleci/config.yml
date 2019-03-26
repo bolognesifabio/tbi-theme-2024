@@ -1,10 +1,26 @@
 version: 2
 jobs:
-   build:
-     docker:
-       - image: circleci/node:latest
-     steps:
-       - checkout
-       - run: npm install
-       - run: npm run build
-       - run: npm run deploy $DEV02_HOST $DEV02_USER $DEV02_PASS
+  build:
+    branches:
+      only:
+        - master
+        - develop
+        - /feature*/
+        - /hotfix*/
+        - /release*/
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+        name: Installation
+        command: npm install
+      - run:
+        name: Build
+        command: npm run build
+      - when:
+        condition: $CIRCLE_BRANCH is $DEV02_BRANCH
+        steps:
+          - run:
+            name: Deploy on DEV02
+            command: npm run deploy $DEV02_HOST $DEV02_USER $DEV02_PASS
