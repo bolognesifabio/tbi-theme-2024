@@ -1,13 +1,6 @@
-version: 2
+version: 2.1
 jobs:
   build:
-    branches:
-      only:
-        - master
-        - develop
-        - /feature*/
-        - /hotfix*/
-        - /release*/
     docker:
       - image: circleci/node:latest
     steps:
@@ -18,7 +11,28 @@ jobs:
       - run:
           name: Build
           command: npm run build
+  deploy_dev_02:
+    docker:
+      - image: circleci/node:latest
+    steps:
       - run:
           name: Deploy on DEV02
           command: npm run deploy $DEV02_HOST $DEV02_USER $DEV02_PASS
-          when: $CIRCLE_BRANCH is $DEV02_BRANCH
+workflows:
+  version: 2.1
+  dev_02:
+    jobs:
+    - build:
+        filters:
+          branches:
+            only:
+            - master
+            - develop
+            - /feature*/
+            - /hotfix*/
+            - /release*/
+    - deploy_dev_02:
+        filters:
+          branches:
+            only:
+            - develop
