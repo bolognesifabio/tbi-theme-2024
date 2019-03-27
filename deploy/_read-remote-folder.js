@@ -1,6 +1,6 @@
 require('events').EventEmitter.defaultMaxListeners = 999
 
-const read_remote_folder = function(ftp, directory, parsed_remote_directory) {
+const read_remote_folder = function(ftp, directory, parsed_remote_directory = []) {
     return new Promise(resolve => {
         console.log('Files uploaded.\n\nReading remote folder.')
         read_folder(ftp, directory)
