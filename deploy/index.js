@@ -28,7 +28,8 @@ ftp.connect({
 })
     .then(() => { return make_directories(ftp, LOCAL_FOLDER_FILES) })
     .then(() => { return deploy_package(ftp, LOCAL_FOLDER_FILES) })
-    .then(() => { return read_remote_folder(ftp, 'wp-content') })
+    .then(() => { return read_remote_folder(ftp, 'wp-content/plugins/tbi-plugin') })
+    .then(remote_plugin_folder => { return read_remote_folder(ftp, 'wp-content/themes/tbi-theme', remote_plugin_folder) })
     .then(remote_files => {
         const DEPRECATED_REMOTE_FILES = remote_files.filter(file => {
             return !LOCAL_FOLDER_FILES.includes(file)
