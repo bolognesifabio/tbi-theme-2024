@@ -1,4 +1,6 @@
 const
+    CURRENT_BRANCH = process.env.CIRCLE_BRANCH.toUpperCase(),
+    ENVIRONMENT_KEY = process.env[`${CURRENT_BRANCH}_ENVIRONMENT`] || 'DEV02',
     Promise_FTP = require('promise-ftp'),
     read_local_folder = require('./_read-local-folder'),
     read_remote_folder = require('./_read-remote-folder'),
@@ -15,9 +17,9 @@ let ftp = new Promise_FTP()
 console.log(`${LOCAL_FOLDER_FILES.length} files to upload.\nConnecting to the server.`)
 
 ftp.connect({
-    host: process.argv[2],
-    user: process.argv[3],
-    password: process.argv[4],
+    host: process.env[`${ENVIRONMENT_KEY}_HOST`],
+    user: process.env[`${ENVIRONMENT_KEY}_USER`],
+    password: process.env[`${ENVIRONMENT_KEY}_PASS`],
     port: 21,
     forcePasv: true,
     keepalive: 10000,
