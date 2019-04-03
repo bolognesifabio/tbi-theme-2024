@@ -1,7 +1,4 @@
 <?php
-require_once(plugin_dir_path(__FILE__) . 'competitions/index.php');
-require_once(plugin_dir_path(__FILE__) . 'leagues/index.php');
-require_once(plugin_dir_path(__FILE__) . 'cups/index.php');
-require_once(plugin_dir_path(__FILE__) . 'clubs/index.php');
-require_once(plugin_dir_path(__FILE__) . 'teams/index.php');
-require_once(plugin_dir_path(__FILE__) . 'fixtures/index.php');
+foreach(glob(plugin_dir_path(__FILE__) . '/*', GLOB_ONLYDIR) as $post_type_directory) {
+    require_once($post_type_directory . '/index.php');
+}

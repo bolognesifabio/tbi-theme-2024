@@ -9,7 +9,7 @@ const get_config = (context, output_directory) => {
     const WP_CONTENT_FOLDER_PATH = `wp-content/${context}s/tbi-${context}/dist`
 
     return {
-        entry: ['babel-polyfill', `./src/${context}/index.js`, `./src/${context}/critical/index.scss`],
+        entry: [`./src/${context}/index.js`, `./src/${context}/critical/index.scss`],
         output: {
             publicPath: `/${WP_CONTENT_FOLDER_PATH}/${output_directory}/`,
             path: path.resolve(__dirname, WP_CONTENT_FOLDER_PATH, output_directory),
