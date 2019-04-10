@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  TBI - Plugin
+Plugin Name:  Tchoukball Italia - Plugin
 Description:  A plugin to manage Tchoukball competitions
 Version:      2.0.0
 Author:       Valerio Senneca

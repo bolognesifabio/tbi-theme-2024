@@ -3,7 +3,7 @@ wp-includes/*
 wp-content/*
 node_modules/*
 
-*.php
+/*.php
 
 !wp-content/plugins
 wp-content/plugins/*
