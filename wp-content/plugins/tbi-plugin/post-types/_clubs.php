@@ -1,5 +1,5 @@
 <?php
-namespace TBI\Models;
+use TBI\Models\Post_Type as Post_Type;
 
 $options = [
     'labels' => [
@@ -26,6 +26,7 @@ $options = [
         'menu_name' => 'Società',
         'name_admin_bar' => 'Società'
     ],
+    'menu_position' => 30,
     'rewrite' => [
         'slug' => 'societa'
     ]

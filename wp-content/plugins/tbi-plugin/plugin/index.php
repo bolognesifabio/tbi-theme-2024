@@ -1,7 +1,7 @@
 <?php
 namespace TBI;
 
-Class Plugin {
+class Plugin {
     public function __construct() { require '__construct.php'; }
     public function activate() { require '_activate.php'; }
     public function deactivate() { require '_deactivate.php'; }

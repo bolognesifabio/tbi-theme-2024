@@ -1,4 +1,4 @@
 <?php
-foreach(glob(plugin_dir_path(__FILE__) . '/*', GLOB_ONLYDIR) as $post_type_directory) {
-    require_once($post_type_directory . '/index.php');
-}
+use TBI\Helpers\Files as Files_Helper;
+
+Files_Helper::require_all_files(plugin_dir_path(__FILE__));
