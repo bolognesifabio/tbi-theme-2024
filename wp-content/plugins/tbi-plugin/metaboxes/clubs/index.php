@@ -10,7 +10,5 @@ class Clubs extends Metabox {
 new Clubs([
     'id' => 'clubs',
     'title' => 'Informazioni della società',
-    'post_types' => ['clubs'],
-    'context' => 'advanced',
-    'priority' => 'high'
+    'post_types' => ['clubs']
 ]);

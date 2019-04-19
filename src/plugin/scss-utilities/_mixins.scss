@@ -1,0 +1,25 @@
+@import 'constants';
+
+@mixin media-custom($width) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin media-tablet() {
+    @include media-custom($media-tablet) {
+		@content;
+	}
+}
+
+@mixin media-desktop() {
+    @include media-custom($media-desktop) {
+		@content;
+	}
+}
+
+@mixin media-large-desktop() {
+    @include media-custom($media-large-desktop) {
+		@content;
+	}
+}

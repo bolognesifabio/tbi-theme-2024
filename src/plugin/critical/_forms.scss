@@ -1,0 +1,43 @@
+@import '../scss-utilities/mixins';
+
+.tbi-metaboxes-form {
+    display: flex;
+    flex-direction: column;
+
+    &__field {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 10px 0;
+
+        &__label {
+            flex-basis: 200px;
+            max-width: 200px;
+            font-weight: 500;
+        }
+
+        &__value {
+            flex-basis: 100%;
+            max-width: 200px;
+
+            &--short {
+                flex-basis: 60px;
+                max-width: 60px;
+            }
+
+            &[type="tel"] {
+                padding: 6px 10px;
+            }
+        }
+    }
+
+    @include media-custom(782px) {
+        &__field {
+            &__value {
+                &[type="tel"] {
+                    padding: 3px 5px;
+                }
+            }
+        }
+    }
+}
