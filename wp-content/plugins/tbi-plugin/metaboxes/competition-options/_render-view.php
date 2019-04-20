@@ -14,17 +14,29 @@ $seasons_taxonomy_options = [
 ];
 ?>
 
-<h4>Competizione</h4> <?php
-Metaboxes_Helper::render_taxonomy_select($competitions_taxonomy_options); ?>
+<div class="tbi-metaboxes-form tbi-metaboxes-form--side">
+    <div class="tbi-metaboxes-form__field tbi-metaboxes-form__field--wrap">
+        <label class="tbi-metaboxes-form__field__label">Competizione</label> <?php
+        Metaboxes_Helper::render_taxonomy_select($competitions_taxonomy_options); ?>
+    </div>
 
-<h4>Stagione</h4> <?php
-Metaboxes_Helper::render_taxonomy_select($seasons_taxonomy_options); ?>
+    <div class="tbi-metaboxes-form__field tbi-metaboxes-form__field--wrap">
+        <label class="tbi-metaboxes-form__field__label">Stagione</label> <?php
+        Metaboxes_Helper::render_taxonomy_select($seasons_taxonomy_options); ?>        
+    </div>
 
-<h4>Punti vittoria</h4>
-<input type="number" />
+    <div class="tbi-metaboxes-form__field">
+        <label class="tbi-metaboxes-form__field__label">Punti vittoria</label>
+        <input class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short" type="number" name="tbi-league-victory-points" value="2" />        
+    </div>
 
-<h4>Punti pareggio</h4>
-<input type="number" />
+    <div class="tbi-metaboxes-form__field">
+        <label class="tbi-metaboxes-form__field__label">Punti pareggio</label>
+        <input class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short" type="number" name="tbi-league-draw-points" value="1" />        
+    </div>
 
-<h4>Punti sconfitta</h4>
-<input type="number" />
+    <div class="tbi-metaboxes-form__field">
+        <label class="tbi-metaboxes-form__field__label">Punti sconfitta</label>
+        <input class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short" type="number" name="tbi-league-loss-points" value="0" />        
+    </div>
+</div>

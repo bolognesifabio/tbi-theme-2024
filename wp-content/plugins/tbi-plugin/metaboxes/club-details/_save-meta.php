@@ -9,5 +9,5 @@ if (get_post_type($post_id) === 'clubs') {
         $club_contacts[$key] = $_POST['tbi-club-' . $key] ?: "";
     }
     
-    update_post_meta($post_id, 'tbi-clubs-contacts', $club_contacts);
+    update_post_meta($post_id, 'tbi-clubs-details', $club_contacts);
 }

@@ -1,4 +1,5 @@
 @import '../scss-utilities/mixins';
+@import '../scss-utilities/constants';
 
 .tbi-metaboxes-form {
     display: flex;
@@ -8,11 +9,16 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin: 10px 0;
+        height: 42px;
+
+        input,
+        select {
+            margin: 0;
+        }
 
         &__label {
-            flex-basis: 200px;
-            max-width: 200px;
+            flex-basis: 160px;
+            max-width: 160px;
             font-weight: 500;
         }
 
@@ -28,6 +34,41 @@
             &[type="tel"] {
                 padding: 6px 10px;
             }
+
+            &[type="checkbox"] {
+                flex-basis: 16px;
+
+                &:checked {
+                    background: $color-selected;
+
+                    &:before {
+                        color: $color-bg-box;
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+
+        &--wrap {
+            flex-wrap: wrap;
+        }
+    }
+
+    #side-sortables & {
+        &__field {
+            justify-content: space-between;
+            
+            &--wrap {
+                margin-bottom: 20px;
+            }
+
+            &__label {
+                margin-bottom: 2px;
+            }
+        }
+
+        .tbi-metaboxes-term-select {
+            flex-basis: 100%;
         }
     }
 

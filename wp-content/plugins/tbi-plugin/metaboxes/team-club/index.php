@@ -2,13 +2,15 @@
 namespace TBI\Metaboxes;
 use TBI\Models\Metabox as Metabox;
 
-class Clubs extends Metabox {
+class Team_Club extends Metabox {
     public function render_view($post) { require '_render-view.php'; }
     public function save_meta($post_id) { require '_save-meta.php'; }
 }
 
-new Clubs([
-    'id' => 'clubs',
-    'title' => 'Informazioni della società',
-    'post_types' => ['clubs']
+new Team_Club([
+    'id' => 'team-club',
+    'title' => 'Societ&agrave;',
+    'post_types' => ['teams'],
+    'context' => 'side',
+    'priority' => 'default'
 ]);
