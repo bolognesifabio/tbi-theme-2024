@@ -14,6 +14,10 @@ $fields = [
     'is-inactive' => [
         'label' => 'Non pi&ugrave; in attivit&agrave;',
         'type' => 'checkbox'
+    ],
+    'is-hidden' => [
+        'label' => 'Squadra senza pagina',
+        'type' => 'checkbox'
     ]
 ];
 ?>

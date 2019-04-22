@@ -23,3 +23,25 @@
 		@content;
 	}
 }
+
+@mixin checkbox() {
+	&[type="checkbox"] {
+		flex-basis: 25px;
+		margin: 0;
+	
+		&:checked {
+			background: $color-selected;
+	
+			&:before {
+				color: $color-bg-box;
+				opacity: .8;
+			}
+		}
+
+		@include media-custom(782px) {
+			flex-basis: 16px;
+		}
+
+		@content
+	}
+}

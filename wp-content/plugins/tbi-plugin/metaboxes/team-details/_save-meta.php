@@ -11,6 +11,7 @@ if ($is_post_type_teams) {
     }
 
     $meta_value['is-inactive'] = isset($_POST['tbi-team-is-inactive']);
+    $meta_value['is-hidden'] = isset($_POST['tbi-team-is-hidden']);
 
     update_post_meta($post_id, 'tbi-teams-details', $meta_value);
 }

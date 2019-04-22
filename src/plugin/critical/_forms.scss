@@ -23,6 +23,7 @@
         }
 
         &__value {
+			@include checkbox;
             flex-basis: 100%;
             max-width: 200px;
 
@@ -33,19 +34,6 @@
 
             &[type="tel"] {
                 padding: 6px 10px;
-            }
-
-            &[type="checkbox"] {
-                flex-basis: 16px;
-
-                &:checked {
-                    background: $color-selected;
-
-                    &:before {
-                        color: $color-bg-box;
-                        opacity: .8;
-                    }
-                }
             }
         }
 
