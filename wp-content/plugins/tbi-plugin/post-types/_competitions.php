@@ -26,8 +26,9 @@ $options = [
         'menu_name' => 'Competizioni',
         'name_admin_bar' => 'Competizioni'
     ],
+    'show_in_nav_menus' => true,
     'menu_position' => 25,
-    'supports' => ['thumbnail', 'title'],
+    'supports' => ['thumbnail', 'title', 'editor', 'excerpt'],
     'rewrite' => [
         'slug' => 'competizioni'
     ]

@@ -1,6 +1,8 @@
 <?php
 use TBI\Helpers\Metaboxes as Metaboxes_Helper;
 
+$is_post_type_leagues = get_post_type($post_id) === 'leagues';
+
 $competitions_taxonomy_options = [
     'key' => 'competitions',
     'empty_taxonomy_message' => 'Non ci sono competizioni disponibili.<br/>Creane una nella sezione apposita.',
@@ -12,6 +14,25 @@ $seasons_taxonomy_options = [
     'empty_taxonomy_message' => 'Non ci sono stagioni disponibili.<br/>Creane una nella sezione apposita.',
     'default_option_text' => 'Seleziona la stagione'
 ];
+
+$competition_options_meta = get_post_meta($post->ID, 'tbi-competition-options', true) ?: [];
+
+if ($is_post_type_leagues) {
+    $league_options_fields = [
+        'victory-points' => [
+            'default' => 2,
+            'label' => 'Punti vittoria'
+        ],
+        'draw-points' => [
+            'default' => 1,
+            'label' => 'Punti pareggio'
+        ],
+        'loss-points' => [
+            'default' => 0,
+            'label' => 'Punti sconfitta'
+        ]
+    ];
+}
 ?>
 
 <div class="tbi-metaboxes-form tbi-metaboxes-form--side">
@@ -25,20 +46,27 @@ $seasons_taxonomy_options = [
         Metaboxes_Helper::render_taxonomy_select($seasons_taxonomy_options); ?>        
     </div> <?php
 
-    if (get_post_type($post_id) === 'leagues') { ?>
-        <div class="tbi-metaboxes-form__field">
-            <label class="tbi-metaboxes-form__field__label">Punti vittoria</label>
-            <input class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short" type="number" name="tbi-league-victory-points" value="2" />        
-        </div>
-    
-        <div class="tbi-metaboxes-form__field">
-            <label class="tbi-metaboxes-form__field__label">Punti pareggio</label>
-            <input class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short" type="number" name="tbi-league-draw-points" value="1" />        
-        </div>
-    
-        <div class="tbi-metaboxes-form__field">
-            <label class="tbi-metaboxes-form__field__label">Punti sconfitta</label>
-            <input class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short" type="number" name="tbi-league-loss-points" value="0" />        
-        </div> <?php
+    if ($is_post_type_leagues) {
+        foreach ($league_options_fields as $field_key => $field_value) { ?>
+            <div class="tbi-metaboxes-form__field">
+                <label class="tbi-metaboxes-form__field__label"><?= $field_value['label'] ?></label>
+                <input
+                    class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short"
+                    type="number"
+                    name="tbi-competition-<?= $field_key ?>"
+                    value="<?= $competition_options_meta[$field_key] !== null ? $competition_options_meta[$field_key] : $field_value['default'] ?>"
+                />        
+            </div> <?php
+        }
     } ?>
+
+    <div class="tbi-metaboxes-form__field">
+        <label class="tbi-metaboxes-form__field__label">Priorit&agrave nella competizione</label>
+        <input
+            class="tbi-metaboxes-form__field__value tbi-metaboxes-form__field__value--short"
+            type="number"
+            name="tbi-competition-priority"
+            value="<?= $competition_options_meta['priority'] ?: 0 ?>"
+        />        
+    </div>
 </div>

@@ -5,6 +5,7 @@ $default_options = [
     'public' => true,
     'show_ui' => true,
     'show_in_menu' => true,
+    'show_in_nav_menus' => false,
     'hierarchical' => false,
     'menu_icon' => plugins_url('tbi-plugin/img/' . $type_name . '.svg'),
     'supports' => ['title', 'editor', 'thumbnail']

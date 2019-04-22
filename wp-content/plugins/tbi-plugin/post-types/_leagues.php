@@ -30,7 +30,7 @@ $options = [
         'name_admin_bar' => 'Campionato'
     ],
     'menu_position' => 26,
-    'supports' => ['title'],
+    'supports' => ['title', 'editor', 'excerpt'],
     'rewrite' => [
         'slug' => 'campionati'
     ]
