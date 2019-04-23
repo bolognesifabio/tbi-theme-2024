@@ -19,5 +19,13 @@ export default {
 
     reset_current_dragged() {
         this.current_dragged = null
+    },
+
+    is_turn_dragged(index) {
+        return this.current_dragged && this.current_dragged.index === index
+    },
+
+    toggle_open_status(index) {
+        this.$root.state.turns[index].is_open = !this.$root.state.turns[index].is_open
     }
 }

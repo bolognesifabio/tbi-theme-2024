@@ -10,31 +10,95 @@
     &__list {
         &__item {
             display: flex;
+            flex-wrap: wrap;
             border: 1px solid $color-border;
             box-shadow: 0 1px 1px rgba($color-bg-dark, .1);
             background: $color-bg-light;
-            padding: 5px 15px;
+            padding: 0 15px;
+            max-height: 38px;
+            height: auto;
+            overflow-y: hidden;
 
             &--dragged {
                 background: $color-border;
             }
 
-            &__draggable {
+            &__value[type="text"] {
+                background-color: transparent;
+                margin: 5px 0;
+            }
+
+            &__draggable,
+            &__delete,
+            &__add,
+            &__open {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                cursor: move;
 
                 &:before {
                     @extend %dash_icon;
-                    content: "\f333";
-                    margin-right: 6px;
                     display: inline-block;
                 }
             }
 
-            &__value[type="text"] {
-                background-color: transparent;
+            &__delete,
+            &__add,
+            &__open {
+                border: none;
+                background: none;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+
+            &__draggable {
+                margin-right: 6px;
+                cursor: move;
+
+                &:before {
+                    content: "\f333";
+                }
+            }
+
+            &__delete {
+                color: $color-delete;
+                margin-left: auto;
+
+                &:before {
+                    content: "\f182";
+                }
+            }
+
+            &__add {
+                color: $color-selected;
+                
+                &:before {
+                    content: "\f132";
+                    padding-top: 4px;
+                }
+            }
+
+            &__open {        
+                &:before {
+                    content: "\f347";
+                    margin: 0;
+                }
+            }
+
+            &--open {
+                max-height: 9999px;
+            }
+
+            &--open & {
+                &__open {
+                    &:before {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            table {
+                flex-basis: 100%;
             }
         }
     }
