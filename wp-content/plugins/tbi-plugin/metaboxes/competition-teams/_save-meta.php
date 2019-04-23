@@ -2,10 +2,12 @@
 const PARTICIPANTS_INPUT_NAME = 'tbi-competition-teams-participants';
 const INFO_INPUT_NAME = 'tbi-competition-teams-info';
 
-if (in_array(get_post_type($post_id), ['leagues', 'cups']) && isset($_POST[PARTICIPANTS_INPUT_NAME])) {
+$competition_participants = isset($_POST[PARTICIPANTS_INPUT_NAME]) ? $_POST[PARTICIPANTS_INPUT_NAME] : [];
+
+if (in_array(get_post_type($post_id), ['leagues', 'cups'])) {
     $participants = [];
 
-    foreach ($_POST[PARTICIPANTS_INPUT_NAME] as $participant_id) {
+    foreach ($competition_participants as $participant_id) {
         $participants[$participant_id] = [
             "name" => $_POST[INFO_INPUT_NAME . '-name'][$participant_id],
             "short_name" => $_POST[INFO_INPUT_NAME . '-short-name'][$participant_id],
