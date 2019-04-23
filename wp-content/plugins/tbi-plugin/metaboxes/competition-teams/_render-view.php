@@ -1,5 +1,4 @@
 <?php
-use TBI\Helpers\Metaboxes as Metaboxes_Helper;
 use TBI\Models\Team as Team_Model;
 
 $meta_teams = get_post_meta($post->ID, 'tbi-competitions-teams', true) ?: [];

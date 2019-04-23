@@ -1,0 +1,41 @@
+@import '../../../scss-utilities/constants';
+
+%dash_icon {
+    font-family: dashicons;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.tbi-league-turns {
+    &__list {
+        &__item {
+            display: flex;
+            border: 1px solid $color-border;
+            box-shadow: 0 1px 1px rgba($color-bg-dark, .1);
+            background: $color-bg-light;
+            padding: 5px 15px;
+
+            &--dragged {
+                background: $color-border;
+            }
+
+            &__draggable {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: move;
+
+                &:before {
+                    @extend %dash_icon;
+                    content: "\f333";
+                    margin-right: 6px;
+                    display: inline-block;
+                }
+            }
+
+            &__value[type="text"] {
+                background-color: transparent;
+            }
+        }
+    }
+}
