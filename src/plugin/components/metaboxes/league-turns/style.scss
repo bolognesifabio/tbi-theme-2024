@@ -105,6 +105,10 @@
                 left: 0;
                 height: 38px;
                 width: 100%;
+
+                &--fixtures {
+                    z-index: 3;
+                }
             }
 
             table {

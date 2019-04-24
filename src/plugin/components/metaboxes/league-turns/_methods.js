@@ -6,6 +6,10 @@ export default {
         })
     },
 
+    add_fixture(index) {
+        this.$root.state.turns[index].fixtures.push("NEW MATCH")
+    },
+
     switch_turns(event, index) {
         if (this.current_dragged_turn) {
             const IS_DRAGGABLE_MOVING_DOWN = index > this.current_dragged_turn.index
@@ -37,12 +41,12 @@ export default {
         this.current_dragged_turn = { index, turn }
     },
 
-    reset_current_dragged_turn() {
-        this.current_dragged_turn = null
-    },
-
     set_current_dragged_fixture(turn_index, fixture_index, fixture) {
         this.current_dragged_fixture = { turn_index, fixture_index, fixture }
+    },
+
+    reset_current_dragged_turn() {
+        this.current_dragged_turn = null
     },
 
     reset_current_dragged_fixture() {
