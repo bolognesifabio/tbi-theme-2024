@@ -18,6 +18,7 @@
             max-height: 38px;
             height: auto;
             overflow-y: hidden;
+            position: relative;
 
             &--dragged {
                 background: $color-border;
@@ -54,6 +55,7 @@
             &__draggable {
                 margin-right: 6px;
                 cursor: move;
+                z-index: 2;
 
                 &:before {
                     content: "\f333";
@@ -97,8 +99,17 @@
                 }
             }
 
+            &__droppable {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 38px;
+                width: 100%;
+            }
+
             table {
                 flex-basis: 100%;
+
             }
         }
     }
