@@ -6,8 +6,10 @@ export default {
         })
     },
 
-    add_fixture(index) {
-        this.$root.state.turns[index].fixtures.push("NEW MATCH")
+    async add_fixture(index) {
+        // this.$root.state.turns[index].fixtures.push("NEW MATCH")
+        const api_call_result = await axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi-plugin/v1/competitions/fixtures/28`)
+        console.log(api_call_result)
     },
 
     switch_turns(event, index) {
