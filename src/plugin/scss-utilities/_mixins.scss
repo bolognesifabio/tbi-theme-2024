@@ -27,6 +27,7 @@
 @mixin checkbox() {
 	&[type="checkbox"] {
 		flex-basis: 25px;
+		height: 25px;
 		margin: 0;
 	
 		&:checked {
@@ -40,8 +41,15 @@
 
 		@include media-custom(782px) {
 			flex-basis: 16px;
+			height: 16px;
 		}
 
-		@content
+		@content;
 	}
+}
+
+@mixin dash-icon() {
+    font-family: dashicons;
+    font-weight: 400;
+    font-size: 18px;
 }

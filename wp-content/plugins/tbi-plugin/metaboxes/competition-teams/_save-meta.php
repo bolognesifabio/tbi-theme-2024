@@ -13,7 +13,8 @@ if (in_array(get_post_type($post_id), ['leagues', 'cups'])) {
             "short_name" => $_POST[INFO_INPUT_NAME . '-short-name'][$participant_id],
             "code" => $_POST[INFO_INPUT_NAME . '-code'][$participant_id],
             "penalty" => $_POST[INFO_INPUT_NAME . '-penalty'][$participant_id],
-            "priority" => $_POST[INFO_INPUT_NAME . '-priority'][$participant_id]
+            "priority" => $_POST[INFO_INPUT_NAME . '-priority'][$participant_id],
+            "is_not_in_standings" => $_POST[INFO_INPUT_NAME . '-is-not-in-standings'][$participant_id]
         ];
     }
 

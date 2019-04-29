@@ -12,6 +12,7 @@ export default /* html */ `
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Sigla</th>
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Penalit&agrave;</th>
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Priorit&agrave;</th>
+                        <th :class="bem('scroll-container__table__headings__text', { 'narrow': true, 'is-not-in-standings': true })"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,9 @@ export default /* html */ `
                         </td>
                         <td :class="bem('scroll-container__table__team__input', { 'narrow': true })">
                             <input :name="'tbi-competition-teams-info-priority[' + team.id + ']'" type="number" v-model="team.competition_info.priority" min="0" max="99" />
+                        </td>
+                        <td :class="bem('scroll-container__table__team__input', { 'narrow': true, 'is-not-in-standings': true })">
+                            <input :name="'tbi-competition-teams-info-is-not-in-standings[' + team.id + ']'" type="checkbox" v-model="team.competition_info.is_not_in_standings" />
                         </td>
                     </tr>
                 </tbody>

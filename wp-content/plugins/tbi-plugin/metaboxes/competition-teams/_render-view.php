@@ -9,7 +9,8 @@ $all_teams = array_map(function($team) use($meta_teams) {
         'short_name' => $team->short_name,
         'code' => $team->code,
         'penalty' => 0,
-        'priority' => 0
+        'priority' => 0,
+        'is_not_in_standings' => false
     ];
     return $team;
 }, Team_Model::get_all_teams()); ?>

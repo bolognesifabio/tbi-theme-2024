@@ -1,10 +1,5 @@
 @import '../../../scss-utilities/constants';
-
-%dash_icon {
-    font-family: dashicons;
-    font-weight: 400;
-    font-size: 18px;
-}
+@import '../../../scss-utilities/mixins';
 
 .tbi-league-turns {
     &__list {
@@ -38,7 +33,7 @@
                 align-items: center;
 
                 &:before {
-                    @extend %dash_icon;
+                    @include dash-icon;
                     display: inline-block;
                 }
             }
@@ -54,7 +49,7 @@
 
             &__draggable {
                 margin-right: 6px;
-                cursor: move;
+                cursor: grab;
                 z-index: 2;
 
                 &:before {
@@ -113,7 +108,6 @@
 
             table {
                 flex-basis: 100%;
-
             }
         }
     }
