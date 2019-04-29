@@ -26,6 +26,7 @@ export default {
 
             this.$root.state.turns[turn_index].fixtures.splice(fixture_index + (!IS_MOVING_TO_ANOTHER_TURN && IS_DRAGGABLE_MOVING_DOWN), 0, this.current_dragged_fixture.fixture)
             this.$root.state.turns[this.current_dragged_fixture.turn_index].fixtures.splice(this.current_dragged_fixture.fixture_index + (IS_MOVING_TO_ANOTHER_TURN ? 0 : !IS_DRAGGABLE_MOVING_DOWN), 1)
+            this.$root.state.turns[this.current_dragged_fixture.turn_index].is_open = this.$root.state.turns[this.current_dragged_fixture.turn_index].is_open && this.$root.state.turns[this.current_dragged_fixture.turn_index].fixtures.length
             this.current_dragged_fixture.fixture_index = fixture_index
             this.current_dragged_fixture.turn_index = turn_index
         }

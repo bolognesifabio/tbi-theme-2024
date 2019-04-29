@@ -10,8 +10,7 @@ export default /* html */ `
             @dragend="reset_current_dragged_fixture"
             :class="bem('list__item__fixtures__item__draggable')"
         ></td>
-        
-        <td :class="bem('list__item__fixtures__item__logo', { home: true })">@</td>
+
         <td :class="bem('list__item__fixtures__item__team', { home: true })">
             <input type="text" v-model="fixture.teams.home.id" />
         </td>
@@ -30,7 +29,6 @@ export default /* html */ `
             <input type="text" v-model="fixture.teams.away.id" />
         </td>
         
-        <td :class="bem('list__item__fixtures__item__logo', { away: true })">@</td>
         <td :class="bem('list__item__fixtures__item__place')">
             <input type="text" v-model="fixture.place" />
         </td>

@@ -10,13 +10,15 @@ export default /* html */ `
         <button @click.prevent="add_turn">Aggiungi turno</button>
         
         <ul :class="bem('list')">
-            <li v-for="(turn, turn_index) in $root.state.turns" :class="bem('list__item', { dragged: is_turn_dragged(turn_index), open: turn.is_open })">
-                ${TURN_DRAGGABLE_TEMPLATE}
-                ${TURN_NAME_INPUT_TEMPLATE}
-                ${TURN_ACTIONS_TEMPLATE}
-                ${TURN_DROPPABLES_TEMPLATE}                
+            <li v-for="(turn, turn_index) in $root.state.turns" :class="bem('list__item', { dragged: is_turn_dragged(turn_index), open: turn.is_open && turn.fixtures.length })">
+                <header :class="bem('list__item__header')">
+                    ${TURN_DRAGGABLE_TEMPLATE}
+                    ${TURN_NAME_INPUT_TEMPLATE}
+                    ${TURN_ACTIONS_TEMPLATE}
+                    ${TURN_DROPPABLES_TEMPLATE}                
+                </header>
 
-                <table :class="bem('list__item__fixtures')">
+                <table :class="bem('list__item__fixtures')" cellpadding="2" cellspacing="0">
                     <thead>
                         ${FIXTURES_HEADER_TEMPLATE}
                     </thead>
