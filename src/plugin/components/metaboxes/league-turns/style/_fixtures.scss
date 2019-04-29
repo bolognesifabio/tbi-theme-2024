@@ -1,0 +1,42 @@
+@import '../../../scss-utilities/constants';
+@import '../../../scss-utilities/mixins';
+
+.tbi-league-turns {
+    &__list {
+        &__item {
+            &__fixtures {
+                &__item {
+                    input {
+                        font-size: 12px;
+                        line-height: 24px;
+                        max-width: 100%;
+                        height: 32px;
+                        margin: 0;
+
+                        &[type="checkbox"] {
+                            @include checkbox;
+                        }
+                    }
+
+                    &__draggable {
+                        cursor: grab;
+                        z-index: 2;
+                        max-width: 24px;
+                        width: 24px;
+    
+                        &:before {
+                            @include dash-icon;
+                            content: "\f333";
+                        }
+                    }
+
+                    &__score {
+                        input {
+                            max-width: 50px;
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
-import TURN_DRAGGABLE_TEMPLATE from './_turn-draggable'
-import TURN_NAME_INPUT_TEMPLATE from './_turn-name-input'
-import TURN_ACTIONS_TEMPLATE from './_turn-actions'
-import TURN_DROPPABLES_TEMPLATE from './_turn-droppables'
-import FIXTURES_HEADER_TEMPLATE from './_fixtures-header'
-import FIXTURES_ITEM_TEMPLATE from './_fixtures-item'
+import TURN_DRAGGABLE_TEMPLATE from './template/turn-draggable'
+import TURN_NAME_INPUT_TEMPLATE from './template/turn-name-input'
+import TURN_ACTIONS_TEMPLATE from './template/turn-actions'
+import TURN_DROPPABLES_TEMPLATE from './template/turn-droppables'
+import FIXTURES_HEADER_TEMPLATE from './template/fixtures-header'
+import FIXTURES_ITEM_TEMPLATE from './template/fixtures-item'
 
 export default /* html */ `
     <div :class="bem_base">

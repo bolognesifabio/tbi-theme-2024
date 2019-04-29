@@ -1,6 +1,6 @@
 import created from './_created'
-import methods from './_methods/index'
-import template from './_template/index'
+import methods from './_methods'
+import template from './_template'
 import data from './_data'
 import style from './style.scss'
 
