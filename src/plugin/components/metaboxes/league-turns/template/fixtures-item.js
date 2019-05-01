@@ -31,7 +31,7 @@ export default /* html */ `
         <td :class="bem('list__item__fixtures__item__score', { away: true })">
             <input
                 type="number"
-                v-model="fixture.teams.home.away"
+                v-model="fixture.teams.away.score"
                 :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][away][score]'"
             />
         </td>
@@ -46,8 +46,13 @@ export default /* html */ `
         <td :class="bem('list__item__fixtures__item__place')">
             <input type="text" v-model="fixture.place" :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][place]'" />
         </td>
+        
         <td :class="bem('list__item__fixtures__item__date')">
             <input type="date" v-model="fixture.date" :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][date]'" />
+        </td>
+
+        <td :class="bem('list__item__fixtures__item__delete')">
+            <button :class="bem('list__item__fixtures__item__delete__button')" @click.prevent="remove_fixture(turn_index, fixture_index)"></button>
         </td>
     </tr>
 `

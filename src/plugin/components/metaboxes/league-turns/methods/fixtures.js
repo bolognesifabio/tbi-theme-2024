@@ -16,6 +16,10 @@ export default {
         })
     },
 
+    remove_fixture(turn_index, fixture_index) {
+        this.$root.state.turns[turn_index].fixtures.splice(fixture_index, 1)
+    },
+
     switch_fixtures(event, turn_index, fixture_index) {
         if (this.current_dragged_fixture) {
             const

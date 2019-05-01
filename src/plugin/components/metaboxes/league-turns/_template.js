@@ -7,7 +7,7 @@ import FIXTURES_ITEM_TEMPLATE from './template/fixtures-item'
 
 export default /* html */ `
     <div :class="bem_base">
-        <button @click.prevent="add_turn">Aggiungi turno</button>
+        <button :class="bem('add')" @click.prevent="add_turn">Aggiungi turno</button>
         
         <ul :class="bem('list')">
             <li v-for="(turn, turn_index) in $root.state.turns" :class="bem('list__item', { dragged: is_turn_dragged(turn_index), open: turn.is_open && turn.fixtures.length })">

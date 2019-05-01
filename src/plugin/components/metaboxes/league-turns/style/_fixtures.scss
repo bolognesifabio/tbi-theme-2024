@@ -66,6 +66,25 @@
                             max-width: 50px;
                         }
                     }
+                
+                    &__delete {
+                        &__button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color: $color-delete;
+                            border: none;
+                            background: none;
+                            margin-left: 10px;
+                            cursor: pointer;
+    
+                            &:before {
+                                @include dash-icon;
+                                content: "\f182";
+                                display: inline-block;
+                            }
+                        }
+                    }
                 }
             }
         }

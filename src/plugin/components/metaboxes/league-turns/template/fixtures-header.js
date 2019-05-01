@@ -6,5 +6,6 @@ export default /* html */ `
         <th :class="bem('list__item__fixtures__header__team', { away: true })">Squadra in trasferta</th>
         <th :class="bem('list__item__fixtures__header__place')">Luogo</th>
         <th :class="bem('list__item__fixtures__header__date')">Data</th>
+        <th></th>
     </tr>
 `

@@ -12,7 +12,7 @@ export default /* html */ `
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Sigla</th>
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Penalit&agrave;</th>
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Priorit&agrave;</th>
-                        <th :class="bem('scroll-container__table__headings__text', { 'narrow': true, 'is-not-in-standings': true })"></th>
+                        <th :class="bem('scroll-container__table__headings__text', { 'narrow': true, 'is-not-in-standings': true })" title="Squadra non in classifica"></th>
                     </tr>
                 </thead>
                 <tbody>
