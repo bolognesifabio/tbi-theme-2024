@@ -42,5 +42,13 @@ export default {
 
     reset_current_dragged_fixture() {
         this.current_dragged_fixture = null
+    },
+
+    copy_date(turn_index, fixture_index) {
+        this.copied_date = this.$root.state.turns[turn_index].fixtures[fixture_index].date
+    },
+
+    paste_date(turn_index, fixture_index) {
+        this.$root.state.turns[turn_index].fixtures[fixture_index].date = this.copied_date
     }
 }

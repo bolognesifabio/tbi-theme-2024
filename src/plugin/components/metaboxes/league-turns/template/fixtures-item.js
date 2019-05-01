@@ -48,6 +48,8 @@ export default /* html */ `
         </td>
         
         <td :class="bem('list__item__fixtures__item__date')">
+            <button :class="bem('list__item__fixtures__item__date__button', { copy: true })" @click.prevent="copy_date(turn_index, fixture_index)"></button>
+            <button :class="bem('list__item__fixtures__item__date__button', { paste: true })" @click.prevent="paste_date(turn_index, fixture_index)"></button>
             <input type="date" v-model="fixture.date" :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][date]'" />
         </td>
 

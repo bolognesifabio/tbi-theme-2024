@@ -66,6 +66,51 @@
                             max-width: 50px;
                         }
                     }
+
+                    &__date {
+                        position: relative;
+
+                        input {
+                            padding-left: 46px;
+                        }
+
+                        &__button {
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            padding: 0;
+                            border: none;
+                            background: none;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            cursor: pointer;
+
+                            &:hover {
+                                color: $color-selected;
+                            }
+
+                            &:before {
+                                @include dash-icon;
+                                font-size: 12px;
+                            }
+
+                            &--copy {
+                                left: 4px;
+
+                                &:before {
+                                    content: "\f105";
+                                }
+                            }
+
+                            &--paste {
+                                left: 24px;
+                                
+                                &:before {
+                                    content: "\f100";
+                                }
+                            }
+                        }
+                    }
                 
                     &__delete {
                         &__button {
