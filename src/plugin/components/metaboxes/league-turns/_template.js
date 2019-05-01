@@ -7,7 +7,9 @@ import FIXTURES_ITEM_TEMPLATE from './template/fixtures-item'
 
 export default /* html */ `
     <div :class="bem_base">
-        <button :class="bem('add')" @click.prevent="add_turn">Aggiungi turno</button>
+        <button :class="bem('add')" @click.prevent="add_turn">Aggiungi un nuovo turno</button>
+
+        <p v-if="!$root.state.turns.length">Non ci sono ancora turni per questa competizione.</p>
         
         <ul :class="bem('list')">
             <li v-for="(turn, turn_index) in $root.state.turns" :class="bem('list__item', { dragged: is_turn_dragged(turn_index), open: turn.is_open && turn.fixtures.length })">
