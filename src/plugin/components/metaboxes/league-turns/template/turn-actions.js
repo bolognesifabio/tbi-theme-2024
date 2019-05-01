@@ -1,6 +1,7 @@
 export default /* html */ `
     <button
         :class="bem('list__item__header__delete')"
+        @click.prevent="remove_turn(turn_index)"
     ></button>
     
     <button

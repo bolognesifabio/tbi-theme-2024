@@ -7,6 +7,25 @@
             &__fixtures {
                 margin-top: 15px;
 
+                &__header,
+                &__item {
+                    &__score,
+                    &__score input {
+                        text-align: center;
+                    }
+
+                    &__team {
+                        &--away,
+                        &--away input {
+                            text-align: right;
+                        }
+                    }
+
+                    &__place {
+                        padding-left: 15px;
+                    }
+                }
+
                 &__item {
                     input {
                         font-size: 12px;
@@ -17,6 +36,15 @@
 
                         &[type="checkbox"] {
                             @include checkbox;
+                        }
+
+                        
+                        &[type="number"]::-webkit-inner-spin-button, 
+                        &[type="number"]::-webkit-outer-spin-button {
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                            margin: 0; 
                         }
                     }
 
@@ -37,7 +65,7 @@
                         input {
                             max-width: 50px;
                         }
-                    } 
+                    }
                 }
             }
         }

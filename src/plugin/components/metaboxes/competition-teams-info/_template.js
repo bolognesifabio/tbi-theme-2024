@@ -3,7 +3,7 @@ export default /* html */ `
         <h4 v-if="is_at_least_one_team_selected" :class="bem('title')">Informazioni delle squadre per la competizione</h4>
         
         <div v-if="is_at_least_one_team_selected" :class="bem('scroll-container')">
-            <table :class="bem('scroll-container__table')" cellspacing="2">
+            <table :class="bem('scroll-container__table')" cellpadding="2" cellspacing="0">
                 <thead :class="bem('scroll-container__table__headings')">
                     <tr>
                         <th :class="bem('scroll-container__table__headings__text')" colspan="2">Squadra</th>

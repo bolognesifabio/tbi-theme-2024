@@ -3,16 +3,16 @@ export default {
         this.$root.state.turns[index].fixtures.push({
             teams: {
                 home: {
-                    id: 1,
-                    score: 20
+                    id: null,
+                    score: 0
                 },
                 away: {
-                    id: 2,
-                    score: 30
+                    id: null,
+                    score: 0
                 }
             },
-            place: "Bologna",
-            date: "21321312"
+            place: null,
+            date: null
         })
     },
 

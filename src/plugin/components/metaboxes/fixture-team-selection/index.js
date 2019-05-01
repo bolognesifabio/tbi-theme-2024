@@ -7,13 +7,4 @@ import mounted from './_mounted'
 import template from './_template'
 import style from './style.scss'
 
-export default {
-    props,
-    data,
-    computed,
-    watch,
-    methods,
-    mounted,
-    template,
-    style
-}
+export default { props, data, computed, watch, methods, mounted, template, style }

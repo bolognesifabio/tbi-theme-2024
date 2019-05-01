@@ -6,6 +6,10 @@ export default {
         })
     },
 
+    remove_turn(index) {
+        this.$root.state.turns.splice(index, 1)
+    },
+
     switch_turns(event, index) {
         if (this.current_dragged_turn) {
             const IS_DRAGGABLE_MOVING_DOWN = index > this.current_dragged_turn.index

@@ -19,7 +19,7 @@ export default /* html */ `
                 </header>
 
                 <table :class="bem('list__item__fixtures')" cellpadding="2" cellspacing="0">
-                    <thead>
+                    <thead :class="bem('list__item__fixtures__header')">
                         ${FIXTURES_HEADER_TEMPLATE}
                     </thead>
                     <tbody>
