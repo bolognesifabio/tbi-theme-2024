@@ -1,7 +1,7 @@
 <?php
 use TBI\Helpers\Metaboxes as Metaboxes_Helper;
 
-$details_meta = get_post_meta($post->ID, 'tbi-clubs-details', true) ?: [];
+$details_meta = get_post_meta($post->ID, $this->meta_name, true) ?: [];
 $fields = [
     'city' => [
         'label' => 'Citt&agrave;'
@@ -28,9 +28,8 @@ $fields = [
 ];
 ?>
 
-<div class="tbi-metaboxes-club-details">
-    <section class="tbi-metaboxes-club-details__contacts">
-        <h3>Dettagli</h3> <?php
-        Metaboxes_Helper::render_form('club', $fields, $details_meta); ?>
+<div class="<?= $this->bem_base; ?>">
+    <section class="<?= $this->bem_base; ?>__contacts"> <?php
+        Metaboxes_Helper::render_form($this->meta_name, $fields, $details_meta); ?>
     </section>
 </div>

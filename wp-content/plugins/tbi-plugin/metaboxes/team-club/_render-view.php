@@ -3,6 +3,7 @@ use TBI\Helpers\Metaboxes as Metaboxes_Helper;
 
 $team_taxonomy_options = [
     'key' => 'clubs',
+    'name' => $this->meta_name,
     'empty_taxonomy_message' => 'Non ci sono societ&agrave; disponibili.<br/>Creane una nella sezione apposita.',
     'default_option_text' => 'Seleziona la societ&agrave;'
 ]; ?>

@@ -6,7 +6,7 @@ abstract class Metaboxes {
         <div class="tbi-metaboxes-form"> <?php
             foreach ($fields as $field_key => $field) {
                 $class_short_modifier = $field['is_short'] ? 'tbi-metaboxes-form__field__value--short' : '';
-                $input_name = 'tbi-' . $context . '-' . $field_key;
+                $input_name = $context . '[' . $field_key . ']';
                 $input_maxlength = $field['maxlength'] ? 'maxlength="' . $field['maxlength'] . '"' : ''; ?>
 
                 <div class="tbi-metaboxes-form__field">
@@ -17,6 +17,7 @@ abstract class Metaboxes {
                             class="tbi-metaboxes-form__field__value"
                             type="checkbox"
                             name="<?= $input_name ?>"
+                            value="true"
                             <?= $meta_values[$field_key] ? 'checked' : '' ?>
                         /> <?php
                     } else { ?>
@@ -45,7 +46,7 @@ abstract class Metaboxes {
         }, get_the_terms($post->ID, $options['key']) ?: []);
 
         if (count($taxonomy_terms)) { ?>
-            <select class="tbi-metaboxes-term-select" name="tbi-metaboxes-<?= $options['key'] ?>">
+            <select class="tbi-metaboxes-term-select" name="<?= $options['name'] ?>-term[<?= $options['key'] ?>]">
                 <option>- <?= $options['default_option_text'] ?></option> <?php
                 
                 foreach ($taxonomy_terms as $term) { ?>
