@@ -2,6 +2,7 @@ export default {
     add_turn() {
         this.$root.state.turns.push({
             name: 'Nuovo turno',
+            is_open: false,
             fixtures: []
         })
     },
