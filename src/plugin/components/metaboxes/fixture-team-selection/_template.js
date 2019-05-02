@@ -1,6 +1,6 @@
 export default /* html */ `
     <div :class="bem_base">
-        <ul v-if="is_active" :class="bem('suggestions')">
+        <ul v-if="is_active && matching_teams.length" :class="bem('suggestions')">
             <li
                 v-for="matching_team in matching_teams"
                 :class="bem('suggestions__team')"
