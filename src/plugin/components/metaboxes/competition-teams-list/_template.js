@@ -7,7 +7,7 @@ export default /* html */ `
                     v-model="team.is_selected"
                     type="checkbox"
                     :class="bem('teams__item__value')"
-                    :name="'tbi-competition-teams-participants[' + team.id + ']'"
+                    :name="'tbi-competition-teams[' + team.id + ']'"
                     :value="team.id"
                 />
 

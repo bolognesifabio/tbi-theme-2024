@@ -22,22 +22,22 @@ export default /* html */ `
                         </th>
                         <th :class="bem('scroll-container__table__team__title')">{{ team.title }}</th>
                         <td :class="bem('scroll-container__table__team__input')">
-                            <input :name="'tbi-competition-teams-info-name[' + team.id + ']'" type="text" v-model="team.competition_info.name" />
+                            <input :name="'tbi-competition-teams[' + team.id + '][name]'" type="text" v-model="team.competition_info.name" />
                         </td>
                         <td :class="bem('scroll-container__table__team__input')">
-                            <input :name="'tbi-competition-teams-info-short-name[' + team.id + ']'" type="text" v-model="team.competition_info.short_name" />
+                            <input :name="'tbi-competition-teams[' + team.id + '][short_name]'" type="text" v-model="team.competition_info.short_name" />
                         </td>
                         <td :class="bem('scroll-container__table__team__input', { 'narrow': true })">
-                            <input :name="'tbi-competition-teams-info-code[' + team.id + ']'" type="text" v-model="team.competition_info.code" maxlength="3" />
+                            <input :name="'tbi-competition-teams[' + team.id + '][code]'" type="text" v-model="team.competition_info.code" maxlength="3" />
                         </td>
                         <td :class="bem('scroll-container__table__team__input', { 'narrow': true })">
-                            <input :name="'tbi-competition-teams-info-penalty[' + team.id + ']'" type="number" v-model="team.competition_info.penalty" min="0" max="99" />
+                            <input :name="'tbi-competition-teams[' + team.id + '][penalty]'" type="number" v-model="team.competition_info.penalty" min="0" max="99" />
                         </td>
                         <td :class="bem('scroll-container__table__team__input', { 'narrow': true })">
-                            <input :name="'tbi-competition-teams-info-priority[' + team.id + ']'" type="number" v-model="team.competition_info.priority" min="0" max="99" />
+                            <input :name="'tbi-competition-teams[' + team.id + '][priority]'" type="number" v-model="team.competition_info.priority" min="0" max="99" />
                         </td>
                         <td :class="bem('scroll-container__table__team__input', { 'narrow': true, 'is-not-in-standings': true })">
-                            <input :name="'tbi-competition-teams-info-is-not-in-standings[' + team.id + ']'" type="checkbox" v-model="team.competition_info.is_not_in_standings" />
+                            <input :name="'tbi-competition-teams[' + team.id + '][is_not_in_standings]'" type="checkbox" v-model="team.competition_info.is_not_in_standings" />
                         </td>
                     </tr>
                 </tbody>
