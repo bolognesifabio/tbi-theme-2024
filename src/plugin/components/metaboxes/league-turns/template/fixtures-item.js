@@ -14,7 +14,7 @@ export default /* html */ `
         <td :class="bem('list__item__fixtures__item__team', { home: true })">
             <tbi-fixture-team-selection
                 v-model="fixture.teams.home.id"
-                :input_name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][home][id]'"
+                :input_name="'tbi-league-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][home][id]'"
             ></tbi-fixture-team-selection>
         </td>
 
@@ -22,7 +22,7 @@ export default /* html */ `
             <input
                 type="number"
                 v-model="fixture.teams.home.score"
-                :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][home][score]'"
+                :name="'tbi-league-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][home][score]'"
             />
         </td>
         
@@ -32,25 +32,25 @@ export default /* html */ `
             <input
                 type="number"
                 v-model="fixture.teams.away.score"
-                :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][away][score]'"
+                :name="'tbi-league-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][away][score]'"
             />
         </td>
         
         <td :class="bem('list__item__fixtures__item__team', { away: true })">
             <tbi-fixture-team-selection
                 v-model="fixture.teams.away.id"
-                :input_name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][away][id]'"
+                :input_name="'tbi-league-turns[' + turn_index + '][fixtures][' + fixture_index + '][teams][away][id]'"
             ></tbi-fixture-team-selection>
         </td>
         
         <td :class="bem('list__item__fixtures__item__place')">
-            <input type="text" v-model="fixture.place" :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][place]'" />
+            <input type="text" v-model="fixture.place" :name="'tbi-league-turns[' + turn_index + '][fixtures][' + fixture_index + '][place]'" />
         </td>
         
         <td :class="bem('list__item__fixtures__item__date')">
             <button :class="bem('list__item__fixtures__item__date__button', { copy: true })" @click.prevent="copy_date(turn_index, fixture_index)"></button>
             <button :class="bem('list__item__fixtures__item__date__button', { paste: true })" @click.prevent="paste_date(turn_index, fixture_index)"></button>
-            <input type="date" v-model="fixture.date" :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][date]'" />
+            <input type="date" v-model="fixture.date" :name="'tbi-league-turns[' + turn_index + '][fixtures][' + fixture_index + '][date]'" />
         </td>
 
         <td :class="bem('list__item__fixtures__item__delete')">

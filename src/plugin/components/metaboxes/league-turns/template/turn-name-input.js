@@ -3,6 +3,6 @@ export default /* html */ `
         v-model="turn.name"
         type="text"
         :class="bem('list__item__header__value')"
-        :name="'tbi-competition-turns[' + turn_index + '][name]'"
+        :name="'tbi-league-turns[' + turn_index + '][name]'"
     />    
 `

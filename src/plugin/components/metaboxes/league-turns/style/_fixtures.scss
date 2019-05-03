@@ -15,9 +15,15 @@
                     }
 
                     &__team {
-                        &--away,
-                        &--away input {
+                        &--home,
+                        &--home input {
                             text-align: right;
+                        }
+
+                        &--home {
+                            .tbi-fixture-team-selection__suggestions {
+                                text-align: left;
+                            }
                         }
                     }
 

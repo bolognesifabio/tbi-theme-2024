@@ -1,12 +1,14 @@
+import data from './_data'
+import computed from './_computed'
 import created from './_created'
 import methods from './_methods'
 import template from './_template'
-import data from './_data'
 import style from './style.scss'
 
 export default {
     props: ['turns_input'],
     data,
+    computed,
     created,
     methods,
     template,
