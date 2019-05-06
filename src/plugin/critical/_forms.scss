@@ -52,6 +52,11 @@
         }
     }
 
+    &__separator {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
     #side-sortables & {
         &__field {
             justify-content: space-between;

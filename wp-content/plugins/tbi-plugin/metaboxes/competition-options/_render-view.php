@@ -47,6 +47,8 @@ if ($is_post_type_leagues) {
         <label class="tbi-metaboxes-form__field__label">Stagione</label> <?php
         Metaboxes_Helper::render_taxonomy_select($seasons_taxonomy_options); ?>        
     </div>
+
+    <hr class="tbi-metaboxes-form__separator" />
     
     <div class="tbi-metaboxes-form__field">
         <label class="tbi-metaboxes-form__field__label">Data di inizio</label>
@@ -67,6 +69,19 @@ if ($is_post_type_leagues) {
             value="<?= $competition_options_meta['date']['end'] ?>"
         />        
     </div>
+
+    <div class="tbi-metaboxes-form__field">
+        <label class="tbi-metaboxes-form__field__label">Mostra la data delle partite</label>
+        <input
+            class="tbi-metaboxes-form__field__value"
+            type="checkbox"
+            name="<?= $this->meta_name ?>[are_fixtures_dates_visible]"
+            value="true"
+            <?= $competition_options_meta['are_fixtures_dates_visible'] ? 'checked' : '' ?>
+        />        
+    </div>
+
+    <hr class="tbi-metaboxes-form__separator" />
     
     <div class="tbi-metaboxes-form__field">
         <label class="tbi-metaboxes-form__field__label">Priorit&agrave nella competizione</label>

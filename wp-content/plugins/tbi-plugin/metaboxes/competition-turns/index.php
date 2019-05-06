@@ -7,7 +7,7 @@ class League_Turns extends Metabox {
 }
 
 new League_Turns([
-    'id' => 'league-turns',
+    'id' => 'competition-turns',
     'title' => 'Calendario',
-    'post_types' => ['leagues']
+    'post_types' => ['leagues', 'cups']
 ]);
