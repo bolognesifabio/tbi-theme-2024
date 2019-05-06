@@ -41,22 +41,13 @@
                 }
 
                 &__draggable,
-                &__delete,
-                &__add,
-                &__open {
+                &__action {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-
-                    &:before {
-                        @include dash-icon;
-                        display: inline-block;
-                    }
                 }
 
-                &__delete,
-                &__add,
-                &__open {
+                &__action {
                     border: none;
                     background: none;
                     margin-left: 10px;
@@ -71,40 +62,37 @@
                     margin-right: 6px;
                     cursor: grab;
                     z-index: 2;
-
-                    &:before {
-                        content: "\f333";
-                    }
                 }
 
-                &__delete {
-                    color: $color-delete;
-                    margin-left: auto;
+                &__action {
+                    &--delete {
+                        color: $color-delete;
+                        margin-left: auto;
+                    }
 
-                    &:before {
-                        content: "\f182";
+                    &--add-fixture,
+                    &--add-separator {
+                        position: relative;
+                        
+                        &:before {
+                            @include dash-icon;
+                            content: "\f132";
+                            color: $color-selected;
+                            position: absolute;
+                            bottom: 2px;
+                            left: 2px;
+                            background: $color-bg-light;
+                            font-size: 12px;
+                        }
+                    }
+    
+                    &--open {
+                        &[disabled="disabled"] {
+                            opacity: .5;
+                        }
                     }
                 }
-
-                &__add {
-                    color: $color-selected;
-                    
-                    &:before {
-                        content: "\f132";
-                        padding-top: 4px;
-                    }
-                }
-
-                &__open {
-                    &[disabled="disabled"] {
-                        opacity: .5;
-                    }
-
-                    &:before {
-                        content: "\f347";
-                        margin: 0;
-                    }
-                }
+                
 
                 &__droppable {
                     position: absolute;
@@ -131,7 +119,7 @@
             &--open & {
                 &__header {
                     &__open {
-                        &:before {
+                        .dashicons {
                             transform: rotate(180deg);
                         }
                     }

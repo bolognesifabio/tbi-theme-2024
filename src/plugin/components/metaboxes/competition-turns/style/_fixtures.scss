@@ -60,11 +60,6 @@
                         max-width: 24px;
                         width: 24px;
                         padding: 0;
-    
-                        &:before {
-                            @include dash-icon;
-                            content: "\f333";
-                        }
                     }
 
                     &__score {

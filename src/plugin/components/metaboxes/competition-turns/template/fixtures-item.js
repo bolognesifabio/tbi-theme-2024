@@ -9,7 +9,9 @@ export default /* html */ `
             @dragstart="set_current_dragged_fixture(turn_index, fixture_index, fixture)"
             @dragend="reset_current_dragged_fixture"
             :class="bem('list__item__fixtures__item__draggable')"
-        ></td>
+        >
+            <span class="dashicons dashicons-editor-justify"></span>
+        </td>
 
         <td :class="bem('list__item__fixtures__item__team', { home: true })">
             <tbi-fixture-team-selection

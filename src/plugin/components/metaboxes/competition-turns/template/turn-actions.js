@@ -1,17 +1,30 @@
 export default /* html */ `
     <button
-        :class="bem('list__item__header__delete')"
+        :class="bem('list__item__header__action', { delete: true })"
         @click.prevent="remove_turn(turn_index)"
-    ></button>
+    >
+        <span class="dashicons dashicons-trash"></span>
+    </button>
     
     <button
-        :class="bem('list__item__header__add')"
+        :class="bem('list__item__header__action', { 'add-fixture': true })"
         @click.prevent="add_fixture(turn_index)"
-    ></button>
+    >
+        <span class="dashicons dashicons-calendar"></span>
+    </button>
+
+    <button
+        :class="bem('list__item__header__action', { 'add-separator': true })"
+        @click.prevent="add_fixture(turn_index)"
+    >
+        <span class="dashicons dashicons-image-flip-vertical"></span>
+    </button>
     
     <button
-        :class="bem('list__item__header__open')"
+        :class="bem('list__item__header__action', { open: true })"
         :disabled="!turn.fixtures.length"
         @click.prevent="toggle_open_status(turn_index)"
-    ></button>
+    >
+        <span class="dashicons dashicons-arrow-down-alt2"></span>
+    </button>
 `

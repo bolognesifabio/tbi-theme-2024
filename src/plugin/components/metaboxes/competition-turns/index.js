@@ -1,3 +1,4 @@
+import props from './_props'
 import data from './_data'
 import computed from './_computed'
 import created from './_created'
@@ -6,7 +7,7 @@ import template from './_template'
 import style from './style.scss'
 
 export default {
-    props: ['turns_input'],
+    props,
     data,
     computed,
     created,
