@@ -1,4 +1,4 @@
 <?php
-require_once(plugin_dir_path(__FILE__) . '_competitions.php');
-require_once(plugin_dir_path(__FILE__) . '_seasons.php');
-require_once(plugin_dir_path(__FILE__) . '_clubs.php');
+use TBI\Helpers\Files as Files_Helper;
+
+Files_Helper::require_all_files(plugin_dir_path(__FILE__));

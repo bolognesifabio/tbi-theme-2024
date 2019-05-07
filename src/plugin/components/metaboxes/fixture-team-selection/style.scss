@@ -1,0 +1,50 @@
+@import '../../../scss-utilities/constants';
+
+.tbi-fixture-team-selection {
+    position: relative;
+    display: flex;
+
+    &__suggestions {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        right: -5px;
+        transform: translateX(100%);
+        box-shadow: 0 0 2px 0 rgba(35, 40, 45, 0.3);
+        background: #23282D;
+        color: #FFF;
+        font-size: 12px;
+        max-height: 800px;
+        z-index: 9;
+        margin-left: 5px;
+        border-radius: 3px;
+
+        &:before {
+            content: " ";
+            height: 6px;
+            width: 6px;
+            background: #23282D;
+            transform: rotate(45deg);
+            position: absolute;
+            bottom: 10px;
+            left: 0px;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        &__team {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 0;
+            border-bottom: 1px solid rgba($color-bg-main, .2);
+
+            &:hover {
+                background: $color-bg-dark-hover;
+                color: $color-selected-hover;
+            }
+        }
+    }
+
+    &__selected-team {
+        display: none;
+    }
+}

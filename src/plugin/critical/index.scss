@@ -1,22 +1,2 @@
-#adminmenu {
-    .menu-icon {
-        &-clubs,
-        &-teams,
-        &-leagues,
-        &-competitions,
-        &-cups,
-        &-fixtures {
-            .wp-menu-image {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    height: 28px;
-                    width: auto;
-                    padding: 0;
-                }
-            }
-        }
-    }
-}
+@import 'forms';
+@import 'menu';

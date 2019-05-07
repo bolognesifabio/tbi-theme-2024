@@ -1,6 +1,4 @@
 <?php
-require_once(plugin_dir_path(__FILE__) . 'mixins/index.php');
-require_once(plugin_dir_path(__FILE__) . 'competitions/index.php');
-require_once(plugin_dir_path(__FILE__) . 'clubs/index.php');
-require_once(plugin_dir_path(__FILE__) . 'teams/index.php');
-require_once(plugin_dir_path(__FILE__) . 'fixtures/index.php');
+use TBI\Helpers\Files as Files_Helper;
+
+Files_Helper::require_all_folders(plugin_dir_path(__FILE__));

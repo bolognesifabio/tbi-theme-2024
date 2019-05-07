@@ -9,5 +9,6 @@ $this->url = get_permalink($this->id);
 $this->club = get_the_terms($this->id, 'clubs')[0] ?: null;
 $this->emblem = $this->get_emblem_url();
 $this->short_name = $teams_details['short-name'] ?: '';
-$this->team_code = $teams_details['team-code'] ?: '';
+$this->code = $teams_details['code'] ?: '';
 $this->is_inactive = $teams_details['is-inactive'] ? true : false;
+$this->is_hidden = $teams_details['is-hidden'] ? true : false;

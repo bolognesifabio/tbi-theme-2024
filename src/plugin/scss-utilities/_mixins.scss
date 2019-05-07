@@ -1,0 +1,55 @@
+@import 'constants';
+
+@mixin media-custom($width) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin media-tablet() {
+    @include media-custom($media-tablet) {
+		@content;
+	}
+}
+
+@mixin media-desktop() {
+    @include media-custom($media-desktop) {
+		@content;
+	}
+}
+
+@mixin media-large-desktop() {
+    @include media-custom($media-large-desktop) {
+		@content;
+	}
+}
+
+@mixin checkbox() {
+	&[type="checkbox"] {
+		flex-basis: 25px;
+		height: 25px;
+		margin: 0;
+	
+		&:checked {
+			background: $color-selected;
+	
+			&:before {
+				color: $color-bg-box;
+				opacity: .8;
+			}
+		}
+
+		@include media-custom(782px) {
+			flex-basis: 16px;
+			height: 16px;
+		}
+
+		@content;
+	}
+}
+
+@mixin dash-icon() {
+    font-family: dashicons;
+    font-weight: 400;
+    font-size: 18px;
+}
