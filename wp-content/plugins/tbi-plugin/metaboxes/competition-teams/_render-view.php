@@ -20,5 +20,5 @@ $all_teams = array_map(function($team) use($meta_teams) {
 <div class="<?= $this->bem_base ?>">
     <tbi-competition-teams-filters></tbi-competition-teams-filters>
     <tbi-competition-teams-list :teams_input='<?= htmlspecialchars(json_encode($all_teams), ENT_QUOTES) ?>'></tbi-competition-teams-list>
-    <tbi-competition-teams-info :is_competition_cup=<?= $is_competition_cup ?>></tbi-competition-teams-info>
+    <tbi-competition-teams-info :is_cup=<?= $is_competition_cup ?>></tbi-competition-teams-info>
 </div>

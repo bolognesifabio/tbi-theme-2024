@@ -16,6 +16,12 @@ export default {
         })
     },
 
+    add_separator(index) {
+        this.$root.state.turns[index].fixtures.push({
+            title: "Nuovo separatore"
+        })
+    },
+
     remove_fixture(turn_index, fixture_index) {
         this.$root.state.turns[turn_index].fixtures.splice(fixture_index, 1)
     },

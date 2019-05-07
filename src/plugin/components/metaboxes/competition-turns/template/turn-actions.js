@@ -15,9 +15,10 @@ export default /* html */ `
 
     <button
         :class="bem('list__item__header__action', { 'add-separator': true })"
-        @click.prevent="add_fixture(turn_index)"
+        @click.prevent="add_separator(turn_index)"
+        v-if="is_cup"
     >
-        <span class="dashicons dashicons-image-flip-vertical"></span>
+        <span class="dashicons dashicons-editor-insertmore"></span>
     </button>
     
     <button

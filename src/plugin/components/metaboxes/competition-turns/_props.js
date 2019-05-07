@@ -1,5 +1,5 @@
 export default {
-    is_competition_cup: {
+    is_cup: {
         type: Boolean,
         default: false
     },

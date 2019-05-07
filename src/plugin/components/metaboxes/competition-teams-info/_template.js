@@ -10,9 +10,9 @@ export default /* html */ `
                         <th :class="bem('scroll-container__table__headings__text')">Nome</th>
                         <th :class="bem('scroll-container__table__headings__text')">Nome breve</th>
                         <th :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Sigla</th>
-                        <th v-if="!is_competition_cup" :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Penalit&agrave;</th>
-                        <th v-if="!is_competition_cup" :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Priorit&agrave;</th>
-                        <th v-if="!is_competition_cup" :class="bem('scroll-container__table__headings__text', { 'narrow': true, 'is-not-in-standings': true })" title="Squadra non in classifica"></th>
+                        <th v-if="!is_cup" :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Penalit&agrave;</th>
+                        <th v-if="!is_cup" :class="bem('scroll-container__table__headings__text', { 'narrow': true })">Priorit&agrave;</th>
+                        <th v-if="!is_cup" :class="bem('scroll-container__table__headings__text', { 'narrow': true, 'is-not-in-standings': true })" title="Squadra non in classifica"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,13 +30,13 @@ export default /* html */ `
                         <td :class="bem('scroll-container__table__team__input', { 'narrow': true })">
                             <input :name="'tbi-competition-teams[' + team.id + '][code]'" type="text" v-model="team.competition_info.code" maxlength="3" />
                         </td>
-                        <td v-if="!is_competition_cup" :class="bem('scroll-container__table__team__input', { 'narrow': true })">
+                        <td v-if="!is_cup" :class="bem('scroll-container__table__team__input', { 'narrow': true })">
                             <input :name="'tbi-competition-teams[' + team.id + '][penalty]'" type="number" v-model="team.competition_info.penalty" min="0" max="99" />
                         </td>
-                        <td v-if="!is_competition_cup" :class="bem('scroll-container__table__team__input', { 'narrow': true })">
+                        <td v-if="!is_cup" :class="bem('scroll-container__table__team__input', { 'narrow': true })">
                             <input :name="'tbi-competition-teams[' + team.id + '][priority]'" type="number" v-model="team.competition_info.priority" min="0" max="99" />
                         </td>
-                        <td v-if="!is_competition_cup" :class="bem('scroll-container__table__team__input', { 'narrow': true, 'is-not-in-standings': true })">
+                        <td v-if="!is_cup" :class="bem('scroll-container__table__team__input', { 'narrow': true, 'is-not-in-standings': true })">
                             <input :name="'tbi-competition-teams[' + team.id + '][is_not_in_standings]'" type="checkbox" v-model="team.competition_info.is_not_in_standings" />
                         </td>
                     </tr>
