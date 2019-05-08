@@ -1,25 +1,35 @@
 const
-    IS_MODE_PRODUCTION = process.argv[2] === '--mode=production',
-    OUTPUT_DIRECTORY = IS_MODE_PRODUCTION ? String(Date.now()) : 'dev',
     path = require('path'),
     Clean_Webpack_Plugin = require('clean-webpack-plugin'),
-    Mini_Css_Extract_Plugin = require('mini-css-extract-plugin')
+    Mini_Css_Extract_Plugin = require('mini-css-extract-plugin'),
+    Git_Revision_Plugin = require('git-revision-webpack-plugin'),
+    Write_Json_Plugin = require('write-json-webpack-plugin')
 
-const get_config = (context, output_directory) => {
-    const WP_CONTENT_FOLDER_PATH = `wp-content/${context}s/tbi-${context}/dist`
+let git_revision = new Git_Revision_Plugin({
+    lightweightTags: true
+})
+
+const get_config = context => {
+    const WP_CONTENT_FOLDER_PATH = `wp-content/${context}s/tbi-${context}/assets`
 
     return {
         entry: [`./src/${context}/index.js`, `./src/${context}/critical/index.scss`],
         output: {
-            publicPath: `/${WP_CONTENT_FOLDER_PATH}/${output_directory}/`,
-            path: path.resolve(__dirname, WP_CONTENT_FOLDER_PATH, output_directory),
-            filename: '[name].js',
-            chunkFilename: '[chunkhash].js'
+            publicPath: `/${WP_CONTENT_FOLDER_PATH}/`,
+            path: path.resolve(__dirname, WP_CONTENT_FOLDER_PATH),
+            filename: `js/index.js?v=${git_revision.commithash()}`,
+            chunkFilename: `js/chunks/[chunkhash].js?v=${git_revision.commithash()}`
         },
         plugins: [
             new Clean_Webpack_Plugin([WP_CONTENT_FOLDER_PATH]),
             new Mini_Css_Extract_Plugin({
-                filename: 'critical.css'
+                filename: `css/style.css?v=${git_revision.commithash()}`
+            }),
+            new Write_Json_Plugin({
+                object: {
+                    hash: git_revision.commithash()
+                },
+                filename: 'version.json'
             })
         ],
         module: {
@@ -43,6 +53,18 @@ const get_config = (context, output_directory) => {
                     test: /\.scss$/,
                     include: /critical/,
                     use: [Mini_Css_Extract_Plugin.loader, 'css-loader', 'sass-loader']
+                },
+                {
+                    test: /\.(png|jpg|gif|svg)$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: `[name].[ext]?v=${git_revision.commithash()}`,
+                                outputPath: 'img/'
+                            }
+                        },
+                    ],
                 }
             ]
         },
@@ -55,6 +77,6 @@ const get_config = (context, output_directory) => {
 }
 
 module.exports = [
-    get_config('plugin', OUTPUT_DIRECTORY),
-    get_config('theme', OUTPUT_DIRECTORY)
+    get_config('plugin'),
+    get_config('theme')
 ]

@@ -8,9 +8,9 @@ node_modules/*
 !wp-content/plugins
 wp-content/plugins/*
 !wp-content/plugins/tbi-plugin
-wp-content/plugins/tbi-plugin/dist/*
+wp-content/plugins/tbi-plugin/assets/*
 
 !wp-content/themes
 wp-content/themes/*
 !wp-content/themes/tbi-theme
-wp-content/themes/tbi-theme/dist/*
+wp-content/themes/tbi-theme/assets/*
