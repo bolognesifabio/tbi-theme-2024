@@ -1,8 +1,8 @@
 import Vue from 'vue'
 
 import '../common/index.js'
-
 import './mixins/globals'
+
 
 if (document.getElementById('normal-sortables')) {
     new Vue({

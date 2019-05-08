@@ -17,13 +17,13 @@ const get_config = context => {
         output: {
             publicPath: `/${WP_CONTENT_FOLDER_PATH}/`,
             path: path.resolve(__dirname, WP_CONTENT_FOLDER_PATH),
-            filename: `js/index.js?v=${git_revision.commithash()}`,
-            chunkFilename: `js/chunks/[chunkhash].js?v=${git_revision.commithash()}`
+            filename: `js/index.js?ver=${git_revision.commithash()}`,
+            chunkFilename: `js/chunks/[chunkhash].js?ver=${git_revision.commithash()}`
         },
         plugins: [
             new Clean_Webpack_Plugin([WP_CONTENT_FOLDER_PATH]),
             new Mini_Css_Extract_Plugin({
-                filename: `css/style.css?v=${git_revision.commithash()}`
+                filename: `css/style.css?ver=${git_revision.commithash()}`
             }),
             new Write_Json_Plugin({
                 object: {
@@ -60,7 +60,7 @@ const get_config = context => {
                         {
                             loader: 'file-loader',
                             options: {
-                                name: `[name].[ext]?v=${git_revision.commithash()}`,
+                                name: `[name].[ext]?ver=${git_revision.commithash()}`,
                                 outputPath: 'img/'
                             }
                         },

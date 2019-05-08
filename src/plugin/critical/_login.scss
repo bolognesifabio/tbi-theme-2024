@@ -2,7 +2,10 @@ body.login {
     #login {
         h1 {
             a {
-                background-image: url('../../common/img/tbi-logo.png');
+                height: 57px;
+                width: 150px;
+                background-image: url('../../common/img/tbi-logo-orizzontale.png');
+                background-size: 100%;
             }
         }
     }
