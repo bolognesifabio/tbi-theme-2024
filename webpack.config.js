@@ -1,4 +1,5 @@
 const
+    IS_MODE_PRODUCTION = process.argv[2] === '--mode=production',
     path = require('path'),
     Clean_Webpack_Plugin = require('clean-webpack-plugin'),
     Mini_Css_Extract_Plugin = require('mini-css-extract-plugin'),
@@ -13,6 +14,7 @@ const get_config = context => {
     const WP_CONTENT_FOLDER_PATH = `wp-content/${context}s/tbi-${context}/assets`
 
     return {
+        mode: IS_MODE_PRODUCTION ? 'production' : 'development',
         entry: [`./src/${context}/index.js`, `./src/${context}/critical/index.scss`],
         output: {
             publicPath: `/${WP_CONTENT_FOLDER_PATH}/`,
@@ -70,7 +72,7 @@ const get_config = context => {
         },
         resolve: {
             alias: {
-                vue: 'vue/dist/vue.js'
+                vue: IS_MODE_PRODUCTION ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js'
             }
         }
     }
