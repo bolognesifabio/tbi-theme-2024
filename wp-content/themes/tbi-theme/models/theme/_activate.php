@@ -1,4 +1,4 @@
 <?php
-// require_once(plugin_dir_path(__FILE__).'../../post-types/index.php');
+use TBI\Helpers\Files;
 
-echo "THEME ACTIVATION";
+Files::require_all_files(get_template_directory() . '/post-types');
