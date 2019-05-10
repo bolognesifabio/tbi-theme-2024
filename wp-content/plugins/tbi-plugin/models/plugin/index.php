@@ -1,5 +1,5 @@
 <?php
-namespace TBI;
+namespace TBI\Models;
 
 class Plugin {
     public function __construct() { require '__construct.php'; }
@@ -9,5 +9,3 @@ class Plugin {
     public function add_taxonomies() { require '_add-taxonomies.php'; }
     public function load_resources() { require '_load-resources.php'; }
 }
-
-new Plugin();
