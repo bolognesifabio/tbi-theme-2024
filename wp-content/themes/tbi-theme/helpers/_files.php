@@ -16,7 +16,7 @@ abstract class Files {
     }
 
     public static function require_all_files($index_path) {
-        foreach(glob($index_path . "/*.php") as $file_name) {
+        foreach(glob(get_template_directory() . "/" . $index_path . "/*.php") as $file_name) {
             require_once($file_name);
         }
     }

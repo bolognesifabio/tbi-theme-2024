@@ -15,5 +15,8 @@ register_post_type($type_name, array_merge($default_options, $options));
 
 if ($taxonomy_slug_prefix) {
     $this->taxonomy_slug_prefix = $taxonomy_slug_prefix;
+
     add_action('post_updated', [$this, 'update_taxonomy_term'], 10, 2);
 }
+
+add_action('switch_theme', [$this, 'unregister']);
