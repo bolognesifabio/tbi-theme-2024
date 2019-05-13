@@ -10,7 +10,7 @@ abstract class Files {
     }
 
     public static function require_all_folders($index_path) {
-        foreach(glob($index_path . '/*', GLOB_ONLYDIR) as $directory_name) {
+        foreach(glob(get_template_directory() . "/" . $index_path . '/*', GLOB_ONLYDIR) as $directory_name) {
             if (glob($directory_name . "/index.php")) require_once($directory_name . '/index.php');
         }
     }
