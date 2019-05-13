@@ -1,6 +1,0 @@
-import './img/svg/clubs.svg'
-import './img/svg/competitions.svg'
-import './img/svg/cups.svg'
-import './img/svg/leagues.svg'
-import './img/svg/team-logo.svg'
-import './img/svg/teams.svg'
