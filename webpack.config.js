@@ -18,9 +18,10 @@ module.exports = {
         'style': './assets/src/theme-manifest.css',
     },
     output: {
+        publicPath: '/wp-content/themes/tbi-theme/',
         path: path.resolve(__dirname),
         filename: 'assets/dist/[name].js',
-        chunkFilename: `assets/dist/chunks/[chunkhash].js`
+        chunkFilename: 'assets/dist/chunks/[chunkhash].js'
     },
     plugins: [
         new Extract_Text_Plugin('style.css'),
