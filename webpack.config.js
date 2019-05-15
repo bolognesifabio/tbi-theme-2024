@@ -58,7 +58,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 include: /critical/,
-                use: [Mini_Css_Extract_Plugin.loader, 'css-loader', 'sass-loader']
+                use: [Mini_Css_Extract_Plugin.loader, {
+                    loader: 'css-loader',
+                    options: {
+                        url: false
+                    }
+                }, 'sass-loader']
             },
             {
                 test: /theme-manifest\.css$/,
@@ -75,6 +80,14 @@ module.exports = {
                         }
                     ]
                 })
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    },
+                ],
             }
         ]
     },
