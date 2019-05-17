@@ -6,6 +6,7 @@ export default async function() {
     console.log('- Removing deprecated files and folders...')
 
     const DEPRECATED_FILES = this.remote_files.filter(file => {
+        console.log(file)
         return !this.local_files.includes(file.replace('wp-content/themes/tbi-theme/', './'))
     })
 

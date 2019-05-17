@@ -3,6 +3,8 @@ import { EventEmitter } from 'events'
 EventEmitter.defaultMaxListeners = 999
 
 export default async function () {
+    console.log('- Uploading files on remote...')
+    
     try {
         for (let file of this.local_files) {
             await this.ftp.put(file, `wp-content/themes/tbi-theme/${file}`)
