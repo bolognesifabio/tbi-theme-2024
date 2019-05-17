@@ -12,6 +12,7 @@ wp_register_script('tbi-public-script', get_template_directory_uri() . '/assets/
 
 add_action('admin_enqueue_scripts', [$this, 'load_admin_assets']);
 add_action('login_enqueue_scripts', [$this, 'load_admin_assets']);
+add_action('after_setup_theme', [$this, 'setup']);
 
 wp_enqueue_script('tbi-public-script');
 wp_enqueue_style('tbi-public-critical-style');
