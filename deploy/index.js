@@ -14,7 +14,7 @@ class FTP_Deploy {
     constructor(connection_data) {
         this.host = connection_data.host
         this.user = connection_data.user
-        this.password = connection_data.pass
+        this.password = connection_data.password
         this.handle_error = handle_error
         this.connect = connect
         this.read_local_folder = read_local_folder
@@ -45,5 +45,5 @@ class FTP_Deploy {
 new FTP_Deploy({
     host: process.env[`${ENVIRONMENT_KEY}_HOST`],
     user: process.env[`${ENVIRONMENT_KEY}_USER`],
-    pass: process.env[`${ENVIRONMENT_KEY}_PASS`]
+    password: process.env[`${ENVIRONMENT_KEY}_PASS`]
 })

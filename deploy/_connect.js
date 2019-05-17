@@ -12,7 +12,7 @@ export default async function() {
         await this.ftp.connect({
             host: this.host,
             user: this.user,
-            pass: this.pass,
+            password: this.password,
             port: 21,
             forcePasv: true,
             keepalive: 10000,
