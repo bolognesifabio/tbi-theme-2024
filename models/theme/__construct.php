@@ -1,7 +1,7 @@
 <?php
 use TBI\Helpers\Files;
 
-$assets_version_hash = Files::get_plugin_assets_version()->hash;
+$assets_version_hash = Files::get_assets_version()->hash;
 
 add_action('init', [$this, 'activate']);
 

@@ -7,7 +7,7 @@ $default_options = [
     'show_in_menu' => true,
     'show_in_nav_menus' => false,
     'hierarchical' => false,
-    'menu_icon' => plugins_url('tbi-plugin/assets/img/' . $type_name . '.svg'),
+    'menu_icon' => get_template_directory_uri() . '/assets/img/svg/' . $type_name . '.svg',
     'supports' => ['title', 'editor', 'thumbnail']
 ];
 
