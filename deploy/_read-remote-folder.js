@@ -1,34 +1,6 @@
-require('events').EventEmitter.defaultMaxListeners = 999
-
-const read_remote_folder = function(ftp, directory, parsed_remote_directory = []) {
-    return new Promise(resolve => {
-        console.log('Files uploaded.\n\nReading remote folder.')
-        read_folder(ftp, directory)
-            .then(result => {
-                let output = flatten_files_list(result)
-                resolve(parsed_remote_directory.concat(output))
-            }).catch(error => {
-                console.log(error)
-                ftp.end()
-            })
-    })
-}
-
-const read_folder = (ftp, directory) => {
-    return new Promise(resolve => {
-        ftp.list(directory)
-            .then(resources => {
-                resolve(Promise.all(resources.map(resource => {
-                    if (resource.type === 'd') return read_folder(ftp, `${directory}/${resource.name}`)
-                    else return `${directory}/${resource.name}`
-                })))
-            })
-    })
-}
-
 const flatten_files_list = files_list => {
     let output_list = []
-    
+
     Object.keys(files_list).forEach(key => {
         const FILE = files_list[key]
 
@@ -39,4 +11,20 @@ const flatten_files_list = files_list => {
     return output_list
 }
 
-module.exports = read_remote_folder
+const read_folder = async (ftp, directory) => {
+    return await ftp.list(directory).map(async resource => {
+        if (resource.type !== 'd') return `${directory}/${resource.name}`
+        return await read_folder(ftp, `${directory}/${resource.name}`)
+    })
+}
+
+export default async function() {
+    console.log('- Reading remote folder...')
+
+    try {
+        let remote_files = await read_folder(this.ftp, 'wp-content/themes/tbi-theme')
+        this.remote_files = flatten_files_list(remote_files)
+        
+        console.log('\x1b[32m ', 'Remote folder readed.', '\x1b[0m\n')
+    } catch(error) { this.handle_error('Error reading remote folder.', error) }
+}
