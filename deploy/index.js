@@ -84,6 +84,8 @@ const
 
 class FTP_Deploy {
     constructor(connection_data) {
+        console.log(connection_data)
+
         this.host = connection_data.host
         this.user = connection_data.user
         this.pass = connection_data.pass
