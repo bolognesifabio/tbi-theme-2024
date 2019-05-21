@@ -2,7 +2,7 @@
 $query_args = [];
 $query_args['posts_per_page'] = 5;
 !$instance['categories'] || $query_args['category__in'] = $instance['categories'];
-$tbi_logo_url = get_template_directory_uri() . '/contents/img/tbi-logo.png';
+$tbi_logo_url = get_template_directory_uri() . '/assets/img/tbi-logo.png';
 
 query_posts($query_args); ?>
 

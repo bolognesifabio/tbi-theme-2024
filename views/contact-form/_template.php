@@ -18,7 +18,7 @@ $template = <<<MAIL
                                                 <tbody>
                                                     <tr>
                                                         <td style="width:50%;">
-                                                            <img style="height:60px; width:auto;" src="http://www.tchoukball.it/wp-content/themes/tbi-theme/contents/img/tbi-logo.png" />
+                                                            <img style="height:60px; width:auto;" src="http://www.tchoukball.it/wp-content/themes/tbi-theme/assets/img/tbi-logo.png" />
                                                         </td>
                                                         <td style="width:50%;">
                                                             <h4 style="margin:0; text-align:right; color:#313131; font-size:18px; font-weight:400;">$topic</h4>

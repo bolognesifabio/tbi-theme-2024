@@ -2,8 +2,8 @@ export default `
     <div class="header">
         <div class="header__logo">
             <a :href="info.home_url">
-                <img :src="info.template_directory_uri + '/contents/img/tbi-logo-header.png'" class="header__logo--desktop" />
-                <img :src="info.template_directory_uri + '/contents/img/tbi-logo-header-mobile.png'" class="header__logo--mobile" />
+                <img :src="info.template_directory_uri + '/assets/img/tbi-logo-header.png'" class="header__logo--desktop" />
+                <img :src="info.template_directory_uri + '/assets/img/tbi-logo-header-mobile.png'" class="header__logo--mobile" />
             </a>
         </div>
 
@@ -54,7 +54,7 @@ export default `
 
             <div class="header__contents__row header__contents__row--bottom">
                 <div class="header__contents__row__clubs">
-                    <img v-for="img_name in 14" :src="info.template_directory_uri + '/contents/img/club/' + (img_name < 10 ? '0' + img_name : img_name) + '.jpg'" />
+                    <img v-for="img_name in 14" :src="info.template_directory_uri + '/assets/img/club/' + (img_name < 10 ? '0' + img_name : img_name) + '.jpg'" />
                 </div>
                 <div :class="['header__contents__row__search-form', {'open': is_search_open}]">
                     <form class="search-form" role="search" method="get" :action="info.home_url + '/'">
