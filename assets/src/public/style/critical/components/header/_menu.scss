@@ -1,0 +1,172 @@
+.header__contents__row {
+    &--top {
+        @include media_small_desktop {
+            justify-content: space-between;
+        }
+    }
+
+    &__open-menu {
+        padding: 0 15px;
+        color: #FFF;
+        display: none;
+        cursor: pointer;
+        
+        .text {
+            line-height: 60px;
+            color: $text-second-color;
+            font-size: 14px;
+            font-weight: 700;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .fas {
+            margin-right: 10px;
+            color: $text-second-color;
+            line-height: 60px;
+            font-size: 18px;
+        }
+
+        @include media_tablet {
+            display: flex;
+        }
+    }
+
+    &__menu {
+        flex-basis: 100%;
+        display: flex;
+
+        &__container {
+            flex-basis: 100%;
+            display: flex;
+        }
+
+        &__element {
+            flex-basis: 100%;
+            display: flex;
+            position: relative;
+            padding: 0;
+    
+            .menu-item {
+                padding: 0 20px;
+    
+                a {
+                    text-decoration: none;
+                    display: flex;
+                    height: 60px;
+                    align-items: center;
+                }
+    
+                .sub-menu {
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    transform: translateY(200%);
+                    transition: all .3s ease-in-out;
+                    background: #FFF;
+    
+                    > .menu-item {
+                        > a {
+                            color: $text-main-color;
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+    
+                        &:hover {
+                            > a {
+                                color: $second-color;
+                            }
+                        }
+                    }
+                }
+    
+                &.not-clickable {
+                    > a {
+                        cursor: default;
+                    }
+                }
+            }
+
+            @include media_small_desktop {
+                .menu-item {
+                    padding: 0 15px;
+                    
+                    a {
+                        font-size: 14px;
+                    }
+
+                    .sub-menu {
+                        z-index: 11;
+                    }
+                }
+            }
+    
+            > .menu-item {
+                > a {
+                    color: $text-second-color;
+                    font-size: 15px;
+                    font-weight: 700;
+                    position: relative;
+    
+                    &:before {
+                        content: ' ';
+                        width: 0;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 10px solid #FFF;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) translateY(100%);
+                        transition: all .3s ease-in-out;
+                    }
+                }
+    
+                @media only screen and (min-width: $media-tablet) {
+                    &:hover, &.active {
+                        .sub-menu {
+                            transform: translateY(60px);
+                            z-index: 1;
+                        }
+        
+                        > a {
+                            &:before {
+                                transform: translateX(-50%) translateY(0);
+                            }
+                        }
+                    }
+                }
+            }
+    
+            > .current-menu-item,
+            > .current-menu-ancestor {
+                > a {
+                    color: $fourth-color;
+                }
+    
+                .sub-menu {
+                    transform: translateY(60px);
+    
+                    .current-menu-item {
+                        > a {
+                            color: $second-color;
+                        }
+                    }
+                }
+    
+                > a {
+                    &:before {
+                        transform: translateX(-50%) translateY(0);
+                    }
+                }
+            }
+        }
+
+        @include media_tablet {
+            flex-basis: 0%;
+        }
+    }
+}

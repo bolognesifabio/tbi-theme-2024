@@ -1,7 +1,7 @@
 <html> <?php
-    include "views/layout/head.php"; ?>
+include "views/header/head.php"; ?>
 
-    <body>
-        <header> <?php
-            include "views/layout/header/menu.php"; ?>
-        </header>
+<body>
+    <header class="row--full" id="tbi-vue-header"> <?php
+        include "views/header/navigation/main.php"; ?>
+    </header>

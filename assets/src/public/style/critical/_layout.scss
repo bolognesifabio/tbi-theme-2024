@@ -1,0 +1,104 @@
+@import 'utils/mixins';
+
+.row {
+    &--boxed {
+        width: 1200px;
+        display: flex;
+        padding: 15px 30px;
+        margin: 0 auto;
+
+        &:last-child {
+            padding-bottom: 60px;
+        }
+
+        &__main {
+            flex-basis: 50%;
+            flex-grow: 2;
+
+            @include media_desktop {
+                flex-basis: 100%;
+            }
+        }
+
+        &__sidebar {
+            flex-basis: 25%;
+            flex-grow: 1;
+
+            @include media_desktop {
+                flex-basis: 50%;
+            }
+
+            @include media_tablet {
+                flex-basis: 100%;
+            }
+
+            &__wesport-banner {
+                display: flex;
+                padding: 30px 15px;
+                justify-content: center;
+
+                img {
+                    padding: 30px 15px;
+                    width: 225px;
+                    height: 68px;
+                    border-top: 1px solid $text-gray-color;
+                    box-sizing: content-box;
+                }
+            }
+        }
+
+        main & {
+            background: #FFF;
+
+            @include media_tablet {
+                padding: 75px 15px 60px 15px;
+            }
+        }
+
+        @include media_desktop {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        @include media_mobile {
+            padding: 15px;
+        }
+    }
+
+    &--full {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes opacity {
+    0% { opacity: 1; }
+
+    50% { opacity: .4; }
+    
+    100% { opacity: 1; }
+}
+
+.loading-layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    color: $text-gray-color;
+    animation: opacity 1.5s linear infinite;
+
+    &__icon {
+        font-size: 24px;
+        animation: spin 1.5s linear infinite;
+    }
+
+    &__text {
+        font-weight: bold;
+        padding-left: 15px;
+    }
+}

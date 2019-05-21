@@ -1,0 +1,53 @@
+.page-competition__carousel__slides__element {
+    &__standings {
+        width: 50%;
+        padding: 0 15px;
+
+        &__table {
+            width: 100%;
+
+            th {
+                padding: 12px 10px;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: $text-gray-color;
+                background: $light-color;
+                line-height: 20px;
+            }
+
+            &__position,
+            &__played,
+            &__points,
+            &__results {
+                text-align: center;
+            }
+
+            &__team {
+                text-align: left;
+                font-size: 12px;
+            }
+
+            &__logo {
+                img {
+                    max-height: 24px;
+                    max-width: 24px;
+                }
+            }
+
+            &__position,
+            &__points {
+                font-weight: 700;
+            }
+
+            td {
+                font-size: 13px;
+                padding: 12px 10px;
+                border-bottom: 1px solid $light-color;
+            }
+
+            tbody &__points {
+                font-size: 14px;
+            }
+        }
+    }
+}
