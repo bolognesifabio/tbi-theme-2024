@@ -2,9 +2,8 @@
 use \TBI\Classes\Competition as Competition;
 use \TBI\Classes\League as League;
 use \TBI\Classes\Fixture as Fixture;
-use \TBI\Classes\Team as Team;
+use \TBI\Models\Team as Team;
 
-$competition_slug = $_GET['competition'];
 $season_slug = isset($_GET['season']) ? $_GET['season'] : null;
 
 $last_season_term = get_terms([
@@ -13,7 +12,7 @@ $last_season_term = get_terms([
     'order' => 'DESC'
 ])[0];
 
-$competition_term = get_term_by('slug', $competition_slug, 'competitions');
+$competition_term = get_term_by('slug', 'competition-' . $post->ID, 'competitions');
 $season_term = $season_slug ? get_term_by('slug', $season_slug, 'seasons') : $last_season_term;
 $competitions_ids = Competition::get_competitions_by_terms($competition_term->term_id, $season_term->term_id);
 

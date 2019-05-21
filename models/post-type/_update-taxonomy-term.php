@@ -1,5 +1,5 @@
 <?php
-$taxonomy_term_slug = $this->taxonomy_term_prefix . '-' . $post_id;
+$taxonomy_term_slug = $this->taxonomy_slug_prefix . '-' . $post_id;
 $taxonomy_term = get_term_by('slug', $taxonomy_term_slug, $this->type_name);
 
 if ($this->type_name != get_post_type($post_id) || $post->post_status == 'auto-draft') return;

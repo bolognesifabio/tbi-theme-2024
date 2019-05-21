@@ -1,6 +1,6 @@
 <?php
 $footerMenuId = get_nav_menu_locations()['footer-menu'];
-$footerMenu = wp_get_nav_menu_items($footerMenuId);
+$footerMenu = wp_get_nav_menu_items($footerMenuId) ?: [];
 $navigation = [];
 
 foreach($footerMenu as $menuItem) {

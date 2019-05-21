@@ -2,7 +2,7 @@
 $data = ['menu_items' => []];
 $menu_slug = get_term(get_nav_menu_locations()['top-menu'], 'nav_menu')->name;
 
-foreach(wp_get_nav_menu_items($menu_slug) as $menu_item) {
+foreach(wp_get_nav_menu_items($menu_slug) ?: [] as $menu_item) {
     if($menu_item->menu_item_parent) {
         $data['menu_items'][$menu_item->menu_item_parent]->children[] = $menu_item;
     } else {
