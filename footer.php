@@ -1,6 +1,6 @@
         <footer class="footer">
             <div class="footer__content row--boxed"> <?php
-                include "views/footer/menu.php"; ?>
+                include "views/layout/footer/menu.php"; ?>
             </div>
             <div class="footer__copyright">
                 <img class="footer__copyright__logo" src="<?= get_template_directory_uri() ?>/assets/img/tbi-logo.png" />
