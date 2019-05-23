@@ -1,7 +1,7 @@
 <?php
-// use \TBI\Classes\League as League;
+use TBI\Models\Competition;
 
-// $leagues_ids = League::get_competitions_by_terms($data['competition'], $data['season']);
+$leagues_ids = Competition::get_competitions_by_terms($data['competition'], $data['season']);
 
 // $leagues = array_map(function($league_id) {
 //     $league = new League($league_id);
@@ -15,3 +15,9 @@
 //         'teams' => League::get_standings($league->teams)
 //     ];
 // }, $leagues_ids);
+
+$leagues = array_map(function($league_id) {
+    return Competition::get_competition($league_id);
+}, $leagues_ids);
+
+// $leagues = $leagues_ids;
