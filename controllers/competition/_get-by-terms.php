@@ -22,4 +22,4 @@ $competitions_ids = get_posts([
 
 $competitions = array_map(function($competition_id) {
     return self::get_by_id($competition_id);
-}, $competitions_ids}
+}, $competitions_ids);
