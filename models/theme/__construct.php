@@ -9,6 +9,7 @@ Files::require_all_folders('app/widgets');
 Files::require_all_files('app/widgets-areas');
 
 require_once(get_template_directory() . '/controllers/index.php');
+Files::require_all_folders('controllers');
 
 wp_register_style('tbi-admin-critical-style', get_template_directory_uri() . '/assets/dist/admin.css', null, $assets_version_hash);
 wp_register_style('tbi-public-critical-style', get_template_directory_uri() . '/assets/dist/public.css', null, $assets_version_hash);

@@ -1,8 +1,9 @@
 <?php
-// use TBI\Models\Competition;
 use TBI\Controllers;
 
-$leagues_ids = Competition::get_competitions_by_terms($data['competition'], $data['season']);
+require_once(get_template_directory() . '/controllers/competition/index.php');
+
+$leagues_ids = Competition::get_by_terms($data['competition'], $data['season']);
 
 // $leagues = array_map(function($league_id) {
 //     $league = new League($league_id);

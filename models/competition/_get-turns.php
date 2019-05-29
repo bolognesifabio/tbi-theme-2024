@@ -21,3 +21,5 @@
 //     ],
 //     'fields' => 'ids'
 // ]);
+
+$turns = get_post_meta($competition_id, 'tbi-competition-turns', true) ?: [];

@@ -12,3 +12,5 @@
 // }, $teams_meta);
 
 use TBI\Models\Team;
+
+$teams = get_post_meta($competition_id, 'tbi-competition-teams', true) ?: [];

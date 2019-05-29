@@ -1,5 +1,5 @@
 <?php
-use TBI\Models\Team as Team_Model;
+use TBI\Controllers\Team;
 
 $is_competition_cup = get_post_type($post->ID) === 'cups' ? "true" : "false";
 $meta_teams = get_post_meta($post->ID, $this->meta_name, true) ?: [];
@@ -15,7 +15,7 @@ $all_teams = array_map(function($team) use($meta_teams) {
         'is_not_in_standings' => false
     ];
     return $team;
-}, Team_Model::get_all_teams()); ?>
+}, Team::get_all()); ?>
 
 <div class="<?= $this->bem_base ?>">
     <tbi-competition-teams-filters></tbi-competition-teams-filters>

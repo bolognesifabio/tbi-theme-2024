@@ -11,5 +11,5 @@ $this->season = wp_get_post_terms($id, 'seasons')[0];
 
 if ($is_full) {
     $this->teams = $this->get_teams($id);
-    $this->fixtures = $this->get_fixtures($id);
+    $this->turns = $this->get_turns($id);
 }

@@ -1,6 +1,8 @@
 <?php
 namespace TBI\Models;
 
+require 'league/index.php';
+
 class Competition {
     public $id;
     public $title;
@@ -8,7 +10,7 @@ class Competition {
     public $competition;
     public $season;
     public $teams;
-    public $fixtures;
+    public $turns;
 
     public function __construct($id, $is_full = true) { require '__construct.php'; }
     public function get_competition($id) {
@@ -21,6 +23,13 @@ class Competition {
         return $competitions;
     }
 
-    private function get_teams() { require '_get-teams.php'; }
-    private function get_fixtures() { require '_get-fixtures.php'; }
+    public function get_teams($competition_id) {
+        require '_get-teams.php';
+        return $teams;
+    }
+
+    public function get_turns($competition_id) {
+        require '_get-turns.php';
+        return $turns;
+    }
 }
