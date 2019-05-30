@@ -1,16 +1,8 @@
 <?php
-// use \TBI\Classes\Competition_Team as Team;
+use TBI\Models\Competition\Team;
 
-// $teams_meta = get_post_meta($competition_id, 'tbi-competition-teams', true) ?: [];
-// $teams = array_map(function($team_meta) {
-//     $team = new Team($team_meta['id'], $competition_id);
-//     $team->alias = $team_meta['alias'];
-//     $team->handicap = $team_meta['handicap'];
-//     $team->priority = $team_meta['priority'];
-//     $team->is_not_in_rankings = $team_meta['is_not_in_rankings'];
-//     return $team;
-// }, $teams_meta);
+require_once(get_template_directory() . '/models/competition/team/index.php');
 
-use TBI\Models\Team;
-
-$teams = get_post_meta($competition_id, 'tbi-competition-teams', true) ?: [];
+$teams = array_map(function($team_id) {
+    return new Team($team_id);
+}, get_post_meta($competition_id, 'tbi-competition-teams', true) ?: []);

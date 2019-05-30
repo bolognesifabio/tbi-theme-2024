@@ -1,7 +1,8 @@
 <?php
 namespace TBI\Models;
+use TBI\Helpers as Helpers;
 
-require 'league/index.php';
+Helpers\Files::require_all_folders('models/competition');
 
 class Competition {
     public $id;

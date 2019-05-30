@@ -1,5 +1,5 @@
 <?php
-$team_post = get_post($team_id);
+$team_post = get_post($id);
 $teams_details = get_post_meta($team_post->ID, 'tbi-team-details', true) ?: [];
 
 $this->id = $team_post->ID;

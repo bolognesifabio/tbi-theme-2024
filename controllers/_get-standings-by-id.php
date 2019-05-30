@@ -2,9 +2,13 @@
 // use TBI\Models\Competition;
 namespace TBI\Controllers;
 
+use TBI\Controllers\Competition;
+
 require_once(get_template_directory() . '/controllers/competition/index.php');
 
-$leagues = Competition::get_by_terms($data['competition'], $data['season']);
+// $leagues = Competition::get_by_terms($data['competition'], $data['season']);
+
+Competition\League::get_standings_by_terms(11, 12);
 
 // $leagues = array_map(function($league_id) {
 //     $league = new League($league_id);
