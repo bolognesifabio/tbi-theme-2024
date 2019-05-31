@@ -13,7 +13,7 @@ class Team {
     public $is_inactive;
     public $is_hidden;
 
-    public function __construct($team_id) { require '__construct.php'; }
+    public function __construct($id) { require '__construct.php'; }
     
     private function get_emblem_url() { require '_get-emblem-url.php'; return $emblem_url; }
 }

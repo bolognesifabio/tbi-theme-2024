@@ -10,14 +10,9 @@ class Team extends Team_Model {
     public $loss;
     public $draw;
     public $points;
+    public $penalty;
+    public $priority;
+    public $is_not_in_standings;
 
-    public function __construct($id) {
-        parent::__construct($id);
-
-        $this->played = 0;
-        $this->won = 0;
-        $this->loss = 0;
-        $this->draw = 0;
-        $this->points = 0;
-    }
+    public function __construct($id, $competition_info) { require '__construct.php'; }
 }

@@ -1,57 +1,45 @@
 <?php
 // use TBI\Models\Competition;
-namespace TBI\Controllers;
+// namespace TBI\Controllers;
 
-use TBI\Controllers\Competition;
+// use TBI\Controllers\Competition;
 
-require_once(get_template_directory() . '/controllers/competition/index.php');
+// require_once(get_template_directory() . '/controllers/competition/index.php');
 
-// $leagues = Competition::get_by_terms($data['competition'], $data['season']);
+// // $leagues = Competition::get_by_terms($data['competition'], $data['season']);
 
-Competition\League::get_standings_by_terms(11, 12);
+// Competition\League::get_standings_by_terms(11, 12);
 
-// $leagues = array_map(function($league_id) {
-//     $league = new League($league_id);
-//     $league_names = array_map(function($competition) {
-//         return $competition->name;
-//     }, $league->competitions);
+use TBI\Models\Competition\League;
 
-//     return [
-//         'id' => $league->id,
-//         'title' => join(" - ", $league_names),
-//         'teams' => League::get_standings($league->teams)
-//     ];
-// }, $leagues_ids);
+$league = new League(28);
 
-// $leagues = array_map(function($league_id) {
-//     $teams = Competition::get_teams($league_id);
-//     $turns = Competition::get_turns($league_id);
+$league_fixtures = [];
 
-//     // var_dump($teams);
-//     // var_dump($turns);
+foreach($league->turns as $turn) {
+    $league_fixtures = array_merge($league_fixtures, $turn['fixtures']);
+}
 
-//     $standings = array_map(function ($team) use ($turns) {
-//         $team['points'] = 0;
-//         $team['played'] = 0;
-//         $team['won'] = 0;
-//         $team['loss'] = 0;
-//         $team['draw'] = 0;
+foreach ($league->teams as $team) {
+    if (!$team->is_not_in_standings) {
+        $team_fixtures = array_filter($league_fixtures, function($fixture) use($team) {
+            $is_team_in_fixture = in_array($team->id, [$fixture['teams']['home']['id'], $fixture['teams']['away']['id']]);
+            $has_fixture_been_played = $fixture['teams']['home']['score'] !== 0 || $fixture['teams']['away']['score'] !== 0;
+            return $is_team_in_fixture && $has_fixture_been_played;
+        });
+    
+        foreach ($team_fixtures as $fixture) {
+            $is_home_team = $team->id == $fixture['teams']['home']['id'];
+            $is_draw = $fixture['teams']['home']['score'] === $fixture['teams']['away']['score'];
+            $is_home_winner = $fixture['teams']['home']['score'] > $fixture['teams']['away']['score'];
+    
+            if ($is_draw) $team->draw++;
+            else if (($is_home_winner && $is_home_team) || (!$is_home_winner && !$is_home_team)) $team->won++;
+            else $team->loss++;
+    
+            $team->played++;
+        }
 
-//         foreach($turns as $turn) {
-//             foreach($turn['fixtures'] as $fixture) {
-//                 if (($fixture['home']['id'] === $team['id'] || $fixture['away']['id'] === $team['id']) && $fixture['home']['score'] !== 0 && $fixture['away']['score'] !== 0 ) {
-//                     $team['played']++;
-
-//                     var_dump($fixture);
-//                 }
-//             }
-//         }
-
-//         return $team;
-//     }, $teams);
-
-//     return $standings;
-
-// }, $leagues_ids);
-
-// $leagues = $leagues_ids;
+        $team->points = ($league->victory_points * $team->won) + ($league->draw_points * $team->draw) + ($league->loss_points * $team->loss);
+    }
+}

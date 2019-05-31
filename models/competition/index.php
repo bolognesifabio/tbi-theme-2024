@@ -1,8 +1,8 @@
 <?php
 namespace TBI\Models;
-use TBI\Helpers as Helpers;
+use TBI\Helpers\Files as Files_Helper;
 
-Helpers\Files::require_all_folders('models/competition');
+Files_Helper::require_all_folders('models/competition');
 
 class Competition {
     public $id;
@@ -10,6 +10,9 @@ class Competition {
     public $type;
     public $competition;
     public $season;
+    public $date;
+    public $are_fixtures_dates_visible;
+    public $priority;
     public $teams;
     public $turns;
 
