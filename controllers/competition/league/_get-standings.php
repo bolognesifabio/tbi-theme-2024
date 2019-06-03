@@ -1,46 +1,30 @@
 <?php
+$league_fixtures = [];
+
 foreach($league->turns as $turn) {
-    foreach($turn['fixtures'] as $fixture) {
-        $fixture_home_team = $fixture['teams']['home'];
-        $fixture_away_team = $fixture['teams']['away'];
-        $fixture_home_team['result'] = $fixture_away_team['result'] = null;
-
-        if ($fixture_home_team['score'] !== 0 && $fixture_away_team['score'] !== 0) {
-            if ($fixture_home_team['score'] === $fixture_away_team['score']) $fixture_home_team['result'] = $fixture_away_team['result'] = 'draw';
-            else {
-                $has_home_won = $fixture_home_team['score'] > $fixture_away_team['score']
-                $fixture_home_team['result'] = $has_home_won ? 'won' : 'loss'
-                $fixture_away_team['result'] = $has_home_won ? 'loss' : 'won'
-            }
-
-            foreach([$fixture_home_team, $fixture_away_team] as $fixture_team) {
-                $league_team = $league->teams[$fixture_team['id']]
-                if ($league_team && !$league_team->is_not_in_standings) {
-                    $league_team 
-                }
-            }
-        }
-
-        // if ($fixture_home_team['score'] !== 0 && $fixture_away_team['score'] !== 0) {
-        //     foreach([$fixture_home_team, $fixture_away_team] as $team) {
-        //         $league_team = $league->teams[$team['id']];
-
-        //         if ($league_team && !$league_team->is_hidden) {
-        //             if ($team)
-        //         }
-        //     }
-        // }
-    }
+    $league_fixtures = array_merge($league_fixtures, $turn['fixtures']);
 }
 
-// foreach ($league->teams as $team) {
-//     if (!$team->is_hidden) {
-//         foreach($league->turns as $turn) {
-//             foreach($turn['fixtures'] as $fixture) {
-//                 $is_fixture_played = $fixture['teams']['home']['score'] !== 0 && $fixture['teams']['away']['score'] !== 0;
-//             }
-//         }
-//     }
-// }
+foreach ($league->teams as $team) {
+    if (!$team->is_not_in_standings) {
+        $team_fixtures = array_filter($league_fixtures, function($fixture) use($team) {
+            $is_team_in_fixture = in_array($team->id, [$fixture['teams']['home']['id'], $fixture['teams']['away']['id']]);
+            $has_fixture_been_played = $fixture['teams']['home']['score'] !== 0 || $fixture['teams']['away']['score'] !== 0;
+            return $is_team_in_fixture && $has_fixture_been_played;
+        });
+    
+        foreach ($team_fixtures as $fixture) {
+            $is_home_team = $team->id == $fixture['teams']['home']['id'];
+            $is_draw = $fixture['teams']['home']['score'] === $fixture['teams']['away']['score'];
+            $is_home_winner = $fixture['teams']['home']['score'] > $fixture['teams']['away']['score'];
+    
+            if ($is_draw) $team->draw++;
+            else if (($is_home_winner && $is_home_team) || (!$is_home_winner && !$is_home_team)) $team->won++;
+            else $team->loss++;
+    
+            $team->played++;
+        }
 
-var_dump($league);
+        $team->points = ($league->victory_points * $team->won) + ($league->draw_points * $team->draw) + ($league->loss_points * $team->loss);
+    }
+}

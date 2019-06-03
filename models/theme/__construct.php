@@ -7,7 +7,7 @@ add_action('init', [$this, 'activate']);
 
 Files::require_all_folders('app/widgets');
 Files::require_all_files('app/widgets-areas');
-Files::require_all_folders('controllers');
+// Files::require_all_folders('controllers');
 require_once(get_template_directory() . '/controllers/index.php');
 
 wp_register_style('tbi-admin-critical-style', get_template_directory_uri() . '/assets/dist/admin.css', null, $assets_version_hash);
