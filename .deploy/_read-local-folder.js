@@ -4,6 +4,7 @@ const IGNORE_LIST = [
     './.circleci',
     './.deploy',
     './.git',
+    './.gitattributes',
     './.vscode',
     './.babelrc',
     './.gitignore',
