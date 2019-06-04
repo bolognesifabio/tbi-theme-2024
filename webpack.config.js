@@ -1,3 +1,5 @@
+require("@babel/polyfill")
+
 const
     path = require('path'),
     Clean_Webpack_Plugin = require('clean-webpack-plugin'),
@@ -13,8 +15,8 @@ let git_revision = new Git_Revision_Plugin({ lightweightTags: true })
 module.exports = {
     mode: IS_MODE_PRODUCTION ? 'production' : 'development',
     entry: {
-        'admin': ['./assets/src/admin/index.js', './assets/src/admin/style/critical/index.scss'],
-        'public': ['./assets/src/public/index.js', './assets/src/public/style/critical/index.scss'],
+        'admin': ['@babel/polyfill', './assets/src/admin/index.js', './assets/src/admin/style/critical/index.scss'],
+        'public': ['@babel/polyfill', './assets/src/public/index.js', './assets/src/public/style/critical/index.scss'],
         'style': './assets/src/theme-manifest.css',
     },
     output: {
@@ -45,10 +47,7 @@ module.exports = {
                 test: /.*.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['es2015']
-                    }
+                    loader: 'babel-loader'
                 }
             },
             {
