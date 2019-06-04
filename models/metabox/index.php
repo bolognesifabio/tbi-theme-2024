@@ -1,7 +1,7 @@
 <?php
 namespace TBI\Models;
 
-abstract class Metabox {
+class Metabox {
     public $id;
     public $title;
     public $post_types;
@@ -13,6 +13,5 @@ abstract class Metabox {
     public function __construct($options) { require '__construct.php'; }
     public function init_meta_box() { require '_init-meta-box.php'; }
     public function save_meta($post_id) { require '_save-meta.php'; }
-
-    abstract public function render_view($post);
+    public function render_view($post) { require '_render-view.php'; }
 }

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main id="tbi-vue">
-    <?php include "views/home/carousel/main.php"; ?>
+    <?php include "views/pages/home/carousel.php"; ?>
 
     <div class="row--boxed"> <?php
         get_sidebar('home-main');
@@ -13,5 +13,3 @@
 </main>
 
 <?php get_footer(); ?>
-
-

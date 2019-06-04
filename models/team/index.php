@@ -2,15 +2,18 @@
 namespace TBI\Models;
 
 class Team {
-    public function __construct($team_id) { require '__construct.php'; }
+    public $id;
+    public $title;
+    public $bio;
+    public $url;
+    public $club;
+    public $emblem;
+    public $short_name;
+    public $code;
+    public $is_inactive;
+    public $is_hidden;
 
-    public static function get_all_teams() {
-        require '_get-all-teams.php';
-        return $teams;
-    }
-
-    private function get_emblem_url() {
-        require '_get-emblem-url.php';
-        return $emblem_url;
-    }
+    public function __construct($id) { require '__construct.php'; }
+    
+    private function get_emblem_url() { require '_get-emblem-url.php'; return $emblem_url; }
 }
