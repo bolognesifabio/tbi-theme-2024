@@ -4,7 +4,7 @@ $this->callback = $callback;
 
 add_action('rest_api_init', function() {
     register_rest_route(
-        'tbi/v2',
+        'tbi/v1',
         $this->route,
         [
             'methods' => 'GET',

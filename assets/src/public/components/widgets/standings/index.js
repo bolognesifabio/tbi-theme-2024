@@ -15,14 +15,15 @@ Vue.component('tbi-vue-widget-standings', {
         this.slides = []
 
         Promise.all(competitions.map(competition => {
-            return axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi-plugin/v1/competitions/standings/${competition}/${seasons}`)
+            return axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi/v1/competition/${competition}/season/${seasons}/standings`)
         })).then(results => {
             this.is_loading = false
 
             this.slides = results.map(result => { return result.data }).reduce((output, data) => {
-                return output.concat(data)
+                return output.concat(data[0])
             }, [])
         })
+
     },
     template: `
         <div>
@@ -47,7 +48,7 @@ Vue.component('tbi-vue-widget-standings', {
                             <tr v-for="(team, index) in slot_props.slide.teams">
                                 <td :class="slot_props.base_class + '__table__position'">{{ index + 1 }}</td>
                                 <td :class="slot_props.base_class + '__table__team'">{{ team.alias || team.title }}</td>
-                                <td :class="slot_props.base_class + '__table__played'">{{ team.stats.played }}</td>
+                                <td :class="slot_props.base_class + '__table__played'">{{ team.played }}</td>
                                 <td :class="slot_props.base_class + '__table__points'">{{ team.points }}</td>
                             </tr>
                         </tbody>

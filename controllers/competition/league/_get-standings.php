@@ -28,3 +28,15 @@ foreach ($league->teams as $team) {
         $team->points = ($league->victory_points * $team->won) + ($league->draw_points * $team->draw) + ($league->loss_points * $team->loss);
     }
 }
+
+usort($league->teams, function($team_a, $team_b) {
+    if ($team_a->points === $team_b->points) {
+        if ($team_a->priority === $team_b->priority) {
+            return strcmp($team_a->title, $team_b->title);
+        }
+
+        return $team_a->priority < $team_b->priority;
+    }
+
+    return $team_a->points < $team_b->points;
+});
