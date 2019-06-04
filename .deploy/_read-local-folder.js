@@ -2,13 +2,13 @@ import fs from 'fs-extra'
 
 const IGNORE_LIST = [
     './.circleci',
+    './.deploy',
     './.git',
     './.vscode',
-    './assets/src',
-    './deploy',
-    './node_modules',
     './.babelrc',
     './.gitignore',
+    './assets/src',
+    './node_modules',
     './package-lock.json',
     './package.json',
     './webpack.config.js'
