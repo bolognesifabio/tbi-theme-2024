@@ -1,5 +1,5 @@
 <?php
-namespace TBI\Models;
+namespace TBI\Models\App;
 
 class Post_Type {
     private $type_name;

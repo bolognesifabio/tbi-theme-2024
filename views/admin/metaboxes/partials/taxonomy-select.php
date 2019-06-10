@@ -1,5 +1,4 @@
 <?php
-
 if (count($taxonomy_terms)) { ?>
     <select class="tbi-metaboxes-term-select" name="<?= $options['name'] ?>-term[<?= $options['key'] ?>]">
         <option>- <?= $options['default_option_text'] ?></option> <?php

@@ -1,5 +1,5 @@
 <?php
-namespace TBI\Models;
+namespace TBI\Models\App;
 use TBI\Helpers\Files;
 
 class Theme {

@@ -1,5 +1,5 @@
 <?php
-namespace TBI\Models;
+namespace TBI\Models\App;
 
 class API_Route {
     public $route;

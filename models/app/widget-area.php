@@ -1,5 +1,5 @@
 <?php
-namespace TBI\Models;
+namespace TBI\Models\App;
 
 class Widgets_Area {
     public function __construct($options) {

@@ -2,7 +2,7 @@
 use TBI\Models\Theme;
 use TBI\Helpers\Files;
 
-require get_template_directory() . '/helpers/index.php';
+require_once(get_template_directory() . '/helpers/index.php');
 
 Files::require_all_folders('models');
 

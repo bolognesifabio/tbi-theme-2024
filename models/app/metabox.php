@@ -1,5 +1,5 @@
 <?php
-namespace TBI\Models;
+namespace TBI\Models\App;
 
 class Metabox {
     public $id;
