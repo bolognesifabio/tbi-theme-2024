@@ -3,7 +3,7 @@ namespace TBI\Helpers;
 
 abstract class Metaboxes {
     public static function render_form($context, $fields, $meta_values) {
-        require get_template_directory() . '/views/admin/metaboxes/partials/form.php';
+        require get_template_directory() . '/views/admin/metaboxes/_partials/form.php';
     }
 
     public static function render_taxonomy_select($options) {
@@ -17,6 +17,6 @@ abstract class Metaboxes {
             return $term->term_id;
         }, get_the_terms($post->ID, $options['key']) ?: []);
 
-        require get_template_directory() . '/views/admin/metaboxes/partials/taxonomy-select.php';
+        require get_template_directory() . '/views/admin/metaboxes/_partials/taxonomy-select.php';
     }
 }

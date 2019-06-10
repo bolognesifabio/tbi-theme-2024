@@ -52,6 +52,7 @@ class Metabox {
     }
     
     public function render_view() {
-        require_once(get_template_directory() . '/views/admin/metaboxes/' . $this->id . '.php');
+        $view_path = implode("/", explode("-", $this->id));
+        require_once(get_template_directory() . '/views/admin/metaboxes/' . $view_path . '.php');
     }
 }
