@@ -1,11 +1,48 @@
-@import '../../../style/utilities/constants';
-@import '../../../style/utilities/mixins';
+<script>
+    import Vue from 'vue'
+    
+    export default {
+        props: ['teams_input'],
+        
+        beforeMount() {
+            Vue.set(this.$root.state, 'teams', this.teams_input)
+        },
 
-.tbi-competition-teams-list {
-    border-top: 1px solid $color-bg-main;
-    margin-top: 15px;
+        computed() {
+            is_at_least_one_team_visible() {
+                return this.$root.state.teams && this.$root.state.teams.filter(team => {
+                    return this.is_team_visible(team)
+                }).length
+            }
+        },
 
-    &__teams {
+        methods() {
+            is_team_visible(team) {
+                let { filters } = this.$root.state
+
+                if (!filters) return false
+
+                const
+                    IS_VISIBLE_FOR_INACTIVE_STATUS = !(filters.are_inactive_hidden && team.is_inactive),
+                    IS_VISIBLE_FOR_PAGE_STATUS = !(filters.are_no_page_hidden && team.is_hidden),
+                    IS_VISIBLE_FOR_SELECT_STATUS = !(filters.are_unselected_hidden && !team.is_selected)
+
+                return IS_VISIBLE_FOR_INACTIVE_STATUS && IS_VISIBLE_FOR_PAGE_STATUS && IS_VISIBLE_FOR_SELECT_STATUS
+            }
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+    @import '../../../../style/utilities/constants';
+    @import '../../../../style/utilities/mixins';
+
+    .tbi-competition-teams-list {
+        border-top: 1px solid $color-bg-main;
+        margin-top: 15px;
+    }
+
+    .teams {
         display: flex;
         flex-wrap: wrap;
     
@@ -67,4 +104,4 @@
             }
         }
     }
-}
+</style>

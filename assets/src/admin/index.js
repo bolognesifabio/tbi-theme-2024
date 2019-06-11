@@ -8,8 +8,8 @@ if (document.getElementById('normal-sortables')) {
         data: { state: {} },
         components: {
             'tbi-competition-teams-filters': () => import('./components/metaboxes/competition/teams/filters.vue'),
-            'tbi-competition-teams-info': () => import('./components/metaboxes/competition-teams-info'),
-            'tbi-competition-teams-list': () => import('./components/metaboxes/competition-teams-list'),
+            'tbi-competition-teams-info': () => import('./components/metaboxes/competition/teams/info.vue'),
+            'tbi-competition-teams-list': () => import('./components/metaboxes/competition/teams/list.vue'),
             'tbi-competition-turns': () => import('./components/metaboxes/competition-turns')
         }
     })

@@ -1,11 +1,32 @@
-@import '../../../style/utilities/constants';
-@import '../../../style/utilities/mixins';
+<script>    
+    export default {
+        props: {
+            is_cup: {
+                type: Boolean,
+                default: false
+            }
+        },
 
-.tbi-competition-teams-info {
-    border-top: 1px solid $color-bg-main;
-    position: relative;
+        computed: {
+            is_at_least_one_team_selected() {
+                return this.$root.state.teams && this.$root.state.teams.filter(team => {
+                    return team.is_selected
+                }).length
+            }
+        }
+    }
+</script>
 
-    &__scroll-container {
+<style lang="scss" scoped>
+    @import '../../../../style/utilities/constants';
+    @import '../../../../style/utilities/mixins';
+
+    .tbi-competition-teams-info {
+        border-top: 1px solid $color-bg-main;
+        position: relative;
+    }
+
+    .scroll-container {
         overflow-x: auto;
 
         &__table {
@@ -97,4 +118,4 @@
             }
         }
     }
-}
+</style>

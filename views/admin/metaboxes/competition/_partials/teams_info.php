@@ -1,4 +1,4 @@
-export default /* html */ `
+<tbi-competition-teams-info :is_cup=<?= $is_competition_cup ?>>
     <div v-if="is_at_least_one_team_selected" :class="bem_base">
         <h4 v-if="is_at_least_one_team_selected" :class="bem('title')">Informazioni delle squadre per la competizione</h4>
         
@@ -44,4 +44,4 @@ export default /* html */ `
             </table>
         </div>
     </div>
-`
+</tbi-competition-teams-info>
