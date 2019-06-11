@@ -18,8 +18,8 @@ $all_teams = array_map(function($team) use($meta_teams) {
 }, Team::get_all()); ?>
 
 <div class="<?= $this->bem_base ?>">
-    <tbi-competition-teams-filters inline-template>
-        <div :class="bem_base">
+    <tbi-competition-teams-filters>
+        <!-- <div :class="bem_base">
             <h4 :class="bem('title')">Filtri</h4>
             <div :class="bem('field')">
                 <input :class="bem('field__value')" type="checkbox" v-model="$root.state.filters.are_inactive_hidden" />
@@ -35,7 +35,7 @@ $all_teams = array_map(function($team) use($meta_teams) {
                 <input :class="bem('field__value')" type="checkbox" v-model="$root.state.filters.are_unselected_hidden" />
                 <label :class="bem('field__label')">Mostra solo squadre selezionate</label>
             </div>
-        </diV>
+        </diV> -->
     </tbi-competition-teams-filters>
     
     <tbi-competition-teams-list :teams_input='<?= htmlspecialchars(json_encode($all_teams), ENT_QUOTES) ?>'></tbi-competition-teams-list>

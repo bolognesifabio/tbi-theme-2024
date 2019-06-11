@@ -7,6 +7,7 @@ const
     Extract_Text_Plugin = require('extract-text-webpack-plugin'),
     Git_Revision_Plugin = require('git-revision-webpack-plugin'),
     Write_Json_Plugin = require('write-json-webpack-plugin'),
+    Vue_Loader_Plugin = require('vue-loader/lib/plugin'),
     PACKAGE_JSON = require('./package.json'),
     IS_MODE_PRODUCTION = process.argv[2] === '--mode=production'
 
@@ -39,16 +40,19 @@ module.exports = {
                 version: PACKAGE_JSON.version
             },
             filename: 'assets/dist/version.json'
-        })
+        }),
+        new Vue_Loader_Plugin()
     ],
     module: {
         rules: [
             {
+                test: /.*.vue$/,
+                use: ['vue-loader']
+            },
+            {
                 test: /.*.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: ['babel-loader']
             },
             {
                 test: /\.scss$/,
