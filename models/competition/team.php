@@ -1,8 +1,9 @@
 <?php
 namespace TBI\Models\Competition;
+use TBI\Helpers\Files;
 use TBI\Models\Team as Team_Model;
 
-require_once(get_template_directory() . '/models/team/index.php');
+Files::require_absolute_path('models/team/team.php');
 
 class Team extends Team_Model {
     public $played;

@@ -1,6 +1,9 @@
 <?php
 namespace TBI\Controllers\Competition;
+use TBI\Helpers\Files;
 use TBI\Controllers\Competition as Competition_Controller;
+
+// Files::require_absolute_path('controllers/competition/competition.php');
 
 abstract class League extends Competition_Controller {
     public function get_standings($league) {
