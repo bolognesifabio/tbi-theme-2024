@@ -1,6 +1,6 @@
 <?php
 namespace TBI\Controllers;
-use TBI\Models\Team;
+use TBI\Models\Team as Team_Model;
 
 abstract class Team {
     public function get_all() {
@@ -14,7 +14,7 @@ abstract class Team {
         ]) ?: [];
 
         return array_map(function($team) {
-            return new Team($team);
+            return new Team_Model($team);
         }, $teams_posts);
     }
 }

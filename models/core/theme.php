@@ -10,9 +10,8 @@ class Theme {
 
         Files::require_in_all_directories('core/widgets');
         Files::require_all_files('core/widgets-areas');
-        // Files::require_in_all_directories('controllers');
-        Files::require_absolute_path('controllers/competition/competition.php');
-
+        Files::require_in_all_directories('controllers');
+        
         wp_register_style('tbi-admin-critical-style', get_template_directory_uri() . '/assets/dist/admin.css', null, $assets_version_hash);
         wp_register_style('tbi-public-critical-style', get_template_directory_uri() . '/assets/dist/public.css', null, $assets_version_hash);
         wp_register_script('tbi-admin-script', get_template_directory_uri() . '/assets/dist/admin.js', null, $assets_version_hash, true);
