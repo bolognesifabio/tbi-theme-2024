@@ -1,4 +1,4 @@
-<tbi-competition-teams-list :teams_input='<?= $teams ?>'>
+<tbi-competition-teams-list :teams_input='<?= $teams ?>' inline-template>
     <div :class="bem_base">
         <h4 class="title">Squadre partecipanti</h4>
         <ul class="teams">

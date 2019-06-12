@@ -2,21 +2,6 @@
 use TBI\Helpers\Metaboxes as Metaboxes_Helper;
 
 $is_post_type_leagues = get_post_type($post_id) === 'leagues';
-
-$competitions_taxonomy_options = [
-    'key' => 'competitions',
-    'name' => $this->meta_name,
-    'empty_taxonomy_message' => 'Non ci sono competizioni disponibili.<br/>Creane una nella sezione apposita.',
-    'default_option_text' => 'Seleziona la competizione'
-];
-
-$seasons_taxonomy_options = [
-    'key' => 'seasons',
-    'name' => $this->meta_name,
-    'empty_taxonomy_message' => 'Non ci sono stagioni disponibili.<br/>Creane una nella sezione apposita.',
-    'default_option_text' => 'Seleziona la stagione'
-];
-
 $competition_options_meta = get_post_meta($post->ID, $this->meta_name, true) ?: [];
 
 if ($is_post_type_leagues) {
@@ -40,12 +25,22 @@ if ($is_post_type_leagues) {
 <div class="tbi-metaboxes-form tbi-metaboxes-form--side">
     <div class="tbi-metaboxes-form__field tbi-metaboxes-form__field--wrap">
         <label class="tbi-metaboxes-form__field__label">Competizione</label> <?php
-        Metaboxes_Helper::render_taxonomy_select($competitions_taxonomy_options); ?>
+        Metaboxes_Helper::render_taxonomy_select([
+            'key' => 'competitions',
+            'name' => $this->meta_name,
+            'empty_taxonomy_message' => 'Non ci sono competizioni disponibili.<br/>Creane una nella sezione apposita.',
+            'default_option_text' => 'Seleziona la competizione'
+        ]); ?>
     </div>
 
     <div class="tbi-metaboxes-form__field tbi-metaboxes-form__field--wrap">
         <label class="tbi-metaboxes-form__field__label">Stagione</label> <?php
-        Metaboxes_Helper::render_taxonomy_select($seasons_taxonomy_options); ?>        
+        Metaboxes_Helper::render_taxonomy_select([
+            'key' => 'seasons',
+            'name' => $this->meta_name,
+            'empty_taxonomy_message' => 'Non ci sono stagioni disponibili.<br/>Creane una nella sezione apposita.',
+            'default_option_text' => 'Seleziona la stagione'
+        ]); ?>        
     </div>
 
     <hr class="tbi-metaboxes-form__separator" />

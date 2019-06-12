@@ -8,16 +8,16 @@
             Vue.set(this.$root.state, 'teams', this.teams_input)
         },
 
-        computed() {
-            is_at_least_one_team_visible() {
+        computed: {
+            is_at_least_one_team_visible: function() {
                 return this.$root.state.teams && this.$root.state.teams.filter(team => {
                     return this.is_team_visible(team)
                 }).length
             }
         },
 
-        methods() {
-            is_team_visible(team) {
+        methods: {
+            is_team_visible: function(team) {
                 let { filters } = this.$root.state
 
                 if (!filters) return false

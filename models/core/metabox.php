@@ -44,15 +44,15 @@ class Metabox {
 
         if ($is_doing_autosave) return $post_id;
 
-        if ($is_post_type_valid && $post_meta) update_post_meta($post_id, $this->meta_name, $_POST[$this->meta_name]);
+        if ($is_post_type_valid && $post_meta) update_post_meta($post_id, $this->meta_name, $post_meta);
 
         if ($is_post_type_valid && $post_terms) {
             foreach ($post_terms as $taxonomy => $term) wp_set_post_terms($post_id, $term, $taxonomy);
         }
     }
     
-    public function render_view() {
+    public function render_view($post) {
         $view_path = implode("/", explode("-", $this->id));
-        require_once(get_template_directory() . '/views/admin/metaboxes/' . $view_path . '.php');
+        include get_template_directory() . '/views/admin/metaboxes/' . $view_path . '.php';
     }
 }
