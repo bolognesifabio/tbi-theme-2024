@@ -23,15 +23,15 @@ export default {
             <template slot="slide" slot-scope="slot_props">
                 <div v-for="fixture in slot_props.slide.fixtures" :class="slot_props.base_class + '__fixture'">
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <img :src="fixture.teams[0].logo" />
+                        <!-- <img :src="fixture.teams.home.logo" /> -->
                     </span>
-                    <span :class="[slot_props.base_class + '__fixture__team', 'home']">{{ fixture.teams[0].alias || fixture.teams[0].title }}</span>
-                    <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.scores[0] }}</span>
+                    <span :class="[slot_props.base_class + '__fixture__team', 'home']">{{ fixture.teams.home.id }}</span>
+                    <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.home.score }}</span>
                     <span :class="slot_props.base_class + '__fixture__separator'">-</span>
-                    <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.scores[1] }}</span>
-                    <span :class="[slot_props.base_class + '__fixture__team', 'away']">{{ fixture.teams[1].alias || fixture.teams[1].title }}</span>
+                    <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.away.score }}</span>
+                    <span :class="[slot_props.base_class + '__fixture__team', 'away']">{{ fixture.teams.away.id }}</span>
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <img :src="fixture.teams[1].logo" />
+                        <!-- <img :src="fixture.teams.away.logo" /> -->
                     </span>
                 </div>
             </template>

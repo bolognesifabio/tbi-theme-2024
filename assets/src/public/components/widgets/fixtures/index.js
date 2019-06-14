@@ -16,13 +16,15 @@ Vue.component('tbi-vue-widget-fixtures', {
         this.slides = []
 
         Promise.all(competitions.map(competition => {
-            return axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi-plugin/v1/competitions/fixtures/${competition}/${seasons}`)
+            return axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi/v1/competition/${competition}/season/${seasons}/fixtures`)
         })).then(results => {
             this.is_loading = false
 
             this.slides = results.map(result => { return result.data }).reduce((output, data) => {
                 return output.concat(data)
             }, [])
+
+            console.log(this.slides)
         })
     },
     components: {
@@ -39,7 +41,7 @@ Vue.component('tbi-vue-widget-fixtures', {
                 <h3 :class="slot_props.base_class + '__title'">{{ slot_props.slide.title }}</h3>
 
                 <tbi-vue-widget-fixtures-round
-                    :slides="slot_props.slide.rounds"
+                    :slides="slot_props.slide.turns"
                     :base_class="slot_props.base_class + '__rounds'"
                 ></tbi-vue-widget-fixtures-round>
             </template>
