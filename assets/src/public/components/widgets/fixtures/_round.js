@@ -23,15 +23,15 @@ export default {
             <template slot="slide" slot-scope="slot_props">
                 <div v-for="fixture in slot_props.slide.fixtures" :class="slot_props.base_class + '__fixture'">
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <!-- <img :src="fixture.teams.home.logo" /> -->
+                        <img :src="fixture.teams.home.info.emblem" />
                     </span>
-                    <span :class="[slot_props.base_class + '__fixture__team', 'home']">{{ fixture.teams.home.id }}</span>
+                    <span v-if="fixture.teams.home.info" :class="[slot_props.base_class + '__fixture__team', 'home']">{{ fixture.teams.home.info.title }}</span>
                     <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.home.score }}</span>
                     <span :class="slot_props.base_class + '__fixture__separator'">-</span>
                     <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.away.score }}</span>
-                    <span :class="[slot_props.base_class + '__fixture__team', 'away']">{{ fixture.teams.away.id }}</span>
+                    <span v-if="fixture.teams.away.info" :class="[slot_props.base_class + '__fixture__team', 'away']">{{ fixture.teams.away.info.title }}</span>
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <!-- <img :src="fixture.teams.away.logo" /> -->
+                        <img :src="fixture.teams.away.info.emblem" />
                     </span>
                 </div>
             </template>

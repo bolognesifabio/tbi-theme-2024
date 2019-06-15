@@ -21,10 +21,16 @@ Vue.component('tbi-vue-widget-fixtures', {
             this.is_loading = false
 
             this.slides = results.map(result => { return result.data }).reduce((output, data) => {
+                data = data.map(competition => {
+                    competition.turns = competition.turns.map(turn => {
+                        turn.id = turn.name
+                        return turn
+                    })
+                    return competition
+                })
+
                 return output.concat(data)
             }, [])
-
-            console.log(this.slides)
         })
     },
     components: {
