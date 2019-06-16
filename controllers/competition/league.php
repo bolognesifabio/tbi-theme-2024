@@ -10,7 +10,7 @@ abstract class League extends Competition_Controller {
         $league_fixtures = [];
 
         foreach($league->turns as $turn) {
-            $league_fixtures = array_merge($league_fixtures, $turn['fixtures']);
+            if ($turn['fixtures']) $league_fixtures = array_merge($league_fixtures, $turn['fixtures']);
         }
 
         foreach ($league->teams as $team) {
