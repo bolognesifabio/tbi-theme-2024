@@ -1,1 +1,0 @@
-<?php require_once(get_template_directory() . '/views/admin/metaboxes/' . $this->id . '.php'); ?>
