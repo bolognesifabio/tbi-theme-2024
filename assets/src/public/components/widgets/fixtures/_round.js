@@ -8,6 +8,16 @@ export default {
         },
         'show_logos': {
             default: false
+        },
+        'teams': {
+            default: []
+        }
+    },
+    methods: {
+        team_from_id(team_id) {
+            return this.teams.find(team => {
+                return team.id == team_id
+            })
         }
     },
     mounted() {
@@ -23,15 +33,15 @@ export default {
             <template slot="slide" slot-scope="slot_props">
                 <div v-for="fixture in slot_props.slide.fixtures" :class="slot_props.base_class + '__fixture'">
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <img :src="fixture.teams.home.info.emblem" />
+                        <img :src="team_from_id(fixture.teams.home.id).emblem" />
                     </span>
-                    <span v-if="fixture.teams.home.info" :class="[slot_props.base_class + '__fixture__team', 'home']">{{ fixture.teams.home.info.title }}</span>
+                    <span v-if="team_from_id(fixture.teams.home.id)" :class="[slot_props.base_class + '__fixture__team', 'home']">{{ team_from_id(fixture.teams.home.id).title }}</span>
                     <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.home.score }}</span>
                     <span :class="slot_props.base_class + '__fixture__separator'">-</span>
                     <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.away.score }}</span>
-                    <span v-if="fixture.teams.away.info" :class="[slot_props.base_class + '__fixture__team', 'away']">{{ fixture.teams.away.info.title }}</span>
+                    <span v-if="team_from_id(fixture.teams.away.id)" :class="[slot_props.base_class + '__fixture__team', 'away']">{{ team_from_id(fixture.teams.away.id).title }}</span>
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <img :src="fixture.teams.away.info.emblem" />
+                        <img :src="team_from_id(fixture.teams.away.id).emblem" />
                     </span>
                 </div>
             </template>

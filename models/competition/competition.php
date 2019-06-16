@@ -20,7 +20,6 @@ class Competition {
     public function __construct($id) {
         $post = get_post($id);
         $teams_meta = get_post_meta($id, 'tbi-competition-teams', true) ?: [];
-        $turns_meta = get_post_meta($id, 'tbi-competition-turns', true) ?: [];
         $options_meta = get_post_meta($id, 'tbi-competition-options', true) ?: [];
 
         $this->id = $id;
@@ -38,20 +37,6 @@ class Competition {
             return new Team($team_id, $team);
         }, $teams_meta, array_keys($teams_meta));
         
-        $this->turns = array_map(function($turn) {
-            $turn['fixtures'] = array_map(function($fixture) {
-                $fixture['teams']['home']['info'] = array_values(array_filter($this->teams, function($team) use($fixture) {
-                    return $team->id == $fixture['teams']['home']['id'];
-                }))[0];
-
-                $fixture['teams']['away']['info'] = array_values(array_filter($this->teams, function($team) use($fixture) {
-                    return $team->id == $fixture['teams']['away']['id'];
-                }))[0];
-                
-                return $fixture;
-            }, $turn['fixtures']);
-
-            return $turn;
-        }, $turns_meta);
+        $this->turns = get_post_meta($id, 'tbi-competition-turns', true) ?: [];
     }
 }

@@ -48,6 +48,7 @@ Vue.component('tbi-vue-widget-fixtures', {
 
                 <tbi-vue-widget-fixtures-round
                     :slides="slot_props.slide.turns"
+                    :teams="slot_props.slide.teams"
                     :base_class="slot_props.base_class + '__rounds'"
                 ></tbi-vue-widget-fixtures-round>
             </template>
