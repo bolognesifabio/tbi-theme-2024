@@ -1,7 +1,7 @@
 <?php
 use TBI\Controllers\Competition as Competition_Controller;
 
-if (isset($_GET['season'])) $season_term = get_term_by('slug', isset($_GET['season']), 'seasons');
+if (isset($_GET['stagione'])) $season_term = get_term_by('slug', isset($_GET['stagione']), 'seasons');
 else {
     $season_term = get_terms([
         'taxonomy' => 'seasons',

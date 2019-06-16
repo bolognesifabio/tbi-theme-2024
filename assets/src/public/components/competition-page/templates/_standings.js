@@ -22,10 +22,10 @@ export default /* html */ `
                         <img :src="team.logo" />
                     </td>
                     <td :class="slot_props.base_class + '__standings__table__team'">{{ team.alias || team.title }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__played'">{{ team.stats.played }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.stats.wins }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.stats.loss }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.stats.draws }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__played'">{{ team.played }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.won }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.loss }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.draw }}</td>
                     <td :class="slot_props.base_class + '__standings__table__points'">{{ team.points }}</td>
                 </tr>
             </tbody>
