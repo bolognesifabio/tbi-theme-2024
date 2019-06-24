@@ -57,10 +57,14 @@ abstract class League extends Competition_Controller {
     }
 
     public function get_standings_by_terms($competitions_terms, $seasons_terms) {
-        $leagues = parent::get_by_terms($competitions_terms, $seasons_terms);
+        $leagues = self::get_leagues_by_terms($competitions_terms, $seasons_terms);
 
         return array_map(function($league) {
             return self::get_standings($league);
         }, $leagues);
+    }
+
+    public function get_leagues_by_terms($competitions_terms, $seasons_terms) {
+        return parent::get_by_terms($competitions_terms, $seasons_terms, ['leagues']);
     }
 }

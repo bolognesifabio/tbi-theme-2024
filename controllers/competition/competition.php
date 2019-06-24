@@ -13,9 +13,9 @@ abstract class Competition {
         return null;
     }
 
-    public function get_by_terms($competitions_terms, $seasons_terms) {
+    public function get_by_terms($competitions_terms, $seasons_terms, $competitions_types = ['leagues', 'cups']) {
         $competitions_ids = get_posts([ 
-            'post_type' => ['leagues', 'cups'], 
+            'post_type' => $competitions_types, 
             'posts_per_page' => -1, 
             'orderby' => 'post_title', 
             'order' => 'DESC', 

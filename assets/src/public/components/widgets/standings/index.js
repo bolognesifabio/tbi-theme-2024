@@ -19,9 +19,11 @@ Vue.component('tbi-vue-widget-standings', {
         })).then(results => {
             this.is_loading = false
 
-            this.slides = results.map(result => { return result.data }).reduce((output, data) => {
-                return output.concat(data[0])
-            }, [])
+            for (let result of results) {
+                for (let league of result.data) {
+                    this.slides.push(league)
+                }
+            }
         })
 
     },
