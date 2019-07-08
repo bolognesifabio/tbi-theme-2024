@@ -12,7 +12,15 @@ else {
 }
 
 $competition_term = get_term_by('slug', 'competition-' . $post->ID, 'competitions');
-$competitions = Competition_Controller::get_by_terms($competition_term->term_id, $season_term->term_id); ?>
+$competitions = array_map(function($competition) {
+    $competition->turns = array_map(function($turn) {
+        $turn["id"] = $turn["name"];
+        return $turn;
+    }, $competition->turns);
+
+    return $competition;
+}, Competition_Controller::get_by_terms($competition_term->term_id, $season_term->term_id));
+?>
 
 <div class="page-competition row--boxed">
     <h1 class="page-competition__title"><?= $competition_term->name ?: "" ?></h1> <?php
@@ -20,16 +28,5 @@ $competitions = Competition_Controller::get_by_terms($competition_term->term_id,
         <h2 class="page-competition__subtitle"><?= $competition_term->description ?></h2> <?php
     } ?>
 
-    <tbi-vue-tabs inline-template data-tabs='<?= json_encode($competitions) ?>'>
-        <div>
-            <h2 v-for="tab in tabs">{{ tab.title }}</h2>
-
-            <tbi-vue-fixt v-for="tab in tabs" inline-template :fixtures="tab.turns">
-                <div>
-                    <h3 v-for="turn in fixtures">{{ turn.name }}</h3>
-                </div>
-            </tbi-vue-fixt>
-        </div>
-    </tbi-vue-tabs>
-
+    <tbi-vue-page-competition data-slides='<?= json_encode($competitions) ?>'></tbi-vue-page-competition>
 </div>
