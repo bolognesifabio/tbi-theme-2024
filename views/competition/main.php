@@ -1,7 +1,7 @@
 <?php
 use TBI\Controllers\Competition as Competition_Controller;
 
-if (isset($_GET['stagione'])) $season_term = get_term_by('slug', isset($_GET['stagione']), 'seasons');
+if (isset($_GET['stagione'])) $season_term = get_term_by('slug', $_GET['stagione'], 'seasons');
 else {
     $season_term = get_terms([
         'taxonomy' => 'seasons',
@@ -20,5 +20,16 @@ $competitions = Competition_Controller::get_by_terms($competition_term->term_id,
         <h2 class="page-competition__subtitle"><?= $competition_term->description ?></h2> <?php
     } ?>
 
-    <tbi-vue-page-competition data-slides='<?= json_encode($competitions) ?>'></tbi-vue-page-competition>
+    <tbi-vue-tabs inline-template data-tabs='<?= json_encode($competitions) ?>'>
+        <div>
+            <h2 v-for="tab in tabs">{{ tab.title }}</h2>
+
+            <tbi-vue-fixt v-for="tab in tabs" inline-template :fixtures="tab.turns">
+                <div>
+                    <h3 v-for="turn in fixtures">{{ turn.name }}</h3>
+                </div>
+            </tbi-vue-fixt>
+        </div>
+    </tbi-vue-tabs>
+
 </div>

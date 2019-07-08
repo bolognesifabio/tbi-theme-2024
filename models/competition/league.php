@@ -69,6 +69,7 @@ class League extends Competition_Model {
     private function get_all_fixtures() {
         return array_reduce($this->turns, function($fixtures, $turn) {
             if ($turn['fixtures']) return array_merge($fixtures, $turn['fixtures']);
+            else return $fixtures;
         }, []);
     }
 }

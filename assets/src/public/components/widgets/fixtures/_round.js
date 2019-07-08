@@ -1,7 +1,9 @@
 export default {
     props: {
         'slides': {
-            default: []
+            default() {
+                return []
+            }
         },
         'base_class': {
             default: ''
@@ -10,7 +12,9 @@ export default {
             default: false
         },
         'teams': {
-            default: []
+            default() {
+                return []
+            }
         }
     },
     methods: {
@@ -33,7 +37,7 @@ export default {
             <template slot="slide" slot-scope="slot_props">
                 <div v-for="fixture in slot_props.slide.fixtures" :class="slot_props.base_class + '__fixture'">
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <img :src="team_from_id(fixture.teams.home.id).emblem" />
+                        <img v-if="team_from_id(fixture.teams.home.id)" :src="team_from_id(fixture.teams.home.id).emblem" />
                     </span>
                     <span v-if="team_from_id(fixture.teams.home.id)" :class="[slot_props.base_class + '__fixture__team', 'home']">{{ team_from_id(fixture.teams.home.id).title }}</span>
                     <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.home.score }}</span>
@@ -41,7 +45,7 @@ export default {
                     <span :class="slot_props.base_class + '__fixture__score'">{{ fixture.teams.away.score }}</span>
                     <span v-if="team_from_id(fixture.teams.away.id)" :class="[slot_props.base_class + '__fixture__team', 'away']">{{ team_from_id(fixture.teams.away.id).title }}</span>
                     <span v-if="show_logos" :class="slot_props.base_class + '__fixture__logo'">
-                        <img :src="team_from_id(fixture.teams.away.id).emblem" />
+                        <img v-if="team_from_id(fixture.teams.away.id)" :src="team_from_id(fixture.teams.away.id).emblem" />
                     </span>
                 </div>
             </template>
