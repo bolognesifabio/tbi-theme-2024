@@ -34,8 +34,8 @@ class League extends Competition_Model {
                 $is_home_winner = $home_team['score'] > $away_team['score'];
 
                 foreach ($fixture['teams'] as $status => $team) {
-                    if (!isset($teams_result[$team['id']])) {
-                        $teams_result[$team['id']] = [
+                    if (!isset($teams_results[$team['id']])) {
+                        $teams_results[$team['id']] = [
                             "played" => 0,
                             "won" => 0,
                             "loss" => 0,
@@ -43,7 +43,7 @@ class League extends Competition_Model {
                         ];
                     }
 
-                    $current_team_results = $teams_result[$team['id']];
+                    $current_team_results = &$teams_results[$team['id']];
                     $is_home_team = $status === 'home';
 
                     if ($is_draw) $current_team_results['draw']++;
@@ -61,6 +61,8 @@ class League extends Competition_Model {
                     foreach ($league_team_results as $result_type => $result_value) {
                         $team->$result_type = $result_value;
                     }
+
+                    $team->points = ($team->won * $this->victory_points) + ($team->draw * $this->draw_points) + ($team->loss * $this->loss_points);
                 }
             }
         }

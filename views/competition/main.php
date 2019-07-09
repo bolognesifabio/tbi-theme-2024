@@ -1,5 +1,6 @@
 <?php
 use TBI\Controllers\Competition as Competition_Controller;
+use TBI\Controllers\Competition\League as League_Controller;
 
 if (isset($_GET['stagione'])) $season_term = get_term_by('slug', $_GET['stagione'], 'seasons');
 else {
@@ -18,6 +19,7 @@ $competitions = array_map(function($competition) {
         return $turn;
     }, $competition->turns);
 
+    if ($competition->type === 'leagues') return League_Controller::get_standings($competition);
     return $competition;
 }, Competition_Controller::get_by_terms($competition_term->term_id, $season_term->term_id));
 ?>
@@ -28,5 +30,5 @@ $competitions = array_map(function($competition) {
         <h2 class="page-competition__subtitle"><?= $competition_term->description ?></h2> <?php
     } ?>
 
-    <tbi-vue-page-competition data-slides='<?= json_encode($competitions) ?>'></tbi-vue-page-competition>
+    <tbi-vue-page-competition data-slides='<?= esc_html(json_encode($competitions)) ?>'></tbi-vue-page-competition>
 </div>

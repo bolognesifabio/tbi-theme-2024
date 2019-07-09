@@ -19,7 +19,7 @@ export default /* html */ `
                 <tr v-for="(team, position) in slot_props.slide.teams">
                     <td :class="slot_props.base_class + '__standings__table__position'">{{ position + 1 }}</td>
                     <td :class="slot_props.base_class + '__standings__table__logo'">
-                        <img :src="team.logo" />
+                        <img :src="team.emblem" />
                     </td>
                     <td :class="slot_props.base_class + '__standings__table__team'">{{ team.alias || team.title }}</td>
                     <td :class="slot_props.base_class + '__standings__table__played'">{{ team.played }}</td>
