@@ -35,7 +35,8 @@ class Theme {
         Files::require_in_all_directories('core/metaboxes');
         Files::require_all_files('core/api');
 
-        flush_rewrite_rules();
+        add_rewrite_tag('%season%', '([^&]+)');
+        add_rewrite_rule('^competizioni/([^/]*)/([^/]+)/?$', 'competizioni/$matches[1]?season=$2', 'top');
     }
 
     public function load_admin_assets() {

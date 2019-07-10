@@ -2,7 +2,7 @@
 use TBI\Controllers\Competition as Competition_Controller;
 use TBI\Controllers\Competition\League as League_Controller;
 
-if (isset($_GET['stagione'])) $season_term = get_term_by('slug', $_GET['stagione'], 'seasons');
+if (isset($_GET['season'])) $season_term = get_term_by('slug', $_GET['season'], 'seasons');
 else {
     $season_term = get_terms([
         'taxonomy' => 'seasons',
