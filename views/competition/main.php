@@ -29,8 +29,8 @@ $all_seasons = Competition_Controller::get_all_seasons($competition_term);
 <div class="page-competition row--boxed">
     <header class="page-competition__header">
         <h1 class="page-competition__header__title"><?= $competition_term->name ?: "" ?></h1> <?php
-        if ($competition_term->description) { ?>
-            <h2 class="page-competition__header__subtitle"><?= $competition_term->description ?></h2> <?php
+        if ($post->post_excerpt) { ?>
+            <h2 class="page-competition__header__subtitle"><?= $post->post_excerpt ?></h2> <?php
         } ?>
 
         <tbi-vue-page-competition-seasons inline-template default_season="<?= $season_term->slug ?>" >
