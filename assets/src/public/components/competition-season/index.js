@@ -11,7 +11,6 @@ Vue.component('tbi-vue-page-competition-seasons', {
 
     beforeMount() {
         this.selected_season = this.default_season
-        this.redirect_to_season()
     },
 
     methods: {
