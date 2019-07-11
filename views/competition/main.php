@@ -2,8 +2,11 @@
 use TBI\Controllers\Competition as Competition_Controller;
 use TBI\Controllers\Competition\League as League_Controller;
 
-if (isset($_GET['season'])) $season_term = get_term_by('slug', $_GET['season'], 'seasons');
-else {
+$season_slug = get_query_var('season', false);
+
+if ($season_slug) $season_term = get_term_by('slug', $season_slug, 'seasons');
+
+if (!$season_term) {
     $season_term = get_terms([
         'taxonomy' => 'seasons',
         'orderby' => 'name',
