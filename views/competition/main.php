@@ -22,13 +22,29 @@ $competitions = array_map(function($competition) {
     if ($competition->type === 'leagues') return League_Controller::get_standings($competition);
     return $competition;
 }, Competition_Controller::get_by_terms($competition_term->term_id, $season_term->term_id));
+
+$all_seasons = Competition_Controller::get_all_seasons($competition_term);
 ?>
 
 <div class="page-competition row--boxed">
-    <h1 class="page-competition__title"><?= $competition_term->name ?: "" ?></h1> <?php
-    if ($competition_term->description) { ?>
-        <h2 class="page-competition__subtitle"><?= $competition_term->description ?></h2> <?php
-    } ?>
+    <header class="page-competition__header">
+        <h1 class="page-competition__header__title"><?= $competition_term->name ?: "" ?></h1> <?php
+        if ($competition_term->description) { ?>
+            <h2 class="page-competition__header__subtitle"><?= $competition_term->description ?></h2> <?php
+        } ?>
+
+        <tbi-vue-page-competition-seasons>
+            <div class="page-competition__header__seasons">
+                <select class="page-competition__header__seasons__nav" > <?php
+                    foreach ($all_seasons as $season_slug => $season_name) { ?>
+                        <option value="<?= $season_slug ?>"><?= $season_name ?></option> <?php
+                    } ?>
+                </select>
+
+                <i class="page-competition__header__seasons__arrow fas fa-sort-down"></i>
+            </div>
+        </tbi-vue-page-competition-seasons>
+    </header>
 
     <tbi-vue-page-competition data-slides='<?= esc_html(json_encode($competitions)) ?>'></tbi-vue-page-competition>
 </div>
