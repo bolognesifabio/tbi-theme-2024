@@ -33,7 +33,7 @@ $all_seasons = Competition_Controller::get_all_seasons($competition_term);
             <h2 class="page-competition__header__subtitle"><?= $competition_term->description ?></h2> <?php
         } ?>
 
-        <tbi-vue-page-competition-seasons inline-template>
+        <tbi-vue-page-competition-seasons inline-template default_season="<?= $season_term->slug ?>" >
             <div class="page-competition__header__seasons">
                 <select class="page-competition__header__seasons__nav" v-model="selected_season" @change="redirect_to_season"> <?php
                     foreach ($all_seasons as $season_slug => $season_name) { ?>
