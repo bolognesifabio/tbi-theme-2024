@@ -4,23 +4,25 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 
     &__round {
-        width: 100%;
+        width: 720px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
         padding: 0 15px;
-        border-top: 1px solid $light-color;
+        border-top: 1px solid $text-gray-color;
         margin-bottom: 30px;
 
         &__title {
-            font-size: 16px;
             font-weight: 700;
-            margin: 30px 0 15px;
+            font-family: "Poppins", sans-serif;
+            margin: 30px 0 10px;
             text-align: center;
-            color: $text-gray-color;
+            font-size: 20px;
+            color: $main-color;
+            width: 100%;
         }
 
         &__fixture {
@@ -28,8 +30,8 @@
             align-items: center;
             justify-content: space-around;
             width: 100%;
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 14px;
+            margin-bottom: 10px;
 
             &__team {
                 width: 40%;
@@ -42,13 +44,13 @@
             }
 
             &__name {
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: 700;
             }
 
             &__logo {
-                height: 36px;
-                width: 36px;
+                height: 24px;
+                width: 24px;
                 margin: 0 10px;
             }
 
@@ -57,29 +59,11 @@
                 text-align: center;
                 font-weight: 700;
             }
-        }
 
-        &:first-child & {
-            &__title {
-                font-size: 28px;
-            }
-
-            &__fixture {
-                font-size: 24px;
-
-                &__score {
-                    width: 60px;
-                }
-
-                &__team {
-                    flex-direction: column;
-                }
-
-                &__logo {
-                    height: 52px;
-                    width: 52px;
-                    margin-bottom: 15px;
-                }
+            h4 {
+                margin: 15px 0 0 5px;
+                font-weight: 400;
+                text-transform: uppercase;
             }
         }
 
