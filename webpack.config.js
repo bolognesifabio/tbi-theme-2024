@@ -57,7 +57,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 exclude: /critical/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
                 test: /\.scss$/,
@@ -67,7 +67,7 @@ module.exports = {
                     options: {
                         url: false
                     }
-                }, 'sass-loader']
+                }, 'postcss-loader', 'sass-loader']
             },
             {
                 test: /theme-manifest\.css$/,

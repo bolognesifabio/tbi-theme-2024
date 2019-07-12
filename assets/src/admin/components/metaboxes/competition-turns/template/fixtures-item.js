@@ -61,12 +61,15 @@ export default /* html */ `
             </td>
         </template>
         <template v-else>
-            <td :class="bem('list__item__fixtures__item__separator-title')" colspan="8">
+            <td :class="bem('list__item__fixtures__item__separator-title')" colspan="7">
                 <input
                     type="text"
                     v-model="fixture.title"
                     :name="'tbi-competition-turns[' + turn_index + '][fixtures][' + fixture_index + '][title]'"
                 />
+            </td>
+            <td :class="bem('list__item__fixtures__item__delete')">
+                <button :class="bem('list__item__fixtures__item__delete__button')" @click.prevent="remove_fixture(turn_index, fixture_index)"></button>
             </td>
         </template>
     </tr>

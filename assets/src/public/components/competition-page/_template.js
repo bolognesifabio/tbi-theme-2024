@@ -8,7 +8,7 @@ export default /* html */ `
     >
 
         <template slot="slide" slot-scope="slot_props">
-            <h3 :class="slot_props.base_class + '__excerpt'">{{ slot_props.slide.excerpt }}</h3>
+            <h3 v-if="slot_props.slide.excerpt" :class="slot_props.base_class + '__excerpt'">{{ slot_props.slide.excerpt }}</h3>
 
             ${cup}
 

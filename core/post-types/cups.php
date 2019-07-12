@@ -30,7 +30,7 @@ $options = [
         'name_admin_bar' => 'Coppe'
     ],
     'menu_position' => 28,
-    'supports' => ['title'],
+    'supports' => ['title', 'editor', 'excerpt'],
     'rewrite' => [
         'slug' => 'coppe'
     ]

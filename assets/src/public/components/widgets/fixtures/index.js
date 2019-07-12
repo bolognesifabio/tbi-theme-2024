@@ -16,21 +16,20 @@ Vue.component('tbi-vue-widget-fixtures', {
         this.slides = []
 
         Promise.all(competitions.map(competition => {
-            return axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi/v1/competition/${competition}/season/${seasons}/fixtures`)
+            return axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi/v1/competition/${competition}/season/${seasons}/leagues/fixtures`)
         })).then(results => {
             this.is_loading = false
 
-            this.slides = results.map(result => { return result.data }).reduce((output, data) => {
-                data = data.map(competition => {
+            for (let result of results) {
+                for (let competition of result.data) {
                     competition.turns = competition.turns.map(turn => {
                         turn.id = turn.name
                         return turn
                     })
-                    return competition
-                })
-
-                return output.concat(data)
-            }, [])
+                    
+                    this.slides.push(competition)
+                }
+            }
         })
     },
     components: {

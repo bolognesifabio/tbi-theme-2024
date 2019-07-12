@@ -19,13 +19,13 @@ export default /* html */ `
                 <tr v-for="(team, position) in slot_props.slide.teams">
                     <td :class="slot_props.base_class + '__standings__table__position'">{{ position + 1 }}</td>
                     <td :class="slot_props.base_class + '__standings__table__logo'">
-                        <img :src="team.logo" />
+                        <img :src="team.emblem" />
                     </td>
                     <td :class="slot_props.base_class + '__standings__table__team'">{{ team.alias || team.title }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__played'">{{ team.stats.played }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.stats.wins }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.stats.loss }}</td>
-                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.stats.draws }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__played'">{{ team.played }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.won }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.loss }}</td>
+                    <td :class="slot_props.base_class + '__standings__table__results'">{{ team.draw }}</td>
                     <td :class="slot_props.base_class + '__standings__table__points'">{{ team.points }}</td>
                 </tr>
             </tbody>

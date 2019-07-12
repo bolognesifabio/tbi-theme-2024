@@ -5,7 +5,9 @@ use TBI\Helpers\Files;
 class Theme {
     public function __construct() {
         $assets_version_hash = Files::get_assets_version()->hash;
-
+        
+        add_action('generate_rewrite_rules', [$this, 'add_custom_url_rules']);
+        add_filter('query_vars', [$this, 'add_custom_query_vars_filter']);
         add_action('init', [$this, 'activate']);
 
         Files::require_in_all_directories('core/widgets');
@@ -34,8 +36,6 @@ class Theme {
         Files::require_all_files('core/taxonomies');
         Files::require_in_all_directories('core/metaboxes');
         Files::require_all_files('core/api');
-
-        flush_rewrite_rules();
     }
 
     public function load_admin_assets() {
@@ -47,4 +47,14 @@ class Theme {
         register_nav_menu('top-menu', __('Menu principale'));
         register_nav_menu('footer-menu', __('Menu del footer'));
     }
+
+    public function add_custom_url_rules() {
+        global $wp_rewrite;
+        $wp_rewrite->rules = ['^competizioni/([^/]*)/([^/]+)/?$' => 'competitions=$matches[1]&season=$matches[2]'] + $wp_rewrite->rules;
+    }
+
+    public function add_custom_query_vars_filter($query_vars) {
+        $query_vars[] = "season";
+        return $query_vars;
+      }
 }

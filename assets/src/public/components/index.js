@@ -5,4 +5,4 @@ import './home-carousel'
 import './header'
 import './widgets'
 import './youtchouk'
-
+import './competition-season'
