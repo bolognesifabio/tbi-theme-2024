@@ -16,8 +16,8 @@ let git_revision = new Git_Revision_Plugin({ lightweightTags: true })
 module.exports = {
     mode: IS_MODE_PRODUCTION ? 'production' : 'development',
     entry: {
-        'admin': ['@babel/polyfill', './assets/src/admin/index.js', './assets/src/admin/style/critical/index.scss'],
-        'public': ['@babel/polyfill', './assets/src/public/index.js', './assets/src/public/style/critical/index.scss'],
+        'admin': ['@babel/polyfill', './assets/src/admin/index.js', './assets/src/admin/style/critical.scss'],
+        'public': ['@babel/polyfill', './assets/src/public/index.js', './assets/src/public/style/critical.scss'],
         'style': './assets/src/theme-manifest.css',
     },
     output: {

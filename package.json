@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "main": "webpack.config.js",
+  "author": "Valerio Senneca",
+  "scripts": {
+    "start": "webpack --watch --mode=development",
+    "build": "webpack --mode=production",
+    "deploy": "babel-node .deploy/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-async-to-generator": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@icetee/ftp": "^1.0.3",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^2.0.2",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^3.0.1",
+    "fs-extra": "^7.0.1",
+    "git-revision-webpack-plugin": "^3.0.3",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "promise-ftp": "^1.3.5",
+    "sass-loader": "^7.1.0",
+    "string-replace-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.1.2",
+    "write-json-webpack-plugin": "^1.1.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "axios": "^0.19.0",
+    "vue": "^2.5.17"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
