@@ -64,6 +64,8 @@ abstract class Competition {
             $all_seasons[$season_term->slug] = $season_term->name;
         }
 
+        krsort($all_seasons);
+
         return $all_seasons;
     }
 }
