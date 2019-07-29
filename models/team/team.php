@@ -21,7 +21,7 @@ class Team {
         $this->title = $team_post->post_title;
         $this->bio = $team_post->post_content;
         $this->url = get_permalink($this->id);
-        $this->club = get_the_terms($this->id, 'clubs')[0] ?: null;
+        $this->club = get_the_terms($this->id, 'clubs_taxonomy')[0] ?: null;
         $this->short_name = $teams_details['short_name'] ?: '';
         $this->code = $teams_details['code'] ?: '';
         $this->is_inactive = $teams_details['is_inactive'] ? true : false;

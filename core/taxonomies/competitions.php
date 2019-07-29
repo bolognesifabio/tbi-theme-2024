@@ -1,6 +1,6 @@
 <?php
 register_taxonomy(
-    'competitions',
+    'competitions_taxonomy',
     ['leagues', 'cups'],
     [
         'labels' => [

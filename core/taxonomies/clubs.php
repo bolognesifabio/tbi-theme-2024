@@ -1,6 +1,6 @@
 <?php
 register_taxonomy(
-    'clubs',
+    'clubs_taxonomy',
     ['teams'],
     [
         'labels' => [

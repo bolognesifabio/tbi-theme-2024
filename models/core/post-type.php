@@ -3,6 +3,7 @@ namespace TBI\Models\Core;
 
 class Post_Type {
     private $type_name;
+    private $taxonomy_slug;
     private $taxonomy_slug_prefix;
 
     public function __construct($type_name, $options = [], $taxonomy_slug_prefix = false) {
@@ -21,6 +22,7 @@ class Post_Type {
         register_post_type($type_name, array_merge($default_options, $options));
 
         if ($taxonomy_slug_prefix) {
+            $this->taxonomy_slug = $this->type_name . "_taxonomy";
             $this->taxonomy_slug_prefix = $taxonomy_slug_prefix;
 
             add_action('post_updated', [$this, 'update_taxonomy_term'], 10, 2);
@@ -37,24 +39,24 @@ class Post_Type {
     
     public function update_taxonomy_term($post_id, $post) {
         $taxonomy_term_slug = $this->taxonomy_slug_prefix . '-' . $post_id;
-        $taxonomy_term = get_term_by('slug', $taxonomy_term_slug, $this->type_name);
+        $taxonomy_term = get_term_by('slug', $taxonomy_term_slug, $this->taxonomy_slug);
 
         if ($this->type_name != get_post_type($post_id) || $post->post_status == 'auto-draft') return;
 
         if ($post->post_status == 'trash') {
-            wp_delete_term($taxonomy_term->term_id, $this->type_name);
+            wp_delete_term($taxonomy_term->term_id, $this->taxonomy_slug);
             return;
         }
 
         if ($taxonomy_term) {
-            wp_update_term($taxonomy_term->term_id, $this->type_name, [
+            wp_update_term($taxonomy_term->term_id, $this->taxonomy_slug, [
                 'name' => $post->post_title,
                 'slug' => $taxonomy_term_slug
             ]);
         } else {
             wp_insert_term(
                 $post->post_title, 
-                $this->type_name,
+                $this->taxonomy_slug,
                 [
                     'slug' => $taxonomy_term_slug
                 ]

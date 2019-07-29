@@ -3,7 +3,7 @@ $competitions = [
     "value" => !empty($instance['competitions']) ? $instance['competitions'] : [],
     "id" => esc_attr($this->get_field_id('competitions')),
     "name" => esc_attr($this->get_field_name('competitions')),
-    "categories" => get_categories(["taxonomy" => "competitions"])
+    "categories" => get_categories(["taxonomy" => "competitions_taxonomy"])
 ]; ?>
 
 <p>

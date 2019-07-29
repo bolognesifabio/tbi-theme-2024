@@ -15,7 +15,7 @@ if (!$season_term) {
     ])[0];
 }
 
-$competition_term = get_term_by('slug', 'competition-' . $post->ID, 'competitions');
+$competition_term = get_term_by('slug', 'competition-' . $post->ID, 'competitions_taxonomy');
 $competitions = array_map(function($competition) {
     $competition->turns = array_map(function($turn) {
         $turn["id"] = $turn["name"];

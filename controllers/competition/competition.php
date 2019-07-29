@@ -22,7 +22,7 @@ abstract class Competition {
             'tax_query' => [
                 'relation' => 'AND',
                 [
-                    'taxonomy' => 'competitions',
+                    'taxonomy' => 'competitions_taxonomy',
                     'field' => 'term_id',
                     'terms' => $competitions_terms
                 ],
@@ -49,7 +49,7 @@ abstract class Competition {
             'tax_query' => [
                 'relation' => 'AND',
                 [
-                    'taxonomy' => 'competitions',
+                    'taxonomy' => 'competitions_taxonomy',
                     'field' => 'term_id',
                     'terms' => $competitions_terms
                 ]

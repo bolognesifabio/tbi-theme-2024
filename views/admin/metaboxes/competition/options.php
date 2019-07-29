@@ -26,7 +26,7 @@ if ($is_post_type_leagues) {
     <div class="tbi-metaboxes-form__field tbi-metaboxes-form__field--wrap">
         <label class="tbi-metaboxes-form__field__label">Competizione</label> <?php
         Metaboxes_Helper::render_taxonomy_select([
-            'key' => 'competitions',
+            'key' => 'competitions_taxonomy',
             'name' => $this->meta_name,
             'empty_taxonomy_message' => 'Non ci sono competizioni disponibili.<br/>Creane una nella sezione apposita.',
             'default_option_text' => 'Seleziona la competizione'
