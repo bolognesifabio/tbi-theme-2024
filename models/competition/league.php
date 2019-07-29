@@ -27,7 +27,7 @@ class League extends Competition_Model {
         foreach ($all_fixtures as $fixture) {
             $home_team = $fixture['teams']['home'];
             $away_team = $fixture['teams']['away'];
-            $is_played = $home_team['score'] !== 0 || $away_team['score'] !== 0;
+            $is_played = $home_team['score'] != 0 || $away_team['score'] != 0;
 
             if ($is_played) {
                 $is_draw = $home_team['score'] === $away_team['score'];
@@ -47,7 +47,7 @@ class League extends Competition_Model {
                     $is_home_team = $status === 'home';
 
                     if ($is_draw) $current_team_results['draw']++;
-                    if (($is_home_winner && $is_home_team) || (!$is_home_winner && !$is_home_team)) $current_team_results['won']++;
+                    else if (($is_home_winner && $is_home_team) || (!$is_home_winner && !$is_home_team)) $current_team_results['won']++;
                     else $current_team_results['loss']++;
 
                     $current_team_results['played']++;

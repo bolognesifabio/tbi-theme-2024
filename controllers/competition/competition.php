@@ -45,7 +45,7 @@ abstract class Competition {
             'post_type' => $post_types,
             'posts_per_page' => -1,
             'orderby' => 'post_title',
-            'order' => 'DESC',
+            'order' => 'ASC',
             'tax_query' => [
                 'relation' => 'AND',
                 [
