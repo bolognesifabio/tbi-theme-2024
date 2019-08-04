@@ -8,6 +8,7 @@ const IGNORE_LIST = [
     './.vscode',
     './.babelrc',
     './.gitignore',
+    './.gitattributes',
     './assets/src',
     './node_modules',
     './package-lock.json',
