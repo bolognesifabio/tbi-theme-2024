@@ -24,6 +24,6 @@ workflows:
             only:
             - master
             - develop
-            - /feature/*
-            - /hotfix/*
-            - /release/*
+            - /feature\/.*/
+            - /hotfix\/.*/
+            - /release\/.*/
