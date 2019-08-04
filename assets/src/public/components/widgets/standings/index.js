@@ -21,6 +21,9 @@ Vue.component('tbi-vue-widget-standings', {
 
             for (let result of results) {
                 for (let league of result.data) {
+                    league.teams = league.teams.filter(team => {
+                        return !team.is_not_in_standings
+                    })
                     this.slides.push(league)
                 }
             }

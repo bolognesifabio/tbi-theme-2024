@@ -16,7 +16,7 @@ export default /* html */ `
             </thead>
 
             <tbody>
-                <tr v-for="(team, position) in slot_props.slide.teams">
+                <tr v-for="(team, position) in slot_props.slide.teams" v-if="!team.is_not_in_standings">
                     <td :class="slot_props.base_class + '__standings__table__position'">{{ position + 1 }}</td>
                     <td :class="slot_props.base_class + '__standings__table__logo'">
                         <img :src="team.emblem" />
