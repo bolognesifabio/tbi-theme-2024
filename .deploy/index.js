@@ -7,10 +7,8 @@ import read_remote_folder from './_read-remote-folder'
 import remove_deprecated from './_remove-deprecated'
 
 const
-    CURRENT_BRANCH = process.env.CIRCLE_BRANCH.toUpperCase(),
+    CURRENT_BRANCH = process.env.CIRCLE_BRANCH.toUpperCase().split("/")[0],
     ENVIRONMENT_KEY = process.env[`${CURRENT_BRANCH}_ENVIRONMENT`] || 'DEV02'
-
-console.log(CURRENT_BRANCH)    
 
 class FTP_Deploy {
     constructor(connection_data) {
