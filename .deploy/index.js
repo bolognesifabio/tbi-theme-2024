@@ -10,6 +10,8 @@ const
     CURRENT_BRANCH = process.env.CIRCLE_BRANCH.toUpperCase(),
     ENVIRONMENT_KEY = process.env[`${CURRENT_BRANCH}_ENVIRONMENT`] || 'DEV02'
 
+console.log(CURRENT_BRANCH)    
+
 class FTP_Deploy {
     constructor(connection_data) {
         this.host = connection_data.host
