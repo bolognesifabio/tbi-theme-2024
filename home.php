@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="tbi-vue">
+<main>
     <?php include "views/pages/home/carousel.php"; ?>
 
     <div class="row--boxed"> <?php

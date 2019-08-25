@@ -7,6 +7,7 @@
                 <p class="footer__copyright__text">&copy; 2019 TBI - Tchoukball Italia</p>
             </div>
         </footer>
+        </div>
         <?php wp_footer(); ?>
     </body>
 </html>

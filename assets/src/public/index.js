@@ -1,14 +1,12 @@
 import Vue from 'vue'
-import './components'
+
+import './components-old'
 
 if (document.getElementById('tbi-vue')) {
     new Vue({
-        el: '#tbi-vue'
-    })
-}
-
-if (document.getElementById('tbi-vue-header')) {
-    new Vue({
-        el: '#tbi-vue-header'
+        el: '#tbi-vue',
+        components: {
+            "tbi-top-menu": () => import('./components/layout/top-menu.vue')
+        }
     })
 }
