@@ -6,15 +6,15 @@ $view_model = Menu_Controller::top(); ?>
 <tbi-top-menu view_model='<?= json_encode($view_model) ?>' inline-template>
     <nav v-if="model">
         <ul class="menu">
-            <li v-for="menu_item in model.menu">
-                <a v-if="!menu_item.children.length" :href="menu_item.url">{{ menu_item.title }}</a>
+            <li v-for="menu_item in model.menu" :key="menu_item.ID">
+                <a v-if="!menu_item.has_children" :href="menu_item.url">{{ menu_item.title }}</a>
 
-                <button v-if="menu_item.children.length" @click.prevent="toggle_sub_menu(menu_item.ID)">
+                <a v-if="menu_item.has_children" role="button" @click.prevent="open_sub_menu(menu_item)">
                     {{ menu_item.title }}
-                </button>
+                </a>
 
-                <ul v-if="menu_item.children.length" class="sub-menu">
-                    <li v-for="menu_item_child in menu_item.children">
+                <ul v-if="menu_item.is_selected" class="sub-menu">
+                    <li v-for="menu_item_child in menu_item.children" :key="menu_item_child.ID">
                         <a :href="menu_item_child.url">{{ menu_item_child.title }}</a>
                     </li>
                 </ul>
