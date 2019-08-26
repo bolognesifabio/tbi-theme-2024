@@ -9,6 +9,8 @@ $view_model = Menu_Controller::top(); ?>
             <tbi-icon icon="bars" />
         </button>
 
+        <div class="layer" v-if="is_open"></div>
+
         <ul class="menu" v-if="is_open">
             <li v-for="menu_item in model.menu" :key="menu_item.ID">
                 <a v-if="!menu_item.has_children" :href="menu_item.url">{{ menu_item.title }}</a>

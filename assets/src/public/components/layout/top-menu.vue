@@ -36,4 +36,33 @@
 </script>
 
 <style lang="scss" scoped>
+    nav {
+    }
+
+    .layer,
+    .menu,
+    .sub-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .layer {
+        height: 100vh;
+        width: 100vw;
+        
+        background: rgba(black, .5);
+    }
+
+    .menu {
+        z-index: 8;
+        background: blue;
+
+    }
+
+    .sub-menu {
+        z-index: 7;
+        left: 50%;
+        background: white;
+    }
 </style>

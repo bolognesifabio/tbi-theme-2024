@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800');
+@import 'utils/variables';
+@import 'vendors/main';
+
+body {
+    margin: 0;
+    font-family: $main-font-family;
+    color: $text-main-color;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    background: #F6F7F8;
+    position: relative;
+    overflow-x: hidden;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    &.menu_open {
+        overflow: hidden;
+    }
+}
+
+main {
+    background: $light-color;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+h2 {
+    font-family: $title-font-family;
+    color: $text-main-color;
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+@import "layout";
+@import "components/main";
+@import "pages/main";

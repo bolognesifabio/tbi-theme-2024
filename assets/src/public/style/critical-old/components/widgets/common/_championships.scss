@@ -1,0 +1,51 @@
+.widget {
+    &-standings,
+    &-fixtures {
+        &__slides {
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+
+            &__element {
+                min-width: 100%;
+                position: absolute;
+                transition: all .3s ease-in-out;
+                top: 0;
+                left: 0;
+                transform: translateX(-100%);
+
+                &.active {
+                    position: static;
+                    transition: all .3s ease-in-out;
+                    transform: translateX(0);
+                }
+
+                &__title {
+                    width: 100%;
+                    margin: 0;
+                    color: $main-color;
+                    font-size: 14px;
+                    line-height: 45px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    padding: 0 45px;
+                }
+            }
+
+            &.prev &__element {
+                transform: translateX(100%);
+                
+                &.active {
+                    animation: slideRight .3s ease-in-out;
+                    transform: translateX(0);
+                }
+            }
+
+            &.next &__element {
+                &.active {
+                    animation: slideLeft .3s ease-in-out;
+                }
+            }
+        }
+    }
+}

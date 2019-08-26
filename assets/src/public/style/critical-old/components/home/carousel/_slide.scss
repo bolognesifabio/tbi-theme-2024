@@ -1,0 +1,96 @@
+@import '../../../utils/keyframes';
+
+.home__carousel__slides__element {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: .8s all ease-in-out;
+    transform: translateY(100%);
+
+    @include media_mobile {
+        transform: translateX(-100%);
+    }
+
+    &__image {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 500px;
+        background: $main-color;
+
+        img {
+            position: absolute;
+            min-width: 100%;
+            min-height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: .5;
+        }
+
+        @include media_mobile {
+            height: 100vh;
+
+            img {
+                min-height: 100vh;
+            }
+        }
+    }
+
+    &__content {
+        width: 50%;
+        position: absolute;
+        text-align: center;
+        color: $text-second-color;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        margin-top: 0;
+
+        &__title {
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 0;
+
+            @include media_tablet {
+                font-size: 28px;
+            }
+        }
+
+        &__cta {
+            padding: 10px 15px;
+            background: $second-color;
+            border: 3px solid $second-color;
+            font-weight: 600;
+            font-size: 16px;
+            color: #FFF;
+            text-decoration: none;
+            transition: all .3s ease-in-out;
+
+            @media only screen and (min-width: $media-tablet) {
+                &:hover {
+                    background: transparent;
+                    border: 3px solid #FFF;
+                }
+            }
+
+            @include media_tablet {
+                font-size: 18px;
+                padding: 12px 27px;
+                border: none;
+            }
+        }
+    }
+
+    &.active {
+        animation: slideDown .8s ease-in-out;
+        transform: translateY(0);
+
+        @include media_mobile {
+            animation: slideLeft .8s ease-in-out;
+            transform: translateX(0);
+        }
+    }
+}

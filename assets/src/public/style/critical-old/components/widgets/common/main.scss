@@ -1,0 +1,11 @@
+@import '../../../utils/keyframes';
+
+.widget {
+    &-standings,
+    &-fixtures {
+        position: relative;
+    }
+}
+
+@import 'arrows';
+@import 'championships';

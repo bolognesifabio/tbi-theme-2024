@@ -1,0 +1,83 @@
+.tbi-widget-news {
+    .widget__title {
+        margin-bottom: 30px;
+        text-align: left;
+    }
+
+    &__list {
+        a {
+            text-decoration: none;
+            color: $text-main-color;
+        }
+
+        &__article {
+            display: flex;
+            margin-bottom: 15px;
+
+            &__thumbnail {
+                $thunmbnail-size: 80px;
+                min-width: $thunmbnail-size;
+                height: $thunmbnail-size;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: $thunmbnail-size;
+                    height: $thunmbnail-size;
+                }
+
+                &:before {
+                    content: 'Leggi l\'articolo';
+                    height: $thunmbnail-size;
+                    width: $thunmbnail-size;
+                    background: rgba($main-color, .8);
+                    transform: translateY(-100%);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transition: all .3s ease-in-out;
+                    color: $text-second-color;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    font-weight: 700;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+            }
+
+            &__content {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                padding-left: 15px;
+
+                &__title {
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin: 0;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &__date {
+                    font-size: 10px;
+                    font-weight: 700;
+                    color: $text-gray-color;
+                    margin: 6px 0 0 0;
+                }
+            }
+
+            &:hover & {
+                &__thumbnail {
+                    &:before {
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+    }
+}
