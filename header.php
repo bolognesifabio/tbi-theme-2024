@@ -3,6 +3,6 @@
 
     <body>
         <div id="tbi-vue">
-            <header> <?php
+            <header class="header"> <?php
                 include "views/public/layout/header/menu.php"; ?>
             </header>
