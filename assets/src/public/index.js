@@ -51,7 +51,7 @@ if (document.getElementById('tbi-vue')) {
             check_viewport_changes() {
                 let viewport = {
                     is_ge_tablet: window.innerWidth >= 768,
-                    is_ge_desktop: window.innerWidth >= 1024 && window.innerWidth < 1440,
+                    is_ge_desktop: window.innerWidth >= 1024,
                     is_ge_large_desktop: window.innerWidth >= 1440
                 }
                 

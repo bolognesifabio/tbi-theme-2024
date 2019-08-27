@@ -1,0 +1,30 @@
+.fade {
+    &-enter-active {
+        transition: opacity .2s ease-out;
+    }
+
+    &-leave-active {
+        transition: opacity .2s ease-in;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+}
+
+.slide-right {
+    &-enter-active {
+        transition: all .2s ease-out;
+    }
+
+    &-leave-active {
+        transition: all .2s ease-in;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateX(-30%);
+    }
+}

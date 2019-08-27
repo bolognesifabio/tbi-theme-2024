@@ -1,4 +1,5 @@
 @import "../../constants";
+@import "../../mixins";
 
 .header {
     height: 6rem;
@@ -23,6 +24,10 @@
         &__mobile {
             height: 4rem;
             width: 4rem;
+        }
+
+        &__desktop {
+            display: none;
         }
     }
 
@@ -54,6 +59,22 @@
             content: " ";
             background: $color-red-main;
             flex-basis: 33%;
+        }
+    }
+
+    @include media-desktop {
+        background: $color-neutral-lightest;
+
+        &__logo {
+            &__mobile {
+                display: none;
+            }
+
+            &__desktop {
+                display: block;
+                height: 8rem;
+                width: auto;
+            }
         }
     }
 }

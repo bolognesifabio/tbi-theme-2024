@@ -32,6 +32,8 @@ button {
 ul {
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
+@import './transitions';
 @import './layout/header';

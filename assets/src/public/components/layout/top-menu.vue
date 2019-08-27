@@ -17,8 +17,8 @@
                 }) ? true : false
             },
 
-            is_open_button_visible() {
-                return !this.$root.viewport.is_ge_desktop
+            is_viewport_desktop() {
+                return this.$root.viewport.is_ge_desktop
             }
         },
 
@@ -31,16 +31,28 @@
                 this.model.menu.forEach(menu_item => { menu_item.is_selected = false })
                 selected_menu_item.is_selected = true
             }
+        },
+
+        mounted() {
+            this.is_open = this.is_viewport_desktop
+        },
+
+        watch: {
+            is_viewport_desktop() {
+                if (this.is_viewport_desktop) this.is_open = true
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
     @import "../../styles/constants";
+    @import "../../styles/mixins";
 
     nav {
         grid-row: 1;
         grid-column: 1;
+        position: relative;
     }
 
     .toggle-menu {
@@ -54,21 +66,20 @@
     .layer,
     .menu,
     .sub-menu {
-        position: fixed;
+        position: absolute;
         top: 6.5rem;
         left: 0;
+        height: calc(100vh - 6.5rem);
     }
 
     .layer {
-        height: 100vh;
         width: 100vw;
         z-index: -3;
-        background: rgba($color-primary-dark, .5);
+        background: $color-neutral-lightest;
     }
 
     .menu {
-        width: 50%;
-        height: 100%;
+        width: 50vw;
         z-index: -1;
         font-family: 'Heebo', sans-serif;
         font-weight: 500;
@@ -91,9 +102,9 @@
     }
 
     .sub-menu {
-        width: 50%;
-        height: 100%;
-        left: 50%;
+        width: 50vw;
+        left: 50vw;
+        top: 0;
         z-index: -2;
         background: $color-neutral-lightest;
 
@@ -104,6 +115,51 @@
             a {
                 color: $color-primary-main;
                 font-weight: 400;
+            }
+        }
+
+        &-enter-active {
+            transition: all .2s .2s ease-out;
+        }
+
+        &-leave-active {
+            transition: all .2s ease-in;
+        }
+
+        &-enter {
+            opacity: 0;
+            transform: translateX(30%);
+        }
+
+        &-leave-to {
+            opacity: 0;
+            transform: translateX(0);
+        }
+    }
+
+    @include media-tablet {
+        .menu {
+            width: 30vw;
+        }
+
+        .sub-menu {
+            width: 70vw;
+            left: 30vw;
+        }
+    }
+
+    @include media-desktop {
+        .menu {
+            position: relative;
+            background: $color-primary-main;
+            height: 6rem;
+            border-top-left-radius: 1rem;
+        
+            &:before {
+                content: " ";
+                position: absolute;
+                height: 6rem;
+                width: 4rem;
             }
         }
     }
