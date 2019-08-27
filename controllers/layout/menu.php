@@ -3,9 +3,9 @@ namespace TBI\Controllers\Layout;
 
 abstract class Menu {
     public function top() {
-        $view_model = [ 'menu' => [] ];
+        $view_model = [ "menu" => [] ];
 
-        $top_menu_slug = get_term(get_nav_menu_locations()['top-menu'], 'nav_menu')->name;
+        $top_menu_slug = get_term(get_nav_menu_locations()["top-menu"], "nav_menu")->name;
         
         foreach (wp_get_nav_menu_items($top_menu_slug) ?: [] as $menu_item) {
             $filtered_menu_item = [
@@ -21,18 +21,18 @@ abstract class Menu {
             ];
 
             if ($menu_item->menu_item_parent) {
-                $parent_menu_item = &$view_model['menu'][$menu_item->menu_item_parent];
+                $parent_menu_item = &$view_model["menu"][$menu_item->menu_item_parent];
                 $parent_menu_item["children"][] = $filtered_menu_item;
                 $parent_menu_item["has_children"] = true;
                 $parent_menu_item["is_selected"] = $filtered_menu_item["is_selected"] ?: $parent_menu_item["is_selected"];
             }
             else {
                 $filtered_menu_item["is_selected"] = false;
-                $view_model['menu'][$menu_item->ID] = $filtered_menu_item;
+                $view_model["menu"][$menu_item->ID] = $filtered_menu_item;
             }
         }
 
-        $view_model['menu'] = array_values($view_model['menu']);
+        $view_model["menu"] = array_values($view_model["menu"]);
 
         return $view_model;
     }

@@ -36,33 +36,75 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../../styles/constants";
+
     nav {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .toggle-menu {
+        color: $color-primary-lightest;
+        height: 100%;
+        padding: 1.5rem;
+        width: 1.8rem;
+        font-size: 1.8rem;
     }
 
     .layer,
     .menu,
     .sub-menu {
         position: fixed;
-        top: 0;
+        top: 6.5rem;
         left: 0;
     }
 
     .layer {
         height: 100vh;
         width: 100vw;
-        
-        background: rgba(black, .5);
+        z-index: -3;
+        background: rgba($color-primary-dark, .5);
     }
 
     .menu {
-        z-index: 8;
-        background: blue;
+        width: 50%;
+        height: 100%;
+        z-index: -1;
+        font-family: 'Heebo', sans-serif;
+        font-weight: 500;
+        background: $color-primary-dark;
 
+        &__item {
+            padding: 1.5rem;
+
+            a {
+                color: $color-primary-lightest;
+                text-decoration: none;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &--open {
+                background: $color-primary-accent;
+            }
+        }
     }
 
     .sub-menu {
-        z-index: 7;
+        width: 50%;
+        height: 100%;
         left: 50%;
-        background: white;
+        z-index: -2;
+        background: $color-neutral-lightest;
+
+        &__item {
+            padding: 1.5rem;
+            border-bottom: .1rem solid $color-primary-light;
+
+            a {
+                color: $color-primary-main;
+                font-weight: 400;
+            }
+        }
     }
 </style>

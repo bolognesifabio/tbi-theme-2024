@@ -1,6 +1,59 @@
+@import "../../constants";
+
 .header {
-    height: .6rem;
+    height: 6rem;
+    width: 100%;
+    padding: 0;
     position: fixed;
+    display: grid;
+    grid-template-columns: minmax(0, max-content) 1fr minmax(0, max-content);
+    grid-template-rows: 1fr minmax(0, max-content);
     top: 0;
     left: 0;
+    z-index: 19;
+    background: $color-primary-main;
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row: 1;
+        grid-column: 2;
+        
+        &__mobile {
+            height: 4rem;
+            width: 4rem;
+        }
+    }
+
+    &__search {
+        padding: 1.5rem;
+        color: $color-primary-lightest;
+        height: 100%;
+        font-size: 1.8rem;
+        grid-row: 1;
+        grid-column: 3;
+    }
+
+    &__flag {
+        background: $color-neutral-lightest;
+        height: .5rem;
+        width: 100%;
+        grid-row: 2;
+        grid-column: 1 / span 3;
+        display: flex;
+        justify-content: space-between;
+
+        &:before {
+            content: " ";
+            background: $color-green-dark;
+            flex-basis: 33%;
+        }
+
+        &:after {
+            content: " ";
+            background: $color-red-main;
+            flex-basis: 33%;
+        }
+    }
 }
