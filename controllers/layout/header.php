@@ -1,8 +1,8 @@
 <?php
 namespace TBI\Controllers\Layout;
 
-abstract class Menu {
-    public function top() {
+abstract class Header {
+    public function menu() {
         $view_model = [ "menu" => [] ];
 
         $top_menu_slug = get_term(get_nav_menu_locations()["top-menu"], "nav_menu")->name;
@@ -35,5 +35,9 @@ abstract class Menu {
         $view_model["menu"] = array_values($view_model["menu"]);
 
         return $view_model;
+    }
+
+    public function clubs() {
+
     }
 }

@@ -32,7 +32,8 @@
     }
 
     &__search {
-        padding: 1.5rem;
+        height: 6rem;
+        width: 6rem;
         color: $color-primary-lightest;
         height: 100%;
         font-size: 1.8rem;
@@ -62,10 +63,21 @@
         }
     }
 
+    &__clubs {
+        display: none;
+    }
+
     @include media-desktop {
+        grid-template-columns: minmax(0, max-content) 1fr minmax(0, max-content);
+        grid-template-rows: minmax(0, max-content) 1fr;
         background: $color-neutral-lightest;
+        height: auto;
 
         &__logo {
+            grid-row: 1 / span 2;
+            grid-column: 1;
+            padding: 1.5rem;
+
             &__mobile {
                 display: none;
             }
@@ -74,6 +86,29 @@
                 display: block;
                 height: 8rem;
                 width: auto;
+            }
+        }
+
+        &__search {
+            grid-row: 2;
+            grid-column: 3;
+            background: $color-primary-main;
+        }
+
+        &__flag {
+            display: none;
+        }
+
+        &__clubs {
+            display: block;
+            grid-row: 1;
+            grid-column: 2 / span 2;
+            height: 5rem;
+
+            img {
+                height: 3.2rem;
+                width: auto;
+                margin-right: 3rem;
             }
         }
     }

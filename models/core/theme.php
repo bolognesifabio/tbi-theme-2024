@@ -29,6 +29,7 @@ class Theme {
         }
 
         add_theme_support('post-thumbnails');
+        add_image_size('team-emblem', 9999, 64);
     }
 
     public function activate() {

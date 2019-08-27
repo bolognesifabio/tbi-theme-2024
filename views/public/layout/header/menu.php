@@ -1,7 +1,7 @@
 <?php
-use TBI\Controllers\Layout\Menu as Menu_Controller;
+use TBI\Controllers\Layout\Header as Header_Controller;
 
-$view_model = Menu_Controller::top(); ?>
+$view_model = Header_Controller::menu(); ?>
 
 <tbi-top-menu view_model="<?= htmlentities(json_encode($view_model)) ?>" inline-template>
     <nav v-if="model">
@@ -10,7 +10,7 @@ $view_model = Menu_Controller::top(); ?>
         </button>
 
         <transition name="fade">
-            <div :class="{ 'layer': true, 'layer--open': is_one_selected }" v-if="is_open"></div>
+            <div :class="{ 'layer': true, 'layer--open': is_one_selected }" v-if="is_open && !is_viewport_desktop"></div>
         </transition>
 
         <transition name="slide-right">

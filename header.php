@@ -4,6 +4,7 @@
     <body>
         <div id="tbi-vue">
             <header class="header"> <?php
+                include "views/public/layout/header/clubs.php";
                 include "views/public/layout/header/menu.php";
                 include "views/public/layout/header/logo.php";
                 include "views/public/layout/header/search.php"; ?>

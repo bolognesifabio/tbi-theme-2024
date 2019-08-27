@@ -57,10 +57,9 @@
 
     .toggle-menu {
         color: $color-primary-lightest;
-        height: 100%;
-        padding: 1.5rem;
-        width: 1.8rem;
-        font-size: 1.8rem;
+        height: 6rem;
+        width: 6rem;
+        font-size: 2rem;
     }
 
     .layer,
@@ -74,15 +73,13 @@
 
     .layer {
         width: 100vw;
-        z-index: -3;
         background: $color-neutral-lightest;
     }
 
     .menu {
         width: 50vw;
-        z-index: -1;
         font-family: 'Heebo', sans-serif;
-        font-weight: 500;
+        font-weight: 600;
         background: $color-primary-dark;
 
         &__item {
@@ -105,7 +102,6 @@
         width: 50vw;
         left: 50vw;
         top: 0;
-        z-index: -2;
         background: $color-neutral-lightest;
 
         &__item {
@@ -147,20 +143,32 @@
             left: 30vw;
         }
     }
-
+    
     @include media-desktop {
-        .menu {
+        nav {
+            grid-row: 2;
+            grid-column: 2;
             position: relative;
-            background: $color-primary-main;
             height: 6rem;
-            border-top-left-radius: 1rem;
+            display: flex;
         
             &:before {
                 content: " ";
-                position: absolute;
                 height: 6rem;
                 width: 4rem;
+                background-image: url("/wp-content/themes/tbi-theme/assets/img/header-left-border.png");
+                background-repeat: no-repeat;
+                background-size: cover;
             }
+        }
+
+        .menu {
+            background: $color-primary-main;
+            position: relative;
+            top: 0;
+            display: flex;
+            height: 100%;
+            width: 100%;
         }
     }
 </style>
