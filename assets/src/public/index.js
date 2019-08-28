@@ -50,9 +50,9 @@ if (document.getElementById('tbi-vue')) {
 
             check_viewport_changes() {
                 let viewport = {
-                    is_ge_tablet: window.innerWidth >= 768,
-                    is_ge_desktop: window.innerWidth >= 1024,
-                    is_ge_large_desktop: window.innerWidth >= 1440
+                    is_ge_tablet: window.outerWidth >= 768,
+                    is_ge_desktop: window.outerWidth >= 1024,
+                    is_ge_large_desktop: window.outerWidth >= 1440
                 }
                 
                 if (JSON.stringify(viewport) !== JSON.stringify(this.viewport)) this.viewport = viewport

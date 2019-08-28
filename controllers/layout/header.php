@@ -1,5 +1,6 @@
 <?php
 namespace TBI\Controllers\Layout;
+use TBI\Models\Club;
 
 abstract class Header {
     public function menu() {
@@ -38,6 +39,21 @@ abstract class Header {
     }
 
     public function clubs() {
+        $all_clubs_ids = get_posts([ 
+            'post_type' => 'clubs',
+            'posts_per_page' => -1,
+            'orderby' => 'post_title',
+            'post_status' => 'publish',
+            'order' => 'DESC',
+            'fields' => 'ids'
+        ]) ?: [];
 
+        $all_clubs = array_map(function($club_id) {
+            return new Club($club_id);
+        }, $all_clubs_ids);
+        
+        return array_filter($all_clubs, function($club) {
+            return !$club->is_inactive && $club->emblem;
+        });
     }
 }

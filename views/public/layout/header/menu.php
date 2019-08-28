@@ -13,11 +13,11 @@ $view_model = Header_Controller::menu(); ?>
             <div :class="{ 'layer': true, 'layer--open': is_one_selected }" v-if="is_open && !is_viewport_desktop"></div>
         </transition>
 
-        <transition name="slide-right">
-            <ul class="menu" v-if="is_open">
+        <transition :name="!is_viewport_desktop ? 'slide-right' : ''">
+            <ul class="menu" v-if="is_open || is_viewport_desktop">
                 <li v-for="menu_item in model.menu" :key="menu_item.ID" :class="{ 'menu__item': true, 'menu__item--open': menu_item.is_selected }">
                     <a v-if="!menu_item.has_children" :href="menu_item.url">{{ menu_item.title }}</a>
-                    <a v-if="menu_item.has_children" role="button" @click.prevent="open_sub_menu(menu_item)">
+                    <a v-if="menu_item.has_children" role="button" @click.prevent="toggle_sub_menu(menu_item)">
                         {{ menu_item.title }}
                         <tbi-icon icon="chevron-right" />
                     </a>

@@ -7,6 +7,8 @@ abstract class Files {
     }
 
     public static function require_in_all_directories($index_path) {
+        self::require_all_files($index_path);
+
         foreach(glob(get_template_directory() . "/" . $index_path . '/*', GLOB_ONLYDIR) as $directory_path) {
             foreach(glob($directory_path . "/*.php") as $file_name) require_once($file_name);
         }

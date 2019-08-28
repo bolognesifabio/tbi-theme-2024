@@ -24,6 +24,10 @@ $fields = [
     ],
     'website' => [
         'label' => 'Sito web'
+    ],
+    'is_inactive' => [
+        'label' => 'Non pi&ugrave; in attivit&agrave;',
+        'type' => 'checkbox'
     ]
 ];
 ?>

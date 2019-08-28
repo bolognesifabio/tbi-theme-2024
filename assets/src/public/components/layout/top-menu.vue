@@ -27,19 +27,13 @@
                 this.is_open = !this.is_open
             },
 
-            open_sub_menu(selected_menu_item) {
+            toggle_sub_menu(selected_menu_item) {
+                const CURRENT_STATUS = selected_menu_item.is_selected
+
                 this.model.menu.forEach(menu_item => { menu_item.is_selected = false })
-                selected_menu_item.is_selected = true
-            }
-        },
-
-        mounted() {
-            this.is_open = this.is_viewport_desktop
-        },
-
-        watch: {
-            is_viewport_desktop() {
-                if (this.is_viewport_desktop) this.is_open = true
+                
+                if (this.is_viewport_desktop) selected_menu_item.is_selected = !CURRENT_STATUS
+                else selected_menu_item.is_selected = true
             }
         }
     }
@@ -53,6 +47,7 @@
         grid-row: 1;
         grid-column: 1;
         position: relative;
+        opacity: 1;
     }
 
     .toggle-menu {
@@ -84,6 +79,7 @@
 
         &__item {
             padding: 1.5rem;
+            cursor: pointer;
 
             a {
                 color: $color-primary-lightest;
@@ -107,6 +103,7 @@
         &__item {
             padding: 1.5rem;
             border-bottom: .1rem solid $color-primary-light;
+            cursor: pointer;
 
             a {
                 color: $color-primary-main;
@@ -145,10 +142,14 @@
     }
     
     @include media-desktop {
+        .toggle-menu {
+            display: none;
+        }
+
         nav {
             grid-row: 2;
             grid-column: 2;
-            position: relative;
+            position: static;
             height: 6rem;
             display: flex;
         
@@ -164,11 +165,29 @@
 
         .menu {
             background: $color-primary-main;
-            position: relative;
+            position: static;
             top: 0;
             display: flex;
             height: 100%;
             width: 100%;
+        }
+
+        .sub-menu {
+            z-index: -1;
+            left: 0;
+            top: 11rem;
+            width: 100vw;
+            height: 6rem;
+            display: flex;
+            background: $color-primary-lightest;
+
+            &-enter {
+                transform: translateY(-30%) translateX(0);
+            }
+
+            &-leave-to {
+                transform: translateY(0);
+            }
         }
     }
 </style>
