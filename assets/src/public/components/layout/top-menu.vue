@@ -74,18 +74,18 @@
     .menu {
         width: 50vw;
         font-family: 'Heebo', sans-serif;
-        font-weight: 600;
+        font-weight: 500;
         background: $color-primary-dark;
 
         &__item {
-            padding: 1.5rem;
-            cursor: pointer;
-
             a {
                 color: $color-primary-lightest;
                 text-decoration: none;
                 display: flex;
                 justify-content: space-between;
+                padding: 1.5rem;
+                align-items: center;
+                cursor: pointer;
             }
 
             &--open {
@@ -101,13 +101,13 @@
         background: $color-neutral-lightest;
 
         &__item {
-            padding: 1.5rem;
             border-bottom: .1rem solid $color-primary-light;
-            cursor: pointer;
 
             a {
                 color: $color-primary-main;
                 font-weight: 400;
+                cursor: pointer;
+                padding: 1.5rem;
             }
         }
 
@@ -171,6 +171,19 @@
             display: flex;
             height: 100%;
             width: 100%;
+
+            &__item {
+                display: flex;
+                align-items: center;
+
+                a {
+                    justify-content: flex-start;
+
+                    .icon {
+                        margin-left: .75rem;
+                    }
+                }
+            }
         }
 
         .sub-menu {
@@ -181,6 +194,13 @@
             height: 6rem;
             display: flex;
             background: $color-primary-lightest;
+            border-bottom: .1rem solid $color-primary-light;
+
+            &__item {
+                border-bottom: none;
+                display: flex;
+                align-items: center;
+            }
 
             &-enter {
                 transform: translateY(-30%) translateX(0);

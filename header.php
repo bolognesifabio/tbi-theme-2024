@@ -2,7 +2,7 @@
     include "views/public/layout/header/head.php"; ?>
 
     <body>
-        <div id="tbi-vue">
+        <div id="tbi-vue" :class="{ 'scrolled': is_scrolled_from_top }">
             <header class="header"> <?php
                 include "views/public/layout/header/clubs.php";
                 include "views/public/layout/header/menu.php";
