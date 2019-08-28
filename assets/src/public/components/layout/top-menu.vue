@@ -156,7 +156,8 @@
             &:before {
                 content: " ";
                 height: 6rem;
-                width: 4rem;
+                min-width: 4rem;
+                max-width: 4rem;
                 background-image: url("/wp-content/themes/tbi-theme/assets/img/header-left-border.png");
                 background-repeat: no-repeat;
                 background-size: cover;

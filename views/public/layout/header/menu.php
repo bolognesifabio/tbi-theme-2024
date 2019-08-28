@@ -19,7 +19,7 @@ $view_model = Header_Controller::menu(); ?>
                     <a v-if="!menu_item.has_children" :href="menu_item.url">{{ menu_item.title }}</a>
                     <a v-if="menu_item.has_children" role="button" @click.prevent="toggle_sub_menu(menu_item)">
                         {{ menu_item.title }}
-                        <tbi-icon icon="chevron-right" />
+                        <tbi-icon :icon="!is_viewport_desktop ? 'caret-right' : 'caret-down'" />
                     </a>
 
                     <transition name="sub-menu">
