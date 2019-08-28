@@ -19,6 +19,10 @@
 
             is_viewport_desktop() {
                 return this.$root.viewport.is_ge_desktop
+            },
+
+            is_scroll_locked() {
+                return this.is_open && !this.is_viewport_desktop
             }
         },
 
@@ -34,6 +38,13 @@
                 
                 if (this.is_viewport_desktop) selected_menu_item.is_selected = !CURRENT_STATUS
                 else selected_menu_item.is_selected = true
+            }
+        },
+
+        watch: {
+            is_scroll_locked() {
+                if (this.is_scroll_locked) this.$root.body.classList.add('scroll-locked')
+                else this.$root.body.classList.remove('scroll-locked')
             }
         }
     }

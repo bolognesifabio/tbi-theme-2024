@@ -15,7 +15,7 @@ if (document.getElementById('tbi-vue')) {
             },
 
             scroll_position: 0,
-            $body: document.querySelectorAll('body')
+            body: document.querySelector('body')
         },
 
         components: {
@@ -29,7 +29,7 @@ if (document.getElementById('tbi-vue')) {
         },
 
         mounted() {
-            window.addEventListener('resize', this.throttle(this.check_viewport_changes, 200))
+            window.addEventListener('resize', this.debounce(this.check_viewport_changes, 200))
             window.addEventListener('scroll', () => { window.requestAnimationFrame(this.check_scroll) })
             this.check_viewport_changes()
             this.check_scroll()
