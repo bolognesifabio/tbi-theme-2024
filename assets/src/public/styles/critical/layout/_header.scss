@@ -13,11 +13,8 @@
     left: 0;
     z-index: 19;
     background: $color-primary-main;
-
-    nav {
-        opacity: 0;
-        transition: opacity .2s ease-out;
-    }
+    opacity: 0;
+    transition: opacity .2s ease-out;
 
     &__logo {
         display: flex;
@@ -69,7 +66,7 @@
         }
     }
 
-    &__clubs {
+    &__top {
         display: none;
     }
 
@@ -79,6 +76,7 @@
         background: $color-neutral-lightest;
         height: auto;
         transition: all .3s ease-in-out;
+        border-bottom: .1rem solid $color-primary-main;
 
         .scrolled & {
             transform: translateY(-5rem);
@@ -124,26 +122,74 @@
             display: none;
         }
 
-        &__clubs {
-            display: block;
+        &__top {
+            display: grid;
             grid-row: 1;
             grid-column: 2 / span 2;
+            grid-template-rows: 1fr;
+            grid-template-columns: minmax(max-content, 1fr) minmax(0, max-content);
             height: 5rem;
 
-            &__list {
+            &__clubs {
                 height: 100%;
                 display: flex;
                 align-items: center;
                 padding: 0 3rem 0 4rem;
+                grid-row: 1;
+                grid-column: 1;
 
                 &__item {
-                    padding: 0 1.5rem;
+                    padding: 0 1rem;
+
+                    &__link__emblem {
+                        height: 3.2rem;
+                        width: auto;
+                    }
                 }
             }
 
-            img {
-                height: 3.2rem;
-                width: auto;
+            &__social {
+                display: flex;
+                grid-row: 1;
+                grid-column: 2;
+                align-items: center;
+
+                &__item {
+                    height: 100%;
+                    display: flex;
+                    
+                    a {
+                        padding: 0 .75rem;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                    }
+    
+                    &__icon {
+                        color: $color-primary-main;
+                        font-size: 2rem;
+                    }
+
+                    &--youtube {
+                        @include gradient($color-violet-main, $color-red-main);
+                        margin-left: .75rem;
+                        padding: 0 1rem;
+
+                        a {
+                            color: $color-neutral-lightest;
+                            text-decoration: none;
+                            font-weight: 500;
+                        }
+                    }
+
+                    &--youtube & {
+                        &__icon {
+                            color: $color-neutral-lightest;
+                            margin-right: .75rem;
+                        }
+                    }
+                }
+
             }
         }
     }

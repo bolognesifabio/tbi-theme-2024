@@ -50,6 +50,12 @@
     }
 </script>
 
+<style lang="scss">
+    .header {
+        opacity: 1;
+    }
+</style>
+
 <style lang="scss" scoped>
     @import "../../styles/constants";
     @import "../../styles/mixins";
@@ -58,7 +64,6 @@
         grid-row: 1;
         grid-column: 1;
         position: relative;
-        opacity: 1;
     }
 
     .toggle-menu {

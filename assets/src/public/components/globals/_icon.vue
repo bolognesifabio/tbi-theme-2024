@@ -8,12 +8,21 @@
     import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
     import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
 
+    import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram'
+    import { faFlickr } from '@fortawesome/free-brands-svg-icons/faFlickr'
+    import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare'
+    import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube'
+
     library.add(
         faBars,
         faCaretRight,
         faCaretDown,
         faSearch,
-        faTimes
+        faTimes,
+        faInstagram,
+        faFlickr,
+        faFacebookSquare,
+        faYoutube
     )
 
     export default FontAwesomeIcon

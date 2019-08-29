@@ -60,12 +60,12 @@ if (document.getElementById('tbi-vue')) {
             },
 
             check_viewport_changes() {
-                const DOCUMENT_WIDTH = document.documentElement.clientWidth
+                const WINDOW_WIDTH = window.innerWidth
 
                 let viewport = {
-                    is_ge_tablet: DOCUMENT_WIDTH >= 768,
-                    is_ge_desktop: DOCUMENT_WIDTH >= 1024,
-                    is_ge_large_desktop: DOCUMENT_WIDTH >= 1440
+                    is_ge_tablet: WINDOW_WIDTH >= 768,
+                    is_ge_desktop: WINDOW_WIDTH >= 1024,
+                    is_ge_large_desktop: WINDOW_WIDTH >= 1440
                 }
                 
                 if (JSON.stringify(viewport) !== JSON.stringify(this.viewport)) this.viewport = viewport
