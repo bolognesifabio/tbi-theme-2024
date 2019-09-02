@@ -16,8 +16,14 @@
     }
 }
 
-@mixin gradient($start_color, $end_color) {
-    background: -moz-linear-gradient(left, $start_color 0%, $end_color 100%);
-    background: -webkit-linear-gradient(left, $start_color 0%, $end_color 100%);
-    background: linear-gradient(to right, $start_color 0%, $end_color 100%);
+@mixin gradient($start_color, $end_color, $direction: left) {
+    $opposite: right;
+    
+    @if $direction == right { $opposite: left; }
+    @else if $direction == top { $opposite: bottom; }
+    @else if $direction == bottom { $opposite: top; }
+
+    background: -moz-linear-gradient($opposite, $start_color 0%, $end_color 100%);
+    background: -webkit-linear-gradient($opposite, $start_color 0%, $end_color 100%);
+    background: linear-gradient(to $direction, $start_color 0%, $end_color 100%);
 }

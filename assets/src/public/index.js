@@ -19,7 +19,8 @@ if (document.getElementById('tbi-vue')) {
         },
 
         components: {
-            "tbi-top-menu": () => import('./components/layout/top-menu.vue')
+            "tbi-top-menu": () => import('./components/layout/top-menu.vue'),
+            "tbi-search": () => import('./components/layout/search.vue')
         },
 
         computed: {
