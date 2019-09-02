@@ -191,6 +191,11 @@
             &__item {
                 display: flex;
                 align-items: center;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    background: $color-primary-accent;
+                }
 
                 a {
                     justify-content: flex-start;
@@ -210,12 +215,30 @@
             height: 6rem;
             display: flex;
             background: $color-primary-lightest;
-            border-bottom: .1rem solid $color-primary-light;
 
             &__item {
                 border-bottom: none;
                 display: flex;
                 align-items: center;
+                position: relative;
+                
+                &:after {
+                    @include gradient($color-green-main, $color-violet-main);
+                    content: " ";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: .4rem;
+                    max-height: 0;
+                    transition: all .2s ease-in-out;
+                }
+
+                &:hover {
+                    &:after {
+                        max-height: 1rem;
+                    }
+                }
             }
 
             &-enter {

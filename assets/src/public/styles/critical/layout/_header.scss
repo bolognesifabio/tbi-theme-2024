@@ -124,10 +124,6 @@
             grid-row: 2;
             grid-column: 3;
             background: $color-primary-main;
-
-            &__toggle {
-                border-left: .1rem solid $color-primary-accent-light;
-            }
         }
 
         &__flag {
@@ -154,7 +150,7 @@
                     padding: 0 1rem;
 
                     &__link__emblem {
-                        height: 3.2rem;
+                        height: 2.4rem;
                         width: auto;
                     }
                 }
@@ -165,6 +161,7 @@
                 grid-row: 1;
                 grid-column: 2;
                 align-items: center;
+                padding: 0 .75rem;
 
                 &__item {
                     height: 100%;
@@ -175,29 +172,44 @@
                         height: 100%;
                         display: flex;
                         align-items: center;
+                        transition: color .2s ease-in-out;
                     }
     
                     &__icon {
-                        color: $color-primary-main;
+                        color: $color-primary-7;
                         font-size: 2rem;
+                        transition: color .2s ease-in-out;
+
+                        &:hover {
+                            color: $color-violet-main;
+                        }
+                    }
+
+                    &--youtube a,
+                    &--youtube &__icon {
+                        color: $color-red-main;
                     }
 
                     &--youtube {
-                        @include gradient($color-violet-main, $color-red-main);
-                        margin-left: .75rem;
-                        padding: 0 1rem;
-
                         a {
-                            color: $color-neutral-lightest;
                             text-decoration: none;
-                            font-weight: 500;
+                            font-weight: 600;
+                        }
+
+                        &:hover a {
+                            color: $color-violet-main;
                         }
                     }
 
                     &--youtube & {
                         &__icon {
-                            color: $color-neutral-lightest;
                             margin-right: .75rem;
+                        }
+                    }
+
+                    &--youtube:hover & {
+                        &__icon {
+                            color: $color-violet-main;
                         }
                     }
                 }
