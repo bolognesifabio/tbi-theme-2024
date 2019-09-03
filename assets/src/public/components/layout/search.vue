@@ -53,11 +53,14 @@
 
         &__form {
             position: absolute;
-            width: 100vw;
+            width: 100%;
             height: 6rem;
             top: 6.5rem;
             left: 0;
             background: $color-neutral-lightest;
+            display: grid;
+            grid-template-columns: 1fr minmax(0, max-content);
+            grid-template-rows: 1fr;
 
             &.search-enter-active {
                 transition: all .3s ease-out;
@@ -75,6 +78,24 @@
             &.search-leave-to {
                 opacity: 0;
                 height: 0;
+            }
+
+            input {
+                border: none;
+                height: 100%;
+                padding: 0 1.5rem;
+                font-size: 1.8rem;
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            button {
+                font-size: 1.8rem;
+                width: 6rem;
+                height: 100%;
+                color: $color-red-main;
+                grid-column: 2;
+                grid-row: 1;
             }
         }
 

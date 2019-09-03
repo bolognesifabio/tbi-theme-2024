@@ -9,7 +9,11 @@
         </button>
 
         <transition name="search">
-            <form class="search__form" v-if="is_open">
+            <form class="search__form" v-if="is_open" role="search" method="get" action="<?= home_url() ?>">
+                <input type="text" value="" name="s" placeholder="Cerca..." />
+                <button type="submit" value="">
+                    <tbi-icon icon="search" class="icon" />
+                </button>
             </form>
         </transition>
     </section>

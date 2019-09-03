@@ -15,7 +15,7 @@ if (document.getElementById('tbi-vue')) {
             },
 
             scroll_position: 0,
-            body: document.querySelector('body')
+            html: document.querySelector('html')
         },
 
         components: {

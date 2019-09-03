@@ -43,8 +43,8 @@
 
         watch: {
             is_scroll_locked() {
-                if (this.is_scroll_locked) this.$root.body.classList.add('scroll-locked')
-                else this.$root.body.classList.remove('scroll-locked')
+                if (this.is_scroll_locked) this.$root.html.classList.add('scroll-locked')
+                else this.$root.html.classList.remove('scroll-locked')
             }
         }
     }
