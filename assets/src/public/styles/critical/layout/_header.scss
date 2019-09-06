@@ -35,7 +35,7 @@
     }
 
     &__flag {
-        background: $color-neutral-lightest;
+        background: $color-light-bg;
         height: .5rem;
         width: 100%;
         grid-row: 2;
@@ -45,7 +45,7 @@
 
         &:before {
             content: " ";
-            background: $color-green-dark;
+            background: $color-green-6;
             flex-basis: 33%;
         }
 
@@ -63,7 +63,7 @@
     @include media-desktop {
         grid-template-columns: minmax(0, max-content) 1fr minmax(0, max-content);
         grid-template-rows: minmax(0, max-content) 1fr;
-        background: $color-neutral-lightest;
+        background: $color-light-bg;
         height: auto;
         transition: all .3s ease-in-out;
         border-bottom: .1rem solid $color-primary-main;
