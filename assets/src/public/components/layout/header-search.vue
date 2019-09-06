@@ -1,8 +1,28 @@
 <script>
     export default {
-        data() {
-            return {
-                is_open: false
+        computed: {
+            is_open: {
+                get() {
+                    return this.$root.header.is_search_open
+                },
+
+                set(is_open) {
+                    this.$root.header.is_menu_open = false
+                    this.$root.header.is_search_open = is_open
+
+                    if (is_open) {
+                        setTimeout(() => {
+                            this.$refs.input.focus()
+                        }, 300)
+                    }
+
+                    if (is_open && !this.is_viewport_desktop) this.$root.html.classList.add('scroll-locked')
+                    else this.$root.html.classList.remove('scroll-locked')
+                }
+            },
+
+            is_viewport_desktop() {
+                return this.$root.viewport.is_ge_desktop
             }
         },
 
@@ -24,7 +44,7 @@
         padding: .75rem 0;
 
         &__toggle {
-            color: $color-primary-lightest;
+            color: $color-fg-variant;
             height: 100%;
             width: 100%;
             font-size: 1.8rem;
@@ -57,39 +77,48 @@
             height: 6rem;
             top: 6.5rem;
             left: 0;
-            background: $color-neutral-lightest;
+            background: $color-light-bg;
             display: grid;
             grid-template-columns: 1fr minmax(0, max-content);
             grid-template-rows: 1fr;
 
-            &.search-enter-active {
+            &-enter-active {
                 transition: all .3s ease-out;
             }
 
-            &.search-leave-active {
+            &-leave-active {
                 transition: all .3s ease-in;
             }
 
-            &.search-enter {
+            &-enter {
                 opacity: 0;
                 height: 0;
             }
 
-            &.search-leave-to {
+            &-leave-to {
                 opacity: 0;
                 height: 0;
             }
 
-            input {
+            &__input {
+                @include font-content;
                 border: none;
                 height: 100%;
                 padding: 0 1.5rem;
-                font-size: 1.8rem;
+                font-size: 2.4rem;
                 grid-column: 1;
                 grid-row: 1;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $color-primary-8;
+                }
             }
 
-            button {
+            &__button {
                 font-size: 1.8rem;
                 width: 6rem;
                 height: 100%;

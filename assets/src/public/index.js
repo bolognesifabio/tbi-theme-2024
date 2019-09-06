@@ -15,12 +15,17 @@ if (document.getElementById('tbi-vue')) {
             },
 
             scroll_position: 0,
-            html: document.querySelector('html')
+            html: document.querySelector('html'),
+
+            header: {
+                is_menu_open: false,
+                is_search_open: false
+            }
         },
 
         components: {
-            "tbi-top-menu": () => import('./components/layout/top-menu.vue'),
-            "tbi-search": () => import('./components/layout/search.vue')
+            "tbi-header-menu": () => import('./components/layout/header-menu.vue'),
+            "tbi-header-search": () => import('./components/layout/header-search.vue')
         },
 
         computed: {

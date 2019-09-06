@@ -27,3 +27,11 @@
     background: -webkit-linear-gradient($opposite, $start_color 0%, $end_color 100%);
     background: linear-gradient(to $direction, $start_color 0%, $end_color 100%);
 }
+
+@mixin font-title {
+    font-family: 'Heebo', sans-serif;
+}
+
+@mixin font-content {
+    font-family: 'Source Sans Pro', sans-serif;
+}
