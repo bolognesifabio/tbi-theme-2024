@@ -201,12 +201,20 @@
                         }
                     }
 
+                    &--open & {
+                        &__cta {
+                            &__icon {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
                     &__sub-menu {
                         z-index: -1;
                         left: 0;
                         top: 11rem;
                         width: 100vw;
-                        height: 6rem;
+                        height: 5rem;
                         display: flex;
                         background: $color-light-bg-variant;
 
@@ -215,6 +223,10 @@
                             display: flex;
                             align-items: center;
                             position: relative;
+
+                            &__cta {
+                                font-size: 1.3rem;
+                            }
                             
                             &:after {
                                 @include gradient($color-green-main, $color-violet-main);

@@ -16,7 +16,7 @@
                         }, 300)
                     }
 
-                    if (is_open && !this.is_viewport_desktop) this.$root.html.classList.add('scroll-locked')
+                    if (is_open && !is_viewport_desktop) this.$root.html.classList.add('scroll-locked')
                     else this.$root.html.classList.remove('scroll-locked')
                 }
             },
@@ -90,11 +90,7 @@
                 transition: all .3s ease-in;
             }
 
-            &-enter {
-                opacity: 0;
-                height: 0;
-            }
-
+            &-enter,
             &-leave-to {
                 opacity: 0;
                 height: 0;
@@ -132,6 +128,26 @@
             grid-row: 2;
             grid-column: 3;
             background: $color-primary-main;
+
+            &__form {
+                position: absolute;
+                width: 100%;
+                height: 8rem;
+                top: 11rem;
+                left: 0;
+                background: $color-light-bg-variant;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &__input {
+                    height: auto;
+                    flex-basis: 40%;
+                    padding: .75rem;
+                    background: transparent;
+                    border-bottom: .2rem solid $color-violet-main;
+                }
+            }
         }
     }
 </style>

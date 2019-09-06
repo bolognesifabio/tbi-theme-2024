@@ -1,7 +1,7 @@
 <tbi-header-search inline-template>
     <section class="search">
         <transition name="fade">
-            <div class="search__layer" v-if="is_open"></div>
+            <div class="search__layer" v-if="is_open && !is_viewport_desktop"></div>
         </transition>
 
         <button class="search__toggle" @click.prevent="toggle">

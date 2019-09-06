@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700,800,900|Source+Sans+Pro:400,600,700,900&display=swap');
 
+@import '../constants';
+@import '../mixins';
+
 html {
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
@@ -12,7 +15,7 @@ html {
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    @include font-content;
     font-size: 1.4rem;
     margin: 0;
     padding: 0;
