@@ -58,11 +58,11 @@
         &__posts {
             @include gradient($color-primary-3, $color-red-3, bottom);
             display: flex;
-            height: calc(100vh - 6.5rem);
+            height: 100%;
             width: 100%;
 
             &__item {
-                height: calc(100vh - 6.5rem);
+                height: 100%;
                 width: 100vw;
                 padding-bottom: 12.5rem;
                 position: relative;
@@ -74,8 +74,8 @@
                 z-index: 1;
 
                 &__img {
-                    height: 100%;
-                    width: auto;
+                    min-height: 100%;
+                    min-width: 100%;
                     opacity: .5;
                     position: absolute;
                     top: 0;
@@ -119,6 +119,30 @@
                 &-leave-to {
                     transform: translateX(-100%);
                 }
+
+                &-enter-active &,
+                &-leave-active & {
+                    &__title,
+                    &__cta {
+                        transition: all 1s ease-in-out;
+                    }
+                }
+
+                &-enter & {
+                    &__title,
+                    &__cta {
+                        opacity: 0;
+                        transform: translateX(10rem);
+                    }
+                }
+
+                &-leave-to & {
+                    &__title,
+                    &__cta {
+                        opacity: 0;
+                        transform: translateX(-10rem);
+                    }
+                }
             }
         }
 
@@ -151,6 +175,38 @@
                 &__cta {
                     height: 100%;
                     width: 100%;
+                }
+            }
+        }
+
+        @include media-tablet {
+            height: 50rem;
+
+            &__posts {
+                &__item {
+                    padding-bottom: 0;
+                    
+                    &-enter {
+                        transform: translateY(-100%) translateX(0);
+                    }
+
+                    &-leave-to {
+                        transform: translateY(100%) translateX(0);
+                    }
+
+                    &-enter & {
+                        &__title,
+                        &__cta {
+                            transform: translateY(-10rem) translateX(0);
+                        }
+                    }
+
+                    &-leave-to & {
+                        &__title,
+                        &__cta {
+                            transform: translateY(10rem) translateX(0);
+                        }
+                    }
                 }
             }
         }
