@@ -38,7 +38,7 @@
             &__item {
                 height: calc(100vh - 6.5rem);
                 width: 100vw;
-                padding-bottom: 6rem;
+                padding-bottom: 12.5rem;
                 position: relative;
                 overflow: hidden;
                 display: flex;
