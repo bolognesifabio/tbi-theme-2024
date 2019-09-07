@@ -4,17 +4,43 @@
     export default {
         mixins: [ data_model_mixin ],
 
+        data() {
+            return {
+                autoplay: null
+            }
+        },
+
         mounted() {
-            setInterval(() => {
-                const
-                    ACTIVE_SLIDE_INDEX = this.model.findIndex(post => {
-                        return post.is_active
-                    }),
-                    NEXT_SLIDE_INDEX = ACTIVE_SLIDE_INDEX >= this.model.length - 1 ? 0 : ACTIVE_SLIDE_INDEX + 1
+            this.resume_autoplay()
+        },
+
+        methods: {
+            stop_autoplay() {
+                window.clearInterval(this.autoplay)
+            },
+
+            resume_autoplay() {
+                this.autoplay = setInterval(() => {
+                    const
+                        ACTIVE_SLIDE_INDEX = this.model.findIndex(post => {
+                            return post.is_active
+                        }),
+                        NEXT_SLIDE_INDEX = ACTIVE_SLIDE_INDEX >= this.model.length - 1 ? 0 : ACTIVE_SLIDE_INDEX + 1
+                    
+                    this.model[ACTIVE_SLIDE_INDEX].is_active = false
+                    this.model[NEXT_SLIDE_INDEX].is_active = true
+                }, 5000)
+            },
+
+            go_to_slide(post_id) {
+                this.model = this.model.map(post => {
+                    post.is_active = post.id === post_id
+                    return post
+                })
                 
-                this.model[ACTIVE_SLIDE_INDEX].is_active = false
-                this.model[NEXT_SLIDE_INDEX].is_active = true
-            }, 3000)
+                this.stop_autoplay()
+                this.resume_autoplay()
+            }
         }
     }
 </script>
@@ -92,6 +118,39 @@
 
                 &-leave-to {
                     transform: translateX(-100%);
+                }
+            }
+        }
+
+        &__nav {
+            position: absolute;
+            display: flex;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+
+            &__item {
+                margin: 0 .75rem;
+                height: 1.8rem;
+                width: 1.8rem;
+                background: $color-fg-variant;
+                border: .3rem solid $color-fg-variant;
+                border-radius: 50%;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    background: $color-primary-8;
+                }
+
+                &--active,
+                &--active:hover {
+                    background: $color-red-main;
+                }
+
+                &__cta {
+                    height: 100%;
+                    width: 100%;
                 }
             }
         }
