@@ -22,6 +22,7 @@ class Theme {
         add_action('admin_enqueue_scripts', [$this, 'load_admin_assets']);
         add_action('login_enqueue_scripts', [$this, 'load_admin_assets']);
         add_action('after_setup_theme', [$this, 'setup']);
+        add_action('admin_init', [$this, 'add_slider_category']);
 
         if (!is_admin()) {
             wp_enqueue_script('tbi-public-script');
@@ -57,5 +58,14 @@ class Theme {
     public function add_custom_query_vars_filter($query_vars) {
         $query_vars[] = "season";
         return $query_vars;
-      }
+    }
+
+    public function add_slider_category() {
+        wp_insert_category([
+            'cat_name' => 'TBI - Slider',
+            'category_description' => 'Categoria per i post da far comparire nello slider in homepage.',
+            'category_nicename' => 'tbi-slider',
+            'category_parent' => ''
+        ]);
+    }
 }

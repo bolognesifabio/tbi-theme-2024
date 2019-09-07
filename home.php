@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <?php include "views/pages/home/carousel.php"; ?>
+    <?php include "views/public/pages/home/slider.php"; ?>
 
     <div class="row--boxed"> <?php
         get_sidebar('home-main');
