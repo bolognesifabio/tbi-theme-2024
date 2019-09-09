@@ -16,6 +16,7 @@ if (document.getElementById('tbi-vue')) {
 
             scroll_position: 0,
             html: document.querySelector('html'),
+            is_browser_tab_active: true,
 
             header: {
                 is_menu_open: false,
@@ -38,8 +39,12 @@ if (document.getElementById('tbi-vue')) {
         mounted() {
             window.addEventListener('resize', this.debounce(this.check_viewport_changes, 200))
             window.addEventListener('scroll', () => { window.requestAnimationFrame(this.check_scroll) })
+            window.addEventListener('focus', () => { this.is_browser_tab_active = true })
+            window.addEventListener('blur', () => { this.is_browser_tab_active = false })
+            
             this.check_viewport_changes()
             this.check_scroll()
+
         },
 
         methods: {

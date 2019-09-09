@@ -14,9 +14,23 @@
             this.resume_autoplay()
         },
 
+        computed: {
+            is_browser_tab_active() {
+                return this.$root.is_browser_tab_active
+            }
+        },
+
+        watch: {
+            is_browser_tab_active() {
+                if (this.is_browser_tab_active && !this.autoplay) this.resume_autoplay()
+                else if (!this.is_browser_tab_active && this.autoplay) this.stop_autoplay()
+            }
+        },
+
         methods: {
             stop_autoplay() {
                 window.clearInterval(this.autoplay)
+                this.autoplay = null
             },
 
             resume_autoplay() {
