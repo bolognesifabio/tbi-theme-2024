@@ -224,5 +224,15 @@
                 }
             }
         }
+
+        @include media-desktop {
+            &__posts {
+                &__item {
+                    &__title {
+                        max-width: 80rem;
+                    }
+                }
+            }
+        }
     }
 </style>
