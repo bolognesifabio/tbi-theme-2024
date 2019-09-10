@@ -91,6 +91,7 @@
                 justify-content: center;
                 align-items: center;
                 z-index: 1;
+                border: none;
 
                 &__img {
                     min-height: 100%;

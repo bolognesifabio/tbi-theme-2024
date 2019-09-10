@@ -2,8 +2,8 @@
 use TBI\Models\Core\Widgets_Area;
 
 new Widgets_Area([
-    'name' => 'Sidebar sinistra',
-    'id' => 'sidebar_left',
+    'name' => 'Sidebar',
+    'id' => 'sidebar',
     'class' => 'sidebar',
     'before_widget' => '<section class="widget sidebar__widget">',
     'after_widget' => '</section>',

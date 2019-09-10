@@ -1,12 +1,11 @@
 <?php get_header(); ?>
 
-<main>
+<main class="home">
     <?php include "views/public/pages/home/slider.php"; ?>
 
     <div class="row--boxed"> <?php
         get_sidebar('home-main');
-        get_sidebar('left');
-        get_sidebar('right'); ?>
+        get_sidebar('home-side'); ?>
     </div>
 
     <tbi-vue-youtchouk></tbi-vue-youtchouk>

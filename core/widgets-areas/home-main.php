@@ -2,7 +2,7 @@
 use TBI\Models\Core\Widgets_Area;
 
 new Widgets_Area([
-    'name' => 'Home - Colonna centrale',
+    'name' => 'Home - Sezione principale',
     'id' => 'home_main',
     'class' => 'home__main',
     'before_widget' => '<section class="widget home__main__widget">',
