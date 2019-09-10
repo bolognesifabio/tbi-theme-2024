@@ -34,6 +34,11 @@
             },
 
             resume_autoplay() {
+                if (this.autoplay) {
+                    window.clearInterval(this.autoplay)
+                    this.autoplay = null
+                }
+                
                 this.autoplay = setInterval(() => {
                     const
                         ACTIVE_SLIDE_INDEX = this.model.findIndex(post => {
