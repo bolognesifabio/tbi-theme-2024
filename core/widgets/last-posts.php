@@ -8,7 +8,7 @@ class Last_Posts extends \WP_Widget {
             'description' => 'Articoli recenti',
         ];
 
-        parent::__construct('tbi_widget_last_posts', 'TBIIII - Articoli recenti', $widget_options);
+        parent::__construct('tbi_widget_last_posts', 'TBI - Articoli recenti', $widget_options);
     }
 
     public function form($instance) {
@@ -23,7 +23,16 @@ class Last_Posts extends \WP_Widget {
         include get_template_directory() . '/views/admin/widgets/last-posts.php';
     }
 
-    public function widget($args, $instance) { }
+    public function widget($args, $instance) {
+        $query_args = [];
+        $query_args['posts_per_page'] = 5;
+        !$instance['categories'] || $query_args['category__in'] = $instance['categories'];
+        $tbi_logo_url = get_template_directory_uri() . '/assets/img/tbi-logo.png';
+
+        query_posts($query_args);
+
+        include get_template_directory() . '/views/public/widgets/last-posts.php';
+    }
 
     public function update($new_instance, $old_instance) {
         var_dump($new_instance);

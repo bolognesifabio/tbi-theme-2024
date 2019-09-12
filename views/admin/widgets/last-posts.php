@@ -1,7 +1,7 @@
 <p class="tbi-widget__description">Mostra gli ultimi 5 articoli pubblicati tra le categorie selezionate.</p>
 
 <div class="tbi-widget__field">
-    <label class="tbi-widget__field__label" for="<?= $title_field_id ?>">Titolo:</label>
+    <h3 class="tbi-widget__field__title" for="<?= $title_field_id ?>">Titolo:</h3>
     <input
         class="tbi-widget__field__input"
         id="<?= $title_field_id ?>"
@@ -11,15 +11,18 @@
     />
 </div>
 
-<div class="tbi-widget__field">
-    <label class="tbi-widget__field__label">Categorie:</label> <?php
+<div class="tbi-widget__field tbi-widget__field--checkbox">
+    <h3 class="tbi-widget__field__title">Categorie:</h3> <?php
     foreach ($all_categories as $category) { ?>
-        <input
-            class="tbi-widget__field__checkbox"
-            name="<?= $category_field_name ?>[]"
-            type="checkbox"
-            value="<?= $category->term_id ?>"
-            <?= in_array($category->term_id, $instance_categories) ? "checked" : "" ?>
-        /><?= esc_html($category->name) ?> <?php
+        <div class="tbi-widget__field__checkbox">
+            <input
+                class="tbi-widget__field__checkbox__input"
+                name="<?= $category_field_name ?>[]"
+                type="checkbox"
+                value="<?= $category->term_id ?>"
+                <?= in_array($category->term_id, $instance_categories) ? "checked" : "" ?>
+            />
+            <label class="tbi-widget__field__checkbox__label"><?= esc_html($category->name) ?></label>
+        </div> <?php
     } ?>
 </div>

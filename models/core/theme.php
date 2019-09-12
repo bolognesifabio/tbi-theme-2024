@@ -10,7 +10,6 @@ class Theme {
         add_filter('query_vars', [$this, 'add_custom_query_vars_filter']);
         add_action('init', [$this, 'activate']);
 
-        // Files::require_in_all_directories('core/widgets');
         Files::require_all_files('core/widgets');
         Files::require_all_files('core/widgets-areas');
         Files::require_in_all_directories('controllers');
@@ -32,6 +31,8 @@ class Theme {
 
         add_theme_support('post-thumbnails');
         add_image_size('team-emblem', 9999, 64);
+        add_image_size('widget-last-posts-large', 768, 512, true);
+        add_image_size('widget-last-posts-small', 120, 80, true);
     }
 
     public function activate() {
