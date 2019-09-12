@@ -29,6 +29,8 @@ class Last_Posts extends \WP_Widget {
         !$instance['categories'] || $query_args['category__in'] = $instance['categories'];
         $tbi_logo_url = get_template_directory_uri() . '/assets/img/tbi-logo.png';
 
+        var_dump($tbi_logo_url);
+
         query_posts($query_args);
 
         include get_template_directory() . '/views/public/widgets/last-posts.php';
