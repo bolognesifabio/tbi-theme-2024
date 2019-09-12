@@ -10,7 +10,7 @@
             while(have_posts()) {
                 the_post();
                 $post_thumbnail_type = $is_first_post ? 'widget-last-posts-large' : 'widget-last-posts-small';
-                $post_thumbnail = has_post_thumbnail() ? get_the_post_thumbnail_url(null, $post_thumbnail_type) : $tbi_logo_url;
+                $post_thumbnail = get_the_post_thumbnail_url(null, $post_thumbnail_type) ?: $tbi_logo_url;
                 $is_first_post = false; ?>
                 
                 <li class="tbi-last-posts__list__item">
