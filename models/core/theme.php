@@ -10,7 +10,8 @@ class Theme {
         add_filter('query_vars', [$this, 'add_custom_query_vars_filter']);
         add_action('init', [$this, 'activate']);
 
-        Files::require_in_all_directories('core/widgets');
+        // Files::require_in_all_directories('core/widgets');
+        Files::require_all_files('core/widgets');
         Files::require_all_files('core/widgets-areas');
         Files::require_in_all_directories('controllers');
         
