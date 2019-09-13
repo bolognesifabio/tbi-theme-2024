@@ -9,7 +9,7 @@ $view_model = Home_Controller::slider(); ?>
             <li v-for="post in model" v-show="post.is_active" :key="post.id" class="slider__posts__item">
                 <img v-if="post.img" class="slider__posts__item__img" :src="post.img" />
                 <h2 class="slider__posts__item__title">{{ post.title }}</h2>
-                <button class="slider__posts__item__cta">Leggi articolo</button>
+                <a :href="post.url" class="slider__posts__item__cta">Leggi articolo</a>
             </li>
         </transition-group>
 

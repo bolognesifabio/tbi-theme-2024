@@ -119,6 +119,7 @@
                     padding: 1.5rem 3rem;
                     font-weight: 600;
                     text-transform: uppercase;
+                    text-decoration: none;
                 }
                 
                 &-enter-active,

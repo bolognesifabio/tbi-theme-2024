@@ -5,7 +5,7 @@ class Last_Posts extends \WP_Widget {
     public function __construct() {
         $widget_options = [
             'classname' => 'tbi_widget_last_posts',
-            'description' => 'Articoli recenti',
+            'description' => 'Articoli recenti'
         ];
 
         parent::__construct('tbi_widget_last_posts', 'TBI - Articoli recenti', $widget_options);
@@ -35,12 +35,10 @@ class Last_Posts extends \WP_Widget {
     }
 
     public function update($new_instance, $old_instance) {
-        var_dump($new_instance);
-        $instance = [];
-        $instance['title'] = !empty($new_instance['title']) ? sanitize_text_field($new_instance['title']) : 'News';
-        $instance['categories'] = !empty($new_instance['categories']) ? $new_instance['categories'] : null;
-
-        return $instance;
+        return [
+            "title" => !empty($new_instance['title']) ? sanitize_text_field($new_instance['title']) : 'News',
+            "categories" => !empty($new_instance['categories']) ? $new_instance['categories'] : null
+        ];
     }
 }
 

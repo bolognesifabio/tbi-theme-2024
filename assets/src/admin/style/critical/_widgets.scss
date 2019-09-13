@@ -20,11 +20,14 @@
             flex-basis: 100%;
         }
 
-        &--checkbox & {
-            &__checkbox {
+        &--checkbox &,
+        &--radio & {
+            &__checkbox,
+            &__radio {
                 margin: 0 30px 10px 0;
 
-                &__input[type="checkbox"] {
+                &__input[type="checkbox"],
+                &__input[type="radio"] {
                     margin: 0;
                 }
 
@@ -32,7 +35,6 @@
                     margin-left: 5px;
                 }
             }
-
         }
     }
 }
