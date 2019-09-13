@@ -1,5 +1,6 @@
 <?php
 namespace TBI\Widgets;
+use TBI\Controllers\Competition as Competition_Controller;
 
 class Competitions extends \WP_Widget {
     public function __construct() {
@@ -40,7 +41,18 @@ class Competitions extends \WP_Widget {
     }
 
     public function widget($args, $instance) {
-        include get_template_directory() . '/views/public/widgets/competitions.php';
+        $competitions_ids = Competition_Controller::get_ids_by_terms($instance['competitions'], $instance['seasons']) ?: [];
+
+        $view_model["season"] = $instance["seasons"];
+        // $view_model["competitions"] = $instance["competitions"];
+
+        if (count($competitions_ids)) {
+            $view_model["competitions"] = array_map(function($competition_id, $is_not_first) {
+                return $is_not_first ? [ "id" => $competition_id ] : Competition_Controller::get_by_id($competition_id);
+            }, $competitions_ids, array_keys($competitions_ids));
+
+            include get_template_directory() . '/views/public/widgets/competitions.php';
+        }
     }
 
     public function update($new_instance, $old_instance) {

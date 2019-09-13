@@ -1,5 +1,7 @@
 .widget {
     &__title {
+        padding-bottom: 0;
+        
         &:after {
             content: " ";
             width: 100%;
@@ -34,9 +36,7 @@
     }
 
     &--last-posts {
-        .widget__title {
-            padding-bottom: 0;
-            
+        .widget__title {            
             &:after {
                 content: "";
             }
