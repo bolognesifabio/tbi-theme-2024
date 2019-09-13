@@ -34,6 +34,14 @@
     }
 
     &--last-posts {
+        .widget__title {
+            padding-bottom: 0;
+            
+            &:after {
+                content: "";
+            }
+        }
+
         &__list {
             &__item {
                 display: grid;
