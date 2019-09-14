@@ -27,7 +27,6 @@ class Last_Posts extends \WP_Widget {
         $query_args = [];
         $query_args['posts_per_page'] = 5;
         !$instance['categories'] || $query_args['category__in'] = $instance['categories'];
-        $tbi_logo_url = get_template_directory_uri() . '/assets/img/tbi-logo.png';
 
         query_posts($query_args);
 
