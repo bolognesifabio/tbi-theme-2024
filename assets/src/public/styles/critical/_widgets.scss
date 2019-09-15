@@ -21,7 +21,7 @@
     }
 
     &__cta {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         color: $color-red-main;
         text-decoration: none;
         font-weight: 700;
@@ -130,6 +130,10 @@
     }
 
     @include media-tablet {
+        &__title {
+            text-align: left;
+        }
+
         &--last-posts {
             &__list {
                 display: grid;
@@ -144,6 +148,7 @@
                         padding-top: 1.5rem;
                         flex-direction: column;
                         flex-wrap: nowrap;
+                        border-bottom: none;
                     }
                     
                     &:nth-child(1) & {
@@ -174,6 +179,29 @@
                     &:nth-child(5) {
                         grid-column: 2;
                         grid-row: 4;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        &__cta {
+            border-top: .1rem solid $color-borders;
+        }
+    }
+
+    @include media-desktop {
+        .home__sidebar &,
+        .sidebar & {
+            &--last-posts {
+                &__list {
+                    display: flex;
+                    flex-direction: column;
+
+                    &__item {
+                        &:first-child {
+                            border-bottom: .1rem solid $color-borders;
+                        }
                     }
                 }
             }

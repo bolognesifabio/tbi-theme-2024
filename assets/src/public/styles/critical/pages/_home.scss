@@ -1,0 +1,18 @@
+.home {
+    @include media-desktop {
+        display: flex;
+        flex-wrap: wrap;
+
+        .slider {
+            flex-basis: 100%;
+        }
+        
+        &__main {
+            flex-basis: 66%;
+        }
+
+        &__sidebar {
+            flex-basis: 33%;
+        }
+    }
+}
