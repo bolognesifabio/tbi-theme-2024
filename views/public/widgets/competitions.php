@@ -5,11 +5,37 @@
                 <?= $instance['title'] ?>
             <?= $args['after_title']; ?>
 
-            <!-- <nav>
-                <ul>
-                    <li v-for="competition in loaded_competitions" :key="competition.id">{{ competition.title }}</li>
-                </ul>
-            </nav> -->
+            <nav class="widget--competitions__nav">
+                <button
+                    v-if="model.length > 1"
+                    class="widget--competitions__nav__cta"
+                >
+                    <tbi-icon icon="caret-left"></tbi-icon>
+                </button>
+                
+                <transition-group
+                    tag="ul"
+                    class="widget--competitions__nav__competitions"
+                    name="slide"
+                >
+                    <li
+                        class="widget--competitions__nav__competitions__item"
+                        v-for="competition in loaded_competitions"
+                        :key="competition.id"
+                        v-if="competition.is_active"
+                    >
+                        <h3 class="widget--competitions__nav__competitions__item__title">{{ competition.competition.name }}</h3>
+                        <h4 class="widget--competitions__nav__competitions__item__subtitle">{{ competition.title }}</h4>
+                    </li>
+                </transition-group>
+
+                <button
+                    v-if="model.length > 1"
+                    class="widget--competitions__nav__cta"
+                >
+                    <tbi-icon icon="caret-right"></tbi-icon>
+                </button>
+            </nav>
 
             <a class="widget__cta" href="#">
                 Vai al campionato

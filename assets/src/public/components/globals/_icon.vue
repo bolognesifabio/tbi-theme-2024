@@ -5,6 +5,7 @@
     import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
     import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight'
     import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight'
+    import { faCaretLeft } from '@fortawesome/free-solid-svg-icons/faCaretLeft'
     import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown'
     import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
     import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
@@ -20,6 +21,7 @@
         faBars,
         faChevronRight,
         faCaretRight,
+        faCaretLeft,
         faCaretDown,
         faSearch,
         faTimes,
