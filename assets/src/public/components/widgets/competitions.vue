@@ -222,6 +222,7 @@
                     .emblem {
                         &__img {
                             max-width: 2rem;
+                            max-height: 2rem;
                             height: auto;
                         }
                     }
