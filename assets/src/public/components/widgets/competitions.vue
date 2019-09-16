@@ -132,7 +132,7 @@
     .slides {
         position: relative;
         overflow: hidden;
-        margin-top: 1.5rem;
+        margin-top: 3rem;
 
         &__item {
             width: 100%;
@@ -175,8 +175,7 @@
 
             &__standings {
                 width: 100%;
-                margin-top: 1.5rem;
-                border-bottom: .1rem solid $color-borders;
+                margin-top: 3rem;
 
                 th, td {
                     padding: .75rem;
