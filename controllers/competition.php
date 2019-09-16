@@ -4,7 +4,7 @@ use TBI\Models\Competition\Cup;
 use TBI\Models\Competition\League;
 
 abstract class Competition {
-    public function get_by_id($id) {
+    public function by_id($id) {
         $competition_type = get_post($id)->post_type;
 
         if ($competition_type === 'cups') return new Cup($id);
@@ -13,7 +13,7 @@ abstract class Competition {
         return null;
     }
 
-    public function get_ids_by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {
+    public function ids_by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {
         return get_posts([ 
             'post_type' => $post_types,
             'posts_per_page' => -1,
@@ -36,13 +36,13 @@ abstract class Competition {
         ]);
     }
 
-    public function get_by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {
+    public function by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {
         return array_map(function($competition_id) {
-            return self::get_by_id($competition_id);
-        }, self::get_ids_by_terms($competitions_terms, $seasons_terms, $post_types));
+            return self::by_id($competition_id);
+        }, self::ids_by_terms($competitions_terms, $seasons_terms, $post_types));
     }
 
-    public function get_all_seasons($competitions_terms) {
+    public function all_seasons($competitions_terms) {
         $competitions_ids = get_posts([ 
             'post_type' => $post_types,
             'posts_per_page' => -1,

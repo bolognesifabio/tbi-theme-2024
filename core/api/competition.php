@@ -5,24 +5,9 @@ use TBI\Controllers\Competition as Competition_Controller;
 use TBI\Controllers\Competition\League as League_Controller;
 
 class Competition {
-    public function get_by_id($data) {
-        return Competition_Controller::get_by_id($data['competition']);
-    }
-
-    public function get_by_terms($data) {
-        return Competition_Controller::get_by_terms($data['competition'], $data['season']);
-    }
-
-    public function get_standings_by_terms($data) {
-        return League_Controller::get_standings_by_terms($data['competition'], $data['season']);
-    }
-
-    public function get_leagues_by_terms($data) {
-        return League_Controller::get_leagues_by_terms($data['competition'], $data['season']);
+    public function by_id() {
+        return Competition_Controller::by_id($_GET['id']);
     }
 }
 
-new API_Route('/competition/id/(?P<competition>\d+)/', [new Competition, 'get_by_id']);
-new API_Route('/competition/(?P<competition>\d+)/season/(?P<season>\d+)/standings', [new Competition, 'get_standings_by_terms']);
-new API_Route('/competition/(?P<competition>\d+)/season/(?P<season>\d+)/fixtures', [new Competition, 'get_by_terms']);
-new API_Route('/competition/(?P<competition>\d+)/season/(?P<season>\d+)/leagues/fixtures', [new Competition, 'get_leagues_by_terms']);
+new API_Route('/competition', [new Competition, 'by_id']);

@@ -3,7 +3,7 @@ namespace TBI\Controllers\Competition;
 use TBI\Helpers\Files;
 use TBI\Controllers\Competition as Competition_Controller;
 
-Files::require_absolute_path('controllers/competition/competition.php');
+Files::require_absolute_path('controllers/competition.php');
 
 abstract class League extends Competition_Controller {
     public function get_standings($league) {
@@ -23,7 +23,7 @@ abstract class League extends Competition_Controller {
     }
 
     public function get_standings_by_id($league_id) {
-        return self::get_standings(parent::get_by_id($league_id));
+        return self::get_standings(parent::by_id($league_id));
     }
 
     public function get_standings_by_terms($competitions_terms, $seasons_terms) {
@@ -35,6 +35,6 @@ abstract class League extends Competition_Controller {
     }
 
     public function get_leagues_by_terms($competitions_terms, $seasons_terms) {
-        return parent::get_by_terms($competitions_terms, $seasons_terms, ['leagues']);
+        return parent::by_terms($competitions_terms, $seasons_terms, ['leagues']);
     }
 }

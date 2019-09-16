@@ -32,10 +32,12 @@ class Competition {
         $this->date = $options_meta['date'];
         $this->are_fixtures_dates_visible = $options_meta['are_fixtures_dates_visible'] ?: false;
         $this->priority = $options_meta['priority'] ?: 0;
-        
-        $this->teams = array_map(function($team, $team_id) {
-            return new Team($team_id, $team);
-        }, $teams_meta, array_keys($teams_meta));
+
+        $this->teams = [];
+
+        foreach($teams_meta as $team_id => $team) {
+            $this->teams[$team_id] = new Team($team_id, $team);
+        }
         
         $this->turns = get_post_meta($id, 'tbi-competition-turns', true) ?: [];
     }

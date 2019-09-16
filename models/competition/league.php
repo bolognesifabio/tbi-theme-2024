@@ -3,12 +3,13 @@ namespace TBI\Models\Competition;
 use TBI\Helpers\Files;
 use TBI\Models\Competition as Competition_Model;
 
-Files::require_absolute_path('models/competition/competition.php');
+Files::require_absolute_path('models/competition.php');
 
 class League extends Competition_Model {
     public $victory_points;    
     public $draw_points;
     public $loss_points;
+    public $standings;
 
     public function __construct($id) {
         parent::__construct($id);
@@ -18,6 +19,7 @@ class League extends Competition_Model {
         $this->loss_points = $options_meta['loss_points'] ?: 0;
 
         $this->set_teams_points();
+        $this->set_standings();
     }
 
     private function set_teams_points() {
@@ -73,5 +75,21 @@ class League extends Competition_Model {
             if ($turn['fixtures']) return array_merge($fixtures, $turn['fixtures']);
             else return $fixtures;
         }, []);
+    }
+
+    private function set_standings() {
+        $this->standings = $this->teams;
+        
+        usort($this->standings, function($team_a, $team_b) {
+            if ($team_a->points === $team_b->points) {
+                if ($team_a->priority === $team_b->priority) {
+                    return strcmp($team_a->title, $team_b->title);
+                }
+
+                return $team_a->priority < $team_b->priority;
+            }
+
+            return $team_a->points < $team_b->points;
+        });
     }
 }
