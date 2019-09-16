@@ -21,8 +21,42 @@
                 })
             },
 
+            active_index() {
+                return this.loaded_competitions.findIndex(competition => {
+                    return competition.is_active
+                })
+            },
+
             season() {
                 return this.model[0].season
+            }
+        },
+
+        methods: {
+            next_slide() {
+                this.slide = 'next'
+                
+                const
+                    LOADED_COMPETITIONS = this.loaded_competitions,
+                    NEXT_INDEX = this.active_index + 1 >= LOADED_COMPETITIONS.length ? 0 : this.active_index + 1
+
+                this.model = this.model.map((competition, index) => {
+                    competition.is_active = index === NEXT_INDEX
+                    return competition
+                })                
+            },
+
+            prev_slide() {
+                this.slide = 'prev'
+                
+                const
+                    LOADED_COMPETITIONS = this.loaded_competitions,
+                    PREV_INDEX = this.active_index - 1 < 0 ? LOADED_COMPETITIONS.length - 1 : this.active_index - 1
+
+                this.model = this.model.map((competition, index) => {
+                    competition.is_active = index === PREV_INDEX
+                    return competition
+                })                
             }
         },
 
@@ -46,14 +80,19 @@
     .widget--competitions {
         &__nav {
             display: flex;
-            padding: 1.5rem;
-            border-bottom: .1rem solid $color-borders;
+            margin: 0 1.5rem;
+            align-items: center;
+                        border-bottom: .1rem solid $color-borders;      // to change
 
             &__competitions {
                 flex-basis: 100%;
-                padding: 0 1.5rem;
+                position: relative;
+                overflow: hidden;
 
                 &__item {
+                    width: 100%;
+                    padding: 1.5rem;
+
                     &__title,
                     &__subtitle {
                         margin: 0;
@@ -70,12 +109,48 @@
                         color: $color-fg-accent;
                         font-weight: 600;
                     }
+
+                    &.next,
+                    &.prev {
+                        &-enter-active,
+                        &-leave-active {
+                            transition: all .4s ease-in-out;
+                        }
+
+                        &-enter,
+                        &-leave-to {
+                            opacity: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+
+                    &.next-enter,
+                    &.prev-leave-to {
+                        transform: translateX(-30%);
+                    }
+
+                    &.next-leave-to,
+                    &.prev-enter {
+                        transform: translateX(30%);
+                    }
                 }
             }
 
             &__cta {
                 font-size: 2.4rem;
                 color: $color-primary-main;
+                height: 100%;
+                padding: 1.5rem 0;
+
+                &:first-child {
+                    padding-right: 1.5rem;
+                }
+
+                &:last-child {
+                    padding-left: 1.5rem;
+                }
             }
         }
     }

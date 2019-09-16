@@ -7,8 +7,9 @@
 
             <nav class="widget--competitions__nav">
                 <button
-                    v-if="model.length > 1"
+                    v-if="loaded_competitions.length > 1"
                     class="widget--competitions__nav__cta"
+                    @click.prevent="prev_slide()"
                 >
                     <tbi-icon icon="caret-left"></tbi-icon>
                 </button>
@@ -16,7 +17,7 @@
                 <transition-group
                     tag="ul"
                     class="widget--competitions__nav__competitions"
-                    name="slide"
+                    :name="slide"
                 >
                     <li
                         class="widget--competitions__nav__competitions__item"
@@ -30,8 +31,9 @@
                 </transition-group>
 
                 <button
-                    v-if="model.length > 1"
+                    v-if="loaded_competitions.length > 1"
                     class="widget--competitions__nav__cta"
+                    @click.prevent="next_slide()"
                 >
                     <tbi-icon icon="caret-right"></tbi-icon>
                 </button>
