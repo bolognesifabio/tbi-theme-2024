@@ -128,12 +128,12 @@
 
                     &.next-enter,
                     &.prev-leave-to {
-                        transform: translateX(-30%);
+                        transform: translateX(30%);
                     }
 
                     &.next-leave-to,
                     &.prev-enter {
-                        transform: translateX(30%);
+                        transform: translateX(-30%);
                     }
                 }
             }
