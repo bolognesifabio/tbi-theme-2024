@@ -153,13 +153,15 @@
                     transition: all .2s ease-in-out;
 
                     &:before {
+                        @include gradient($color-fuchsia-main, $color-violet-main);
                         content: " ";
-                        background: $color-light-bg-variant;
+                        opacity: 0;
                         height: .4rem;
                         width: 100%;
                         position: absolute;
                         top: 0;
                         left: 0;
+                        transition: all .2s ease-in-out;
                     }
 
                     &--active {
@@ -167,7 +169,7 @@
                         border-bottom: .1rem solid transparent;
 
                         &:before {
-                            @include gradient($color-fuchsia-main, $color-violet-main);
+                            opacity: 1;
                         }
                     }
                 }
