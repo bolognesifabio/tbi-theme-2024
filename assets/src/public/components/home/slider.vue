@@ -82,7 +82,7 @@
 
             &__item {
                 height: 100%;
-                width: 100vw;
+                width: 100%;
                 padding-bottom: 12.5rem;
                 position: relative;
                 overflow: hidden;
