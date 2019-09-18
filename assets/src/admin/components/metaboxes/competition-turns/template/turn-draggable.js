@@ -6,6 +6,6 @@ export default /* html */ `
         @dragend="reset_current_dragged_turn"
         @dragover="event => switch_turns(event, turn_index)"
     >
-        <span class="dashicons dashicons-editor-justify"></span>
+        <span class="dashicons dashicons-menu"></span>
     </div>
 `

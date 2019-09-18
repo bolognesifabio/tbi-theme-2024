@@ -6,7 +6,7 @@ use TBI\Controllers\Competition\League as League_Controller;
 
 class Competition {
     public function by_id() {
-        return Competition_Controller::by_id($_GET['id']);
+        return Competition_Controller::get_competition_by_id($_GET['id']);
     }
 }
 

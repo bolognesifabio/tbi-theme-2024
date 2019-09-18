@@ -41,6 +41,7 @@
             Leggi altre news
             <tbi-icon icon="chevron-right" class="widget__cta__icon widget--last-posts__cta__icon"></tbi-icon>
         </a>
+        <!-- @TODO: link to index.php with multiple categories -->
     </article>
 <?= $args['after_widget'] ?> <?php
 

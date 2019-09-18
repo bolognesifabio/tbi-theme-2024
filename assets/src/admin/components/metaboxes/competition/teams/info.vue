@@ -18,8 +18,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../../style/utilities/constants';
-    @import '../../../../style/utilities/mixins';
+    @import '../../../../style/constants';
+    @import '../../../../style/mixins';
 
     .tbi-competition-teams-info {
         border-top: 1px solid $color-bg-main;

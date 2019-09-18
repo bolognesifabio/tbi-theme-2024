@@ -77,12 +77,23 @@
                                 <td class="emblem">
                                     <img class="emblem__img" :src="team.emblem" />
                                 </td>
-                                <td class="team">{{ team.short_name }}</td>
+                                <td class="team">{{ team.title }}</td>
                                 <td class="played">{{ team.played }}</td>
                                 <td class="points">{{ team.points }}</td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <article class="slides__item__fixtures" v-else>
+                        <h3 class="slides__item__fixtures__turn">
+                            <tbi-icon :icon="['far', 'calendar-alt']"></tbi-icon> {{ competition.turns.name }}
+                        </h3>
+
+                        <div v-for="(fixtures, fixtures_date in competition.turns.fixtures">
+                            <p>{{ fixtures_date }}</p>
+                            
+                        </div>
+                    </article>
                 </li>
             </transition-group>
 

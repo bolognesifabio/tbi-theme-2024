@@ -1,11 +1,12 @@
-@import '../../../style/utilities/constants';
-@import '../../../style/utilities/mixins';
+@import '../../../style/constants';
+@import '../../../style/mixins';
 
 .tbi-competition-turns {
     &__list {
         &__item {
             &__fixtures {
                 margin-top: 15px;
+                min-width: 100%;
 
                 &__header,
                 &__item {
@@ -114,6 +115,8 @@
                     }
                 
                     &__delete {
+                        width: 100%;
+
                         &__button {
                             display: flex;
                             justify-content: center;
@@ -121,7 +124,7 @@
                             color: $color-delete;
                             border: none;
                             background: none;
-                            margin-left: 10px;
+                            margin-left: auto;
                             cursor: pointer;
     
                             &:before {

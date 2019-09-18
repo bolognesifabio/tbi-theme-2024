@@ -10,7 +10,7 @@ export default /* html */ `
             @dragend="reset_current_dragged_fixture"
             :class="bem('list__item__fixtures__item__draggable')"
         >
-            <span class="dashicons dashicons-editor-justify"></span>
+            <span class="dashicons dashicons-menu"></span>
         </td>
 
         <template v-if="fixture.teams">
