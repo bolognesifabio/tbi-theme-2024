@@ -269,4 +269,21 @@
             transform: translateX(-30%);
         }
     }
+
+    .fixture {
+        td {
+            font-size: 1.4rem;
+            border-bottom: .1rem solid $color-borders;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        &__emblem {
+            &__img {
+                max-width: 2rem;
+                max-height: 2rem;
+                height: auto;
+            }
+        }
+    }
 </style>

@@ -89,9 +89,26 @@
                             <tbi-icon :icon="['far', 'calendar-alt']"></tbi-icon> {{ competition.turns.name }}
                         </h3>
 
-                        <div v-for="(fixtures, fixtures_date in competition.turns.fixtures">
-                            <p>{{ fixtures_date }}</p>
+                        <div v-for="(fixtures, fixtures_date in competition.turns.fixtures" class="slides__item__fixtures__day">
+                            <p class="slides__item__fixtures__day__date" v-if="fixtures_date">{{ fixtures_date }}</p>
                             
+                            <table cellspacing="0" cellpadding="0" class="slides__item__fixtures__day__list">
+                                <tbody>
+                                    <tr v-for="fixture in fixtures" :key="fixture.id" class="fixture">
+                                        <td class="fixture__emblem">
+                                            <img class="fixture__emblem__img" :src="competition.teams[fixture.teams.home.id].emblem" />
+                                        </td>
+                                        <td class="fixture__team">{{ competition.teams[fixture.teams.home.id].title }}</td>
+                                        <td class="fixture__score">{{ fixture.teams.home.score }}</td>
+                                        <td class="fixture__separator">-</td>
+                                        <td class="fixture__score">{{ fixture.teams.away.score }}</td>
+                                        <td class="fixture__team">{{ competition.teams[fixture.teams.away.id].title }}</td>
+                                        <td class="fixture__emblem">
+                                            <img class="fixture__emblem__img" :src="competition.teams[fixture.teams.away.id].emblem" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </article>
                 </li>
