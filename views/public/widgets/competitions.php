@@ -94,7 +94,7 @@
                             
                             <table cellspacing="0" cellpadding="0" class="slides__item__fixtures__day__list">
                                 <tbody>
-                                    <tr v-for="fixture in fixtures" :key="fixture.id" class="fixture">
+                                    <tr v-for="fixture in fixtures" :key="fixture.id" class="fixture" v-if="fixture.teams">
                                         <td class="fixture__emblem">
                                             <img class="fixture__emblem__img" :src="competition.teams[fixture.teams.home.id].emblem" />
                                         </td>

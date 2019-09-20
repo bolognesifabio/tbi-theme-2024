@@ -68,8 +68,6 @@
                     if (competition.turns) return competition 
     
                     let { data } = await axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi/v1/widgets/competition?id=${competition.id}`)
-                    data.is_active = false
-                    if (data.type === 'leagues') data.are_standings_active = true
     
                     return data
                 }))
