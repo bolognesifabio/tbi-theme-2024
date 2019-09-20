@@ -56,8 +56,6 @@
     }
 
     @include media-tablet {
-        padding-bottom: 4.5rem;
-
         &__header & {
             &__cta {
                 display: block;
@@ -70,8 +68,6 @@
     }
 
     @include media-desktop {
-        padding-bottom: 4.5rem;
-
         .home__sidebar &__header &,
         .sidebar &__header & {
             &__cta {

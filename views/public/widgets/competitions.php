@@ -65,54 +65,54 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
                             @click.prevent="() => { competition.are_standings_active = false }"
                         >Risultati</button>
                     </nav>
-                        
-                    <table cellspacing="0" cellpadding="0" class="slides__item__standings" v-if="competition.are_standings_active">
-                        <thead class="slides__item__standings__head">
-                            <tr>
-                                <th class="position">Pos</th>
-                                <th class="team" colspan="2">Squadra</th>
-                                <th class="played">G</th>
-                                <th class="points">Pt</th>
-                            </tr>
-                        </thead>
-                        <tbody class="slides__item__standings__body">
-                            <tr v-for="(team, position) in competition.standings" :key="team.id">
-                                <td class="position">{{ position + 1 }}</td>
-                                <td class="emblem">
-                                    <img class="emblem__img" :src="team.emblem" />
-                                </td>
-                                <td class="team">{{ team.title }}</td>
-                                <td class="played">{{ team.played }}</td>
-                                <td class="points">{{ team.points }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
 
-                    <article class="slides__item__fixtures" v-else>
-                        <h3 class="slides__item__fixtures__turn">
-                            <tbi-icon :icon="['far', 'calendar-alt']"></tbi-icon> {{ competition.turns.name }}
+                    <article class="standings" v-if="competition.are_standings_active">
+                        <header class="standings__head">
+                            <div class="standings__head__position">Pos</div>
+                            <div class="standings__head__team">Squadra</div>
+                            <div class="standings__head__played">G</div>
+                            <div class="standings__head__points">Pt</div>
+                        </header>
+
+                        <div class="standings__row" v-for="(team, position) in competition.standings" :key="team.id">
+                            <div class="standings__row__position">{{ position + 1 }}</div>
+                            <div class="standings__row__team">
+                                <div class="standings__row__team__emblem">
+                                    <img class="standings__row__team__emblem__img" :src="team.emblem" />
+                                </div>
+                                {{ team.title }}
+                            </div>
+                            <div class="standings__row__played">{{ team.played }}</div>
+                            <div class="standings__row__points">{{ team.points }}</div>
+                        </div>
+                    </article>
+
+                    <article class="fixtures" v-else>
+                        <h3 class="fixtures__turn">
+                            <tbi-icon class="fixtures__turn__icon" :icon="['far', 'calendar-alt']"></tbi-icon> {{ competition.turns.name }}
                         </h3>
 
-                        <div v-for="(fixtures, fixtures_date in competition.turns.fixtures" class="slides__item__fixtures__day">
-                            <p class="slides__item__fixtures__day__date" v-if="fixtures_date">{{ fixtures_date }}</p>
-                            
-                            <table cellspacing="0" cellpadding="0" class="slides__item__fixtures__day__list">
-                                <tbody>
-                                    <tr v-for="fixture in fixtures" :key="fixture.id" class="fixture" v-if="fixture.teams">
-                                        <td class="fixture__emblem">
-                                            <img class="fixture__emblem__img" :src="competition.teams[fixture.teams.home.id].emblem" />
-                                        </td>
-                                        <td class="fixture__team">{{ competition.teams[fixture.teams.home.id].title }}</td>
-                                        <td class="fixture__score">{{ fixture.teams.home.score }}</td>
-                                        <td class="fixture__separator">-</td>
-                                        <td class="fixture__score">{{ fixture.teams.away.score }}</td>
-                                        <td class="fixture__team">{{ competition.teams[fixture.teams.away.id].title }}</td>
-                                        <td class="fixture__emblem">
-                                            <img class="fixture__emblem__img" :src="competition.teams[fixture.teams.away.id].emblem" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div v-for="(fixtures, fixtures_date in competition.turns.fixtures" class="fixtures__day">
+                            <p class="fixtures__day__date" v-if="fixtures_date != '0'">{{ fixtures_date }}</p>
+
+                            <article class="fixtures__day__list" v-if="!competition.are_standings_active">
+                                <div class="fixtures__day__list__row" v-for="fixture in fixtures" :key="fixture.id" v-if="fixture.teams">
+                                <div class="fixtures__day__list__row__team">
+                                    <div class="fixtures__day__list__row__team__emblem">
+                                        <img class="fixtures__day__list__row__team__emblem__img" :src="competition.teams[fixture.teams.home.id].emblem" />
+                                    </div>
+                                    {{ competition.teams[fixture.teams.home.id].short_name }}
+                                </div>
+                                <div class="fixtures__day__list__row__score">{{ fixture.teams.home.score }}</div>
+                                <div class="fixtures__day__list__row__separator">-</div>
+                                <div class="fixtures__day__list__row__score">{{ fixture.teams.away.score }}</div>
+                                <div class="fixtures__day__list__row__team">
+                                    {{ competition.teams[fixture.teams.away.id].short_name }}
+                                    <div class="fixtures__day__list__row__team__emblem">
+                                        <img class="fixtures__day__list__row__team__emblem__img" :src="competition.teams[fixture.teams.away.id].emblem" />
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </article>
                 </li>

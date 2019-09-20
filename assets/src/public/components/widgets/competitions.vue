@@ -86,7 +86,7 @@
         display: flex;
         margin: 0 1.5rem;
         align-items: center;
-                    border-bottom: .1rem solid $color-borders;      // to change
+        border-bottom: .1rem solid $color-borders;
 
         &__competitions {
             flex-basis: 100%;
@@ -176,67 +176,6 @@
                     }
                 }
             }
-
-            &__standings {
-                width: 100%;
-                margin-top: 3rem;
-
-                th, td {
-                    padding: .75rem;
-                    text-align: center;
-
-                    &:first-child {
-                        padding-left: 1.5rem;
-                    }
-
-                    &:last-child {
-                        padding-right: 1.5rem;
-                    }
-
-                    &.team {
-                        text-align: left;
-                        width: 100%;
-                        color: $color-fg-accent;
-                    }
-
-                    &.played {
-                        padding: .75rem 1.5rem;
-                    }
-                }
-
-                td {
-                    font-size: 1.4rem;
-                    border-bottom: .1rem solid $color-borders;
-                    padding-top: 1.5rem;
-                    padding-bottom: 1.5rem;
-
-                    &.position,
-                    &.points {
-                        color: $color-primary-main;
-                        font-weight: 800;
-                    }
-                }
-
-                &__head {
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                }
-
-                &__body {
-                    .emblem {
-                        &__img {
-                            max-width: 2rem;
-                            max-height: 2rem;
-                            height: auto;
-                        }
-                    }
-                }
-
-                &__head {
-                    background: $color-light-bg-variant;
-                    color: $color-fg-accent;
-                }
-            }
         }
     }
 
@@ -272,20 +211,191 @@
         }
     }
 
-    .fixture {
-        td {
+    .standings,
+    .fixtures__day__list {
+        width: 100%;
+
+        &__head,
+        &__row {
+            padding: .75rem;
+            display: grid;
+            grid-template-rows: 1fr;
+            align-items: center;
+
+            &__team {
+                color: $color-fg-accent;
+            }
+        }
+
+        &__row {
             font-size: 1.4rem;
             border-bottom: .1rem solid $color-borders;
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;
-        }
 
-        &__emblem {
-            &__img {
-                max-width: 2rem;
-                max-height: 2rem;
-                height: auto;
+            &__team {
+                display: flex;
+                align-items: center;
+
+                &__emblem {
+                    padding-right: .75rem;
+
+                    &__img {
+                        max-width: 2rem;
+                        max-height: 2rem;
+                        height: auto;
+                    }
+                }
             }
         }
+    }
+
+    .standings {
+        margin-top: 3rem;
+
+        &__head,
+        &__row {
+            text-align: center;
+            grid-template-columns: 4rem 1fr 4rem 4rem;
+
+            > * {
+                &:nth-child(1) {
+                    grid-column: 1;
+                }
+
+                &:nth-child(2) {
+                    grid-column: 2;
+                }
+
+                &:nth-child(3) {
+                    grid-column: 3;
+                }
+
+                &:nth-child(4) {
+                    grid-column: 4;
+                }
+            }
+
+            &__team {
+                text-align: left;
+            }
+        }
+
+        &__head {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: $color-light-bg-variant;
+            color: $color-fg-accent;
+        }
+
+        &__row {
+            &__position,
+            &__points {
+                @include font-title;
+                color: $color-primary-main;
+                font-weight: 900;
+            }
+
+            &__played {
+                @include font-title;
+            }
+        }
+    }
+
+    .fixtures {
+        &__turn {
+            margin: 0;
+            padding: 2rem 0;
+            width: 100%;
+            font-size: 1.2rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: $color-primary-4;
+            font-weight: 900;
+
+            &__icon {
+                margin-right: .3rem;
+            }
+        }
+
+        &__day {
+            padding-bottom: 3rem;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            &__date {
+                font-size: 1.4rem;
+                font-weight: 400;
+                text-align: center;
+                color: $color-fg-accent;
+                margin: 0;
+                padding: .4rem 0;
+            }
+
+            &__list {
+                &__row {
+                    padding: 1.5rem 0;
+                    grid-template-columns: 1fr 4rem 1rem 4rem 1fr;
+
+                    > * {
+                        grid-row: 1;
+                        padding: 0;
+
+                        &:nth-child(1) {
+                            grid-column: 1;
+                        }
+
+                        &:nth-child(2) {
+                            grid-column: 2;
+                        }
+
+                        &:nth-child(3) {
+                            grid-column: 3;
+                        }
+
+                        &:nth-child(4) {
+                            grid-column: 4;
+                        }
+
+                        &:nth-child(5) {
+                            grid-column: 5;
+                        }
+                    }
+
+                    &:first-child {
+                        border-top: .1rem solid $color-borders;
+                    }
+
+                    &__team {
+                        &:last-child {
+                            text-align: right;
+                            justify-content: flex-end;
+                        }
+
+                        &:last-child & {
+                            &__emblem {
+                                padding-right: 0;
+                                padding-left: .75rem;
+                            }
+                        }
+                    }
+
+                    &__score,
+                    &__separator {
+                        @include font-title;
+                        font-size: 1.4rem;
+                        font-weight: 900;
+                        color: $color-primary-main;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .widget__footer {
+        border-top: none;
     }
 </style>
