@@ -1,0 +1,89 @@
+.widget {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6.5rem 0 .75rem;
+        margin: 0 1.5rem;
+        border-bottom: .1rem solid $color-borders-dark;
+    }
+
+    &__header & {
+        &__cta {
+            display: none;
+        }
+    }
+
+    &__cta {
+        @include font-title;
+        font-size: 1.4rem;
+        color: $color-fg;
+        text-decoration: none;
+        font-weight: 700;
+        text-align: right;
+        padding-left: 1.5rem;
+
+        &__icon {
+            color: $color-red-main;
+            margin-left: .5rem;
+            font-size: 1.2rem;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    &__list {
+        padding: 0 1.5rem;
+
+        &__item {
+            padding: 1.5rem 0;
+        }
+    }
+
+    &__footer {
+        border-top: .1rem solid $color-borders-dark;
+        padding: 1.5rem 0;
+        margin: 0 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    @include media-tablet {
+        padding-bottom: 4.5rem;
+
+        &__header & {
+            &__cta {
+                display: block;
+            }
+        }
+
+        &__footer {
+            display: none;
+        }
+    }
+
+    @include media-desktop {
+        padding-bottom: 4.5rem;
+
+        .home__sidebar &__header &,
+        .sidebar &__header & {
+            &__cta {
+                display: none;
+            }
+        }
+
+        .home__sidebar &__footer,
+        .sidebar &__footer {
+            display: flex;
+        }
+    }
+}
+
+@import './last-posts';

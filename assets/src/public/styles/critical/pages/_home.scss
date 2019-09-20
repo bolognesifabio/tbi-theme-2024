@@ -2,6 +2,7 @@
     @include media-desktop {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
 
         .slider {
             flex-basis: 100%;

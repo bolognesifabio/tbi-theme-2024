@@ -1,0 +1,162 @@
+.widget--last-posts {
+    &__list {
+        &__item {
+            &__inner {
+                display: grid;
+                grid-template-columns: minmax(0, 12rem) 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: 1.5rem;
+                text-decoration: none;
+
+                &__thumbnail {
+                    grid-column: 1;
+                    grid-row: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &__image {
+                        width: auto;
+                        height: auto;
+                        max-height: 8rem;
+                    }
+                }
+
+                &__content {
+                    grid-column: 2;
+                    grid-row: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    &__title {
+                        margin: 0;
+                        font-weight: 600;
+                        color: $color-fg;
+                    }
+
+                    &__date {
+                        @include font-title;
+                        color: $color-primary-5;
+                        font-size: 1.2rem;
+                        font-weight: 400;
+                        margin: 0;
+                        padding-top: .75rem;
+
+                        &__icon {
+                            margin-right: .3rem;
+                            margin-bottom: .1rem;
+                        }
+                    }
+                }
+
+                &:hover & {
+                    &__content {
+                        &__title {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            &:first-child & {
+                &__inner {
+                    padding-top: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    &__thumbnail {
+                        flex-basis: 100%;
+                        max-width: 100%;
+                        max-height: 51.2rem;
+
+                        &__image {
+                            max-width: 100%;
+                            max-height: 100%;
+                            width: auto;
+                            height: auto;
+                        }
+                    }
+
+                    &__content {
+                        flex-basis: 100%;
+
+                        &__title {
+                            font-weight: 600;
+                            font-size: 2rem;
+                            padding-top: .75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-tablet {
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 1.5rem;
+
+            &__item {
+                &:nth-child(1) {
+                    grid-column: 1;
+                    grid-row: 1 / span 4;
+                }
+
+                &:nth-child(1) & {                    
+                    &__inner {
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+                        border-bottom: none;
+
+                        &__thumbnail {
+                            align-items: flex-start;
+                        }
+
+                        &__content {
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    grid-column: 2;
+                    grid-row: 1;
+                }
+
+                &:nth-child(3) {
+                    grid-column: 2;
+                    grid-row: 2;
+                }
+
+                &:nth-child(4) {
+                    grid-column: 2;
+                    grid-row: 3;
+                }
+
+                &:nth-child(5) {
+                    grid-column: 2;
+                    grid-row: 4;
+                }
+            }
+        }
+    }
+    
+    @include media-desktop {
+        .home__sidebar &,
+        .sidebar & {
+            &__list {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .home__main & {
+            &__list {
+                grid-column-gap: 3rem;
+            }
+        }
+    }
+}

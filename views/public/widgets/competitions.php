@@ -1,9 +1,13 @@
+<?php
+use TBI\Helpers\Widgets as Widgets_Helper; ?>
+
 <tbi-widget-competitions view_model="<?= htmlentities(json_encode($view_model)) ?>" inline-template>
     <?= $args['before_widget'] ?>
         <article class="widget--competitions">
-            <?= $args['before_title'] ?>
-                <?= $instance['title'] ?>
-            <?= $args['after_title']; ?>
+            <header class="widget__header"> <?php
+                Widgets_Helper::render_title($args, $instance);
+                Widgets_Helper::render_cta("Vai alla competizione", "#"); ?>
+            </header>
 
             <nav class="nav">
                 <button
@@ -114,10 +118,9 @@
                 </li>
             </transition-group>
 
-            <a class="widget__cta" href="#">
-                Vai al campionato
-                <tbi-icon icon="chevron-right" class="widget__cta__icon"></tbi-icon>
-            </a>
+            <footer class="widget__footer"> <?php
+                Widgets_Helper::render_cta("Vai alla competizione", "#"); ?>
+            </footer>
         </article>
     <?= $args['after_widget'] ?>
 </tbi-widget-competitions>

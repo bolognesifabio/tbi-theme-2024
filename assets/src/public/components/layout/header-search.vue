@@ -97,7 +97,7 @@
             }
 
             &__input {
-                @include font-content;
+                @include font-title;
                 border: none;
                 height: 100%;
                 padding: 0 1.5rem;

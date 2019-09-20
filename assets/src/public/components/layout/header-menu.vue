@@ -105,9 +105,14 @@
                     padding: 1.5rem;
                     align-items: center;
                     font-size: 1.4rem;
-                    font-weight: 500;
+                    font-weight: 600;
                     width: 100%;
                     cursor: pointer;
+                    text-align: left;
+                }
+
+                &__cta {
+                    font-weight: 700;
                 }
 
                 &__sub-menu {
@@ -121,7 +126,6 @@
 
                         &__cta {
                             color: $color-primary-main;
-                            font-weight: 400;
                             cursor: pointer;
                             padding: 1.5rem;
                         }

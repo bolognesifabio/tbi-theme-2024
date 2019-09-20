@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700,800,900|Source+Sans+Pro:400,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900|Source+Sans+Pro:400,600,700,900&display=swap');
 
 @import '../constants';
 @import '../mixins';
@@ -52,14 +52,14 @@ h1 {
 
 h2 {
     @include font-title;
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 800;
     margin: 0;
-    padding: 6rem 1.5rem 1.5rem 1.5rem;
-    text-align: center;
+    padding: 0;
+    letter-spacing: .05rem;
 }
 
 @import './transitions';
 @import './layout/header';
-@import './widgets';
+@import './widgets/index';
 @import './pages/home';

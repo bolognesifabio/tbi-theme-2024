@@ -1,8 +1,12 @@
+<?php
+use TBI\Helpers\Widgets as Widgets_Helper; ?>
+
 <?= $args['before_widget'] ?>
     <article class="widget--last-posts">
-        <?= $args['before_title'] ?>
-            <?= $instance['title'] ?>
-        <?= $args['after_title']; ?>
+        <header class="widget__header"> <?php
+            Widgets_Helper::render_title($args, $instance);
+            Widgets_Helper::render_cta("Leggi altre news", "#"); ?>
+        </header>
 
         <ul class="widget__list widget--last-posts__list"> <?php
             $is_first_post = true;
@@ -15,32 +19,31 @@
                 $is_first_post = false; ?>
                 
                 <li class="widget__list__item widget--last-posts__list__item">
-                    <div class="widget--last-posts__list__item__thumbnail">
-                        <img
-                            class="widget--last-posts__list__item__thumbnail__image"
-                            src="<?= $post_thumbnail ?>"
-                        />
-                    </div>
-                
-                    <div class="widget--last-posts__list__item__content">
-                        <h3 class="widget--last-posts__list__item__content__title">
-                            <a href="<?php the_permalink(); ?>" class="widget--last-posts__list__item__content__title__cta">
+                    <a href="<?php the_permalink(); ?>" class="widget--last-posts__list__item__inner">
+                        <div class="widget--last-posts__list__item__inner__thumbnail">
+                            <img
+                                class="widget--last-posts__list__item__inner__thumbnail__image"
+                                src="<?= $post_thumbnail ?>"
+                            />
+                        </div>
+                    
+                        <div class="widget--last-posts__list__item__inner__content">
+                            <h3 class="widget--last-posts__list__item__inner__content__title">
                                 <?php the_title(); ?>
-                            </a>
-                        </h3>
-                        <p class="widget--last-posts__list__item__content__date">
-                            <tbi-icon :icon="['far', 'calendar-alt']" class="widget--last-posts__list__item__content__date__icon"></tbi-icon>
-                            <?= get_the_date(); ?>
-                        </p>
-                    </div>
+                            </h3>
+                            <p class="widget--last-posts__list__item__inner__content__date">
+                                <tbi-icon :icon="['far', 'calendar-alt']" class="widget--last-posts__list__item__inner__content__date__icon"></tbi-icon>
+                                <?= get_the_date(); ?>
+                            </p>
+                        </div>
+                    </a>
                 </li> <?php
             } ?>
         </ul>
 
-        <a class="widget__cta widget--last-posts__cta" href="#">
-            Leggi altre news
-            <tbi-icon icon="chevron-right" class="widget__cta__icon widget--last-posts__cta__icon"></tbi-icon>
-        </a>
+        <footer class="widget__footer"> <?php
+            Widgets_Helper::render_cta("Leggi altre news", "#"); ?>
+        </footer>
         <!-- @TODO: link to index.php with multiple categories -->
     </article>
 <?= $args['after_widget'] ?> <?php
