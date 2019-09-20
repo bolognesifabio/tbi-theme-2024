@@ -3,8 +3,8 @@
   "main": "webpack.config.js",
   "author": "Valerio Senneca",
   "scripts": {
-    "start": "webpack --watch --mode=development",
-    "build": "webpack --mode=production",
+    "start": "webpack --watch",
+    "build": "webpack",
     "deploy": "babel-node .deploy/index.js"
   },
   "devDependencies": {

@@ -9,12 +9,15 @@ const
     Write_Json_Plugin = require('write-json-webpack-plugin'),
     Vue_Loader_Plugin = require('vue-loader/lib/plugin'),
     PACKAGE_JSON = require('./package.json'),
-    IS_MODE_PRODUCTION = process.argv[2] === '--mode=production'
+    CURRENT_BRANCH = process.env.CIRCLE_BRANCH ? process.env.CIRCLE_BRANCH.toUpperCase().split("/")[0] : null,
+    ENVIRONMENT_KEY = CURRENT_BRANCH ? process.env[`${CURRENT_BRANCH}_ENVIRONMENT`] || 'DEV02' : 'LCL',
+    MODE = ENVIRONMENT_KEY === 'LCL' ? 'development' : process.env[`${ENVIRONMENT_KEY}_MODE`] || 'production',
+    IS_MODE_PRODUCTION = MODE === 'production'
 
 let git_revision = new Git_Revision_Plugin({ lightweightTags: true })
 
 module.exports = {
-    mode: IS_MODE_PRODUCTION ? 'production' : 'development',
+    mode: MODE,
     entry: {
         'admin': ['@babel/polyfill', './assets/src/admin/index.js', './assets/src/admin/style/critical/index.scss'],
         'public': ['@babel/polyfill', './assets/src/public/index.js', './assets/src/public/styles/critical/index.scss'],
