@@ -13,6 +13,17 @@ abstract class Competition {
         return null;
     }
 
+    public function get_widget_competition_by_id($id) {
+        $competition = self::get_competition_by_id($id);
+        $competition->is_active = false;
+        $competition->are_standings_active = $competition->type === 'leagues';
+        
+        $competition->turns = array_filter($competition->turns, function($turn) {
+            return $turn["is_current"];
+        })[0] ?: $competition->turns[0];
+        return $competition;
+    }
+
     public function get_competitions_by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {
         return array_map(function($competition_id) {
             return self::get_competition_by_id($competition_id);
@@ -69,34 +80,5 @@ abstract class Competition {
         krsort($all_seasons);
 
         return $all_seasons;
-    }
-
-    public function get_turns_with_current($turns) {
-        $current_turn_index = 0;
-        $today_date = strtotime(date('Y-m-d'));        
-
-        foreach ($turns as $index => $turn) {
-            $current_turn_date = strtotime($turns[$current_turn_index]["show_date"]);
-            $turn_date = strtotime($turn["show_date"]);
-            
-            if ($today_date >= $turn_date && $turn_date > $current_turn_date) $current_turn_index = $index;
-        }
-
-        $turns[$current_turn_index]["is_current"] = true;
-        return $turns;
-    }
-
-    public function get_turns_fixtures_grouped_by_date($turns) {
-        return array_map(function($turn) {
-            $output_fixtures = [];
-
-            foreach ($turn["fixtures"] as $fixture) {
-                $fixture_date = $fixture["date"] ? strval($fixture["date"]) : "0";
-                $output_fixtures[$fixture_date][] = $fixture;
-            }
-            
-            $turn["fixtures"] = $output_fixtures;
-            return $turn;
-        }, $turns);
     }
 }

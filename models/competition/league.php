@@ -20,6 +20,7 @@ class League extends Competition_Model {
 
         $this->set_teams_points();
         $this->set_standings();
+        $this->set_turns_info();
     }
 
     private function set_teams_points() {

@@ -51,16 +51,8 @@ class Competitions extends \WP_Widget {
                         "is_active" => false
                     ];
                 } else {
-                    $competition = Competition_Controller::get_competition_by_id($competition_id);
-                    
-                    $competition->turns = Competition_Controller::get_turns_with_current($competition->turns);
-                    $competition->turns = array_filter($competition->turns, function($turn) {
-                        return $turn["is_current"];
-                    })[0] ?: $competition->turns[0];
-                    $competition->turns = Competition_Controller::get_turns_fixtures_grouped_by_date([$competition->turns])[0];
-                    
+                    $competition = Competition_Controller::get_widget_competition_by_id($competition_id);
                     $competition->is_active = true;
-                    $competition->are_standings_active = true;
                     return $competition;
                 }
             }, $competitions_ids, array_keys($competitions_ids));

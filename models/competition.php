@@ -41,4 +41,26 @@ class Competition {
         
         $this->turns = get_post_meta($id, 'tbi-competition-turns', true) ?: [];
     }
+
+    public function set_turns_info() {
+        $current_turn_index = 0;
+        $today_date = strtotime(date('Y-m-d'));        
+
+        foreach ($this->turns as $index => $turn) {
+            $output_fixtures = [];
+            $current_turn_date = strtotime($this->turns[$current_turn_index]["show_date"]);
+            $turn_date = strtotime($turn["show_date"]);
+            
+            if ($today_date >= $turn_date && $turn_date > $current_turn_date) $current_turn_index = $index;
+
+            foreach ($turn["fixtures"] as $fixture) {
+                $fixture_date = $fixture["date"] ? strval($fixture["date"]) : "0";
+                $output_fixtures[$fixture_date][] = $fixture;
+            }
+
+            $this->turns[$index]["fixtures"] = $output_fixtures;
+        }
+
+        $this->turns[$current_turn_index]["is_current"] = true;
+    }
 }
