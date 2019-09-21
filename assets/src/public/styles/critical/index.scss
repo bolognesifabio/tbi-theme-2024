@@ -30,6 +30,7 @@ body {
 .layout-row {
     width: 100%;
     max-width: 1200px;
+    background: $color-neutral-9;
 }
 
 button {
@@ -70,7 +71,6 @@ h2 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        background: $color-neutral-9;
         padding: 0 1.5rem;
     }
 }
