@@ -1,6 +1,12 @@
 .widget--last-posts {
     &__list {
         &__item {
+            border-top: .1rem solid $color-borders;
+
+            &:first-child {
+                border-top: none;
+            }
+
             &__inner {
                 display: grid;
                 grid-template-columns: minmax(0, 12rem) 1fr;
@@ -122,6 +128,7 @@
                 }
 
                 &:nth-child(2) {
+                    border-top: none;
                     grid-column: 2;
                     grid-row: 1;
                 }
@@ -150,6 +157,12 @@
             &__list {
                 display: flex;
                 flex-direction: column;
+
+                &__item {
+                    &:nth-child(2) {
+                        border-top: .1rem solid $color-borders;
+                    }
+                }
             }
         }
 

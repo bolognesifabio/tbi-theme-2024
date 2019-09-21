@@ -44,7 +44,7 @@ class Competitions extends \WP_Widget {
         $competitions_ids = Competition_Controller::get_ids_by_terms($instance['competitions'], $instance['seasons']) ?: [];
 
         if (count($competitions_ids)) {
-            $view_model = array_map(function($competition_id, $is_not_first) {
+            $view_model["competitions"] = array_map(function($competition_id, $is_not_first) {
                 if ($is_not_first) {
                     return [
                         "id" => $competition_id,
@@ -56,6 +56,8 @@ class Competitions extends \WP_Widget {
                     return $competition;
                 }
             }, $competitions_ids, array_keys($competitions_ids));
+
+            $view_model["sidebar"] = $args["id"];
 
             include get_template_directory() . '/views/public/widgets/competitions.php';
         }

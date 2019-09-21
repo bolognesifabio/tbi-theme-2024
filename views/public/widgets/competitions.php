@@ -45,7 +45,7 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
 
             <transition-group
                 tag="ul"
-                class="slides"
+                :class="{ 'slides': true, 'slides--full': are_both_columns_visible }"
                 :name="slide"
             >
                 <li
@@ -54,7 +54,7 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
                     :key="competition.id"
                     v-show="competition.is_active"
                 >
-                    <nav v-if="competition.type === 'leagues'" class="slides__item__tabs">
+                    <nav v-if="competition.type === 'leagues' && !are_both_columns_visible" class="slides__item__tabs">
                         <button
                             :class="{ 'slides__item__tabs__cta': true, 'slides__item__tabs__cta--active': competition.are_standings_active }"
                             @click.prevent="() => { competition.are_standings_active = true }"
@@ -66,7 +66,9 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
                         >Risultati</button>
                     </nav>
 
-                    <article class="standings" v-if="competition.are_standings_active">
+                    <article class="standings" v-if="competition.are_standings_active || are_both_columns_visible">
+                        <h3 class="standings__title">Classifica</h3>
+
                         <header class="standings__head">
                             <div class="standings__head__position">Pos</div>
                             <div class="standings__head__team">Squadra</div>
@@ -87,15 +89,17 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
                         </div>
                     </article>
 
-                    <article class="fixtures" v-else>
-                        <h3 class="fixtures__turn">
+                    <article class="fixtures" v-if="!competition.are_standings_active || are_both_columns_visible">
+                        <h3 class="fixtures__title">Risultati</h3>
+
+                        <h4 class="fixtures__turn">
                             <tbi-icon class="fixtures__turn__icon" :icon="['far', 'calendar-alt']"></tbi-icon> {{ competition.turns.name }}
-                        </h3>
+                        </h4>
 
                         <div v-for="(fixtures, fixtures_date in competition.turns.fixtures" class="fixtures__day">
                             <p class="fixtures__day__date" v-if="fixtures_date != '0'">{{ fixtures_date }}</p>
 
-                            <article class="fixtures__day__list" v-if="!competition.are_standings_active">
+                            <article class="fixtures__day__list" v-if="!competition.are_standings_active || are_both_columns_visible">
                                 <div class="fixtures__day__list__row" v-for="fixture in fixtures" :key="fixture.id" v-if="fixture.teams">
                                 <div class="fixtures__day__list__row__team">
                                     <div class="fixtures__day__list__row__team__emblem">

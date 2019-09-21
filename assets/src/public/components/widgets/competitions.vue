@@ -13,10 +13,21 @@
         },
 
         computed: {
-            loaded_competitions() {
-                if (!this.model.length) return []
+            competitions: {
+                get() {
+                    if (!this.model || !this.model.competitions) return []
+                    return this.model.competitions
+                },
 
-                return this.model.filter(competition => {
+                set(competitions) {
+                    this.model.competitions = competitions
+                }
+            },
+
+            loaded_competitions() {
+                if (!this.competitions.length) return []
+
+                return this.competitions.filter(competition => {
                     return competition.turns
                 })
             },
@@ -28,7 +39,14 @@
             },
 
             season() {
-                return this.model[0].season
+                return this.competitions[0].season
+            },
+
+            are_both_columns_visible() {
+                let { is_ge_tablet, is_ge_desktop, is_ge_large_desktop } = this.$root.viewport
+
+                if (is_ge_large_desktop || is_ge_desktop) return this.model.sidebar === "home_main"
+                return is_ge_tablet
             }
         },
 
@@ -40,7 +58,7 @@
                     LOADED_COMPETITIONS = this.loaded_competitions,
                     NEXT_INDEX = this.active_index + 1 >= LOADED_COMPETITIONS.length ? 0 : this.active_index + 1
 
-                this.model = this.model.map((competition, index) => {
+                this.competitions = this.competitions.map((competition, index) => {
                     competition.is_active = index === NEXT_INDEX
                     return competition
                 })                
@@ -53,7 +71,7 @@
                     LOADED_COMPETITIONS = this.loaded_competitions,
                     PREV_INDEX = this.active_index - 1 < 0 ? LOADED_COMPETITIONS.length - 1 : this.active_index - 1
 
-                this.model = this.model.map((competition, index) => {
+                this.competitions = this.competitions.map((competition, index) => {
                     competition.is_active = index === PREV_INDEX
                     return competition
                 })                
@@ -61,10 +79,10 @@
         },
 
         async mounted() {
-            if (!this.model.length) return
+            if (!this.competitions.length) return
 
             try {
-                this.model = await Promise.all(this.model.map(async (competition, index) => {
+                this.competitions = await Promise.all(this.competitions.map(async (competition, index) => {
                     if (competition.turns) return competition 
     
                     let { data } = await axios.get(`${window.location.protocol}//${window.location.host}/index.php/wp-json/tbi/v1/widgets/competition?id=${competition.id}`)
@@ -208,6 +226,13 @@
         &.next-leave-to,
         &.prev-enter {
             transform: translateX(-30%);
+        }
+    }
+
+    .standings,
+    .fixtures {
+        &__title {
+            display: none;
         }
     }
 
@@ -397,5 +422,68 @@
 
     .widget__footer {
         border-top: none;
+    }
+
+    .slides--full {
+        margin-top: 2rem;
+            
+        .slides__item {
+            display: grid;
+            grid-template-columns: 1fr minmax(0, 1fr);
+            grid-template-rows: 1fr;
+            grid-column-gap: 1.5rem;
+        }
+
+        .standings,
+        .fixtures {
+            &__title {
+                display: block;
+                margin: 0;
+                padding: 0 0 .75rem;
+                text-align: center;
+            }
+        }
+
+        .standings {
+            grid-column: 1;
+            grid-row: 1;
+            margin-top: 0;
+        }
+
+        .fixtures {
+            grid-column: 2;
+            grid-row: 1;
+
+            &__day {
+                padding-bottom: 1.5rem;
+            }
+
+            &__turn {
+                background: $color-light-bg-variant;
+                padding: .75rem 0;
+                margin-bottom: 1.5rem;
+                color: $color-fg-accent;
+            }
+        }
+    }
+
+    @include media-tablet {
+        .standings,
+        .fixtures__day__list {
+            &__row {
+                font-size: 1.2rem;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .fixtures__day__list {
+            &__row {
+                &__score,
+                &__separator {
+                    font-size: 1.2rem;
+                }
+            }
+        }
     }
 </style>
