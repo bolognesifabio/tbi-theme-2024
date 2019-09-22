@@ -461,7 +461,6 @@
             &__turn {
                 background: $color-light-bg-variant;
                 padding: .75rem 0;
-                margin-bottom: 1.5rem;
                 color: $color-fg-accent;
             }
         }

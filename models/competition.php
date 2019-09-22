@@ -54,8 +54,8 @@ class Competition {
             if ($today_date >= $turn_date && $turn_date > $current_turn_date) $current_turn_index = $index;
 
             foreach ($turn["fixtures"] as $fixture) {
-                $date_to_format = new \DateTime($fixture["date"]);
-                $fixture["date"] = $date_to_format->format('d/m/Y');
+                $date_to_format = $fixture["date"] ? new \DateTime($fixture["date"]) : false;
+                $fixture["date"] = $date_to_format ? $date_to_format->format('d/m/Y') : 0;
                 
                 $fixture_date = $fixture["date"] ? strval($fixture["date"]) : "0";
                 $output_fixtures[$fixture_date][] = $fixture;
