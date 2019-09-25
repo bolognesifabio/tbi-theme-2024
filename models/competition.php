@@ -64,7 +64,7 @@ class Competition {
                     $last_subturn_index = count($chidren_turns_output) - 1;
                     $date_to_format = $fixture["date"] ? new \DateTime($fixture["date"]) : false;
                     $fixture["date"] = $date_to_format ? $date_to_format->format('d/m/Y') : "";
-                    $chidren_turns_output[$last_subturn_index]["days"][$fixture["date"]][] = "fixture";
+                    $chidren_turns_output[$last_subturn_index]["days"][$fixture["date"]][] = $fixture;
                 }
             }
 
