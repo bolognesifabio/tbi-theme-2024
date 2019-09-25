@@ -152,7 +152,6 @@
     .slides {
         position: relative;
         overflow: hidden;
-        margin-top: 3rem;
 
         &__item {
             width: 100%;
@@ -160,6 +159,7 @@
 
             &__tabs {
                 display: flex;
+                margin-top: 3rem;
 
                 &__cta {
                     flex-basis: 50%;
@@ -343,11 +343,16 @@
             }
         }
 
-        &__day {
-            padding-bottom: 3rem;
+        &__child {
+            padding-bottom: 2rem;
+        }
 
-            &:last-child {
-                padding-bottom: 0;
+        &__day {
+            &__title {
+                font-size: 1.6rem;
+                font-weight: 700;
+                margin: 0;
+                text-align: center;
             }
 
             &__date {
@@ -356,7 +361,7 @@
                 text-align: center;
                 color: $color-fg-accent;
                 margin: 0;
-                padding: .4rem 0;
+                padding: 0 0 .4rem 0;
             }
 
             &__list {
@@ -415,6 +420,14 @@
                         color: $color-primary-main;
                         text-align: center;
                     }
+                }
+            }
+        }
+
+        &__day:last-child & {
+            &__child {
+                &:last-child {
+                    padding-bottom: 0;
                 }
             }
         }

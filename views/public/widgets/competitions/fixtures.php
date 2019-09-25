@@ -7,10 +7,10 @@
     </h4>
 
     <div v-for="(turn_child, turn_child_index) in competition.turns.children" class="fixtures__day" :key="turn_child_index">
-        <h4 v-if="turn_child.title">{{ turn_child.title }}</h4>
+        <h4 v-if="turn_child.title" class="fixtures__day__title">{{ turn_child.title }}</h4>
 
-        <div v-for="(fixtures, date) in turn_child.days">
-            <p v-if="date">{{ date }}</p>
+        <div v-for="(fixtures, date) in turn_child.days" class="fixtures__child">
+            <p v-if="date" class="fixtures__day__date">{{ date }}</p>
 
             <article class="fixtures__day__list">
                 <div class="fixtures__day__list__row" v-for="fixture in fixtures" :key="fixture.id" v-if="fixture.teams">
