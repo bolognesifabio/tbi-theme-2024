@@ -10,10 +10,4 @@ class Cup extends Competition_Model {
         parent::__construct($id);
         $this->set_turns_info();
     }
-    // public function get_teams($competition_id) {
-    //     $teams = get_post_meta($competition_id, 'tbi-competition-teams', true) ?: [];
-    //     $teams = array_map(function($team) {
-
-    //     }, $teams)
-    // }
 }

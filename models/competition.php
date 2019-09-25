@@ -43,27 +43,38 @@ class Competition {
     }
 
     public function set_turns_info() {
-        $current_turn_index = 0;
-        $today_date = strtotime(date('Y-m-d'));        
+        $turn_to_show_index = 0;
+        $today_date = strtotime(date('Y-m-d'));
 
-        foreach ($this->turns as $index => $turn) {
-            $output_fixtures = [];
-            $current_turn_date = strtotime($this->turns[$current_turn_index]["show_date"]);
+        foreach ($this->turns as $turn_index => $turn) {
+            $chidren_turns_output = [];
+            $turn_to_show_date = strtotime($this->turns[$turn_to_show_index]["show_date"]);
             $turn_date = strtotime($turn["show_date"]);
-            
-            if ($today_date >= $turn_date && $turn_date > $current_turn_date) $current_turn_index = $index;
+
+            if ($date_today >= $turn_date && $turn_date > $turn_to_show_date) $turn_to_show_index = $index;
 
             foreach ($turn["fixtures"] as $fixture) {
-                $date_to_format = $fixture["date"] ? new \DateTime($fixture["date"]) : false;
-                $fixture["date"] = $date_to_format ? $date_to_format->format('d/m/Y') : 0;
-                
-                $fixture_date = $fixture["date"] ? strval($fixture["date"]) : "0";
-                $output_fixtures[$fixture_date][] = $fixture;
+                if ($fixture["title"]) {
+                    $chidren_turns_output[] = [
+                        "title" => $fixture["title"]
+                    ];
+                } else {
+                    if (count($chidren_turns_output) <= 0) $chidren_turns_output[] = [];
+    
+                    $last_subturn_index = count($chidren_turns_output) - 1;
+                    $date_to_format = $fixture["date"] ? new \DateTime($fixture["date"]) : false;
+                    $fixture["date"] = $date_to_format ? $date_to_format->format('d/m/Y') : "";
+                    $chidren_turns_output[$last_subturn_index]["days"][$fixture["date"]][] = "fixture";
+                }
             }
 
-            $this->turns[$index]["fixtures"] = $output_fixtures;
-        }
+            foreach ($chidren_turns_output as $turn_children_index => $turn_children) {
+                ksort($turn_children["days"]);
+                $chidren_turns_output[$turn_children_index] = $turn_children;
+            }
 
-        $this->turns[$current_turn_index]["is_current"] = true;
+            $this->turns[$turn_index]["children"] = $chidren_turns_output;
+            unset($this->turns[$turn_index]["fixtures"]);
+        }
     }
 }
