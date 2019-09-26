@@ -31,25 +31,5 @@
                 </div>
             </article>
         </div>
-        <!-- <p class="fixtures__day__date" v-if="fixtures_date != '0'">{{ fixtures_date }}</p>
-
-        <article class="fixtures__day__list" v-if="!competition.are_standings_active || are_both_columns_visible">
-            <div class="fixtures__day__list__row" v-for="fixture in fixtures" :key="fixture.id" v-if="fixture.teams">
-            <div class="fixtures__day__list__row__team">
-                <div class="fixtures__day__list__row__team__emblem">
-                    <img class="fixtures__day__list__row__team__emblem__img" :src="competition.teams[fixture.teams.home.id].emblem" />
-                </div>
-                {{ competition.teams[fixture.teams.home.id].short_name }}
-            </div>
-            <div class="fixtures__day__list__row__score">{{ fixture.teams.home.score }}</div>
-            <div class="fixtures__day__list__row__separator">-</div>
-            <div class="fixtures__day__list__row__score">{{ fixture.teams.away.score }}</div>
-            <div class="fixtures__day__list__row__team">
-                {{ competition.teams[fixture.teams.away.id].short_name }}
-                <div class="fixtures__day__list__row__team__emblem">
-                    <img class="fixtures__day__list__row__team__emblem__img" :src="competition.teams[fixture.teams.away.id].emblem" />
-                </div>
-            </div>
-        </article> -->
     </div>
 </article>

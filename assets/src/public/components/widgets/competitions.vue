@@ -475,6 +475,7 @@
                 background: $color-light-bg-variant;
                 padding: .75rem 0;
                 color: $color-fg-accent;
+                margin-bottom: 2rem;
             }
         }
     }

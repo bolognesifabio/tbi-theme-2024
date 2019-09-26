@@ -9,6 +9,7 @@
     import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown'
     import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
     import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
+    import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt'
 
     import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons/faCalendarAlt'
 
@@ -25,6 +26,7 @@
         faCaretDown,
         faSearch,
         faTimes,
+        faMapMarkerAlt,
         faCalendarAlt,
         faInstagram,
         faFlickr,
