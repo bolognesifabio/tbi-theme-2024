@@ -1,7 +1,6 @@
 import Vue from 'vue'
 
 import './components/globals'
-import './components-old'
 
 if (document.getElementById('tbi-vue')) {
     new Vue({

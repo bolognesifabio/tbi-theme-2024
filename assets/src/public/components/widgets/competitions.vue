@@ -6,6 +6,10 @@
     export default {
         mixins: [ data_model_mixin ],
 
+        components: {
+            "tbi-competition-turns": () => import('../shared/turns.vue')
+        },
+
         data() {
             return {
                 slide: 'next'
@@ -40,13 +44,6 @@
 
             season() {
                 return this.competitions[0].season
-            },
-
-            are_both_columns_visible() {
-                let { is_ge_tablet, is_ge_desktop, is_ge_large_desktop } = this.$root.viewport
-
-                if (is_ge_large_desktop || is_ge_desktop) return this.model.sidebar === "home_main"
-                return is_ge_tablet
             }
         },
 
@@ -103,6 +100,7 @@
     .nav {
         display: flex;
         margin: 0 1.5rem;
+        /* autoprefixer: ignore next */
         align-items: center;
         border-bottom: .1rem solid $color-borders;
 
@@ -229,14 +227,14 @@
         }
     }
 
-    .standings,
+    // .standings,
     .fixtures {
         &__title {
             display: none;
         }
     }
 
-    .standings,
+    // .standings,
     .fixtures__day__list {
         width: 100%;
 
@@ -245,6 +243,7 @@
             padding: .75rem;
             display: grid;
             grid-template-rows: 1fr;
+            /* autoprefixer: ignore next */
             align-items: center;
 
             &__team {
@@ -260,6 +259,7 @@
 
             &__team {
                 display: flex;
+                /* autoprefixer: ignore next */
                 align-items: center;
 
                 &__emblem {
@@ -275,57 +275,57 @@
         }
     }
 
-    .standings {
-        margin-top: 3rem;
+    // .standings {
+    //     margin-top: 3rem;
 
-        &__head,
-        &__row {
-            text-align: center;
-            grid-template-columns: 4rem 1fr 4rem 4rem;
+    //     &__head,
+    //     &__row {
+    //         text-align: center;
+    //         grid-template-columns: 4rem 1fr 4rem 4rem;
 
-            > * {
-                &:nth-child(1) {
-                    grid-column: 1;
-                }
+    //         > * {
+    //             &:nth-child(1) {
+    //                 grid-column: 1;
+    //             }
 
-                &:nth-child(2) {
-                    grid-column: 2;
-                }
+    //             &:nth-child(2) {
+    //                 grid-column: 2;
+    //             }
 
-                &:nth-child(3) {
-                    grid-column: 3;
-                }
+    //             &:nth-child(3) {
+    //                 grid-column: 3;
+    //             }
 
-                &:nth-child(4) {
-                    grid-column: 4;
-                }
-            }
+    //             &:nth-child(4) {
+    //                 grid-column: 4;
+    //             }
+    //         }
 
-            &__team {
-                text-align: left;
-            }
-        }
+    //         &__team {
+    //             text-align: left;
+    //         }
+    //     }
 
-        &__head {
-            font-size: 1.2rem;
-            font-weight: 600;
-            background: $color-light-bg-variant;
-            color: $color-fg-accent;
-        }
+    //     &__head {
+    //         font-size: 1.2rem;
+    //         font-weight: 600;
+    //         background: $color-light-bg-variant;
+    //         color: $color-fg-accent;
+    //     }
 
-        &__row {
-            &__position,
-            &__points {
-                @include font-title;
-                color: $color-primary-main;
-                font-weight: 900;
-            }
+    //     &__row {
+    //         &__position,
+    //         &__points {
+    //             @include font-title;
+    //             color: $color-primary-main;
+    //             font-weight: 900;
+    //         }
 
-            &__played {
-                @include font-title;
-            }
-        }
-    }
+    //         &__played {
+    //             @include font-title;
+    //         }
+    //     }
+    // }
 
     .fixtures {
         &__turn {
@@ -447,7 +447,7 @@
             grid-column-gap: 1.5rem;
         }
 
-        .standings,
+        // .standings,
         .fixtures {
             &__title {
                 display: block;
@@ -457,11 +457,11 @@
             }
         }
 
-        .standings {
-            grid-column: 1;
-            grid-row: 1;
-            margin-top: 0;
-        }
+        // .standings {
+        //     grid-column: 1;
+        //     grid-row: 1;
+        //     margin-top: 0;
+        // }
 
         .fixtures {
             grid-column: 2;
@@ -481,7 +481,7 @@
     }
 
     @include media-tablet {
-        .standings,
+        // .standings,
         .fixtures__day__list {
             &__row {
                 font-size: 1.2rem;

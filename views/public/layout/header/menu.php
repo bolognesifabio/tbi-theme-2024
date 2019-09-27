@@ -6,7 +6,7 @@ $view_model = Header_Controller::menu(); ?>
 <tbi-header-menu view_model="<?= htmlentities(json_encode($view_model)) ?>" inline-template>
     <nav v-if="model" class="nav">
         <button class="nav__toggle" v-if="!is_viewport_desktop" @click.prevent="toggle_menu">
-            <tbi-icon :icon="is_open ? 'times' : 'bars'" />
+            <tbi-icon :icon="is_open ? 'times' : 'bars'"></tbi-icon>
         </button>
 
         <transition name="fade">
@@ -29,7 +29,7 @@ $view_model = Header_Controller::menu(); ?>
                         <tbi-icon
                             :icon="!is_viewport_desktop ? 'caret-right' : 'caret-down'"
                             class="nav__menu__item__cta__icon"
-                        />
+                        ></tbi-icon>
                     </button>
                     <a v-else :href="menu_item.url" class="nav__menu__item__cta">{{ menu_item.title }}</a>
 

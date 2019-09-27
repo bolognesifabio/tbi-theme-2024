@@ -3,8 +3,8 @@
 
     <header class="fixtures__header">
         <tbi-icon class="fixtures__header__icon" :icon="['far', 'calendar-alt']"></tbi-icon>
-        <select class="fixtures__header__selection" v-if="has_multiple_turns" v-model="selected_turn.id">
-            <option v-for="(turn, index) in turns" :key="index" :value="turn.id">
+        <select class="fixtures__header__selection" v-if="has_multiple_turns" v-model="selected_turn_index">
+            <option v-for="(turn, turn_index) in turns" :key="turn_index" :value="turn_index">
                 {{ turn.name }}
             </option>
         </select>

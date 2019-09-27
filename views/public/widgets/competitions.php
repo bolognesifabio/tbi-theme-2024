@@ -7,39 +7,68 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
             <header class="widget__header"> <?php
                 Widgets_Helper::render_title($args, $instance);
                 Widgets_Helper::render_cta("Vai alla competizione", "#"); ?>
-            </header> <?php
+            </header>
+            
+            <nav class="nav">
+                <button
+                    v-if="loaded_competitions.length > 1"
+                    class="nav__cta"
+                    @click.prevent="prev_slide()"
+                >
+                    <tbi-icon icon="caret-left"></tbi-icon>
+                </button>
+                
+                <transition-group tag="ul" class="nav__competitions" :name="slide">
+                    <li
+                        class="nav__competitions__item"
+                        v-for="competition in loaded_competitions"
+                        :key="competition.id"
+                        v-show="competition.is_active"
+                    >
+                        <h3 class="nav__competitions__item__title">{{ competition.competition.name }}</h3>
+                        <h4 class="nav__competitions__item__subtitle">{{ competition.title }}</h4>
+                    </li>
+                </transition-group>
 
-            include get_template_directory() . "/views/public/widgets/competitions/navigation.php"; ?>
+                <button
+                    v-if="loaded_competitions.length > 1"
+                    class="nav__cta"
+                    @click.prevent="next_slide()"
+                >
+                    <tbi-icon icon="caret-right"></tbi-icon>
+                </button>
+            </nav>
 
-            <transition-group
-                tag="ul"
-                :class="{ 'slides': true, 'slides--full': are_both_columns_visible }"
-                :name="slide"
-            >
+            <transition-group tag="ul" class="slides" :name="slide">
                 <li
                     class="slides__item"
                     v-for="competition in loaded_competitions"
                     :key="competition.id"
                     v-show="competition.is_active"
                 >
-                    <nav v-if="competition.type === 'leagues' && !are_both_columns_visible" class="slides__item__tabs">
+                    <nav v-if="competition.type === 'leagues'" class="slides__item__tabs">
                         <button
                             :class="{ 'slides__item__tabs__cta': true, 'slides__item__tabs__cta--active': competition.are_standings_active }"
-                            @click.prevent="() => { competition.are_standings_active = true }"
+                            @click.prevent="function() { competition.are_standings_active = true }"
                         >Classifica</button>
                         
                         <button
                             :class="{ 'slides__item__tabs__cta': true, 'slides__item__tabs__cta--active': !competition.are_standings_active }"
-                            @click.prevent="() => { competition.are_standings_active = false }"
+                            @click.prevent="function() { competition.are_standings_active = false }"
                         >Risultati</button>
-                    </nav> <?php
+                    </nav>
 
-                    include get_template_directory(). "/views/public/widgets/competitions/standings.php";
-                    include get_template_directory(). "/views/public/widgets/competitions/fixtures.php"; ?>
+                    <template v-if="competition.are_standings_active"> <?php
+                        include get_template_directory(). "/views/public/shared/competitions/standings.php"; ?>
+                    </template>
+                    <tbi-competition-turns v-show="!competition.are_standings_active" inline-template :turns="competition.turns" :teams="competition.teams"> <?php
+                        include get_template_directory(). "/views/public/shared/competitions/turns.php"; ?>
+                    </tbi-competition-turns>
                 </li>
             </transition-group>
 
             <footer class="widget__footer"> <?php
+                // @TODO: Add link to competition
                 Widgets_Helper::render_cta("Vai alla competizione", "#"); ?>
             </footer>
         </article>

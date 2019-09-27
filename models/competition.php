@@ -76,5 +76,7 @@ class Competition {
             $this->turns[$turn_index]["children"] = $chidren_turns_output;
             unset($this->turns[$turn_index]["fixtures"]);
         }
+
+        $this->turns[$turn_to_show_index]["is_active"] = true;
     }
 }

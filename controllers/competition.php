@@ -19,8 +19,8 @@ abstract class Competition {
         $competition->are_standings_active = $competition->type === 'leagues';
         
         $competition->turns = array_filter($competition->turns, function($turn) {
-            return $turn["is_current"];
-        })[0] ?: $competition->turns[0];
+            return $turn["is_active"];
+        }) ?: [ $competition->turns[0] ];
         return $competition;
     }
 

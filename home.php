@@ -8,7 +8,7 @@
         get_sidebar('home-sidebar'); ?>
     </div>
 
-    <tbi-vue-youtchouk></tbi-vue-youtchouk>
+    <!-- <tbi-vue-youtchouk></tbi-vue-youtchouk> -->
 </main>
 
 <?php get_footer(); ?>

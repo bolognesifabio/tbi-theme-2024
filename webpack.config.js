@@ -60,17 +60,46 @@ module.exports = {
             {
                 test: /\.scss$/,
                 exclude: /critical/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [ require('autoprefixer')({
+                                grid: true
+                            }) ]
+                        }
+                    },
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.scss$/,
                 include: /critical/,
-                use: [Mini_Css_Extract_Plugin.loader, {
-                    loader: 'css-loader',
-                    options: {
-                        url: false
-                    }
-                }, 'postcss-loader', 'sass-loader']
+                use: [
+                    Mini_Css_Extract_Plugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [require('autoprefixer')({
+                                grid: true
+                            })]
+                        }
+                    },
+                    'sass-loader'
+                ]
             },
             {
                 test: /theme-manifest\.css$/,
