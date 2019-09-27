@@ -23,8 +23,8 @@
                         <div class="fixture__team__emblem">
                             <img class="fixture__team__emblem__img" :src="teams[fixture.teams.home.id].emblem" />
                         </div>
-                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.home.id].title }}
-                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.home.id].short_name }}
+                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.home.id].title }}</span>
+                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.home.id].short_name }}</span>
                     </div>
 
                     <div class="fixture__score">{{ fixture.teams.home.score }}</div>
@@ -32,14 +32,14 @@
                     <div class="fixture__score">{{ fixture.teams.away.score }}</div>
                     
                     <div class="fixture__team">
-                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.away.id].title }}
-                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.away.id].short_name }}away
+                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.away.id].title }}</span>
+                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.away.id].short_name }}</span>
                         <div class="fixture__team__emblem">
                             <img class="fixture__team__emblem__img" :src="teams[fixture.teams.away.id].emblem" />
                         </div>
                     </div>
 
-                    <div class="fixture__venue" v-if="fixture.place">
+                    <div class="fixture__venue">
                         <tbi-icon class="fixture__venue__icon" icon="map-marker-alt"></tbi-icon>
                         {{ fixture.place }}
                     </div>

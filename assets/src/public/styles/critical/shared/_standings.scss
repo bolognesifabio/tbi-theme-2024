@@ -14,7 +14,7 @@
         /* autoprefixer: ignore next */
         align-items: center;
         text-align: center;
-        grid-template-columns: 4rem 1fr 4rem 4rem 4rem 4rem 4rem;
+        grid-template-columns: 4rem 1fr 4rem minmax(0, 4rem) minmax(0, 4rem) minmax(0, 4rem) 4rem;
         grid-template-rows: 1fr;
 
         &__cell {
