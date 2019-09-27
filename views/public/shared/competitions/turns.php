@@ -1,4 +1,4 @@
-<article class="fixtures">
+<article :class="{ 'fixtures': true, 'fixtures--cup': is_cup }">
     <h3 class="fixtures__title">Risultati</h3>
 
     <header class="fixtures__header">
@@ -20,11 +20,11 @@
 
                 <div class="fixture" v-for="fixture in fixtures" :key="fixture.id" v-if="fixture.teams">
                     <div class="fixture__team">
+                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.home.id].title }}</span>
+                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.home.id].short_name }}</span>
                         <div class="fixture__team__emblem">
                             <img class="fixture__team__emblem__img" :src="teams[fixture.teams.home.id].emblem" />
                         </div>
-                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.home.id].title }}</span>
-                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.home.id].short_name }}</span>
                     </div>
 
                     <div class="fixture__score">{{ fixture.teams.home.score }}</div>
@@ -32,11 +32,11 @@
                     <div class="fixture__score">{{ fixture.teams.away.score }}</div>
                     
                     <div class="fixture__team">
-                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.away.id].title }}</span>
-                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.away.id].short_name }}</span>
                         <div class="fixture__team__emblem">
                             <img class="fixture__team__emblem__img" :src="teams[fixture.teams.away.id].emblem" />
                         </div>
+                        <span class="fixture__team__name fixture__team__name--full">{{ teams[fixture.teams.away.id].title }}</span>
+                        <span class="fixture__team__name fixture__team__name--short">{{ teams[fixture.teams.away.id].short_name }}</span>
                     </div>
 
                     <div class="fixture__venue">

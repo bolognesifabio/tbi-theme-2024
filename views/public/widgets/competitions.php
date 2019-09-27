@@ -61,7 +61,7 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
                     <template v-if="competition.are_standings_active"> <?php
                         include get_template_directory(). "/views/public/shared/competitions/standings.php"; ?>
                     </template>
-                    <tbi-competition-turns v-show="!competition.are_standings_active" inline-template :turns="competition.turns" :teams="competition.teams"> <?php
+                    <tbi-competition-turns v-show="!competition.are_standings_active" inline-template :turns="competition.turns" :teams="competition.teams" :is_cup="competition.type === 'cups'"> <?php
                         include get_template_directory(). "/views/public/shared/competitions/turns.php"; ?>
                     </tbi-competition-turns>
                 </li>

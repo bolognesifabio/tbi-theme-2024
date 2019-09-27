@@ -230,26 +230,4 @@
     .widget__footer {
         border-top: none;
     }
-
-    .slides--full {
-        margin-top: 2rem;
-            
-        .slides__item {
-            display: grid;
-            grid-template-columns: 1fr minmax(0, 1fr);
-            grid-template-rows: 1fr;
-            grid-column-gap: 1.5rem;
-        }
-
-        .standings {
-            grid-column: 1;
-            grid-row: 1;
-            margin-top: 0;
-        }
-
-        .fixtures {
-            grid-column: 2;
-            grid-row: 1;
-        }
-    }
 </style>
