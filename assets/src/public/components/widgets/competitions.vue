@@ -324,6 +324,16 @@
             .fixture {
                 grid-template-columns: 1fr 4rem 1rem 4rem 1fr 0;
 
+                &__team__name {
+                    &--short {
+                        display: block;
+                    }
+                    
+                    &--full {
+                        display: none;
+                    }
+                }
+
                 &__venue {
                     display: none;
                 }

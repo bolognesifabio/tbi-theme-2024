@@ -52,8 +52,12 @@
 
             &--team {
                 @include font-team;
-                display: flex;
+                display: grid;
+                /* autoprefixer: ignore next */
                 align-items: center;
+                grid-template-columns: 2rem 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: .75rem;
             }
 
             &--position,
@@ -64,7 +68,8 @@
 
             .team {
                 &__emblem {
-                    padding-right: .75rem;
+                    grid-column: 1;
+                    grid-row: 1;
 
                     &__img {
                         max-width: 2rem;
@@ -74,6 +79,9 @@
                 }
 
                 &__name {
+                    grid-column: 2;
+                    grid-row: 1;
+
                     &--full {
                         display: none;
                     }

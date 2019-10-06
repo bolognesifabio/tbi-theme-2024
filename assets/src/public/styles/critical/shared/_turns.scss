@@ -138,9 +138,9 @@
 
     &__venue {
         display: none;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: 700;
-        padding-left: 3rem;
+        padding-left: 6rem;
         /* autoprefix: ignore next */
         align-items: center;
 
@@ -171,16 +171,38 @@
             }
         }
 
-        &--cup {
+        &__turn {
             .fixture {
-                &__venue {
-                    display: flex;
+                &__team__name {
+                    &--short {
+                        display: none;
+                    }
+                    
+                    &--full {
+                        display: block;
+                    }
+                }
+            }
+
+            &--has-venues {
+                .fixture {
+                    grid-template-columns: 1fr 4rem 1rem 4rem 1fr 1.5fr;
+
+                    &__team__name {
+                        &--short {
+                            display: block;
+                        }
+                        
+                        &--full {
+                            display: none;
+                        }
+                    }
+
+                    &__venue {
+                        display: flex;
+                    }
                 }
             }
         }
-    }
-
-    .fixture {
-        grid-template-columns: 1fr 4rem 1rem 4rem 1fr 2fr;
     }
 }

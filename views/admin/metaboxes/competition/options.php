@@ -66,13 +66,13 @@ if ($is_post_type_leagues) {
     </div>
 
     <div class="tbi-metaboxes-form__field">
-        <label class="tbi-metaboxes-form__field__label">Mostra la data delle partite</label>
+        <label class="tbi-metaboxes-form__field__label">Nascondi le date delle partite</label>
         <input
             class="tbi-metaboxes-form__field__value"
             type="checkbox"
-            name="<?= $this->meta_name ?>[are_fixtures_dates_visible]"
+            name="<?= $this->meta_name ?>[are_fixtures_dates_hidden]"
             value="true"
-            <?= $competition_options_meta['are_fixtures_dates_visible'] ? 'checked' : '' ?>
+            <?= $competition_options_meta['are_fixtures_dates_hidden'] ? 'checked' : '' ?>
         />        
     </div>
 

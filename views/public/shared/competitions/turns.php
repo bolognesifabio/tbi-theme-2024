@@ -11,7 +11,7 @@
         <h4 class="fixtures__header__title" v-else>{{ selected_turn.name }}</h4>
     </header>
 
-    <div class="fixtures__turn">
+    <div :class="{ 'fixtures__turn': true, 'fixtures__turn--has-venues': selected_turn.has_venues }">
         <div class="fixtures__turn__child" v-for="(turn_child, turn_child_index) in selected_turn.children" :key="turn_child_index">
             <h4 class="fixtures__turn__child__title" v-if="turn_child.title">{{ turn_child.title }}</h4>
 

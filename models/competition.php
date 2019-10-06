@@ -12,7 +12,7 @@ class Competition {
     public $competition;
     public $season;
     public $date;
-    public $are_fixtures_dates_visible;
+    public $are_fixtures_dates_hidden;
     public $priority;
     public $teams;
     public $turns;
@@ -30,7 +30,7 @@ class Competition {
         $this->competition = wp_get_post_terms($id, 'competitions_taxonomy')[0];
         $this->season = wp_get_post_terms($id, 'seasons')[0];
         $this->date = $options_meta['date'];
-        $this->are_fixtures_dates_visible = $options_meta['are_fixtures_dates_visible'] ?: false;
+        $this->are_fixtures_dates_hidden = $options_meta['are_fixtures_dates_hidden'] ?: false;
         $this->priority = $options_meta['priority'] ?: 0;
 
         $this->teams = [];
@@ -50,10 +50,18 @@ class Competition {
             $chidren_turns_output = [];
             $turn_to_show_date = strtotime($this->turns[$turn_to_show_index]["show_date"]);
             $turn_date = strtotime($turn["show_date"]);
+            $turn_has_venues = false;
 
             if ($date_today >= $turn_date && $turn_date > $turn_to_show_date) $turn_to_show_index = $index;
 
             foreach ($turn["fixtures"] as $fixture) {
+                if ($fixture["place"]) $turn_has_venues = true;
+
+                if ($fixture["teams"]["home"]["score"] == 0 && $fixture["teams"]["away"]["score"] == 0) {
+                    $fixture["teams"]["home"]["score"] = "";
+                    $fixture["teams"]["away"]["score"] = "";
+                }
+
                 if ($fixture["title"]) {
                     $chidren_turns_output[] = [
                         "title" => $fixture["title"]
@@ -74,6 +82,7 @@ class Competition {
             }
 
             $this->turns[$turn_index]["children"] = $chidren_turns_output;
+            $this->turns[$turn_index]["has_venues"] = $turn_has_venues;
             unset($this->turns[$turn_index]["fixtures"]);
         }
 
