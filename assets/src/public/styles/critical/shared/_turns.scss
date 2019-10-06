@@ -9,18 +9,21 @@
     }
 
     &__header {
-        @include font-title;
+        @include font-content;
         margin: 0;
-        padding: 2.5rem 0;
+        margin-top: 3rem;
+        padding: .6rem 0;
         width: 100%;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         display: flex;
         justify-content: center;
         /* autoprefixer: ignore next */
         align-items: center;
+        font-weight: 700;
+        text-transform: uppercase;
 
         &__icon {
-            color: $color-red-main;
+            color: $color-primary-7;
             margin-right: .75rem;
         }
 
@@ -31,7 +34,7 @@
 
     &__turn {
         &__child {
-            padding-bottom: 4.5rem;
+            padding: 2rem 0 3rem 0;
 
             &:last-child {
                 padding-bottom: 0;
@@ -92,15 +95,13 @@
     }
 
     &__team {
+        @include font-team;
         display: flex;
         /* autoprefixer: ignore next */
         align-items: center;
-        text-align: right;
-        justify-content: flex-end;
-        font-weight: 600;
 
         &__emblem {
-            padding-left: .75rem;
+            padding-right: .75rem;
 
             &__img {
                 max-width: 2rem;
@@ -116,23 +117,22 @@
         }
 
         & ~ & {
-            text-align: left;
-            justify-content: flex-start;
+            text-align: right;
+            justify-content: flex-end;
 
         }
         
         & ~ & &__emblem {
-            padding-left: 0;
-            padding-right: .75rem;
+            padding-right: 0;
+            padding-left: .75rem;
         }
     }
 
     &__score,
     &__separator {
-        @include font-title;
-        font-size: 1.4rem;
-        font-weight: 900;
-        color: $color-primary-main;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $color-neutral-3;
         text-align: center;
     }
 
@@ -181,11 +181,6 @@
     }
 
     .fixture {
-        grid-template-columns: 1fr 4rem 1rem 4rem 1fr 1fr;
-
-        &__score,
-        &__separator {
-            font-size: 1.2rem;
-        }
+        grid-template-columns: 1fr 4rem 1rem 4rem 1fr 2fr;
     }
 }

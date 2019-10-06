@@ -41,7 +41,7 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
 
             <transition-group tag="ul" class="slides" :name="slide">
                 <li
-                    class="slides__item"
+                    :class="{ 'slides__item': true, 'slides__item--league': competition.type !== 'cups' }"
                     v-for="competition in loaded_competitions"
                     :key="competition.id"
                     v-show="competition.is_active"

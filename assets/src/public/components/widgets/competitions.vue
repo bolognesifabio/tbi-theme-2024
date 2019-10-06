@@ -163,7 +163,7 @@
                     flex-basis: 50%;
                     background: $color-light-bg-variant;
                     color: $color-primary-main;
-                    border-bottom: .1rem solid $color-borders-dark;
+                    border-bottom: .1rem solid $color-primary-7;
                     padding: .75rem 1.5rem;
                     font-size: 1.6rem;
                     font-weight: 600;
@@ -229,5 +229,105 @@
 
     .widget__footer {
         border-top: none;
+    }
+
+    .standings {
+        &__head,
+        &__row {
+            &__cell {
+                &--team {
+                    grid-column: 2 / span 4;
+                }
+                
+                &--details {
+                    display: none;
+                }
+            }
+        }
+
+        &__row {
+            &__cell {
+                .team {
+                    &__name {
+                        &--short {
+                            display: none;
+                        }
+
+                        &--full {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-tablet {
+        .slides {
+            &__item {
+                .standings {
+                    display: none;
+
+                    &__head,
+                    &__row {
+                        &__cell {
+                            &--team {
+                                grid-column: 2;
+                            }
+
+                            &--details {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+
+                &--league {
+                    .standings {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<style lang="scss">
+    @import '../../styles/mixins';
+
+    .home__sidebar__widget .widget--competitions {
+        @include media-desktop {
+            .standings {
+                &__head,
+                &__row {
+                    &__cell {
+                        &--team {
+                            grid-column: 2 / span 4;
+                        }
+
+                        &--details {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .fixtures {
+                &__header,
+                &__turn__child__title,
+                &__turn__child__day__date {
+                    justify-content: center;
+                    text-align: center;
+                }
+            }
+
+            .fixture {
+                grid-template-columns: 1fr 4rem 1rem 4rem 1fr 0;
+
+                &__venue {
+                    display: none;
+                }
+            }
+        }
     }
 </style>

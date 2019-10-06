@@ -35,3 +35,11 @@
 @mixin font-content {
     font-family: 'Source Sans Pro', sans-serif;
 }
+
+@mixin font-team {
+    @include font-content;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $color-neutral-3;
+    letter-spacing: .05em;
+}

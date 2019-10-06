@@ -51,7 +51,7 @@
             @include font-title;
 
             &--team {
-                @include font-content;
+                @include font-team;
                 display: flex;
                 align-items: center;
             }

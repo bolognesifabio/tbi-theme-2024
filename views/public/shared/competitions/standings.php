@@ -4,9 +4,9 @@
     <header class="standings__head">
         <div class="standings__head__cell">Pos</div>
         <div class="standings__head__cell standings__head__cell--team">Squadra</div>
-        <div class="standings__head__cell">V</div>
-        <div class="standings__head__cell">S</div>
-        <div class="standings__head__cell">P</div>
+        <div class="standings__head__cell standings__head__cell--details">V</div>
+        <div class="standings__head__cell standings__head__cell--details">S</div>
+        <div class="standings__head__cell standings__head__cell--details">P</div>
         <div class="standings__head__cell">G</div>
         <div class="standings__head__cell standings__head__cell--points">Pt</div>
     </header>
@@ -20,10 +20,10 @@
             <span class="team__name team__name--full">{{ team.title }}</span>
             <span class="team__name team__name--short">{{ team.short_name }}</span>
         </div>
-        <div class="standings__head__cell">{{ team.won }}</div>
-        <div class="standings__head__cell">{{ team.loss }}</div>
-        <div class="standings__head__cell">{{ team.draw }}</div>
-        <div class="standings__head__cell">{{ team.played }}</div>
-        <div class="standings__head__cell standings__row__cell--points">{{ team.points }}</div>
+        <div class="standings__row__cell standings__row__cell--details">{{ team.loss }}</div>
+        <div class="standings__row__cell standings__row__cell--details">{{ team.won }}</div>
+        <div class="standings__row__cell standings__row__cell--details">{{ team.draw }}</div>
+        <div class="standings__row__cell">{{ team.played }}</div>
+        <div class="standings__row__cell standings__row__cell--points">{{ team.points }}</div>
     </div>
 </article>
