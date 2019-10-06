@@ -96,12 +96,16 @@
 
     &__team {
         @include font-team;
-        display: flex;
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: .75rem;
         /* autoprefixer: ignore next */
         align-items: center;
 
         &__emblem {
-            padding-right: .75rem;
+            grid-column: 1;
+            grid-row: 1;
 
             &__img {
                 max-width: 2rem;
@@ -111,6 +115,9 @@
         }
 
         &__name {
+            grid-column: 2;
+            grid-row: 1;
+
             &--full {
                 display: none;
             }
@@ -118,13 +125,17 @@
 
         & ~ & {
             text-align: right;
-            justify-content: flex-end;
-
+            grid-template-columns: 1fr 2rem;
         }
         
         & ~ & &__emblem {
-            padding-right: 0;
-            padding-left: .75rem;
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        & ~ & &__name {
+            grid-column: 1;
+            grid-row: 1;
         }
     }
 
