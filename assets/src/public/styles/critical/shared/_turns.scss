@@ -106,6 +106,8 @@
         &__emblem {
             grid-column: 1;
             grid-row: 1;
+            display: flex;
+            justify-content: center;
 
             &__img {
                 max-width: 2rem;
