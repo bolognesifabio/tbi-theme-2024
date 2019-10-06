@@ -67,11 +67,7 @@
         }
     }
 
-    @include media-desktop {
-        &__header {
-            padding-top: 4rem;
-        }
-        
+    @include media-desktop {        
         .home__sidebar &__header &,
         .sidebar &__header & {
             &__cta {

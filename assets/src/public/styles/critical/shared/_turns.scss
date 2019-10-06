@@ -153,7 +153,7 @@
         display: none;
         font-size: 1.2rem;
         font-weight: 700;
-        padding-left: 6rem;
+        padding-left: 4.5rem;
         /* autoprefix: ignore next */
         align-items: center;
 
@@ -199,17 +199,7 @@
 
             &--has-venues {
                 .fixture {
-                    grid-template-columns: 1fr 4rem 1rem 4rem 1fr 1.5fr;
-
-                    &__team__name {
-                        &--short {
-                            display: block;
-                        }
-                        
-                        &--full {
-                            display: none;
-                        }
-                    }
+                    grid-template-columns: 1fr 4rem 1rem 4rem 1fr 1fr;
 
                     &__venue {
                         display: flex;
