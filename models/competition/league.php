@@ -79,7 +79,9 @@ class League extends Competition_Model {
     }
 
     private function set_standings() {
-        $this->standings = $this->teams;
+        $this->standings = array_filter($this->teams, function($team) {
+            return !$team->is_not_in_standings;
+        });
         
         usort($this->standings, function($team_a, $team_b) {
             if ($team_a->points === $team_b->points) {
