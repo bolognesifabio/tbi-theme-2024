@@ -89,7 +89,7 @@
         }
 
         &__inner {
-            padding: 3rem 1.5rem 1.5rem 1.5rem;
+            padding: 3rem 1.5rem;
             background: linear-gradient(135deg, #F5B14D, #ED3573);
         }
 
@@ -135,7 +135,7 @@
 
         &__videos {
             &__item {
-                margin: 1.5rem 0;
+                margin-top: 1.5rem;
                 display: grid;
                 grid-template-columns: minmax(0, min-content) 1fr;
                 grid-template-rows: 1fr;
@@ -143,12 +143,27 @@
                 grid-row-gap: 1.5rem;
                 cursor: pointer;
 
-                &__image {
+                &__thumbnail {
                     grid-column: 1;
                     grid-row: 1;
-                    width: auto;
-                    height: auto;
-                    max-height: 8rem;
+                    position: relative;
+
+                    &__image {
+                        width: auto;
+                        height: auto;
+                        max-height: 8rem;
+                        opacity: .6;
+                    }
+
+                    &__icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: $color-neutral-9;
+                        opacity: .8;
+                        font-size: 1.6rem;
+                    }
                 }
 
                 &__content {
@@ -168,11 +183,53 @@
                         font-size: 1.6rem;
                     }
                 }
+            }
+        }
 
-                &:hover & {
-                    &__content {
-                        &__title {
-                            text-decoration: underline;
+        @include media-tablet {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+
+            &__inner {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: 1.5rem;
+            }
+
+            &__player {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            &__videos {
+                grid-column: 2;
+                grid-row: 1;
+
+                &__item {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+
+        @include media-desktop {
+            &__videos {
+                &__item {
+                    &:hover & {
+                        &__thumbnail {
+                            &__image,
+                            &__icon {
+                                opacity: 1;
+                            }
+                        }
+
+                        &__content {
+                            &__title {
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }

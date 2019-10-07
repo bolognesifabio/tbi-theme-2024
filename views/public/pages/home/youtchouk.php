@@ -18,8 +18,11 @@
             </div>
 
             <ul class="youtchouk__videos">
-                <li class="youtchouk__videos__item" v-for="video in videos" @click.prevent="select_video(video.id.videoId)">
-                    <img class="youtchouk__videos__item__image" :src="video.snippet.thumbnails.default.url">
+                <li class="youtchouk__videos__item" v-for="video in videos" v-if="!video.is_active" @click.prevent="select_video(video.id.videoId)">
+                    <div class="youtchouk__videos__item__thumbnail">
+                        <img class="youtchouk__videos__item__thumbnail__image" :src="video.snippet.thumbnails.default.url">
+                        <tbi-icon class="youtchouk__videos__item__thumbnail__icon" icon="play"></tbi-icon>
+                    </div>
                     <div class="youtchouk__videos__item__content">
                         <h3 class="youtchouk__videos__item__content__title" @click.prevent="select_video(video.id.videoId)">{{ video.snippet.title }}</h3>
                         <p class="youtchouk__videos__item__content__date">
