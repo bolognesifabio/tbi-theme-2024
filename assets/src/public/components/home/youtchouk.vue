@@ -26,7 +26,7 @@
             init_player() {
                 try {
                     if (YT.Player) this.player = new YT.Player('youtchouk-player', {
-                        height: '400',
+                        height: '56.25%',
                         width: '100%',
                         videoId: this.active_video.id.videoId,
                         playerVars: {
@@ -81,14 +81,88 @@
 
 <style lang="scss" scoped>
     @import '../../styles/constants';
+    @import '../../styles/mixins';
 
     .youtchouk {
-        padding: 6.5rem 1.5rem;
-
         &__title {
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: .1rem solid $color-borders-dark;
+            padding: 6.5rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        &__inner {
+            padding: 3rem 1.5rem 1.5rem 1.5rem;
+            background: linear-gradient(135deg, rgb(245, 177, 77), rgb(237, 53, 115));
+        }
+
+        &__player,
+        &__videos__item {
+            padding: 1.5rem;
+            background: $color-primary-main;
+            color: $color-fg-variant;
+        }
+
+        &__player__date,
+        &__videos__item__content__date {
+            @include font-title;
+            color: $color-green-main;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+            padding-top: .75rem;
+        }
+
+        &__player {
+            &__title {
+                font-size: 2rem;
+                font-weight: 600;
+                margin: 0;
+                padding-top: 1.5rem;
+            }
+        }
+
+        &__videos {
+            &__item {
+                margin: 1.5rem 0;
+                display: grid;
+                grid-template-columns: minmax(0, min-content) 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: 1.5rem;
+                grid-row-gap: 1.5rem;
+                cursor: pointer;
+
+                &__image {
+                    grid-column: 1;
+                    grid-row: 1;
+                    width: auto;
+                    height: auto;
+                    max-height: 8rem;
+                }
+
+                &__content {
+                    grid-column: 2;
+                    grid-row: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    &__title,
+                    &__date {
+                        margin: 0;
+                    }
+
+                    &__title {
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                    }
+                }
+
+                &:hover & {
+                    &__content {
+                        &__title {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
         }
     }
 </style>
