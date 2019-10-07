@@ -4,7 +4,11 @@
 
         <div class="youtchouk__inner">
             <div v-if="active_video" class="youtchouk__player">
-                <div class="youtchouk__player__video" id="youtchouk-player"></div>
+                <div class="youtchouk__player__container">
+                    <div class="youtchouk__player__container__video">
+                        <div id="youtchouk-player"></div>
+                    </div>
+                </div>
                 <h3 class="youtchouk__player__title">{{ active_video.snippet.title }}</h3>
                 <p class="youtchouk__player__date">
                     <tbi-icon class="youtchouk__player__date__icon" :icon="['far', 'calendar-alt']"></tbi-icon>

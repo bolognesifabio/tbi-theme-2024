@@ -26,7 +26,7 @@
             init_player() {
                 try {
                     if (YT.Player) this.player = new YT.Player('youtchouk-player', {
-                        height: '56.25%',
+                        height: '100%',
                         width: '100%',
                         videoId: this.active_video.id.videoId,
                         playerVars: {
@@ -90,7 +90,7 @@
 
         &__inner {
             padding: 3rem 1.5rem 1.5rem 1.5rem;
-            background: linear-gradient(135deg, rgb(245, 177, 77), rgb(237, 53, 115));
+            background: linear-gradient(135deg, #F5B14D, #ED3573);
         }
 
         &__player,
@@ -111,6 +111,20 @@
         }
 
         &__player {
+            &__container {
+                width: 100%;
+                padding-top: 56.25%;
+                position: relative;
+
+                &__video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
             &__title {
                 font-size: 2rem;
                 font-weight: 600;
