@@ -90,13 +90,13 @@
 
         &__inner {
             padding: 3rem 1.5rem;
-            background: linear-gradient(135deg, #F5B14D, #ED3573);
+            background: $gradient-youtchouk-bg;
         }
 
         &__player,
         &__videos__item {
             padding: 1.5rem;
-            background: $color-primary-main;
+            background: $gradient-youtchouk-fg;
             color: $color-fg-variant;
         }
 
