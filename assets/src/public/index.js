@@ -27,6 +27,7 @@ if (document.getElementById('tbi-vue')) {
             "tbi-header-menu": () => import('./components/layout/header-menu.vue'),
             "tbi-header-search": () => import('./components/layout/header-search.vue'),
             "tbi-home-slider": () => import('./components/home/slider.vue'),
+            "tbi-home-youtchouk": () => import('./components/home/youtchouk.vue'),
             "tbi-widget-competitions": () => import('./components/widgets/competitions.vue')
         },
 
