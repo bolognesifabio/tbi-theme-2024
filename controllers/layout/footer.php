@@ -1,7 +1,7 @@
 <?php
 namespace TBI\Controllers\Layout;
 
-abstract class Footer {
+class Footer {
     public function menu() {
         $menu_id = get_nav_menu_locations()['footer-menu'];
         $menu = wp_get_nav_menu_items($menu_id) ?: [];

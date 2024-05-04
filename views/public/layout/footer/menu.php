@@ -1,7 +1,8 @@
 <?php
 use TBI\Controllers\Layout\Footer as Footer_Controller;
 
-$view_model = Footer_Controller::menu();
+$view_model = new Footer_Controller;
+$view_model = $view_model->menu();
 
 foreach($view_model as $menu_item) { ?>
     <ul class="footer__content__list">
@@ -21,7 +22,7 @@ foreach($view_model as $menu_item) { ?>
     <li class="footer__content__list__heading">Contatti</li>
     <li class="footer__content__list__item">
         <tbi-icon class="footer__content__list__item__icon" icon="map-marker-alt"></tbi-icon>
-        <span class="footer__content__list__item__text">via Parini, 54 - 21047 Saronno (VA) Italia</span>
+        <span class="footer__content__list__item__text">Via Parini, 54 - 21047 Saronno (VA) Italia</span>
     </li>
     <li class="footer__content__list__item">
         <tbi-icon class="footer__content__list__item__icon" icon="envelope"></tbi-icon>

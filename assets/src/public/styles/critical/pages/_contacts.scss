@@ -1,0 +1,183 @@
+.contacts {
+    &.row--boxed {
+        padding: 0;
+    }
+
+    main > & {
+        padding-bottom: 0;
+    }
+
+    &__list {
+        padding: 30px 60px;
+        font-size: 14px;
+        flex-grow: 1;
+        flex-basis: 40%;
+        background: $main-color-light;
+        color: #FFF;
+
+        @include media-tablet {
+            padding: 60px 30px;
+        }
+
+        &__title {
+            color: $third-color;
+            font-size: 32px;
+            margin: 0 0 30px 0;
+        }
+
+        &__details {
+            dt {
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+
+            dd {
+                margin: 0;
+                margin-bottom: 15px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+
+                i.fas {
+                    min-width: 24px;
+                    color: $fifth-color;
+                    text-align: center;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    &__send {
+        padding: 30px 45px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-basis: 60%;
+
+        @include media-tablet {
+            padding: 60px 15px;
+            flex-basis: 100%;
+        }
+
+        &__title {
+            margin: 0;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        &__form {
+            flex-basis: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            @include media-tablet {
+                padding: 30px 0;
+            }
+
+            &__subtitle,
+            &__error {
+                margin: 10px 0;
+                padding: 0 15px;
+                flex-basis: 100%;
+            }
+
+            &__error {
+                flex-basis: 100%;
+                color: $second-color;
+                font-weight: 700;
+            }
+
+            &__field {
+                flex-basis: 50%;
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                position: relative;
+                
+                @include media-small-desktop {
+                    flex-basis: 100%;
+                }
+
+                @include media-tablet {
+                    flex-basis: 50%;
+                }
+
+                @include media-mobile {
+                    flex-basis: 100%;
+                }
+
+                &__label {
+                    font-size: 14px;
+                    position: absolute;
+                    padding: 2px 15px;
+                    margin: 10px 0;
+                    border-right: 1px solid #CCC;
+                    width: 45px;
+                    top: 15px;
+                    left: 15px;
+                    text-align: center;
+                }
+
+                &__input {
+                    border: 1px solid #CCC;
+                    background: none;
+                    font-size: 12px;
+                    width: 100%;
+                    padding: 10px 15px 10px 60px;
+                    box-sizing: border-box;
+                    font-family: $main-font-family;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                &--textarea {
+                    flex-basis: 100%;
+
+                    label {
+                        position: static;
+                        padding: 0;
+                        margin: 0 0 10px;
+                        border-right: none;
+                        width: 100%;
+                        text-align: left;
+                        font-weight: 700;
+                    }
+
+                    textarea {
+                        resize: none;
+                        height: 200px;
+                        padding: 15px;
+                    }
+                }
+
+                &__button {
+                    background: $fifth-color;
+                    color: #FFF;
+                    border: none;
+                    padding: 10px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    cursor: pointer;
+                    border: 3px solid $fifth-color;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background: #FFF;
+                        color: $fifth-color;
+                    }
+                }
+
+                &.error {
+                    color: $second-color;
+                    
+                    input {
+                        border: 1px solid $second-color;
+                    }
+                }
+            }
+        }
+    }
+}

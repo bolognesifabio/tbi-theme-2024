@@ -2,7 +2,7 @@
 namespace TBI\Controllers;
 use TBI\Models\Team as Team_Model;
 
-abstract class Team {
+class Team {
     public function get_all() {
         $teams_posts = get_posts([
             'numberposts' => -1,

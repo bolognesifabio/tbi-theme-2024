@@ -3,6 +3,11 @@
 @import '../constants';
 @import '../mixins';
 
+// Hide WP bar
+#wpadminbar {
+    display: none;
+}
+
 html {
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
@@ -19,8 +24,8 @@ body {
     font-size: 1.4rem;
     margin: 0;
     padding: 0;
-    padding-top: 6.5rem;
-    background: $color-primary-9;
+    padding-top: 1.3em;
+    background: white;
 
     * {
         box-sizing: border-box;
@@ -31,6 +36,18 @@ body {
     width: 100%;
     max-width: 120rem;
     background: $color-neutral-9;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 4em;
+    margin-bottom: 4em;
 }
 
 button {
@@ -67,11 +84,47 @@ h2 {
 }
 
 @include media-desktop {
+    body {
+        padding-top: 6.5em;
+    }
     .layout-row {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 0 1.5rem;
+    }
+}
+
+@include media-tablet-plus {
+    body {
+        padding-top: 2.3em;
+    }
+}
+
+// Containers
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1320px;
     }
 }
 
@@ -81,4 +134,8 @@ h2 {
 @import './shared/standings';
 @import './shared/turns';
 @import './widgets/index';
+@import './pages/404';
+@import './pages/contacts';
 @import './pages/home';
+@import './pages/search';
+@import './pages/single';

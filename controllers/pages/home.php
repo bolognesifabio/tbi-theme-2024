@@ -1,12 +1,12 @@
 <?php
 namespace TBI\Controllers\Pages;
 
-abstract class Home {
+class Home {
     public function slider() {
         $slider_category = get_category_by_slug('tbi-slider');
         $slider_posts = get_posts([
             'numberposts' => 5,
-            'category' => $carousel_category->cat_ID,
+            'category' => $slider_category->cat_ID,
             'orderby' => 'date',
             'order' => 'DESC'
         ]);

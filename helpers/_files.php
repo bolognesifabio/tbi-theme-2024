@@ -1,7 +1,7 @@
 <?php
 namespace TBI\Helpers;
 
-abstract class Files {
+class Files {
     public static function get_assets_version() {
         return json_decode(file_get_contents(get_template_directory() . "/assets/dist/version.json"));
     }

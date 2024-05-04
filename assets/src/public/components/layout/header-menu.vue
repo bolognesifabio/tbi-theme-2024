@@ -82,7 +82,7 @@
 
         &__layer {
             width: 100vw;
-            background: $color-light-bg;
+            background: $color-dark-bg;
         }
 
         &__menu {
@@ -192,10 +192,6 @@
                     display: flex;
                     align-items: center;
                     transition: all .2s ease-in-out;
-
-                    &:hover {
-                        background: $color-menu-item-active;
-                    }
 
                     &__cta {
                         justify-content: flex-start;

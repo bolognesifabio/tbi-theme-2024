@@ -1,7 +1,8 @@
 <?php
 use TBI\Controllers\Layout\Header as Header_Controller;
 
-$view_model = Header_Controller::menu(); ?>
+$view_model = new Header_Controller;
+$view_model = $view_model->menu(); ?>
 
 <tbi-header-menu view_model="<?= htmlentities(json_encode($view_model)) ?>" inline-template>
     <nav v-if="model" class="nav">

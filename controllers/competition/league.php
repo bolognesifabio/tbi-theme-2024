@@ -5,7 +5,7 @@ use TBI\Controllers\Competition as Competition_Controller;
 
 Files::require_absolute_path('controllers/competition.php');
 
-abstract class League extends Competition_Controller {
+class League extends Competition_Controller {
     public function get_standings($league) {
         usort($league->teams, function($team_a, $team_b) {
             if ($team_a->points === $team_b->points) {

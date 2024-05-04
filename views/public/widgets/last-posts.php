@@ -1,11 +1,13 @@
 <?php
-use TBI\Helpers\Widgets as Widgets_Helper; ?>
+use TBI\Helpers\Widgets as Widgets_Helper;
+$widgetsHelper = new Widgets_Helper;
+?>
 
 <?= $args['before_widget'] ?>
     <article class="widget--last-posts">
         <header class="widget__header"> <?php
-            Widgets_Helper::render_title($args, $instance);
-            Widgets_Helper::render_cta("Leggi altre news", "#"); ?>
+            $widgetsHelper->render_title($args, $instance);
+            $widgetsHelper->render_cta("Leggi altre news", "#"); ?>
         </header>
 
         <ul class="widget__list widget--last-posts__list"> <?php
@@ -42,7 +44,7 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
         </ul>
 
         <footer class="widget__footer"> <?php
-            Widgets_Helper::render_cta("Leggi altre news", "#"); ?>
+            $widgetsHelper->render_cta("Leggi altre news", "#"); ?>
         </footer>
         <!-- @TODO: link to index.php with multiple categories -->
     </article>

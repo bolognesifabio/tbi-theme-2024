@@ -1,7 +1,7 @@
 <?php
 namespace TBI\Helpers;
 
-abstract class Widgets {
+class Widgets {
     public function render_cta($cta = "", $url = "#") { ?>
         <a class="widget__cta" href="<?= $url ?>">
             <?= $cta ?> <tbi-icon icon="chevron-right" class="widget__cta__icon"></tbi-icon>

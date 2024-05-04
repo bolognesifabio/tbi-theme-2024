@@ -1,7 +1,8 @@
 <?php
 use TBI\Controllers\Layout\Header as Header_Controller;
 
-$clubs = Header_Controller::clubs(); ?>
+$clubs = new Header_Controller;
+$clubs = $clubs->clubs(); ?>
 
 <section class="header__top">
     <ul class="header__top__clubs"> <?php
@@ -30,10 +31,9 @@ $clubs = Header_Controller::clubs(); ?>
                 <tbi-icon :icon="['fab', 'facebook-square']" class="header__top__social__item__icon"></tbi-icon>
             </a>
         </li>
-        <li class="header__top__social__item header__top__social__item--youtube">
+        <li class="header__top__social__item">
             <a href="https://www.youtube.com/user/youtchouk">
                 <tbi-icon :icon="['fab', 'youtube']" class="header__top__social__item__icon"></tbi-icon>
-                YouTchouk
             </a>
         </li>
     </ul>

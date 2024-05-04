@@ -41,7 +41,8 @@ class Competitions extends \WP_Widget {
     }
 
     public function widget($args, $instance) {
-        $competitions_ids = Competition_Controller::get_ids_by_terms($instance['competitions'], $instance['seasons']) ?: [];
+        $competitions_ids = new Competition_Controller;
+        $competitions_ids = $competitions_ids->get_ids_by_terms($instance['competitions'], $instance['seasons']) ?: [];
 
         if (count($competitions_ids)) {
             $view_model["competitions"] = array_map(function($competition_id, $is_not_first) {
@@ -51,7 +52,8 @@ class Competitions extends \WP_Widget {
                         "is_active" => false
                     ];
                 } else {
-                    $competition = Competition_Controller::get_widget_competition_by_id($competition_id);
+                    $competition = new Competition_Controller;
+                    $competition = $competition->get_widget_competition_by_id($competition_id);
                     $competition->is_active = true;
                     return $competition;
                 }

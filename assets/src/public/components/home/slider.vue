@@ -93,14 +93,14 @@
                 z-index: 1;
 
                 &__img {
-                    min-height: 100%;
-                    min-width: 100%;
+                    max-height: unset;
+                    max-width: 100%;
                     opacity: .5;
                     position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
                     z-index: -1;
+                    min-height: 100%;
+                    object-fit: cover;
+                    margin-top: 12.5rem;
                 }
 
                 &__title {
@@ -227,6 +227,13 @@
                             transform: translateY(10rem) translateX(0);
                         }
                     }
+
+                    &__img {
+                        min-height: unset;
+                        object-fit: unset;
+                        margin-top: unset;
+                    }
+
                 }
             }
         }

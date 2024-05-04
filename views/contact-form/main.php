@@ -2,7 +2,7 @@
 $firstname = $_POST['firstname'] ?: '';
 $lastname = $_POST['lastname'] ?: $firstname ?: 'Un utente del sito';
 $from = $_POST['email'] ?: '';
-$to = 'segreteria@tchoukball.it, val.senneca@gmail.com';
+$to = 'segreteria@tchoukball.it, bolognesifabio4@gmail.com';
 $message = $_POST['message'] ?: 'L\'utente non ha scritto nessun messaggio.';
 $topic = $_POST['topic'] ?: 'Richiesta informazioni';
 

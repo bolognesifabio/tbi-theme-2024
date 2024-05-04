@@ -3,7 +3,7 @@ namespace TBI\Controllers;
 use TBI\Models\Competition\Cup;
 use TBI\Models\Competition\League;
 
-abstract class Competition {
+class Competition {
     public function get_competition_by_id($id) {
         $competition_type = get_post($id)->post_type;
 
@@ -27,7 +27,7 @@ abstract class Competition {
     public function get_competitions_by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {
         return array_map(function($competition_id) {
             return self::get_competition_by_id($competition_id);
-        }, self::ids_by_terms($competitions_terms, $seasons_terms, $post_types));
+        }, self::get_ids_by_terms($competitions_terms, $seasons_terms, $post_types));
     }
 
     public function get_ids_by_terms($competitions_terms, $seasons_terms, $post_types = ['leagues', 'cups']) {

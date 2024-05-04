@@ -1,12 +1,14 @@
 <?php
-use TBI\Helpers\Widgets as Widgets_Helper; ?>
+use TBI\Helpers\Widgets as Widgets_Helper;
+$widgetsHelper = new Widgets_Helper;
+?>
 
 <tbi-widget-competitions view_model="<?= htmlentities(json_encode($view_model)) ?>" inline-template>
     <?= $args['before_widget'] ?>
         <article class="widget--competitions">
             <header class="widget__header"> <?php
-                Widgets_Helper::render_title($args, $instance);
-                Widgets_Helper::render_cta("Vai alla competizione", "#"); ?>
+                $widgetsHelper->render_title($args, $instance);
+                $widgetsHelper->render_cta("Vai alla competizione", "#"); ?>
             </header>
             
             <nav class="nav">
@@ -69,7 +71,7 @@ use TBI\Helpers\Widgets as Widgets_Helper; ?>
 
             <footer class="widget__footer"> <?php
                 // @TODO: Add link to competition
-                Widgets_Helper::render_cta("Vai alla competizione", "#"); ?>
+                $widgetsHelper->render_cta("Vai alla competizione", "#"); ?>
             </footer>
         </article>
     <?= $args['after_widget'] ?>

@@ -1,8 +1,12 @@
 <?php
+
 namespace TBI\Controllers\Layout;
+
 use TBI\Models\Club;
 
-abstract class Header {
+class Header {
+
+    // This method overrides the abstract method from the parent abstract class
     public function menu() {
         $view_model = [ "menu" => [] ];
 
@@ -38,6 +42,7 @@ abstract class Header {
         return $view_model;
     }
 
+    // This method overrides the abstract method from the parent abstract class
     public function clubs() {
         $all_clubs_ids = get_posts([ 
             'post_type' => 'clubs',

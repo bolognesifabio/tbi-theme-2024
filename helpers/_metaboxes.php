@@ -3,7 +3,7 @@ namespace TBI\Helpers;
 
 CONST PARTIAL_METABOXES_VIEWS_PATH = '/views/admin/metaboxes/_partials/';
 
-abstract class Metaboxes {
+class Metaboxes {
     public static function render_form($context, $fields, $meta_values) {
         require get_template_directory() . PARTIAL_METABOXES_VIEWS_PATH . 'form.php';
     }

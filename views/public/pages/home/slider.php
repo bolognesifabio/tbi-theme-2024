@@ -1,7 +1,8 @@
 <?php
 use TBI\Controllers\Pages\Home as Home_Controller;
 
-$view_model = Home_Controller::slider(); ?>
+$view_model = new Home_Controller;
+$view_model = $view_model->slider(); ?>
 
 <tbi-home-slider view_model="<?= htmlentities(json_encode($view_model)) ?>" inline-template>
     <section class="slider" @mouseenter="stop_autoplay" @mouseleave="resume_autoplay">

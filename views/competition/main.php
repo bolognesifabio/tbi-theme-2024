@@ -2,24 +2,33 @@
 use TBI\Controllers\Competition as Competition_Controller;
 use TBI\Controllers\Competition\League as League_Controller;
 
+// Controllers
+$competitionController = new Competition_Controller;
+
 $season_slug = get_query_var('season', false);
 
 if ($season_slug) $season_term = get_term_by('slug', $season_slug, 'seasons');
 
 $competition_term = get_term_by('slug', 'competition-' . $post->ID, 'competitions_taxonomy');
-$all_seasons = Competition_Controller::get_all_seasons($competition_term);
+$all_seasons = $competitionController->get_all_seasons($competition_term);
 
 if (!$season_term) $season_term = get_term_by('slug', array_keys($all_seasons)[0], 'seasons');
 
 $competitions = array_map(function($competition) {
+
     $competition->turns = array_map(function($turn) {
         $turn["id"] = $turn["name"];
         return $turn;
     }, $competition->turns);
 
-    if ($competition->type === 'leagues') return League_Controller::get_standings($competition);
+    if ($competition->type === 'leagues') {
+        $standings = new League_Controller;
+        $standings = $standings->get_standings($competition);
+
+        return $standings;
+    }
     return $competition;
-}, Competition_Controller::get_by_terms($competition_term->term_id, $season_term->term_id));
+}, $competitionController->get_competitions_by_terms($competition_term->term_id, $season_term->term_id));
 ?>
 
 <div class="page-competition row--boxed">
