@@ -38,18 +38,6 @@ body {
     background: $color-neutral-9;
 }
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    width: 100%;
-    padding-right: calc(var(--bs-gutter-x)* .5);
-    padding-left: calc(var(--bs-gutter-x)* .5);
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 4em;
-    margin-bottom: 4em;
-}
-
 button {
     @include font-content;
     cursor: pointer;
@@ -131,6 +119,7 @@ h2 {
 @import './transitions';
 @import './layout/header';
 @import './layout/footer';
+@import './layout/bootstrap';
 @import './shared/standings';
 @import './shared/turns';
 @import './widgets/index';

@@ -1,12 +1,16 @@
 <?php get_header(); ?>
 
-<main class="article">
-    <div class="row--boxed">
-        <div class="single__main">
-            <h1 class="single__main__title"><?php the_title(); ?></h1>
-            <p class="single__main__date"><i class="far fa-calendar-alt"></i> <?php the_date(); ?></p>
-            <div class="single__main__content"><?php the_content(); ?></div>
+<main class="single__articles">
+    <div class="single__articles__header">
+        <div class="single__articles__header__container">
+            <img src="<?php the_post_thumbnail_url(); ?>" />
+            <div class="container">
+                <h1 class="single__articles__header__container__title"><?php the_title(); ?></h1>
+            </div>
         </div>
+    </div>
+    <div class="single__articles__content container">
+        <?php the_content(); ?>
     </div>
 </main>
 
